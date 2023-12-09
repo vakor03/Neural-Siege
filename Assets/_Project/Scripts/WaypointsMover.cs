@@ -19,9 +19,9 @@ namespace _Project.Scripts
 
         private void Update() // TODO: speed not working as expected
         {
-            Vector3 direction = _waypoints[_currentWaypointIndex].position
-                                - transform.position;
-            
+            Vector3 direction = (_waypoints[_currentWaypointIndex].position
+                                 - transform.position).normalized;
+
             transform.Translate(direction * (speed * Time.deltaTime));
 
             var comparisonTolerance = 0.1f;

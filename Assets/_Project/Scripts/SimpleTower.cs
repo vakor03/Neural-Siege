@@ -1,4 +1,5 @@
-﻿using _Project.Scripts.Extensions;
+﻿using System;
+using _Project.Scripts.Extensions;
 using JetBrains.Annotations;
 using KBCore.Refs;
 using UnityEngine;
@@ -11,6 +12,15 @@ namespace _Project.Scripts
         [SerializeField, Self] private RotateTowards rotateTowards;
         [SerializeField, Self] private TargetChooseStrategy targetChooseStrategy;
 
+        [SerializeField] private Transform shootPosition;
+        
+        [SerializeField] private float attackInterval = 1f;
+        [SerializeField] private Projectile projectilePrefab;
+        
+
+        private ITimer _timer;
+
+
         [CanBeNull] private Enemy _activeTarget;
 
         private void OnValidate()
@@ -20,8 +30,35 @@ namespace _Project.Scripts
 
         private void Awake()
         {
+            _timer = new TickTimer();
+            _timer.Duration = attackInterval;
+            _timer.OnTimeElapsed += OnTimeElapsed;
             SetupCollider();
             targetChooseStrategy.Range = range;
+        }
+
+        private void Start()
+        {
+            _timer.Start();
+        }
+
+        private void OnDestroy()
+        {
+            _timer.OnTimeElapsed -= OnTimeElapsed;
+            _timer.Stop();
+        }
+
+        private void OnTimeElapsed()
+        {
+            if (_activeTarget == null) return;
+
+            ShootEnemy(_activeTarget);
+        }
+
+        private void ShootEnemy(Enemy enemy)
+        {
+            Projectile projectile = Instantiate(projectilePrefab, shootPosition.position, Quaternion.identity);
+            projectile.SetTarget(enemy.transform);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
