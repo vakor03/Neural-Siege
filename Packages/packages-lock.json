@@ -10,6 +10,13 @@
       },
       "url": "https://package.openupm.com"
     },
+    "com.kylewbanks.scenerefattribute": {
+      "version": "0.10.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
     "com.unity.2d.animation": {
       "version": "9.0.4",
       "depth": 1,
