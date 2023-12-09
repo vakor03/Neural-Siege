@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using _Project.Scripts.Extensions;
+﻿using _Project.Scripts.Extensions;
 using JetBrains.Annotations;
 using KBCore.Refs;
 using UnityEngine;
@@ -10,12 +9,9 @@ namespace _Project.Scripts
     {
         [SerializeField] private float range;
         [SerializeField, Self] private RotateTowards rotateTowards;
-        [SerializeField] private LayerMask enemyLayerMask;
-
+        [SerializeField, Self] private TargetChooseStrategy targetChooseStrategy;
 
         [CanBeNull] private Enemy _activeTarget;
-
-        private readonly List<Collider2D> _colliders = new();
 
         private void OnValidate()
         {
@@ -25,24 +21,7 @@ namespace _Project.Scripts
         private void Awake()
         {
             SetupCollider();
-        }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                TryChooseNewTarget();
-            }
-        }
-
-        private void SetupCollider()
-        {
-            var collider2D = gameObject.GetOrAdd<CircleCollider2D>();
-            collider2D.radius = range;
-            collider2D.isTrigger = true;
-
-            var rigidbody2D = gameObject.GetOrAdd<Rigidbody2D>();
-            rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
+            targetChooseStrategy.Range = range;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -60,7 +39,10 @@ namespace _Project.Scripts
                 other.gameObject == _activeTarget.gameObject)
             {
                 RemoveActiveTarget();
-                TryChooseNewTarget();
+                if (targetChooseStrategy.TryChooseNewTarget(out var enemy))
+                {
+                    ChangeActiveTarget(enemy);
+                }
             }
         }
 
@@ -76,44 +58,6 @@ namespace _Project.Scripts
             rotateTowards.Target = null;
         }
 
-        private void TryChooseNewTarget() // TODO: return bool
-        {
-            var closestEnemy = GetClosestEnemy();
-            if (closestEnemy == null) return;
-
-            if (closestEnemy.TryGetComponent<Enemy>(out var enemy))
-            {
-                ChangeActiveTarget(enemy);
-            }
-        }
-
-        [CanBeNull]
-        private Collider2D GetClosestEnemy()
-        {
-            var contactFilter2D = new ContactFilter2D();
-            contactFilter2D.layerMask = enemyLayerMask;
-            var count = Physics2D.OverlapCircle(transform.position,
-                range,
-                contactFilter2D,
-                _colliders);
-
-            if (count == 0) return null;
-
-            var closest = _colliders[0];
-            var closestDistance = Vector2.Distance(transform.position, closest.transform.position);
-            for (var i = 1; i < count; i++)
-            {
-                var distance = Vector2.Distance(transform.position, _colliders[i].transform.position);
-                if (distance < closestDistance)
-                {
-                    closest = _colliders[i];
-                    closestDistance = distance;
-                }
-            }
-
-            return closest;
-        }
-
         private void OnDrawGizmos()
         {
             if (_activeTarget == null)
@@ -126,6 +70,16 @@ namespace _Project.Scripts
             }
 
             Gizmos.DrawWireSphere(transform.position, range);
+        }
+
+        private void SetupCollider()
+        {
+            var collider2D = gameObject.GetOrAdd<CircleCollider2D>();
+            collider2D.radius = range;
+            collider2D.isTrigger = true;
+
+            var rigidbody2D = gameObject.GetOrAdd<Rigidbody2D>();
+            rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
         }
     }
 }
