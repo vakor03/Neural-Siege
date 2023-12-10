@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
+  waypointsMover: {fileID: 3428299355780052453}
 --- !u!58 &7564837804082705472
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -313,7 +314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 299963151529139212, guid: c75010bb5996f774e94da90165a68d78, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 7.02
       objectReference: {fileID: 0}
     - target: {fileID: 299963151529139212, guid: c75010bb5996f774e94da90165a68d78, type: 3}
       propertyPath: m_LocalRotation.w
@@ -343,6 +344,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 818546074556724590, guid: c75010bb5996f774e94da90165a68d78, type: 3}
+      propertyPath: haveHealthRef._implementer
+      value: 
+      objectReference: {fileID: 2616941242310268877}
+    - target: {fileID: 5002729600128867606, guid: c75010bb5996f774e94da90165a68d78, type: 3}
+      propertyPath: m_LayerOverridePriority
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7302113844087817312, guid: c75010bb5996f774e94da90165a68d78, type: 3}
       propertyPath: m_Name
       value: Healthbar
@@ -350,32 +359,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7302113844087817312, guid: c75010bb5996f774e94da90165a68d78, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6195679021273429026}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c75010bb5996f774e94da90165a68d78, type: 3}
 --- !u!4 &2833185804190519266 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 299963151529139212, guid: c75010bb5996f774e94da90165a68d78, type: 3}
   m_PrefabInstance: {fileID: 2556023272683426798}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5057120468104664974 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7302113844087817312, guid: c75010bb5996f774e94da90165a68d78, type: 3}
-  m_PrefabInstance: {fileID: 2556023272683426798}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6195679021273429026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5057120468104664974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b474f7301dd4bc994bb6be452f69bc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBarMaterial: {fileID: 2100000, guid: 9e3260b6592bbf242bcc2430ab470a48, type: 2}
-  enemy: {fileID: 2616941242310268877}

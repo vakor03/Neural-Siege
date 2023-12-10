@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace _Project.Scripts
 {
@@ -7,6 +8,7 @@ namespace _Project.Scripts
         [SerializeField] private WaypointsHolder waypointsHolder;
         [SerializeField] private float speed;
 
+        public Action OnPathCompleted;
         private Transform[] _waypoints;
         private int _currentWaypointIndex;
         private bool _pathCompleted;
@@ -32,6 +34,7 @@ namespace _Project.Scripts
                 {
                     _currentWaypointIndex = 0;
                     _pathCompleted = true;
+                    OnPathCompleted?.Invoke();
                 }
             }
         }

@@ -6,9 +6,10 @@ namespace _Project.Scripts
     public class HealthBar : MonoBehaviour
     {
         [SerializeField] private Material healthBarMaterial;
-        [SerializeField, Parent] private Enemy enemy;
-
+        [SerializeField, Parent] private InterfaceRef<IHaveHealth> haveHealthRef;
+        
         private Material _healthBarInstance;
+        private static readonly int kFulfill = Shader.PropertyToID("_Fulfill");
 
         private void OnValidate()
         {
@@ -22,14 +23,15 @@ namespace _Project.Scripts
 
         private void Start()
         {
-            enemy.OnHealthChanged += ChangeHealthbarFulfillness;
+            haveHealthRef.Value.OnHealthChanged += ChangeHealthbarFulfillness;
             ChangeHealthbarFulfillness();
         }
 
         private void ChangeHealthbarFulfillness()
         {
-            var health = enemy.CurrentHealth / enemy.MaxHealth;
-            _healthBarInstance.SetFloat("_Fulfill", health);
+            var health = haveHealthRef.Value.CurrentHealth 
+                         / haveHealthRef.Value.MaxHealth;
+            _healthBarInstance.SetFloat(kFulfill, health);
         }
     }
 }

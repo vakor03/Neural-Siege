@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8329004834572659154}
   - component: {fileID: 7539348581710490931}
   - component: {fileID: 5002729600128867606}
+  - component: {fileID: 818546074556724590}
   m_Layer: 0
   m_Name: Healthbar
   m_TagString: Untagged
@@ -27,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7302113844087817312}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.005995573, y: -0.03839791, z: 0.00023025925, w: -0.9992445}
-  m_LocalPosition: {x: -0.44033208, y: 0.61285466, z: -6.8147383}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -98,7 +99,7 @@ MeshCollider:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 1
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
@@ -106,3 +107,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &818546074556724590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7302113844087817312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b474f7301dd4bc994bb6be452f69bc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarMaterial: {fileID: 2100000, guid: 9e3260b6592bbf242bcc2430ab470a48, type: 2}
+  haveHealthRef:
+    _implementer: {fileID: 0}
