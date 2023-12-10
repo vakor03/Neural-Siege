@@ -10,6 +10,7 @@ namespace _Project.Scripts
         [SerializeField] private GameObject muzzlePrefab;
         [SerializeField] private GameObject hitPrefab;
         [SerializeField,Self] private Collider2D projectileCollider;
+        [SerializeField] private float damage;
         
 
         private Transform _target;
@@ -30,6 +31,12 @@ namespace _Project.Scripts
 
         private void Update()
         {
+            if (_target == null)
+            {
+                DestroyProjectile();
+                return;
+            }
+            
             transform.SetParent(null);
             var direction = (_target.position - transform.position).normalized;
             transform.position += direction * (speed * Time.deltaTime);
@@ -40,7 +47,7 @@ namespace _Project.Scripts
             if (other.transform == _target)
             {
                 var enemy = other.GetComponent<Enemy>();
-                enemy.TakeDamage(1);
+                enemy.TakeDamage(damage);
                 DestroyProjectile();
             }
         }
