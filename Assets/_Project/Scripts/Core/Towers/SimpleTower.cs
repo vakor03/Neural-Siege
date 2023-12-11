@@ -7,16 +7,12 @@ namespace _Project.Scripts.Core.Towers
 {
     public class SimpleTower : MonoBehaviour
     {
-        [SerializeField] private float range;
-        [SerializeField, Child] private RotateTowards rotateTowards;
+        [SerializeField, Self] private RotateTowards rotateTowards;
         [SerializeField, Self] private TargetChooseStrategy targetChooseStrategy;
 
         [SerializeField] private Transform shootPosition;
+        [SerializeField] private SimpleTowerStatsSO towerStatsSO;
         
-        [SerializeField] private float attackInterval = 1f;
-        [SerializeField] private Projectile projectilePrefab;
-        
-
         private ITimer _timer;
 
 
@@ -30,10 +26,10 @@ namespace _Project.Scripts.Core.Towers
         private void Awake()
         {
             _timer = new TickTimer();
-            _timer.Duration = attackInterval;
+            _timer.Duration = towerStatsSO.attackInterval;
             _timer.OnTimeElapsed += OnTimeElapsed;
             SetupCollider();
-            targetChooseStrategy.Range = range;
+            targetChooseStrategy.Range = towerStatsSO.range;
         }
 
         private void Start()
@@ -56,7 +52,7 @@ namespace _Project.Scripts.Core.Towers
 
         private void ShootEnemy(Enemy enemy)
         {
-            Projectile projectile = Instantiate(projectilePrefab, shootPosition.position, Quaternion.identity);
+            Projectile projectile = Instantiate(towerStatsSO.projectilePrefab, shootPosition.position, Quaternion.identity);
             projectile.SetTarget(enemy.transform);
         }
 
@@ -105,13 +101,13 @@ namespace _Project.Scripts.Core.Towers
                 Gizmos.color = Color.green;
             }
 
-            Gizmos.DrawWireSphere(transform.position, range);
+            Gizmos.DrawWireSphere(transform.position, towerStatsSO.range);
         }
 
         private void SetupCollider()
         {
             var collider2D = gameObject.GetOrAdd<CircleCollider2D>();
-            collider2D.radius = range;
+            collider2D.radius = towerStatsSO.range;
             collider2D.isTrigger = true;
 
             var rigidbody2D = gameObject.GetOrAdd<Rigidbody2D>();
