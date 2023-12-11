@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using MEC;
 
-namespace _Project.Scripts
+namespace _Project.Scripts.Core
 {
     public class TickTimer : ITimer
     {

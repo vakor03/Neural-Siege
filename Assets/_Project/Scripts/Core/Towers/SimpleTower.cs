@@ -1,10 +1,9 @@
-﻿using System;
-using _Project.Scripts.Extensions;
+﻿using _Project.Scripts.Extensions;
 using JetBrains.Annotations;
 using KBCore.Refs;
 using UnityEngine;
 
-namespace _Project.Scripts
+namespace _Project.Scripts.Core.Towers
 {
     public class SimpleTower : MonoBehaviour
     {

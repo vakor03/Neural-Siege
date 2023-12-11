@@ -2,13 +2,13 @@
 
 namespace _Project.Scripts
 {
-    public class FollowCursor : MonoBehaviour
+    public static class Utils
     {
-        private void Update()
+        public static Vector3 GetMouseToWorldPosition()
         {
             var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = 0;
-            transform.position = mousePosition;
+            return mousePosition;
         }
     }
 }

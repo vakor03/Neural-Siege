@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
-namespace _Project.Scripts
+namespace _Project.Scripts.Core.GridSystem
 {
     public class Grid<T>
     {
@@ -101,6 +101,11 @@ namespace _Project.Scripts
             textMeshPro.GetComponent<MeshRenderer>().sortingOrder = sortingOrder;
 
             return textMeshPro;
+        }
+
+        public Vector3 GetWorldPositionCentered(Vector2Int position)
+        {
+            return GetWorldPositionCentered(position.x, position.y);
         }
     }
 }

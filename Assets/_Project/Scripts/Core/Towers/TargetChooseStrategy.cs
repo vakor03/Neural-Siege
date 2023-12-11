@@ -2,7 +2,7 @@
 using JetBrains.Annotations;
 using UnityEngine;
 
-namespace _Project.Scripts
+namespace _Project.Scripts.Core.Towers
 {
     public class TargetChooseStrategy : MonoBehaviour
     {

@@ -2,7 +2,7 @@
 using _Project.Scripts.Extensions;
 using UnityEngine;
 
-namespace _Project.Scripts
+namespace _Project.Scripts.Core.WaypointSystem
 {
     public class WaypointsHolder : MonoBehaviour
     {

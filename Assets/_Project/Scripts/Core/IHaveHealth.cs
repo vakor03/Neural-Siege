@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _Project.Scripts
+namespace _Project.Scripts.Core
 {
     public interface IHaveHealth
     {

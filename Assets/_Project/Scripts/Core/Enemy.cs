@@ -1,8 +1,9 @@
 ﻿using System;
+using _Project.Scripts.Core.WaypointSystem;
 using KBCore.Refs;
 using UnityEngine;
 
-namespace _Project.Scripts
+namespace _Project.Scripts.Core
 {
     public class Enemy : MonoBehaviour, IHaveHealth
     {
