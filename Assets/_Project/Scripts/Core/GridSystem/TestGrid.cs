@@ -7,46 +7,42 @@ namespace _Project.Scripts.Core.GridSystem
         [SerializeField] private Tile tilePrefab;
         [SerializeField] private GridSetupSO gridSetupSO;
         [SerializeField] private ObjectPlacer objectPlacer;
+        [SerializeField] private GridEditor gridEditor;
 
         private Grid<Tile> _grid;
 
         private void Start()
         {
+            LoadGrid();
+            EnableObjectPlacer();
+        }
+
+        [ContextMenu("SaveGrid")]
+        private void SaveGrid()
+        {
+            gridSetupSO.Save(_grid);
+        }
+
+        [ContextMenu("LoadGrid")]
+        private void LoadGrid()
+        {
             _grid = gridSetupSO.Load(tilePrefab, transform);
-            objectPlacer.Initialize(_grid);
-            objectPlacer.Enable();
+            objectPlacer.Initialize(_grid, transform);
+            gridEditor.Initialize(_grid, tilePrefab);
         }
 
-        private void Update()
+        [ContextMenu("EnableGridEditor")]
+        private void EnableGridEditor()
         {
-            // GridCreationBehaviour();
-
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                gridSetupSO.Save(_grid);
-            }
+            gridEditor.enabled = true;
+            objectPlacer.enabled = false;
         }
 
-        private void GridCreationBehaviour()
+        [ContextMenu("EnableObjectPlacer")]
+        private void EnableObjectPlacer()
         {
-            var mousePosition = Utils.GetMouseToWorldPosition();
-            var gridPosition = _grid.GetGridPosition(mousePosition);
-            
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (_grid[gridPosition.x, gridPosition.y] == null)
-                {
-                    _grid[gridPosition.x, gridPosition.y] = Instantiate(tilePrefab,
-                        _grid.GetWorldPositionCentered(gridPosition.x, gridPosition.y), Quaternion.identity,
-                        transform);
-                }
-            }
-
-            if (Input.GetMouseButtonDown(1))
-            {
-                _grid[gridPosition.x, gridPosition.y]?.Dispose();
-                _grid[gridPosition.x, gridPosition.y] = null;
-            }
+            gridEditor.enabled = false;
+            objectPlacer.enabled = true;
         }
     }
 }

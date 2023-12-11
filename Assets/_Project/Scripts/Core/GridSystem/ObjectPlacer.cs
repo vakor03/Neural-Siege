@@ -5,81 +5,73 @@ namespace _Project.Scripts.Core.GridSystem
 {
     public class ObjectPlacer : MonoBehaviour
     {
-        [SerializeField] private PlacingObject placingObjectPrefab;
+        [SerializeField] private PlacingObjectVisuals placingObjectVisualsPrefab;
 
         private Grid<Tile> _grid;
         private bool _isPlacingObject;
-        private PlacingObject _placingObject;
-        private bool _isEnabled;
+        private PlacingObjectVisuals _currentVisuals;
+        private Transform _placingTransform;
 
-        public bool IsEnabled => _isEnabled;
-
-        public void Initialize(Grid<Tile> grid)
+        public void Initialize(Grid<Tile> grid, Transform placingTransform)
         {
             _grid = grid;
+            _placingTransform = placingTransform;
         }
-        
-        public void Enable()
-        {
-            _isEnabled = true;
-        }
-        
-        public void Disable()
+
+        private void OnDisable()
         {
             if (_isPlacingObject)
             {
-                Destroy(_placingObject.gameObject);
-                _placingObject = null;
+                Destroy(_currentVisuals.gameObject);
+                _currentVisuals = null;
                 _isPlacingObject = false;
             }
-            _isEnabled = false;
         }
 
         private void Update()
         {
-            if (!_isEnabled) return;
             //TODO: Refactor this
-            if (Input.GetMouseButtonDown(0) && !_isPlacingObject)
-            {
-                _placingObject = Instantiate(placingObjectPrefab, Utils.GetMouseToWorldPosition(), Quaternion.identity);
-                _isPlacingObject = true;
-            }
-
             if (Input.GetMouseButtonDown(0) && _isPlacingObject)
             {
-                bool isValid = ValidateGridPosition(_placingObject);
+                bool isValid = ValidateGridPosition(_currentVisuals);
 
                 if (isValid)
                 {
-                    PlaceObjectOnGrid(_placingObject);
+                    PlaceObjectOnGrid(_currentVisuals);
                 }
             }
 
             if (Input.GetMouseButtonDown(1) && _isPlacingObject)
             {
-                Destroy(_placingObject.gameObject);
-                _placingObject = null;
+                Destroy(_currentVisuals.gameObject);
+                _currentVisuals = null;
                 _isPlacingObject = false;
+            }
+
+            if (Input.GetMouseButtonDown(0) && !_isPlacingObject)
+            {
+                _currentVisuals = Instantiate(placingObjectVisualsPrefab,
+                    Utils.GetMouseToWorldPosition(), Quaternion.identity);
+                _isPlacingObject = true;
             }
         }
 
         private void FixedUpdate()
         {
-            if (!_isEnabled) return;
-            if (_placingObject == null) return;
+            if (_currentVisuals == null) return;
 
             // Snap to grid
             var mouseToWorldPosition = Utils.GetMouseToWorldPosition();
             var gridPosition = _grid.GetGridPosition(mouseToWorldPosition);
 
-            _placingObject.transform.position = _grid.GetWorldPositionCentered(gridPosition);
+            _currentVisuals.transform.position = _grid.GetWorldPositionCentered(gridPosition);
         }
 
-        private bool ValidateGridPosition(PlacingObject placingObject)
+        private bool ValidateGridPosition(PlacingObjectVisuals placingObjectVisuals)
         {
-            Vector3 bottomLeftTile = placingObject.BottomLeftPoint.transform.position.With(z: 0);
-            int width = placingObject.Size.x;
-            int height = placingObject.Size.y;
+            Vector3 bottomLeftTile = placingObjectVisuals.BottomLeftPoint.transform.position.With(z: 0);
+            int width = placingObjectVisuals.Size.x;
+            int height = placingObjectVisuals.Size.y;
 
             var gridPosition = _grid.GetGridPosition(bottomLeftTile);
 
@@ -125,11 +117,11 @@ namespace _Project.Scripts.Core.GridSystem
             }
         }
 
-        private void PlaceObjectOnGrid(PlacingObject placingObject)
+        private void PlaceObjectOnGrid(PlacingObjectVisuals placingObjectVisuals)
         {
-            Vector3 bottomLeftTile = placingObject.BottomLeftPoint.transform.position.With(z: 0);
-            int width = placingObject.Size.x;
-            int height = placingObject.Size.y;
+            Vector3 bottomLeftTile = placingObjectVisuals.BottomLeftPoint.transform.position.With(z: 0);
+            int width = placingObjectVisuals.Size.x;
+            int height = placingObjectVisuals.Size.y;
 
             var gridPosition = _grid.GetGridPosition(bottomLeftTile);
 
@@ -140,6 +132,8 @@ namespace _Project.Scripts.Core.GridSystem
                     _grid[gridPosition.x + j, gridPosition.y + i].IsAvailable = false;
                 }
             }
+
+            Instantiate(placingObjectVisuals.ObjectPrefab, placingObjectVisuals.transform.position, Quaternion.identity, _placingTransform);
         }
     }
 }

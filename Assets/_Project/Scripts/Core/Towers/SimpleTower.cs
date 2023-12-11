@@ -8,7 +8,7 @@ namespace _Project.Scripts.Core.Towers
     public class SimpleTower : MonoBehaviour
     {
         [SerializeField] private float range;
-        [SerializeField, Self] private RotateTowards rotateTowards;
+        [SerializeField, Child] private RotateTowards rotateTowards;
         [SerializeField, Self] private TargetChooseStrategy targetChooseStrategy;
 
         [SerializeField] private Transform shootPosition;

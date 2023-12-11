@@ -316,6 +316,7 @@ GameObject:
   - component: {fileID: 1704066443}
   - component: {fileID: 1704066442}
   - component: {fileID: 1704066444}
+  - component: {fileID: 1704066445}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -338,6 +339,7 @@ MonoBehaviour:
   tilePrefab: {fileID: 851777163795103972, guid: 7096e07f581ab1049a67aca0e57b1882, type: 3}
   gridSetupSO: {fileID: 11400000, guid: f75291382bf382141a83e1a17e8934d2, type: 2}
   objectPlacer: {fileID: 1704066444}
+  gridEditor: {fileID: 1704066445}
 --- !u!4 &1704066443
 Transform:
   m_ObjectHideFlags: 0
@@ -365,7 +367,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9ed2cca6cb4977bb1bbb7acdd48de0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placingObjectPrefab: {fileID: 3328021302766894262, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
+  placingObjectPrefab: {fileID: 5516836307269726143, guid: 84d73fd775e8fd44fa7fa9e6983fbcfa, type: 3}
+--- !u!114 &1704066445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704066441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed455fd2fdef4630a87ea85f36ed2221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

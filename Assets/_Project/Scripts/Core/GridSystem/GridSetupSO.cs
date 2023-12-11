@@ -20,11 +20,11 @@ namespace _Project.Scripts.Core.GridSystem
             cellSize = grid.CellSize;
             originPosition = grid.OriginPosition;
 
-            for (int i = 0; i < grid.Height; i++)
+            for (int y = 0; y < grid.Height; y++)
             {
-                for (int j = 0; j < grid.Width; j++)
+                for (int x = 0; x < grid.Width; x++)
                 {
-                    gridTiles[i, j] = grid[j, i] != null;
+                    gridTiles[x, y] = grid[x, y] != null;
                 }
             }
             gridTiles.isInitialized = true;
@@ -39,19 +39,19 @@ namespace _Project.Scripts.Core.GridSystem
                 gridTiles.Initialize(gridWidth, gridHeight);
             }
 
-            for (int i = 0; i < grid.Height; i++)
+            for (int y = 0; y < grid.Height; y++)
             {
-                for (int j = 0; j < grid.Width; j++)
+                for (int x = 0; x < grid.Width; x++)
                 {
-                    if (gridTiles[i, j])
+                    if (gridTiles[x, y])
                     {
-                        grid[j, i] = Instantiate(tilePrefab, grid.GetWorldPositionCentered(j, i),
+                        grid[x, y] = Instantiate(tilePrefab, grid.GetWorldPositionCentered(x, y),
                             Quaternion.identity, gridTransform);
-                        grid[j, i].IsAvailable = true;
+                        grid[x, y].IsAvailable = true;
                     }
                     else
                     {
-                        grid[j, i] = null;
+                        grid[x, y] = null;
                     }
                 }
             }
