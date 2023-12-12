@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -7,8 +8,8 @@ namespace _Project.Scripts.Core.Towers
     public class TargetChooseStrategy : MonoBehaviour
     {
         private readonly List<Collider2D> _colliders = new();
-        [SerializeField] private LayerMask enemyLayerMask;
         public float Range { get; set; }
+        private EnemiesController _enemiesController;
 
         public bool TryChooseNewTarget([CanBeNull] out Enemy target)
         {
@@ -25,10 +26,16 @@ namespace _Project.Scripts.Core.Towers
             return false;
         }
 
+        private void Start()
+        {
+            _enemiesController = EnemiesController.Instance;
+        }
+
         [CanBeNull]
         private Collider2D GetClosestEnemy()
         {
             var contactFilter2D = new ContactFilter2D();
+            LayerMask enemyLayerMask = _enemiesController.EnemyLayerMask;
             contactFilter2D.layerMask = enemyLayerMask;
             var count = Physics2D.OverlapCircle(transform.position,
                 Range,

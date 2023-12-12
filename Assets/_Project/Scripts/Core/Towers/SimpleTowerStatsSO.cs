@@ -3,10 +3,9 @@
 namespace _Project.Scripts.Core.Towers
 {
     [CreateAssetMenu(menuName = "Create SimpleTowerStatsSO", fileName = "SimpleTowerStatsSO", order = 0)]
-    public class SimpleTowerStatsSO : ScriptableObject
+    public class SimpleTowerStatsSO : TowerStatsSO
     {
-        public float range;
-        public float attackInterval;
+        public float attackInterval = 1;
         public Projectile projectilePrefab;
     }
 }

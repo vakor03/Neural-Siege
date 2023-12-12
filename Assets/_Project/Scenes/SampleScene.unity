@@ -273,7 +273,7 @@ PrefabInstance:
       objectReference: {fileID: 649783421}
     - target: {fileID: 2616941242310268877, guid: 347a78ded8c754445bb927c992e2cf04, type: 3}
       propertyPath: defaultStats.speed
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2892681839771854464, guid: 347a78ded8c754445bb927c992e2cf04, type: 3}
       propertyPath: haveHealthRef._implementer
@@ -1357,6 +1357,7 @@ GameObject:
   - component: {fileID: 1664719242}
   - component: {fileID: 1664719241}
   - component: {fileID: 1664719240}
+  - component: {fileID: 1664719244}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -1420,6 +1421,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1664719244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664719239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b96f855b0c014eafb04ec506bcb2036e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <EnemyLayerMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1001 &1713989636
 PrefabInstance:
   m_ObjectHideFlags: 0

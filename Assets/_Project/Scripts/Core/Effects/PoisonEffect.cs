@@ -1,8 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using MEC;
 
 namespace _Project.Scripts.Core.Effects
 {
+    [Serializable]
+    public struct PoisonEffectStats
+    {
+        public float damagePerSecond;
+        public float duration;
+    }
+
     public class PoisonEffect : Effect
     {
         private float _damagePerSecond;
@@ -14,6 +22,15 @@ namespace _Project.Scripts.Core.Effects
         {
             _damagePerSecond = damagePerSecond;
             _duration = duration;
+            _enemy = enemy;
+
+            _timerCoroutine = Timing.RunCoroutine(TimerCoroutine());
+        }
+        
+        public PoisonEffect(PoisonEffectStats stats, Enemy enemy)
+        {
+            _damagePerSecond = stats.damagePerSecond;
+            _duration = stats.duration;
             _enemy = enemy;
 
             _timerCoroutine = Timing.RunCoroutine(TimerCoroutine());

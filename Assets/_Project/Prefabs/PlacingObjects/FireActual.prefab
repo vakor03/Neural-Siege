@@ -1041,15 +1041,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72dca89782b74f4bbaca8530d554023c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 5
-  fireRate: 1
-  damagePerSecond: 1
-  firingDuration: 0.5
-  coneAngle: 20
-  enemyLayerMask:
-    serializedVersion: 2
-    m_Bits: 128
+  towerStatsSO: {fileID: 11400000, guid: e09d3ad3d60b1f642bb2f41578eca777, type: 2}
   shootPosition: {fileID: 9166949581775357348}
+  poisonEffectStats:
+    damagePerSecond: 1
+    duration: 0.5
   rotateTowards: {fileID: 2950739985137847099}
   targetChooseStrategy: {fileID: 2889263245548860533}
 --- !u!114 &2950739985137847099
@@ -1076,9 +1072,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078767e08ec243cb9cc57234d425437a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyLayerMask:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!1 &7027423933569905384
 GameObject:
   m_ObjectHideFlags: 0

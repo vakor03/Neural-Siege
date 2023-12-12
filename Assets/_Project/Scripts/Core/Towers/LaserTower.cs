@@ -12,7 +12,6 @@ namespace _Project.Scripts.Core.Towers
         [SerializeField] private float damage = 10f;
         [SerializeField] private float fireRate = 1f;
         [SerializeField] private float laserDuration = 0.5f;
-        [SerializeField] private LayerMask enemyLayer;
 
         [SerializeField, Self] private TargetChooseStrategy targetChooseStrategy;
         [SerializeField, Self] private RotateTowards rotateTowards;
@@ -21,6 +20,7 @@ namespace _Project.Scripts.Core.Towers
         [CanBeNull] private Enemy _activeTarget;
 
         private ITimer _timer;
+        private EnemiesController _enemiesController;
 
         private void OnValidate()
         {
@@ -28,6 +28,8 @@ namespace _Project.Scripts.Core.Towers
         }
 
         private float nextFireTime;
+        private readonly RaycastHit2D[] _results = new RaycastHit2D[100];
+
 
         private void Awake()
         {
@@ -40,6 +42,7 @@ namespace _Project.Scripts.Core.Towers
 
         private void Start()
         {
+            _enemiesController = EnemiesController.Instance;
             _timer.Start();
         }
 
@@ -50,16 +53,15 @@ namespace _Project.Scripts.Core.Towers
             Shoot();
         }
 
-        private readonly RaycastHit2D[] results = new RaycastHit2D[100];
-
         private void Shoot()
         {
             Vector2 direction = _activeTarget!.transform.position - transform.position;
-            var size = Physics2D.RaycastNonAlloc(transform.position, direction, results, range, enemyLayer);
+            int enemyLayer = _enemiesController.EnemyLayerMask;
+            var size = Physics2D.RaycastNonAlloc(transform.position, direction, _results, range, enemyLayer);
 
             for (int i = 0; i < size; i++)
             {
-                var hit = results[i];
+                var hit = _results[i];
 
                 Enemy enemy = hit.collider.GetComponent<Enemy>();
 
