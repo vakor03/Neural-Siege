@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e67b1c1d7e464dbaa26169388c59607c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 1, y: 1}
+  size: {x: 2, y: 2}
   bottomLeftPoint: {fileID: 1736699619573225094}
   objectPrefab: {fileID: 5012715130001350602, guid: 4ff2cc55cc3b41045930253e9418377d, type: 3}
 --- !u!1 &6855197405827518555

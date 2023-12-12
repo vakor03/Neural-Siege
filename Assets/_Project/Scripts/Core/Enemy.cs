@@ -1,4 +1,5 @@
 ﻿using System;
+using _Project.Scripts.Core.GridSystem;
 using _Project.Scripts.Core.WaypointSystem;
 using KBCore.Refs;
 using UnityEngine;
@@ -7,13 +8,15 @@ namespace _Project.Scripts.Core
 {
     public class Enemy : MonoBehaviour, IHaveHealth
     {
-        [SerializeField] private float maxHealth = 5;
         [SerializeField, Self] private WaypointsMover waypointsMover;
+        [SerializeField] private EnemyStats defaultStats;
         
-        private PlayerBase _playerBase;
+        private EnemyEffectsSystem _enemyEffectsSystem;
         private float _currentHealth;
+        private PlayerBase _playerBase;
 
-        public float MaxHealth => maxHealth;
+        public float MaxHealth => _enemyEffectsSystem.CurrentStats.maxHealth;
+        private float _maxHealth;
 
         public float CurrentHealth => _currentHealth;
 
@@ -27,9 +30,18 @@ namespace _Project.Scripts.Core
 
         private void Awake()
         {
-            _currentHealth = maxHealth;
+            _enemyEffectsSystem = new EnemyEffectsSystem(defaultStats, this);
+            _enemyEffectsSystem.OnStatsChanged += RecalculateStats;
+            RecalculateStats();
+            _currentHealth = _maxHealth;
         }
-        
+
+        private void RecalculateStats()
+        {
+            waypointsMover.SetSpeed(_enemyEffectsSystem.CurrentStats.speed);
+            _maxHealth = _enemyEffectsSystem.CurrentStats.maxHealth;
+        }
+
         private void Start()
         {
             _playerBase = PlayerBase.Instance;
@@ -45,17 +57,42 @@ namespace _Project.Scripts.Core
         {
             _currentHealth -= damage;
             OnHealthChanged?.Invoke();
-            
+
             if (_currentHealth <= 0)
             {
                 OnDeath?.Invoke();
                 DestroySelf();
             }
         }
-        
+
         private void DestroySelf()
         {
             Destroy(gameObject);
+        }
+
+        public void ApplyEffect(Effect effect)
+        {
+            _enemyEffectsSystem.ApplyEffect(effect);
+        }
+
+        public void RemoveEffect(Effect effect)
+        {
+            _enemyEffectsSystem.RemoveEffect(effect);
+        }
+        
+        private void Update()
+        {
+            _enemyEffectsSystem.Update();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                _enemyEffectsSystem.ApplyEffect(new PoisonEffect(1.1f, 1, this));
+            }
+        }
+
+        private void OnDestroy()
+        {
+            _enemyEffectsSystem.OnStatsChanged -= RecalculateStats;
+            _enemyEffectsSystem.Dispose();
         }
     }
 }

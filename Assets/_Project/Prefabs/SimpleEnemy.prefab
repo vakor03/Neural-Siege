@@ -219,7 +219,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypointsHolder: {fileID: 0}
-  speed: 1
 --- !u!114 &2616941242310268877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,8 +231,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19cbac35db9f4874b306130d87bdd525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
   waypointsMover: {fileID: 3428299355780052453}
+  defaultStats:
+    speed: 5
+    maxHealth: 5
 --- !u!58 &7564837804082705472
 CircleCollider2D:
   m_ObjectHideFlags: 0

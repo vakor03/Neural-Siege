@@ -1376,7 +1376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9ed2cca6cb4977bb1bbb7acdd48de0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placingObjectVisualsPrefab: {fileID: 8060921139009390389, guid: 84d73fd775e8fd44fa7fa9e6983fbcfa, type: 3}
+  placingObjectVisualsPrefab: {fileID: 7717178702829620770, guid: 480e211c4ee0de045b8adef0c6e52981, type: 3}
 --- !u!114 &1664719242
 MonoBehaviour:
   m_ObjectHideFlags: 0
