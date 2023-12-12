@@ -1,23 +1,16 @@
 ﻿using System.Collections;
 using _Project.Scripts.Extensions;
-using JetBrains.Annotations;
 using KBCore.Refs;
 using UnityEngine;
 
 namespace _Project.Scripts.Core.Towers
 {
-    public class LaserTower : MonoBehaviour
+    public class LaserTower : SingleTargetTower
     {
         [SerializeField] private float range = 5f;
         [SerializeField] private float damage = 10f;
         [SerializeField] private float fireRate = 1f;
         [SerializeField] private float laserDuration = 0.5f;
-
-        [SerializeField, Self] private TargetChooseStrategy targetChooseStrategy;
-        [SerializeField, Self] private RotateTowards rotateTowards;
-
-
-        [CanBeNull] private Enemy _activeTarget;
 
         private ITimer _timer;
         private EnemiesController _enemiesController;
@@ -48,14 +41,14 @@ namespace _Project.Scripts.Core.Towers
 
         private void OnTimeElapsed()
         {
-            if (_activeTarget == null) return;
+            if (ActiveTarget == null) return;
 
             Shoot();
         }
 
         private void Shoot()
         {
-            Vector2 direction = _activeTarget!.transform.position - transform.position;
+            Vector2 direction = ActiveTarget!.transform.position - transform.position;
             int enemyLayer = _enemiesController.EnemyLayerMask;
             var size = Physics2D.RaycastNonAlloc(transform.position, direction, _results, range, enemyLayer);
 
@@ -72,40 +65,6 @@ namespace _Project.Scripts.Core.Towers
             }
 
             StartCoroutine(LaserEffect());
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (_activeTarget == null &&
-                other.gameObject.TryGetComponent<Enemy>(out var enemy))
-            {
-                ChangeActiveTarget(enemy);
-            }
-        }
-
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            if (_activeTarget != null &&
-                other.gameObject == _activeTarget.gameObject)
-            {
-                RemoveActiveTarget();
-                if (targetChooseStrategy.TryChooseNewTarget(out var enemy))
-                {
-                    ChangeActiveTarget(enemy);
-                }
-            }
-        }
-
-        private void ChangeActiveTarget(Enemy enemy)
-        {
-            _activeTarget = enemy;
-            rotateTowards.Target = _activeTarget!.transform;
-        }
-
-        private void RemoveActiveTarget()
-        {
-            _activeTarget = null;
-            rotateTowards.Target = null;
         }
 
         IEnumerator LaserEffect()
@@ -127,7 +86,7 @@ namespace _Project.Scripts.Core.Towers
 
         private void OnDrawGizmos()
         {
-            if (_activeTarget == null)
+            if (ActiveTarget == null)
             {
                 Gizmos.color = Color.red;
             }
@@ -135,7 +94,7 @@ namespace _Project.Scripts.Core.Towers
             {
                 Gizmos.color = Color.green;
                 Gizmos.DrawRay(transform.position,
-                    (_activeTarget.transform.position - transform.position).normalized * range);
+                    (ActiveTarget.transform.position - transform.position).normalized * range);
             }
 
             Gizmos.DrawWireSphere(transform.position, range);

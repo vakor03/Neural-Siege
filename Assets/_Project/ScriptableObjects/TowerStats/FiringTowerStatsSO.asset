@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 5
   fireRate: 1
-  coneAngle: 20
+  coneAngle: 40

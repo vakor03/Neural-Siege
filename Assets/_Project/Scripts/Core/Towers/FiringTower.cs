@@ -1,21 +1,16 @@
 ﻿using _Project.Scripts.Core.Effects;
 using _Project.Scripts.Extensions;
-using JetBrains.Annotations;
 using KBCore.Refs;
 using UnityEngine;
 
 namespace _Project.Scripts.Core.Towers
 {
-    public class FiringTower : MonoBehaviour
+    public class FiringTower : SingleTargetTower
     {
         [SerializeField] private FiringTowerStatsSO towerStatsSO;
         [SerializeField] private Transform shootPosition;
         [SerializeField] private PoisonEffectStats poisonEffectStats;
-
-        [SerializeField, Self] private RotateTowards rotateTowards;
-        [SerializeField, Self] private TargetChooseStrategy targetChooseStrategy;
-
-        [CanBeNull] private Enemy _activeTarget;
+        
         private ITimer _timer;
         private readonly Collider2D[] _results = new Collider2D[100];
         private EnemiesController _enemiesController;
@@ -48,9 +43,9 @@ namespace _Project.Scripts.Core.Towers
 
         private void OnTimeElapsed()
         {
-            if (_activeTarget == null) return;
+            if (ActiveTarget == null) return;
 
-            FireAt(_activeTarget.transform.position);
+            FireAt(ActiveTarget.transform.position);
         }
 
         private void FireAt(Vector3 coneCenter)
@@ -72,44 +67,10 @@ namespace _Project.Scripts.Core.Towers
                 }
             }
         }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (_activeTarget == null &&
-                other.gameObject.TryGetComponent<Enemy>(out var enemy))
-            {
-                ChangeActiveTarget(enemy);
-            }
-        }
-
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            if (_activeTarget != null &&
-                other.gameObject == _activeTarget.gameObject)
-            {
-                RemoveActiveTarget();
-                if (targetChooseStrategy.TryChooseNewTarget(out var enemy))
-                {
-                    ChangeActiveTarget(enemy);
-                }
-            }
-        }
-
-        private void ChangeActiveTarget(Enemy enemy)
-        {
-            _activeTarget = enemy;
-            rotateTowards.Target = _activeTarget!.transform;
-        }
-
-        private void RemoveActiveTarget()
-        {
-            _activeTarget = null;
-            rotateTowards.Target = null;
-        }
-
+        
         private void OnDrawGizmos()
         {
-            if (_activeTarget == null)
+            if (ActiveTarget == null)
             {
                 Gizmos.color = Color.red;
             }

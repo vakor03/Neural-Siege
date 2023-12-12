@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace _Project.Scripts.Core.Towers
 {
-    public abstract class SingleTargetTower : MonoBehaviour
+    public abstract class SingleTargetTower : Tower
     {
-        [SerializeField, Self] private RotateTowards rotateTowards;
-        [SerializeField, Self] private TargetChooseStrategy targetChooseStrategy;
+        [SerializeField, Self] protected RotateTowards rotateTowards;
+        [SerializeField, Self] protected TargetChooseStrategy targetChooseStrategy;
         [CanBeNull] protected Enemy ActiveTarget;
         private void OnTriggerEnter2D(Collider2D other)
         {

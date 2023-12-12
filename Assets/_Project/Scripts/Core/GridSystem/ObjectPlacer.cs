@@ -1,11 +1,12 @@
-﻿using _Project.Scripts.Extensions;
+﻿using _Project.Scripts.Core.Towers;
+using _Project.Scripts.Extensions;
 using UnityEngine;
 
 namespace _Project.Scripts.Core.GridSystem
 {
     public class ObjectPlacer : MonoBehaviour
     {
-        [SerializeField] private PlacingObjectVisuals placingObjectVisualsPrefab;
+        [SerializeField] private PlacingObjectSO placingObjectSO;
 
         private Grid<Tile> _grid;
         private bool _isPlacingObject;
@@ -33,11 +34,14 @@ namespace _Project.Scripts.Core.GridSystem
             //TODO: Refactor this
             if (Input.GetMouseButtonDown(0) && _isPlacingObject)
             {
-                bool isValid = ValidateGridPosition(_currentVisuals);
+                bool isValid = ValidateGridPosition(placingObjectSO,
+                    _currentVisuals.BottomLeftPoint.transform.position);
 
                 if (isValid)
                 {
-                    PlaceObjectOnGrid(_currentVisuals);
+                    PlaceObjectOnGrid(placingObjectSO, 
+                        _currentVisuals.transform.position,
+                        _currentVisuals.BottomLeftPoint.transform.position);
                 }
             }
 
@@ -50,7 +54,7 @@ namespace _Project.Scripts.Core.GridSystem
 
             if (Input.GetMouseButtonDown(0) && !_isPlacingObject)
             {
-                _currentVisuals = Instantiate(placingObjectVisualsPrefab,
+                _currentVisuals = Instantiate(placingObjectSO.visuals,
                     Utils.GetMouseToWorldPosition(), Quaternion.identity);
                 _isPlacingObject = true;
             }
@@ -67,11 +71,11 @@ namespace _Project.Scripts.Core.GridSystem
             _currentVisuals.transform.position = _grid.GetWorldPositionCentered(gridPosition);
         }
 
-        private bool ValidateGridPosition(PlacingObjectVisuals placingObjectVisuals)
+        private bool ValidateGridPosition(PlacingObjectSO placingObject, Vector3 bottomLeftPosition)
         {
-            Vector3 bottomLeftTile = placingObjectVisuals.BottomLeftPoint.transform.position.With(z: 0);
-            int width = placingObjectVisuals.Size.x;
-            int height = placingObjectVisuals.Size.y;
+            Vector3 bottomLeftTile = bottomLeftPosition.With(z: 0);
+            int width = placingObject.size.x;
+            int height = placingObject.size.y;
 
             var gridPosition = _grid.GetGridPosition(bottomLeftTile);
 
@@ -117,11 +121,11 @@ namespace _Project.Scripts.Core.GridSystem
             }
         }
 
-        private void PlaceObjectOnGrid(PlacingObjectVisuals placingObjectVisuals)
+        private void PlaceObjectOnGrid(PlacingObjectSO placingObject, Vector3 placingPosition, Vector3 bottomLeftPosition)
         {
-            Vector3 bottomLeftTile = placingObjectVisuals.BottomLeftPoint.transform.position.With(z: 0);
-            int width = placingObjectVisuals.Size.x;
-            int height = placingObjectVisuals.Size.y;
+            Vector3 bottomLeftTile = bottomLeftPosition.With(z: 0);
+            int width = placingObject.size.x;
+            int height = placingObject.size.y;
 
             var gridPosition = _grid.GetGridPosition(bottomLeftTile);
 
@@ -133,7 +137,7 @@ namespace _Project.Scripts.Core.GridSystem
                 }
             }
 
-            Instantiate(placingObjectVisuals.ObjectPrefab, placingObjectVisuals.transform.position, Quaternion.identity, _placingTransform);
+            Instantiate(placingObject.tower, placingPosition, Quaternion.identity, _placingTransform);
         }
     }
 }
