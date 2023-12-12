@@ -271,6 +271,10 @@ PrefabInstance:
       propertyPath: haveHealthRef._implementer
       value: 
       objectReference: {fileID: 649783421}
+    - target: {fileID: 2616941242310268877, guid: 347a78ded8c754445bb927c992e2cf04, type: 3}
+      propertyPath: defaultStats.speed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2892681839771854464, guid: 347a78ded8c754445bb927c992e2cf04, type: 3}
       propertyPath: haveHealthRef._implementer
       value: 
@@ -501,6 +505,10 @@ PrefabInstance:
       propertyPath: haveHealthRef._implementer
       value: 
       objectReference: {fileID: 1554630347}
+    - target: {fileID: 2616941242310268877, guid: 347a78ded8c754445bb927c992e2cf04, type: 3}
+      propertyPath: defaultStats.speed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2892681839771854464, guid: 347a78ded8c754445bb927c992e2cf04, type: 3}
       propertyPath: haveHealthRef._implementer
       value: 
@@ -1127,6 +1135,10 @@ PrefabInstance:
       propertyPath: haveHealthRef._implementer
       value: 
       objectReference: {fileID: 440581628}
+    - target: {fileID: 2616941242310268877, guid: 347a78ded8c754445bb927c992e2cf04, type: 3}
+      propertyPath: defaultStats.speed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2892681839771854464, guid: 347a78ded8c754445bb927c992e2cf04, type: 3}
       propertyPath: haveHealthRef._implementer
       value: 
@@ -1376,7 +1388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9ed2cca6cb4977bb1bbb7acdd48de0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placingObjectVisualsPrefab: {fileID: 8060921139009390389, guid: 7c2daa518fb61fd4a82bc4337efee034, type: 3}
+  placingObjectVisualsPrefab: {fileID: 8060921139009390389, guid: d48b2a9418be59f4893b687c1d53f683, type: 3}
 --- !u!114 &1664719242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1420,6 +1432,10 @@ PrefabInstance:
       propertyPath: haveHealthRef._implementer
       value: 
       objectReference: {fileID: 1167499822}
+    - target: {fileID: 2616941242310268877, guid: 347a78ded8c754445bb927c992e2cf04, type: 3}
+      propertyPath: defaultStats.speed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2892681839771854464, guid: 347a78ded8c754445bb927c992e2cf04, type: 3}
       propertyPath: haveHealthRef._implementer
       value: 

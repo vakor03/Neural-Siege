@@ -9,17 +9,12 @@ namespace _Project.Scripts.Core.Towers
     public class LaserTower : MonoBehaviour
     {
         [SerializeField] private float range = 5f;
-
         [SerializeField] private float damage = 10f;
-
         [SerializeField] private float fireRate = 1f;
-
         [SerializeField] private float laserDuration = 0.5f;
-
         [SerializeField] private LayerMask enemyLayer;
 
         [SerializeField, Self] private TargetChooseStrategy targetChooseStrategy;
-
         [SerializeField, Self] private RotateTowards rotateTowards;
 
 
@@ -73,7 +68,7 @@ namespace _Project.Scripts.Core.Towers
                     enemy.TakeDamage(damage);
                 }
             }
-            
+
             StartCoroutine(LaserEffect());
         }
 
@@ -137,6 +132,8 @@ namespace _Project.Scripts.Core.Towers
             else
             {
                 Gizmos.color = Color.green;
+                Gizmos.DrawRay(transform.position,
+                    (_activeTarget.transform.position - transform.position).normalized * range);
             }
 
             Gizmos.DrawWireSphere(transform.position, range);
