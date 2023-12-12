@@ -1,20 +1,18 @@
 ﻿using _Project.Scripts.Core.Effects;
-using _Project.Scripts.Extensions;
 using UnityEngine;
 
 namespace _Project.Scripts.Core.Towers
 {
-    public class FreezingTower : MonoBehaviour
+    public class FreezingTower : Tower
     {
-        [SerializeField] private float range = 5;
-        [SerializeField] private float freezingMultiplier = 0.5f;
+        [SerializeField] private FreezingTowerStatsSO towerStatsSO;
 
         private FreezeEffect _freezingEffect;
 
         private void Awake()
         {
-            SetupCollider();
-            _freezingEffect = new FreezeEffect(freezingMultiplier);
+            SetupCollider(towerStatsSO);
+            _freezingEffect = new FreezeEffect(towerStatsSO.freezingMultiplier);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -33,21 +31,11 @@ namespace _Project.Scripts.Core.Towers
             }
         }
 
-        private void SetupCollider()
-        {
-            var collider2D = gameObject.GetOrAdd<CircleCollider2D>();
-            collider2D.radius = range;
-            collider2D.isTrigger = true;
-
-            var rigidbody2D = gameObject.GetOrAdd<Rigidbody2D>();
-            rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
-        }
-
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.green;
             
-            Gizmos.DrawWireSphere(transform.position, range);
+            Gizmos.DrawWireSphere(transform.position, towerStatsSO.range);
         }
     }
 }

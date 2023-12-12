@@ -2,7 +2,7 @@
 
 namespace _Project.Scripts.Core.Towers
 {
-    [CreateAssetMenu(menuName = "Create FiringTowerStatsSO", fileName = "FiringTowerStatsSO", order = 0)]
+    [CreateAssetMenu(menuName = "TowerStatsSO/FiringTower", fileName = "FiringTowerStatsSO", order = 0)]
     public class FiringTowerStatsSO : TowerStatsSO
     {
         public float fireRate = 1;

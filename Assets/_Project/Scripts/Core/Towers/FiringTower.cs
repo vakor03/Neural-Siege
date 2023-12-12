@@ -1,5 +1,4 @@
 ﻿using _Project.Scripts.Core.Effects;
-using _Project.Scripts.Extensions;
 using KBCore.Refs;
 using UnityEngine;
 
@@ -10,7 +9,7 @@ namespace _Project.Scripts.Core.Towers
         [SerializeField] private FiringTowerStatsSO towerStatsSO;
         [SerializeField] private Transform shootPosition;
         [SerializeField] private PoisonEffectStats poisonEffectStats;
-        
+
         private ITimer _timer;
         private readonly Collider2D[] _results = new Collider2D[100];
         private EnemiesController _enemiesController;
@@ -25,7 +24,7 @@ namespace _Project.Scripts.Core.Towers
             _timer = new TickTimer();
             _timer.Duration = 1 / towerStatsSO.fireRate;
             _timer.OnTimeElapsed += OnTimeElapsed;
-            SetupCollider();
+            SetupCollider(towerStatsSO);
             targetChooseStrategy.Range = towerStatsSO.range;
         }
 
@@ -67,7 +66,7 @@ namespace _Project.Scripts.Core.Towers
                 }
             }
         }
-        
+
         private void OnDrawGizmos()
         {
             if (ActiveTarget == null)
@@ -87,16 +86,6 @@ namespace _Project.Scripts.Core.Towers
                 angle,
                 transform,
                 Color.blue);
-        }
-
-        private void SetupCollider()
-        {
-            var collider2D = gameObject.GetOrAdd<CircleCollider2D>();
-            collider2D.radius = towerStatsSO.range;
-            collider2D.isTrigger = true;
-
-            var rigidbody2D = gameObject.GetOrAdd<Rigidbody2D>();
-            rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using _Project.Scripts.Extensions;
 using KBCore.Refs;
 using UnityEngine;
 
@@ -7,9 +6,7 @@ namespace _Project.Scripts.Core.Towers
 {
     public class LaserTower : SingleTargetTower
     {
-        [SerializeField] private float range = 5f;
-        [SerializeField] private float damage = 10f;
-        [SerializeField] private float fireRate = 1f;
+        [SerializeField] private LaserTowerStatsSO towerStatsSO;
         [SerializeField] private float laserDuration = 0.5f;
 
         private ITimer _timer;
@@ -20,17 +17,16 @@ namespace _Project.Scripts.Core.Towers
             this.ValidateRefs();
         }
 
-        private float nextFireTime;
         private readonly RaycastHit2D[] _results = new RaycastHit2D[100];
 
 
         private void Awake()
         {
             _timer = new TickTimer();
-            _timer.Duration = 1 / fireRate;
+            _timer.Duration = 1 / towerStatsSO.fireRate;
             _timer.OnTimeElapsed += OnTimeElapsed;
-            SetupCollider();
-            targetChooseStrategy.Range = range;
+            SetupCollider(towerStatsSO);
+            targetChooseStrategy.Range = towerStatsSO.range;
         }
 
         private void Start()
@@ -50,7 +46,8 @@ namespace _Project.Scripts.Core.Towers
         {
             Vector2 direction = ActiveTarget!.transform.position - transform.position;
             int enemyLayer = _enemiesController.EnemyLayerMask;
-            var size = Physics2D.RaycastNonAlloc(transform.position, direction, _results, range, enemyLayer);
+            var size = Physics2D.RaycastNonAlloc(transform.position, direction, _results, towerStatsSO.range,
+                enemyLayer);
 
             for (int i = 0; i < size; i++)
             {
@@ -60,7 +57,7 @@ namespace _Project.Scripts.Core.Towers
 
                 if (enemy != null)
                 {
-                    enemy.TakeDamage(damage);
+                    enemy.TakeDamage(towerStatsSO.damage);
                 }
             }
 
@@ -74,16 +71,6 @@ namespace _Project.Scripts.Core.Towers
             yield return new WaitForSeconds(laserDuration);
         }
 
-        private void SetupCollider()
-        {
-            var collider2D = gameObject.GetOrAdd<CircleCollider2D>();
-            collider2D.radius = range;
-            collider2D.isTrigger = true;
-
-            var rigidbody2D = gameObject.GetOrAdd<Rigidbody2D>();
-            rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
-        }
-
         private void OnDrawGizmos()
         {
             if (ActiveTarget == null)
@@ -94,10 +81,10 @@ namespace _Project.Scripts.Core.Towers
             {
                 Gizmos.color = Color.green;
                 Gizmos.DrawRay(transform.position,
-                    (ActiveTarget.transform.position - transform.position).normalized * range);
+                    (ActiveTarget.transform.position - transform.position).normalized * towerStatsSO.range);
             }
 
-            Gizmos.DrawWireSphere(transform.position, range);
+            Gizmos.DrawWireSphere(transform.position, towerStatsSO.range);
         }
     }
 }

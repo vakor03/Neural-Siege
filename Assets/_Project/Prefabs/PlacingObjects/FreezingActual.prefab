@@ -1254,8 +1254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc2540f44b154d28b62bd3eb802659ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 5
-  freezingEffect: {fileID: 0}
+  towerStatsSO: {fileID: 11400000, guid: a641270b0517dc34aad7c0b0236589b4, type: 2}
 --- !u!1 &9029475541108489554
 GameObject:
   m_ObjectHideFlags: 0
