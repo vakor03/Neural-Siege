@@ -1,4 +1,5 @@
 ﻿using System;
+using _Project.Scripts.Core.Effects;
 using _Project.Scripts.Core.GridSystem;
 using _Project.Scripts.Core.WaypointSystem;
 using KBCore.Refs;
@@ -10,7 +11,7 @@ namespace _Project.Scripts.Core
     {
         [SerializeField, Self] private WaypointsMover waypointsMover;
         [SerializeField] private EnemyStats defaultStats;
-        
+
         private EnemyEffectsSystem _enemyEffectsSystem;
         private float _currentHealth;
         private PlayerBase _playerBase;
@@ -79,13 +80,14 @@ namespace _Project.Scripts.Core
         {
             _enemyEffectsSystem.RemoveEffect(effect);
         }
-        
+
         private void Update()
         {
             _enemyEffectsSystem.Update();
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                _enemyEffectsSystem.ApplyEffect(new PoisonEffect(1.1f, 1, this));
+                // _enemyEffectsSystem.ApplyEffect(new PoisonEffect(1.1f, 1, this));
+                _enemyEffectsSystem.ApplyEffect(new StunEffect(1.1f, this));
             }
         }
 

@@ -1,4 +1,4 @@
-﻿using _Project.Scripts.Core.GridSystem;
+﻿using _Project.Scripts.Core.Effects;
 using _Project.Scripts.Extensions;
 using UnityEngine;
 
@@ -8,8 +8,9 @@ namespace _Project.Scripts.Core.Towers
     {
         [SerializeField] private float range = 5;
         [SerializeField] private float freezingMultiplier = 0.5f;
-        
+
         private FreezeEffect _freezingEffect;
+
         private void Awake()
         {
             SetupCollider();
@@ -31,7 +32,7 @@ namespace _Project.Scripts.Core.Towers
                 enemy.RemoveEffect(_freezingEffect);
             }
         }
-        
+
         private void SetupCollider()
         {
             var collider2D = gameObject.GetOrAdd<CircleCollider2D>();
@@ -40,6 +41,13 @@ namespace _Project.Scripts.Core.Towers
 
             var rigidbody2D = gameObject.GetOrAdd<Rigidbody2D>();
             rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.green;
+            
+            Gizmos.DrawWireSphere(transform.position, range);
         }
     }
 }
