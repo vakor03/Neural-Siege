@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using _Project.Scripts.Core.Towers.TowerStats;
 using MEC;
 using UnityEngine;
 
@@ -10,19 +11,27 @@ namespace _Project.Scripts.Core.Towers
 
         private bool _inProgress;
         private readonly List<Enemy> _enemiesInRange = new();
+        private TowerStatsController<StunningTower, StunningTowerStats> _towerStatsController;
 
         private void Awake()
         {
-            SetupCollider(towerStatsSO);
+            InitTowerStats();
+            SetupCollider(_towerStatsController.CurrentStats);
             Timing.RunCoroutine(AttackTimerCoroutine());
+        }
+
+        private void InitTowerStats()
+        {
+            _towerStatsController = new(towerStatsSO);
         }
 
         private IEnumerator<float> AttackTimerCoroutine()
         {
+            float fireRate = _towerStatsController.CurrentStats.FireRate;
             _inProgress = true;
             do
             {
-                yield return Timing.WaitForSeconds(1/towerStatsSO.fireRate);
+                yield return Timing.WaitForSeconds(1 / fireRate);
                 StunEnemiesInRange();
             } while (_enemiesInRange.Count > 0);
 
@@ -31,12 +40,13 @@ namespace _Project.Scripts.Core.Towers
 
         private void StunEnemiesInRange()
         {
+            float stunningDuration = _towerStatsController.CurrentStats.StunningDuration;
             foreach (var enemy in _enemiesInRange)
             {
-                enemy.ApplyEffect(new Effects.StunEffect(towerStatsSO.stunningDuration, enemy));
+                enemy.ApplyEffect(new Effects.StunEffect(stunningDuration, enemy));
             }
         }
-        
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.TryGetComponent<Enemy>(out var enemy))
@@ -56,9 +66,10 @@ namespace _Project.Scripts.Core.Towers
                 _enemiesInRange.Remove(enemy);
             }
         }
-        
+
         private void OnDrawGizmos()
         {
+            float range = _towerStatsController.CurrentStats.Range;
             if (_enemiesInRange.Count == 0)
             {
                 Gizmos.color = Color.red;
@@ -68,7 +79,7 @@ namespace _Project.Scripts.Core.Towers
                 Gizmos.color = Color.green;
             }
 
-            Gizmos.DrawWireSphere(transform.position, towerStatsSO.range);
+            Gizmos.DrawWireSphere(transform.position, range);
         }
     }
 }

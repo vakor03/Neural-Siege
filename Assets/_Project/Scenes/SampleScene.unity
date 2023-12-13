@@ -1389,7 +1389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9ed2cca6cb4977bb1bbb7acdd48de0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placingObjectSO: {fileID: 11400000, guid: 2c8891b42130d3d4e84872b46e0c8553, type: 2}
+  placingObjectSO: {fileID: 11400000, guid: 29f2396060ea0da4fb2391e7f90acbf0, type: 2}
 --- !u!114 &1664719242
 MonoBehaviour:
   m_ObjectHideFlags: 0

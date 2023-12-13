@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using _Project.Scripts.Core.Towers.TowerStats;
 using KBCore.Refs;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace _Project.Scripts.Core.Towers
     {
         [SerializeField] private LaserTowerStatsSO towerStatsSO;
         [SerializeField] private float laserDuration = 0.5f;
+        private TowerStatsController<LaserTower, LaserTowerStats> _towerStatsController;
 
         private ITimer _timer;
         private EnemiesController _enemiesController;
@@ -22,11 +24,25 @@ namespace _Project.Scripts.Core.Towers
 
         private void Awake()
         {
+            InitTowerStats();
+            float fireRate = _towerStatsController.CurrentStats.FireRate;
+            float range = _towerStatsController.CurrentStats.Range;
+
+            InitAttackTimer(fireRate);
+            SetupCollider(_towerStatsController.CurrentStats);
+            targetChooseStrategy.Range = range;
+        }
+
+        private void InitAttackTimer(float fireRate)
+        {
             _timer = new TickTimer();
-            _timer.Duration = 1 / towerStatsSO.fireRate;
+            _timer.Duration = 1 / fireRate;
             _timer.OnTimeElapsed += OnTimeElapsed;
-            SetupCollider(towerStatsSO);
-            targetChooseStrategy.Range = towerStatsSO.range;
+        }
+
+        private void InitTowerStats()
+        {
+            _towerStatsController = new(towerStatsSO);
         }
 
         private void Start()
@@ -44,9 +60,11 @@ namespace _Project.Scripts.Core.Towers
 
         private void Shoot()
         {
+            float damage = _towerStatsController.CurrentStats.Damage;
+            float range = _towerStatsController.CurrentStats.Range;
             Vector2 direction = ActiveTarget!.transform.position - transform.position;
             int enemyLayer = _enemiesController.EnemyLayerMask;
-            var size = Physics2D.RaycastNonAlloc(transform.position, direction, _results, towerStatsSO.range,
+            var size = Physics2D.RaycastNonAlloc(transform.position, direction, _results, range,
                 enemyLayer);
 
             for (int i = 0; i < size; i++)
@@ -57,7 +75,7 @@ namespace _Project.Scripts.Core.Towers
 
                 if (enemy != null)
                 {
-                    enemy.TakeDamage(towerStatsSO.damage);
+                    enemy.TakeDamage(damage);
                 }
             }
 
@@ -73,6 +91,7 @@ namespace _Project.Scripts.Core.Towers
 
         private void OnDrawGizmos()
         {
+            float range = _towerStatsController.CurrentStats.Range;
             if (ActiveTarget == null)
             {
                 Gizmos.color = Color.red;
@@ -81,10 +100,10 @@ namespace _Project.Scripts.Core.Towers
             {
                 Gizmos.color = Color.green;
                 Gizmos.DrawRay(transform.position,
-                    (ActiveTarget.transform.position - transform.position).normalized * towerStatsSO.range);
+                    (ActiveTarget.transform.position - transform.position).normalized * range);
             }
 
-            Gizmos.DrawWireSphere(transform.position, towerStatsSO.range);
+            Gizmos.DrawWireSphere(transform.position, range);
         }
     }
 }

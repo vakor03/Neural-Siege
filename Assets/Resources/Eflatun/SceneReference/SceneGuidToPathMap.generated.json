@@ -13,6 +13,8 @@
   "ff979006ae2e1de44a648fb1a744f8e3": "Assets/KevinCastejon/MoreAttributes/Demos/Tag/TestTagAttribute.unity",
   "775eee5db3c5db649a686dee79b27afc": "Assets/Plugins/SerializedCollections/Sample/SerializedDictionarySample.unity",
   "2cda990e2423bbf4892e6590ba056729": "Assets/Settings/Scenes/URP2DSceneTemplate.unity",
+  "ae744488364b34fcf8c80218eadc721c": "Packages/com.singularitygroup.hotreload/Runtime/Demo/Scenes/HotReloadBasicDemo.unity",
+  "fad9aa54ab3335844b5a35b9eb6ae286": "Packages/com.singularitygroup.hotreload/Runtime/Demo/Scenes/HotReloadBurstDemo.unity",
   "e026d555eae824f65922633f37a14385": "Packages/com.unity.render-pipelines.universal/Editor/SceneTemplates/Basic.unity",
   "5cae0d87369a2405eaa962b8d920b947": "Packages/com.unity.render-pipelines.universal/Editor/SceneTemplates/Standard.unity"
 }

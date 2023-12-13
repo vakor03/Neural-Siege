@@ -2,16 +2,16 @@
 {
     public class FreezeEffect : Effect
     {
-        private readonly float _speedMultiplier;
+        public float FreezeMultiplier { get; set; }
 
         public FreezeEffect(float freezingMultiplier)
         {
-            _speedMultiplier = freezingMultiplier;
+            FreezeMultiplier = freezingMultiplier;
         }
 
         public override EnemyStats ApplyEffect(EnemyStats enemy)
         {
-            enemy.speed *= _speedMultiplier;
+            enemy.speed *= FreezeMultiplier;
             return enemy;
         }
 

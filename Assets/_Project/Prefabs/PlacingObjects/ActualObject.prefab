@@ -296,8 +296,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateTowards: {fileID: 478272381600516377}
   targetChooseStrategy: {fileID: 8957765333392313995}
-  shootPosition: {fileID: 5830066576927233046}
   towerStatsSO: {fileID: 11400000, guid: f6e27748f6749324db4aa30105717516, type: 2}
+  shootPosition: {fileID: 5830066576927233046}
+  upgradeSO: {fileID: 11400000, guid: 116c42f44504bc549a125f168938faff, type: 2}
 --- !u!114 &8957765333392313995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,9 +311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078767e08ec243cb9cc57234d425437a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyLayerMask:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!1 &8790890483814022523
 GameObject:
   m_ObjectHideFlags: 0

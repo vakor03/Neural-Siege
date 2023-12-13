@@ -1,4 +1,5 @@
-﻿using KBCore.Refs;
+﻿using _Project.Scripts.Core.Towers.TowerStats;
+using KBCore.Refs;
 using UnityEngine;
 
 namespace _Project.Scripts.Core.Towers
@@ -9,7 +10,8 @@ namespace _Project.Scripts.Core.Towers
         [SerializeField] private Transform shootPosition;
 
         private ITimer _timer;
-        
+        private TowerStatsController<SimpleTower, SimpleTowerStats> _towerStatsController;
+
         private void OnValidate()
         {
             this.ValidateRefs();
@@ -17,11 +19,40 @@ namespace _Project.Scripts.Core.Towers
 
         private void Awake()
         {
+            InitTowerStats();
+            float fireRate = _towerStatsController.CurrentStats.FireRate;
+            float range = _towerStatsController.CurrentStats.Range;
+
+            InitAttackTimer(fireRate);
+            SetupCollider(_towerStatsController.CurrentStats);
+            targetChooseStrategy.Range = range;
+        }
+
+        private void OnEnable()
+        {
+            _towerStatsController.OnStatsChanged += OnStatsChanged;
+        }
+
+        private void OnStatsChanged()
+        {
+            float fireRate = _towerStatsController.CurrentStats.FireRate;
+            float range = _towerStatsController.CurrentStats.Range;
+
+            _timer.Duration = 1 / fireRate;
+            targetChooseStrategy.Range = range;
+            TowerCollider2D.radius = range;
+        }
+
+        private void InitAttackTimer(float fireRate)
+        {
             _timer = new TickTimer();
-            _timer.Duration = towerStatsSO.attackInterval;
+            _timer.Duration = 1 / fireRate;
             _timer.OnTimeElapsed += OnTimeElapsed;
-            SetupCollider(towerStatsSO);
-            targetChooseStrategy.Range = towerStatsSO.range;
+        }
+
+        private void InitTowerStats()
+        {
+            _towerStatsController = new(towerStatsSO);
         }
 
         private void Start()
@@ -33,6 +64,7 @@ namespace _Project.Scripts.Core.Towers
         {
             _timer.OnTimeElapsed -= OnTimeElapsed;
             _timer.Stop();
+            _towerStatsController.OnStatsChanged -= OnStatsChanged;
         }
 
         private void OnTimeElapsed()
@@ -44,43 +76,10 @@ namespace _Project.Scripts.Core.Towers
 
         private void ShootEnemy(Enemy enemy)
         {
+            var projectilePrefab = _towerStatsController.CurrentStats.ProjectilePrefab;
             Projectile projectile =
-                Instantiate(towerStatsSO.projectilePrefab, shootPosition.position, Quaternion.identity);
+                Instantiate(projectilePrefab, shootPosition.position, Quaternion.identity);
             projectile.SetTarget(enemy.transform);
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (ActiveTarget == null &&
-                other.gameObject.TryGetComponent<Enemy>(out var enemy))
-            {
-                ChangeActiveTarget(enemy);
-            }
-        }
-
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            if (ActiveTarget != null &&
-                other.gameObject == ActiveTarget.gameObject)
-            {
-                RemoveActiveTarget();
-                if (targetChooseStrategy.TryChooseNewTarget(out var enemy))
-                {
-                    ChangeActiveTarget(enemy);
-                }
-            }
-        }
-
-        private void ChangeActiveTarget(Enemy enemy)
-        {
-            ActiveTarget = enemy;
-            rotateTowards.Target = ActiveTarget!.transform;
-        }
-
-        private void RemoveActiveTarget()
-        {
-            ActiveTarget = null;
-            rotateTowards.Target = null;
         }
 
         private void OnDrawGizmos()
@@ -94,7 +93,8 @@ namespace _Project.Scripts.Core.Towers
                 Gizmos.color = Color.green;
             }
 
-            Gizmos.DrawWireSphere(transform.position, towerStatsSO.range);
+            float range = _towerStatsController.CurrentStats.Range;
+            Gizmos.DrawWireSphere(transform.position, range);
         }
     }
 }

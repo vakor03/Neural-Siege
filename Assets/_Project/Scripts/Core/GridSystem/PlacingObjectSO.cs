@@ -1,8 +1,6 @@
-﻿using _Project.Scripts.Core.GridSystem;
-using UnityEngine;
-using UnityEngine.Serialization;
+﻿using UnityEngine;
 
-namespace _Project.Scripts.Core.Towers
+namespace _Project.Scripts.Core.GridSystem
 {
     [CreateAssetMenu(menuName = "Create PlacingObjectSO", fileName = "PlacingObjectSO", order = 0)]
     public class PlacingObjectSO : ScriptableObject

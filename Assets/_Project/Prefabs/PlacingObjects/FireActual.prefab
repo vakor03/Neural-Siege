@@ -1041,13 +1041,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72dca89782b74f4bbaca8530d554023c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerStatsSO: {fileID: 11400000, guid: e09d3ad3d60b1f642bb2f41578eca777, type: 2}
-  shootPosition: {fileID: 9166949581775357348}
-  poisonEffectStats:
-    damagePerSecond: 1
-    duration: 0.5
   rotateTowards: {fileID: 2950739985137847099}
   targetChooseStrategy: {fileID: 2889263245548860533}
+  towerStatsSO: {fileID: 11400000, guid: e09d3ad3d60b1f642bb2f41578eca777, type: 2}
+  shootPosition: {fileID: 9166949581775357348}
+  upgradeSO: {fileID: 11400000, guid: 176693ee0ecda6a4091dfeb6e6839dac, type: 2}
 --- !u!114 &2950739985137847099
 MonoBehaviour:
   m_ObjectHideFlags: 0
