@@ -5,7 +5,7 @@ namespace _Project.Scripts.Core.WaypointSystem
 {
     public class WaypointsMover : MonoBehaviour
     {
-        [SerializeField] private WaypointsHolder waypointsHolder;
+        private WaypointsHolder _waypointsHolder;
         
         private float _speed;
         public Action OnPathCompleted;
@@ -18,8 +18,9 @@ namespace _Project.Scripts.Core.WaypointSystem
             _speed = speed;
         }
 
-        private void Start()
+        public void Initialize(WaypointsHolder waypointsHolder)
         {
+            this._waypointsHolder = waypointsHolder;
             _waypoints = waypointsHolder.GetWaypoints();
             _currentWaypointIndex = 0;
         }

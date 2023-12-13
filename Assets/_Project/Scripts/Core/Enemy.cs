@@ -28,6 +28,11 @@ namespace _Project.Scripts.Core
             this.ValidateRefs();
         }
 
+        public void Initialize(WaypointsHolder waypointsHolder)
+        {
+            waypointsMover.Initialize(waypointsHolder);
+        }
+
         private void Awake()
         {
             _enemyEffectsSystem = new EnemyEffectsSystem(defaultStats, this);

@@ -8,8 +8,6 @@ namespace _Project.Scripts.Core.GridSystem
     {
         [SerializeField] private int width;
         [SerializeField] private int height;
-
-        // Serialized 1D array to represent the 2D array
         [SerializeField] private bool[] gridTiles;
         
         public bool isInitialized;
@@ -20,8 +18,7 @@ namespace _Project.Scripts.Core.GridSystem
             height = newHeight;
             gridTiles = new bool[width * height];
         }
-
-        // Convert 2D coordinates to a 1D array index
+        
         private int GetIndex(int x, int y)
         {
             return y * width + x;
