@@ -44,10 +44,14 @@ namespace _Project.Scripts.Core.Towers
 
             if (count == 0) return null;
 
-            var closest = _colliders[0];
-            var closestDistance = Vector2.Distance(transform.position, closest.transform.position);
-            for (var i = 1; i < count; i++)
+            Collider2D closest = null;
+            var closestDistance = float.MaxValue;
+            for (var i = 0; i < count; i++)
             {
+                if (!_colliders[i].TryGetComponent<Enemy>(out var enemy))
+                {
+                    continue;
+                }
                 var distance = Vector2.Distance(transform.position, _colliders[i].transform.position);
                 if (distance < closestDistance)
                 {

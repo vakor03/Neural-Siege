@@ -1,4 +1,5 @@
 ﻿using _Project.Scripts.Core.Towers.TowerStats;
+using _Project.Scripts.Core.Towers.TowerUpgrades;
 using _Project.Scripts.Extensions;
 using UnityEngine;
 
@@ -6,14 +7,19 @@ namespace _Project.Scripts.Core.Towers
 {
     public abstract class Tower : MonoBehaviour
     {
+        public abstract void ApplyUpgrade(TowerUpgradeSO towerUpgradeSO);
     }
 
     public abstract class Tower<TSelf, TStats> : Tower where TSelf : Tower where TStats : TowerStats<TSelf>
     {
         [SerializeField] protected TowerStatsSO<TSelf, TStats> towerStatsSO;
         protected TowerStatsController<TSelf, TStats> TowerStatsController;
-
+        
         protected CircleCollider2D TowerCollider2D { get; private set; }
+        public override void ApplyUpgrade(TowerUpgradeSO towerUpgradeSO)
+        {
+            TowerStatsController.ApplyUpgrade(towerUpgradeSO as TowerUpgradeSO<TSelf, TStats>);
+        }
 
         protected void SetupCollider<T>(TowerStats<T> towerStats) where T : Tower
         {

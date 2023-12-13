@@ -1,0 +1,2825 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a6b9796d1c0440eba061ace5e9dff6, type: 3}
+  m_Name: 'create me an image 100x100 pixel 2D top-down asset of a tower that shoots
+    projectiles, tower should be in minimalist and minimalist style '
+  m_EditorClassIdentifier: 
+  assetsData:
+  - rid: 8054539811984244749
+  - rid: 8054539811984244756
+  - rid: 8054539811984244763
+  - rid: 8054539811984244770
+  - rid: 8054539811984244777
+  - rid: 8054539811984244784
+  - rid: 8054539811984244791
+  - rid: 8054539811984244798
+  - rid: 8054539811984244805
+  - rid: 8054539811984244812
+  - rid: 8054539811984244819
+  - rid: 8054539811984244826
+  - rid: 8054539811984244833
+  - rid: 8054539811984244840
+  - rid: 8054539811984244847
+  - rid: 8054539811984244854
+  - rid: 8054539811984244861
+  - rid: 8054539811984244868
+  - rid: 8054539811984244875
+  - rid: 8054539811984244882
+  - rid: 8054539811984244889
+  - rid: 8054539811984244896
+  - rid: 8054539811984244903
+  - rid: 8054539811984244910
+  - rid: 8054539811984244917
+  - rid: 8054539811984244924
+  - rid: 8054539811984244931
+  - rid: 8054539811984244938
+  currentMode: TextToSprite
+  m_Data:
+  - rid: 8054539811984244736
+  - rid: 8054539811984244737
+  - rid: 8054539811984244738
+  - rid: 8054539811984244739
+  - rid: 8054539811984244740
+  - rid: 8054539811984244741
+  - rid: 8054539811984244748
+  preRefinedArtifact:
+    rid: -2
+  refinedArtifact:
+    rid: -2
+  selectedArtifact:
+    rid: -2
+  m_Operators:
+  - rid: 8054539811984244742
+  - rid: 8054539811984244743
+  - rid: 8054539811984244744
+  - rid: 8054539811984244745
+  - rid: 8054539811984244746
+  - rid: 8054539811984244747
+  m_PreRefineOperators: []
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8054539811984244736
+      type: {class: FeedbackManager, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_Liked:
+          m_Values: []
+        m_Disliked:
+          m_Values: []
+    - rid: 8054539811984244737
+      type: {class: DefaultStyleData, ns: Unity.Muse.Sprite.Data, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244738
+      type: {class: GenerateButtonData, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data: 
+    - rid: 8054539811984244739
+      type: {class: MainUI/UISize, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_NodeListWidth: 300
+        m_NodeListRefineWidth: 300
+        m_AssetListRefineWidth: 200
+    - rid: 8054539811984244740
+      type: {class: SessionData, ns: Unity.Muse.Sprite.Data, asm: Unity.Muse.Sprite}
+      data:
+        m_SessionId: b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+        sessionLoaded: 
+    - rid: 8054539811984244741
+      type: {class: BookmarkManager, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_BookmarkedArtifacts:
+          m_Values: []
+        m_IsFilterEnabled: 0
+    - rid: 8054539811984244742
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 6
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244743
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'Generate a 2D top-down image of a futuristic turret for a minimalistic
+            tower defense game. It should be pixelart 2D topdown view with no third
+            dimension. The image must be 100x100 pixels '
+          - Do not generate a 3D image of a turret. Do not create an image with a
+            medieval or historical design. The turret should not resemble a fantasy
+            setting. Ensure that the image does not depict a circular platform. The
+            background should not be black, and the image should not exceed 100x100
+            pixels
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244744
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 23431
+          - 0
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 0
+          - 
+          - 
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244745
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIUlEQVRIDe3QAQ0AAADCoPdP7ewBESgMGDBgwIABAwY+MAkYAAGvX7w8AAAAAElFTkSuQmCC
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABdklEQVRIDe1UPUvDYBB+TKwpKAFRHJ26u3R18WcEpJOTP0L8EYJrKPgzpItOLoKjk2NRkNIiKkbf561PcqZJUxy1B+Hu3vfe+3juLsCS/jwCK00VHhz3Pq3N5Vna+MbaB1Ypy91TeOejnRT8SDor29bptdnQUdwBsjfgfVI8b60D44epfnOC2vd6UWlQdv76JHMg2prK0aYLPEiKCyeFYYggDGBhnAkgzLNumme6sVv4UfY8+7hOEG+7SN8Utdteeh4+5kFWdWk58Y7XADoJHCdMJMo2WLZ3gcndoc+a9y+jMdkPqgxACzpltnSorNkTBWRfCN3VeX8GBRth7hRZQ8mqRnoTr62AmTJjkmCxE8VpIu0fJfmesMkk2+jKAPGwB3Tc7N97+3xyqNmJCm6LJqvBtGGTRZX4cUw5jspSPeAjVqO9aLkGk5ixpbljKkMFkW65qvj1osmZXzgHl34ThI7yIo7loxIiXZJr8XRmy9fZkv9zBL4A9Ol3H44UmU4AAAAASUVORK5CYII=
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244746
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244747
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244748
+      type: {class: GenerateCountData, ns: Unity.Muse.Sprite.Data, asm: Unity.Muse.Sprite}
+      data:
+        m_Counter: 0
+    - rid: 8054539811984244749
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: 0329582c-a71c-41ed-9872-35ea896f71b0
+        Seed: 56106
+        m_Operators:
+        - rid: 8054539811984244750
+        - rid: 8054539811984244751
+        - rid: 8054539811984244752
+        - rid: 8054539811984244753
+        - rid: 8054539811984244754
+        - rid: 8054539811984244755
+        history:
+        - rid: 8054539811984244749
+        m_UnsafeContent: 0
+    - rid: 8054539811984244750
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 4
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244751
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'create me an image 100x100 pixel 2D top-down asset of a tower that shoots
+            projectiles, tower should be in minimalist and minimalist style '
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244752
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 56106
+          - 0329582c-a71c-41ed-9872-35ea896f71b0
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244753
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244754
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244755
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244756
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: 1a102364-4291-47db-b439-85a7e1b3c533
+        Seed: 14704
+        m_Operators:
+        - rid: 8054539811984244757
+        - rid: 8054539811984244758
+        - rid: 8054539811984244759
+        - rid: 8054539811984244760
+        - rid: 8054539811984244761
+        - rid: 8054539811984244762
+        history:
+        - rid: 8054539811984244756
+        m_UnsafeContent: 0
+    - rid: 8054539811984244757
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 4
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244758
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'create me an image 100x100 pixel 2D top-down asset of a tower that shoots
+            projectiles, tower should be in minimalist and minimalist style '
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244759
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 14704
+          - 1a102364-4291-47db-b439-85a7e1b3c533
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244760
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244761
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244762
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244763
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: 7fd2936b-5461-406e-9854-ecae7032e20b
+        Seed: 42200
+        m_Operators:
+        - rid: 8054539811984244764
+        - rid: 8054539811984244765
+        - rid: 8054539811984244766
+        - rid: 8054539811984244767
+        - rid: 8054539811984244768
+        - rid: 8054539811984244769
+        history:
+        - rid: 8054539811984244763
+        m_UnsafeContent: 0
+    - rid: 8054539811984244764
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 4
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244765
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'create me an image 100x100 pixel 2D top-down asset of a tower that shoots
+            projectiles, tower should be in minimalist and minimalist style '
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244766
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 42200
+          - 7fd2936b-5461-406e-9854-ecae7032e20b
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244767
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244768
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244769
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244770
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: ce6e0f4e-99be-457f-a963-2c87d0b77953
+        Seed: 18251
+        m_Operators:
+        - rid: 8054539811984244771
+        - rid: 8054539811984244772
+        - rid: 8054539811984244773
+        - rid: 8054539811984244774
+        - rid: 8054539811984244775
+        - rid: 8054539811984244776
+        history:
+        - rid: 8054539811984244770
+        m_UnsafeContent: 0
+    - rid: 8054539811984244771
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 4
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244772
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'create me an image 100x100 pixel 2D top-down asset of a tower that shoots
+            projectiles, tower should be in minimalist and minimalist style '
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244773
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 18251
+          - ce6e0f4e-99be-457f-a963-2c87d0b77953
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244774
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244775
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244776
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244777
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: b40a946c-b4ef-413b-b8c6-e8d33290d102
+        Seed: 57458
+        m_Operators:
+        - rid: 8054539811984244778
+        - rid: 8054539811984244779
+        - rid: 8054539811984244780
+        - rid: 8054539811984244781
+        - rid: 8054539811984244782
+        - rid: 8054539811984244783
+        history:
+        - rid: 8054539811984244777
+        m_UnsafeContent: 0
+    - rid: 8054539811984244778
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 4
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244779
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'create me an image 100x100 pixel 2D top-down asset of a turret that
+            shoots projectiles, tower should be in minimalist and futuristic style '
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244780
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 57458
+          - b40a946c-b4ef-413b-b8c6-e8d33290d102
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244781
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIUlEQVRIDe3QAQ0AAADCoPdP7ewBESgMGDBgwIABAwY+MAkYAAGvX7w8AAAAAElFTkSuQmCC
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABdklEQVRIDe1UPUvDYBB+TKwpKAFRHJ26u3R18WcEpJOTP0L8EYJrKPgzpItOLoKjk2NRkNIiKkbf561PcqZJUxy1B+Hu3vfe+3juLsCS/jwCK00VHhz3Pq3N5Vna+MbaB1Ypy91TeOejnRT8SDor29bptdnQUdwBsjfgfVI8b60D44epfnOC2vd6UWlQdv76JHMg2prK0aYLPEiKCyeFYYggDGBhnAkgzLNumme6sVv4UfY8+7hOEG+7SN8Utdteeh4+5kFWdWk58Y7XADoJHCdMJMo2WLZ3gcndoc+a9y+jMdkPqgxACzpltnSorNkTBWRfCN3VeX8GBRth7hRZQ8mqRnoTr62AmTJjkmCxE8VpIu0fJfmesMkk2+jKAPGwB3Tc7N97+3xyqNmJCm6LJqvBtGGTRZX4cUw5jspSPeAjVqO9aLkGk5ixpbljKkMFkW65qvj1osmZXzgHl34ThI7yIo7loxIiXZJr8XRmy9fZkv9zBL4A9Ol3H44UmU4AAAAASUVORK5CYII=
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244782
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244783
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244784
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: 748264fc-fe0c-4a1c-9533-7276aeb18eb3
+        Seed: 24709
+        m_Operators:
+        - rid: 8054539811984244785
+        - rid: 8054539811984244786
+        - rid: 8054539811984244787
+        - rid: 8054539811984244788
+        - rid: 8054539811984244789
+        - rid: 8054539811984244790
+        history:
+        - rid: 8054539811984244784
+        m_UnsafeContent: 0
+    - rid: 8054539811984244785
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 4
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244786
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'create me an image 100x100 pixel 2D top-down asset of a turret that
+            shoots projectiles, tower should be in minimalist and futuristic style '
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244787
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 24709
+          - 748264fc-fe0c-4a1c-9533-7276aeb18eb3
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244788
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIUlEQVRIDe3QAQ0AAADCoPdP7ewBESgMGDBgwIABAwY+MAkYAAGvX7w8AAAAAElFTkSuQmCC
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABdklEQVRIDe1UPUvDYBB+TKwpKAFRHJ26u3R18WcEpJOTP0L8EYJrKPgzpItOLoKjk2NRkNIiKkbf561PcqZJUxy1B+Hu3vfe+3juLsCS/jwCK00VHhz3Pq3N5Vna+MbaB1Ypy91TeOejnRT8SDor29bptdnQUdwBsjfgfVI8b60D44epfnOC2vd6UWlQdv76JHMg2prK0aYLPEiKCyeFYYggDGBhnAkgzLNumme6sVv4UfY8+7hOEG+7SN8Utdteeh4+5kFWdWk58Y7XADoJHCdMJMo2WLZ3gcndoc+a9y+jMdkPqgxACzpltnSorNkTBWRfCN3VeX8GBRth7hRZQ8mqRnoTr62AmTJjkmCxE8VpIu0fJfmesMkk2+jKAPGwB3Tc7N97+3xyqNmJCm6LJqvBtGGTRZX4cUw5jspSPeAjVqO9aLkGk5ixpbljKkMFkW65qvj1osmZXzgHl34ThI7yIo7loxIiXZJr8XRmy9fZkv9zBL4A9Ol3H44UmU4AAAAASUVORK5CYII=
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244789
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244790
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244791
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: d6690ade-75ac-41d1-a33f-06d2ac43a927
+        Seed: 44514
+        m_Operators:
+        - rid: 8054539811984244792
+        - rid: 8054539811984244793
+        - rid: 8054539811984244794
+        - rid: 8054539811984244795
+        - rid: 8054539811984244796
+        - rid: 8054539811984244797
+        history:
+        - rid: 8054539811984244791
+        m_UnsafeContent: 1
+    - rid: 8054539811984244792
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 4
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244793
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'create me an image 100x100 pixel 2D top-down asset of a turret that
+            shoots projectiles, tower should be in minimalist and futuristic style '
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244794
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 44514
+          - d6690ade-75ac-41d1-a33f-06d2ac43a927
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244795
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIUlEQVRIDe3QAQ0AAADCoPdP7ewBESgMGDBgwIABAwY+MAkYAAGvX7w8AAAAAElFTkSuQmCC
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABdklEQVRIDe1UPUvDYBB+TKwpKAFRHJ26u3R18WcEpJOTP0L8EYJrKPgzpItOLoKjk2NRkNIiKkbf561PcqZJUxy1B+Hu3vfe+3juLsCS/jwCK00VHhz3Pq3N5Vna+MbaB1Ypy91TeOejnRT8SDor29bptdnQUdwBsjfgfVI8b60D44epfnOC2vd6UWlQdv76JHMg2prK0aYLPEiKCyeFYYggDGBhnAkgzLNumme6sVv4UfY8+7hOEG+7SN8Utdteeh4+5kFWdWk58Y7XADoJHCdMJMo2WLZ3gcndoc+a9y+jMdkPqgxACzpltnSorNkTBWRfCN3VeX8GBRth7hRZQ8mqRnoTr62AmTJjkmCxE8VpIu0fJfmesMkk2+jKAPGwB3Tc7N97+3xyqNmJCm6LJqvBtGGTRZX4cUw5jspSPeAjVqO9aLkGk5ixpbljKkMFkW65qvj1osmZXzgHl34ThI7yIo7loxIiXZJr8XRmy9fZkv9zBL4A9Ol3H44UmU4AAAAASUVORK5CYII=
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244796
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244797
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244798
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: 58d077bb-08f6-43c0-a657-52bfdf2d658c
+        Seed: 34922
+        m_Operators:
+        - rid: 8054539811984244799
+        - rid: 8054539811984244800
+        - rid: 8054539811984244801
+        - rid: 8054539811984244802
+        - rid: 8054539811984244803
+        - rid: 8054539811984244804
+        history:
+        - rid: 8054539811984244798
+        m_UnsafeContent: 0
+    - rid: 8054539811984244799
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 4
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244800
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'create me an image 100x100 pixel 2D top-down asset of a turret that
+            shoots projectiles, tower should be in minimalist and futuristic style '
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244801
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 34922
+          - 58d077bb-08f6-43c0-a657-52bfdf2d658c
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244802
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIUlEQVRIDe3QAQ0AAADCoPdP7ewBESgMGDBgwIABAwY+MAkYAAGvX7w8AAAAAElFTkSuQmCC
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABdklEQVRIDe1UPUvDYBB+TKwpKAFRHJ26u3R18WcEpJOTP0L8EYJrKPgzpItOLoKjk2NRkNIiKkbf561PcqZJUxy1B+Hu3vfe+3juLsCS/jwCK00VHhz3Pq3N5Vna+MbaB1Ypy91TeOejnRT8SDor29bptdnQUdwBsjfgfVI8b60D44epfnOC2vd6UWlQdv76JHMg2prK0aYLPEiKCyeFYYggDGBhnAkgzLNumme6sVv4UfY8+7hOEG+7SN8Utdteeh4+5kFWdWk58Y7XADoJHCdMJMo2WLZ3gcndoc+a9y+jMdkPqgxACzpltnSorNkTBWRfCN3VeX8GBRth7hRZQ8mqRnoTr62AmTJjkmCxE8VpIu0fJfmesMkk2+jKAPGwB3Tc7N97+3xyqNmJCm6LJqvBtGGTRZX4cUw5jspSPeAjVqO9aLkGk5ixpbljKkMFkW65qvj1osmZXzgHl34ThI7yIo7loxIiXZJr8XRmy9fZkv9zBL4A9Ol3H44UmU4AAAAASUVORK5CYII=
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244803
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244804
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244805
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: f9391f6c-ea02-4b2d-944a-7b932fa0bcc3
+        Seed: 26717
+        m_Operators:
+        - rid: 8054539811984244806
+        - rid: 8054539811984244807
+        - rid: 8054539811984244808
+        - rid: 8054539811984244809
+        - rid: 8054539811984244810
+        - rid: 8054539811984244811
+        history:
+        - rid: 8054539811984244805
+        m_UnsafeContent: 0
+    - rid: 8054539811984244806
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 4
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244807
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'create me an image 100x100 pixel 2D top-down asset of a turret that
+            shoots projectiles, tower should be in minimalist and futuristic style '
+          - 2.5D image
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244808
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 26717
+          - f9391f6c-ea02-4b2d-944a-7b932fa0bcc3
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244809
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIUlEQVRIDe3QAQ0AAADCoPdP7ewBESgMGDBgwIABAwY+MAkYAAGvX7w8AAAAAElFTkSuQmCC
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABdklEQVRIDe1UPUvDYBB+TKwpKAFRHJ26u3R18WcEpJOTP0L8EYJrKPgzpItOLoKjk2NRkNIiKkbf561PcqZJUxy1B+Hu3vfe+3juLsCS/jwCK00VHhz3Pq3N5Vna+MbaB1Ypy91TeOejnRT8SDor29bptdnQUdwBsjfgfVI8b60D44epfnOC2vd6UWlQdv76JHMg2prK0aYLPEiKCyeFYYggDGBhnAkgzLNumme6sVv4UfY8+7hOEG+7SN8Utdteeh4+5kFWdWk58Y7XADoJHCdMJMo2WLZ3gcndoc+a9y+jMdkPqgxACzpltnSorNkTBWRfCN3VeX8GBRth7hRZQ8mqRnoTr62AmTJjkmCxE8VpIu0fJfmesMkk2+jKAPGwB3Tc7N97+3xyqNmJCm6LJqvBtGGTRZX4cUw5jspSPeAjVqO9aLkGk5ixpbljKkMFkW65qvj1osmZXzgHl34ThI7yIo7loxIiXZJr8XRmy9fZkv9zBL4A9Ol3H44UmU4AAAAASUVORK5CYII=
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244810
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244811
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244812
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: 0b40c4d9-90f0-40f6-b6fd-2fc6fd8901a5
+        Seed: 4986
+        m_Operators:
+        - rid: 8054539811984244813
+        - rid: 8054539811984244814
+        - rid: 8054539811984244815
+        - rid: 8054539811984244816
+        - rid: 8054539811984244817
+        - rid: 8054539811984244818
+        history:
+        - rid: 8054539811984244812
+        m_UnsafeContent: 0
+    - rid: 8054539811984244813
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 4
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244814
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'create me an image 100x100 pixel 2D top-down asset of a turret that
+            shoots projectiles, tower should be in minimalist and futuristic style '
+          - 2.5D image
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244815
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 4986
+          - 0b40c4d9-90f0-40f6-b6fd-2fc6fd8901a5
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244816
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIUlEQVRIDe3QAQ0AAADCoPdP7ewBESgMGDBgwIABAwY+MAkYAAGvX7w8AAAAAElFTkSuQmCC
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABdklEQVRIDe1UPUvDYBB+TKwpKAFRHJ26u3R18WcEpJOTP0L8EYJrKPgzpItOLoKjk2NRkNIiKkbf561PcqZJUxy1B+Hu3vfe+3juLsCS/jwCK00VHhz3Pq3N5Vna+MbaB1Ypy91TeOejnRT8SDor29bptdnQUdwBsjfgfVI8b60D44epfnOC2vd6UWlQdv76JHMg2prK0aYLPEiKCyeFYYggDGBhnAkgzLNumme6sVv4UfY8+7hOEG+7SN8Utdteeh4+5kFWdWk58Y7XADoJHCdMJMo2WLZ3gcndoc+a9y+jMdkPqgxACzpltnSorNkTBWRfCN3VeX8GBRth7hRZQ8mqRnoTr62AmTJjkmCxE8VpIu0fJfmesMkk2+jKAPGwB3Tc7N97+3xyqNmJCm6LJqvBtGGTRZX4cUw5jspSPeAjVqO9aLkGk5ixpbljKkMFkW65qvj1osmZXzgHl34ThI7yIo7loxIiXZJr8XRmy9fZkv9zBL4A9Ol3H44UmU4AAAAASUVORK5CYII=
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244817
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244818
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244819
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: 7270fa94-3b3b-4cc8-9555-9e3243dffa54
+        Seed: 35525
+        m_Operators:
+        - rid: 8054539811984244820
+        - rid: 8054539811984244821
+        - rid: 8054539811984244822
+        - rid: 8054539811984244823
+        - rid: 8054539811984244824
+        - rid: 8054539811984244825
+        history:
+        - rid: 8054539811984244819
+        m_UnsafeContent: 0
+    - rid: 8054539811984244820
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 4
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244821
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'create me an image 100x100 pixel 2D top-down asset of a turret that
+            shoots projectiles, tower should be in minimalist and futuristic style '
+          - 2.5D image
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244822
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 35525
+          - 7270fa94-3b3b-4cc8-9555-9e3243dffa54
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244823
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIUlEQVRIDe3QAQ0AAADCoPdP7ewBESgMGDBgwIABAwY+MAkYAAGvX7w8AAAAAElFTkSuQmCC
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABdklEQVRIDe1UPUvDYBB+TKwpKAFRHJ26u3R18WcEpJOTP0L8EYJrKPgzpItOLoKjk2NRkNIiKkbf561PcqZJUxy1B+Hu3vfe+3juLsCS/jwCK00VHhz3Pq3N5Vna+MbaB1Ypy91TeOejnRT8SDor29bptdnQUdwBsjfgfVI8b60D44epfnOC2vd6UWlQdv76JHMg2prK0aYLPEiKCyeFYYggDGBhnAkgzLNumme6sVv4UfY8+7hOEG+7SN8Utdteeh4+5kFWdWk58Y7XADoJHCdMJMo2WLZ3gcndoc+a9y+jMdkPqgxACzpltnSorNkTBWRfCN3VeX8GBRth7hRZQ8mqRnoTr62AmTJjkmCxE8VpIu0fJfmesMkk2+jKAPGwB3Tc7N97+3xyqNmJCm6LJqvBtGGTRZX4cUw5jspSPeAjVqO9aLkGk5ixpbljKkMFkW65qvj1osmZXzgHl34ThI7yIo7loxIiXZJr8XRmy9fZkv9zBL4A9Ol3H44UmU4AAAAASUVORK5CYII=
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244824
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244825
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244826
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: 67b68b79-a6b8-47e8-82b4-bb8fe37fc786
+        Seed: 57512
+        m_Operators:
+        - rid: 8054539811984244827
+        - rid: 8054539811984244828
+        - rid: 8054539811984244829
+        - rid: 8054539811984244830
+        - rid: 8054539811984244831
+        - rid: 8054539811984244832
+        history:
+        - rid: 8054539811984244826
+        m_UnsafeContent: 0
+    - rid: 8054539811984244827
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 4
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244828
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'create me an image 100x100 pixel 2D top-down asset of a turret that
+            shoots projectiles, tower should be in minimalist and futuristic style '
+          - 2.5D image
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244829
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 57512
+          - 67b68b79-a6b8-47e8-82b4-bb8fe37fc786
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244830
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIUlEQVRIDe3QAQ0AAADCoPdP7ewBESgMGDBgwIABAwY+MAkYAAGvX7w8AAAAAElFTkSuQmCC
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABdklEQVRIDe1UPUvDYBB+TKwpKAFRHJ26u3R18WcEpJOTP0L8EYJrKPgzpItOLoKjk2NRkNIiKkbf561PcqZJUxy1B+Hu3vfe+3juLsCS/jwCK00VHhz3Pq3N5Vna+MbaB1Ypy91TeOejnRT8SDor29bptdnQUdwBsjfgfVI8b60D44epfnOC2vd6UWlQdv76JHMg2prK0aYLPEiKCyeFYYggDGBhnAkgzLNumme6sVv4UfY8+7hOEG+7SN8Utdteeh4+5kFWdWk58Y7XADoJHCdMJMo2WLZ3gcndoc+a9y+jMdkPqgxACzpltnSorNkTBWRfCN3VeX8GBRth7hRZQ8mqRnoTr62AmTJjkmCxE8VpIu0fJfmesMkk2+jKAPGwB3Tc7N97+3xyqNmJCm6LJqvBtGGTRZX4cUw5jspSPeAjVqO9aLkGk5ixpbljKkMFkW65qvj1osmZXzgHl34ThI7yIo7loxIiXZJr8XRmy9fZkv9zBL4A9Ol3H44UmU4AAAAASUVORK5CYII=
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244831
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244832
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244833
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: ed2d0b13-6182-4c4d-b6a0-b7f955db86a9
+        Seed: 7501
+        m_Operators:
+        - rid: 8054539811984244834
+        - rid: 8054539811984244835
+        - rid: 8054539811984244836
+        - rid: 8054539811984244837
+        - rid: 8054539811984244838
+        - rid: 8054539811984244839
+        history:
+        - rid: 8054539811984244833
+        m_UnsafeContent: 1
+    - rid: 8054539811984244834
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 4
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244835
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'Generate a 2D top-down image of a futuristic turret for a minimalistic
+            tower defense game. The turret should have a sleek design and be capable
+            of shooting projectiles. It should be placed on a squared platform. The
+            image must be 100x100 pixels '
+          - Do not generate a 3D image of a turret. Do not create an image with a
+            medieval or historical design. The turret should not resemble a fantasy
+            setting. Ensure that the image does not depict a circular platform. The
+            background should not be black, and the image should not exceed 100x100
+            pixels
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244836
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 7501
+          - ed2d0b13-6182-4c4d-b6a0-b7f955db86a9
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244837
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIUlEQVRIDe3QAQ0AAADCoPdP7ewBESgMGDBgwIABAwY+MAkYAAGvX7w8AAAAAElFTkSuQmCC
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABdklEQVRIDe1UPUvDYBB+TKwpKAFRHJ26u3R18WcEpJOTP0L8EYJrKPgzpItOLoKjk2NRkNIiKkbf561PcqZJUxy1B+Hu3vfe+3juLsCS/jwCK00VHhz3Pq3N5Vna+MbaB1Ypy91TeOejnRT8SDor29bptdnQUdwBsjfgfVI8b60D44epfnOC2vd6UWlQdv76JHMg2prK0aYLPEiKCyeFYYggDGBhnAkgzLNumme6sVv4UfY8+7hOEG+7SN8Utdteeh4+5kFWdWk58Y7XADoJHCdMJMo2WLZ3gcndoc+a9y+jMdkPqgxACzpltnSorNkTBWRfCN3VeX8GBRth7hRZQ8mqRnoTr62AmTJjkmCxE8VpIu0fJfmesMkk2+jKAPGwB3Tc7N97+3xyqNmJCm6LJqvBtGGTRZX4cUw5jspSPeAjVqO9aLkGk5ixpbljKkMFkW65qvj1osmZXzgHl34ThI7yIo7loxIiXZJr8XRmy9fZkv9zBL4A9Ol3H44UmU4AAAAASUVORK5CYII=
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244838
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244839
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244840
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: 29e34930-7434-4b9d-bdb8-fbd947f2ca77
+        Seed: 45202
+        m_Operators:
+        - rid: 8054539811984244841
+        - rid: 8054539811984244842
+        - rid: 8054539811984244843
+        - rid: 8054539811984244844
+        - rid: 8054539811984244845
+        - rid: 8054539811984244846
+        history:
+        - rid: 8054539811984244840
+        m_UnsafeContent: 0
+    - rid: 8054539811984244841
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 4
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244842
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'Generate a 2D top-down image of a futuristic turret for a minimalistic
+            tower defense game. The turret should have a sleek design and be capable
+            of shooting projectiles. It should be placed on a squared platform. The
+            image must be 100x100 pixels '
+          - Do not generate a 3D image of a turret. Do not create an image with a
+            medieval or historical design. The turret should not resemble a fantasy
+            setting. Ensure that the image does not depict a circular platform. The
+            background should not be black, and the image should not exceed 100x100
+            pixels
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244843
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 45202
+          - 29e34930-7434-4b9d-bdb8-fbd947f2ca77
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244844
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIUlEQVRIDe3QAQ0AAADCoPdP7ewBESgMGDBgwIABAwY+MAkYAAGvX7w8AAAAAElFTkSuQmCC
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABdklEQVRIDe1UPUvDYBB+TKwpKAFRHJ26u3R18WcEpJOTP0L8EYJrKPgzpItOLoKjk2NRkNIiKkbf561PcqZJUxy1B+Hu3vfe+3juLsCS/jwCK00VHhz3Pq3N5Vna+MbaB1Ypy91TeOejnRT8SDor29bptdnQUdwBsjfgfVI8b60D44epfnOC2vd6UWlQdv76JHMg2prK0aYLPEiKCyeFYYggDGBhnAkgzLNumme6sVv4UfY8+7hOEG+7SN8Utdteeh4+5kFWdWk58Y7XADoJHCdMJMo2WLZ3gcndoc+a9y+jMdkPqgxACzpltnSorNkTBWRfCN3VeX8GBRth7hRZQ8mqRnoTr62AmTJjkmCxE8VpIu0fJfmesMkk2+jKAPGwB3Tc7N97+3xyqNmJCm6LJqvBtGGTRZX4cUw5jspSPeAjVqO9aLkGk5ixpbljKkMFkW65qvj1osmZXzgHl34ThI7yIo7loxIiXZJr8XRmy9fZkv9zBL4A9Ol3H44UmU4AAAAASUVORK5CYII=
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244845
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244846
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244847
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: ae03691b-e852-4273-ad6a-9896407429f1
+        Seed: 62826
+        m_Operators:
+        - rid: 8054539811984244848
+        - rid: 8054539811984244849
+        - rid: 8054539811984244850
+        - rid: 8054539811984244851
+        - rid: 8054539811984244852
+        - rid: 8054539811984244853
+        history:
+        - rid: 8054539811984244847
+        m_UnsafeContent: 0
+    - rid: 8054539811984244848
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 4
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244849
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'Generate a 2D top-down image of a futuristic turret for a minimalistic
+            tower defense game. The turret should have a sleek design and be capable
+            of shooting projectiles. It should be placed on a squared platform. The
+            image must be 100x100 pixels '
+          - Do not generate a 3D image of a turret. Do not create an image with a
+            medieval or historical design. The turret should not resemble a fantasy
+            setting. Ensure that the image does not depict a circular platform. The
+            background should not be black, and the image should not exceed 100x100
+            pixels
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244850
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 62826
+          - ae03691b-e852-4273-ad6a-9896407429f1
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244851
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIUlEQVRIDe3QAQ0AAADCoPdP7ewBESgMGDBgwIABAwY+MAkYAAGvX7w8AAAAAElFTkSuQmCC
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABdklEQVRIDe1UPUvDYBB+TKwpKAFRHJ26u3R18WcEpJOTP0L8EYJrKPgzpItOLoKjk2NRkNIiKkbf561PcqZJUxy1B+Hu3vfe+3juLsCS/jwCK00VHhz3Pq3N5Vna+MbaB1Ypy91TeOejnRT8SDor29bptdnQUdwBsjfgfVI8b60D44epfnOC2vd6UWlQdv76JHMg2prK0aYLPEiKCyeFYYggDGBhnAkgzLNumme6sVv4UfY8+7hOEG+7SN8Utdteeh4+5kFWdWk58Y7XADoJHCdMJMo2WLZ3gcndoc+a9y+jMdkPqgxACzpltnSorNkTBWRfCN3VeX8GBRth7hRZQ8mqRnoTr62AmTJjkmCxE8VpIu0fJfmesMkk2+jKAPGwB3Tc7N97+3xyqNmJCm6LJqvBtGGTRZX4cUw5jspSPeAjVqO9aLkGk5ixpbljKkMFkW65qvj1osmZXzgHl34ThI7yIo7loxIiXZJr8XRmy9fZkv9zBL4A9Ol3H44UmU4AAAAASUVORK5CYII=
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244852
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244853
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244854
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: 33d90c9f-35bf-46e9-80f6-226ec0299df5
+        Seed: 22319
+        m_Operators:
+        - rid: 8054539811984244855
+        - rid: 8054539811984244856
+        - rid: 8054539811984244857
+        - rid: 8054539811984244858
+        - rid: 8054539811984244859
+        - rid: 8054539811984244860
+        history:
+        - rid: 8054539811984244854
+        m_UnsafeContent: 0
+    - rid: 8054539811984244855
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 4
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244856
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'Generate a 2D top-down image of a futuristic turret for a minimalistic
+            tower defense game. The turret should have a sleek design and be capable
+            of shooting projectiles. It should be placed on a squared platform. The
+            image must be 100x100 pixels '
+          - Do not generate a 3D image of a turret. Do not create an image with a
+            medieval or historical design. The turret should not resemble a fantasy
+            setting. Ensure that the image does not depict a circular platform. The
+            background should not be black, and the image should not exceed 100x100
+            pixels
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244857
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 22319
+          - 33d90c9f-35bf-46e9-80f6-226ec0299df5
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244858
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIUlEQVRIDe3QAQ0AAADCoPdP7ewBESgMGDBgwIABAwY+MAkYAAGvX7w8AAAAAElFTkSuQmCC
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABdklEQVRIDe1UPUvDYBB+TKwpKAFRHJ26u3R18WcEpJOTP0L8EYJrKPgzpItOLoKjk2NRkNIiKkbf561PcqZJUxy1B+Hu3vfe+3juLsCS/jwCK00VHhz3Pq3N5Vna+MbaB1Ypy91TeOejnRT8SDor29bptdnQUdwBsjfgfVI8b60D44epfnOC2vd6UWlQdv76JHMg2prK0aYLPEiKCyeFYYggDGBhnAkgzLNumme6sVv4UfY8+7hOEG+7SN8Utdteeh4+5kFWdWk58Y7XADoJHCdMJMo2WLZ3gcndoc+a9y+jMdkPqgxACzpltnSorNkTBWRfCN3VeX8GBRth7hRZQ8mqRnoTr62AmTJjkmCxE8VpIu0fJfmesMkk2+jKAPGwB3Tc7N97+3xyqNmJCm6LJqvBtGGTRZX4cUw5jspSPeAjVqO9aLkGk5ixpbljKkMFkW65qvj1osmZXzgHl34ThI7yIo7loxIiXZJr8XRmy9fZkv9zBL4A9Ol3H44UmU4AAAAASUVORK5CYII=
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244859
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244860
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244861
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: 7666ff2a-119c-4c3c-881a-e77e39085ff7
+        Seed: 45103
+        m_Operators:
+        - rid: 8054539811984244862
+        - rid: 8054539811984244863
+        - rid: 8054539811984244864
+        - rid: 8054539811984244865
+        - rid: 8054539811984244866
+        - rid: 8054539811984244867
+        history:
+        - rid: 8054539811984244861
+        m_UnsafeContent: 0
+    - rid: 8054539811984244862
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 6
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244863
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'Generate a 2D top-down image of a futuristic turret for a minimalistic
+            tower defense game. The turret should have a sleek design and be capable
+            of shooting projectiles. It should be placed on a squared platform. The
+            image must be 100x100 pixels '
+          - Do not generate a 3D image of a turret. Do not create an image with a
+            medieval or historical design. The turret should not resemble a fantasy
+            setting. Ensure that the image does not depict a circular platform. The
+            background should not be black, and the image should not exceed 100x100
+            pixels
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244864
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 45103
+          - 7666ff2a-119c-4c3c-881a-e77e39085ff7
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244865
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIUlEQVRIDe3QAQ0AAADCoPdP7ewBESgMGDBgwIABAwY+MAkYAAGvX7w8AAAAAElFTkSuQmCC
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABdklEQVRIDe1UPUvDYBB+TKwpKAFRHJ26u3R18WcEpJOTP0L8EYJrKPgzpItOLoKjk2NRkNIiKkbf561PcqZJUxy1B+Hu3vfe+3juLsCS/jwCK00VHhz3Pq3N5Vna+MbaB1Ypy91TeOejnRT8SDor29bptdnQUdwBsjfgfVI8b60D44epfnOC2vd6UWlQdv76JHMg2prK0aYLPEiKCyeFYYggDGBhnAkgzLNumme6sVv4UfY8+7hOEG+7SN8Utdteeh4+5kFWdWk58Y7XADoJHCdMJMo2WLZ3gcndoc+a9y+jMdkPqgxACzpltnSorNkTBWRfCN3VeX8GBRth7hRZQ8mqRnoTr62AmTJjkmCxE8VpIu0fJfmesMkk2+jKAPGwB3Tc7N97+3xyqNmJCm6LJqvBtGGTRZX4cUw5jspSPeAjVqO9aLkGk5ixpbljKkMFkW65qvj1osmZXzgHl34ThI7yIo7loxIiXZJr8XRmy9fZkv9zBL4A9Ol3H44UmU4AAAAASUVORK5CYII=
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244866
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244867
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244868
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: 5b8fe411-6e87-492c-80c2-cc87706bb1b0
+        Seed: 33604
+        m_Operators:
+        - rid: 8054539811984244869
+        - rid: 8054539811984244870
+        - rid: 8054539811984244871
+        - rid: 8054539811984244872
+        - rid: 8054539811984244873
+        - rid: 8054539811984244874
+        history:
+        - rid: 8054539811984244868
+        m_UnsafeContent: 1
+    - rid: 8054539811984244869
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 6
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244870
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'Generate a 2D top-down image of a futuristic turret for a minimalistic
+            tower defense game. The turret should have a sleek design and be capable
+            of shooting projectiles. It should be placed on a squared platform. The
+            image must be 100x100 pixels '
+          - Do not generate a 3D image of a turret. Do not create an image with a
+            medieval or historical design. The turret should not resemble a fantasy
+            setting. Ensure that the image does not depict a circular platform. The
+            background should not be black, and the image should not exceed 100x100
+            pixels
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244871
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 33604
+          - 5b8fe411-6e87-492c-80c2-cc87706bb1b0
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244872
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIUlEQVRIDe3QAQ0AAADCoPdP7ewBESgMGDBgwIABAwY+MAkYAAGvX7w8AAAAAElFTkSuQmCC
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABdklEQVRIDe1UPUvDYBB+TKwpKAFRHJ26u3R18WcEpJOTP0L8EYJrKPgzpItOLoKjk2NRkNIiKkbf561PcqZJUxy1B+Hu3vfe+3juLsCS/jwCK00VHhz3Pq3N5Vna+MbaB1Ypy91TeOejnRT8SDor29bptdnQUdwBsjfgfVI8b60D44epfnOC2vd6UWlQdv76JHMg2prK0aYLPEiKCyeFYYggDGBhnAkgzLNumme6sVv4UfY8+7hOEG+7SN8Utdteeh4+5kFWdWk58Y7XADoJHCdMJMo2WLZ3gcndoc+a9y+jMdkPqgxACzpltnSorNkTBWRfCN3VeX8GBRth7hRZQ8mqRnoTr62AmTJjkmCxE8VpIu0fJfmesMkk2+jKAPGwB3Tc7N97+3xyqNmJCm6LJqvBtGGTRZX4cUw5jspSPeAjVqO9aLkGk5ixpbljKkMFkW65qvj1osmZXzgHl34ThI7yIo7loxIiXZJr8XRmy9fZkv9zBL4A9Ol3H44UmU4AAAAASUVORK5CYII=
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244873
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244874
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244875
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: 959feeea-b95b-41fc-8fd3-53a7eafd7458
+        Seed: 19722
+        m_Operators:
+        - rid: 8054539811984244876
+        - rid: 8054539811984244877
+        - rid: 8054539811984244878
+        - rid: 8054539811984244879
+        - rid: 8054539811984244880
+        - rid: 8054539811984244881
+        history:
+        - rid: 8054539811984244875
+        m_UnsafeContent: 0
+    - rid: 8054539811984244876
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 6
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244877
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'Generate a 2D top-down image of a futuristic turret for a minimalistic
+            tower defense game. The turret should have a sleek design and be capable
+            of shooting projectiles. It should be placed on a squared platform. The
+            image must be 100x100 pixels '
+          - Do not generate a 3D image of a turret. Do not create an image with a
+            medieval or historical design. The turret should not resemble a fantasy
+            setting. Ensure that the image does not depict a circular platform. The
+            background should not be black, and the image should not exceed 100x100
+            pixels
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244878
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 19722
+          - 959feeea-b95b-41fc-8fd3-53a7eafd7458
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244879
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIUlEQVRIDe3QAQ0AAADCoPdP7ewBESgMGDBgwIABAwY+MAkYAAGvX7w8AAAAAElFTkSuQmCC
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABdklEQVRIDe1UPUvDYBB+TKwpKAFRHJ26u3R18WcEpJOTP0L8EYJrKPgzpItOLoKjk2NRkNIiKkbf561PcqZJUxy1B+Hu3vfe+3juLsCS/jwCK00VHhz3Pq3N5Vna+MbaB1Ypy91TeOejnRT8SDor29bptdnQUdwBsjfgfVI8b60D44epfnOC2vd6UWlQdv76JHMg2prK0aYLPEiKCyeFYYggDGBhnAkgzLNumme6sVv4UfY8+7hOEG+7SN8Utdteeh4+5kFWdWk58Y7XADoJHCdMJMo2WLZ3gcndoc+a9y+jMdkPqgxACzpltnSorNkTBWRfCN3VeX8GBRth7hRZQ8mqRnoTr62AmTJjkmCxE8VpIu0fJfmesMkk2+jKAPGwB3Tc7N97+3xyqNmJCm6LJqvBtGGTRZX4cUw5jspSPeAjVqO9aLkGk5ixpbljKkMFkW65qvj1osmZXzgHl34ThI7yIo7loxIiXZJr8XRmy9fZkv9zBL4A9Ol3H44UmU4AAAAASUVORK5CYII=
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244880
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244881
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244882
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: 6f595097-b4f6-49cb-8e0c-55ebac17aa12
+        Seed: 27925
+        m_Operators:
+        - rid: 8054539811984244883
+        - rid: 8054539811984244884
+        - rid: 8054539811984244885
+        - rid: 8054539811984244886
+        - rid: 8054539811984244887
+        - rid: 8054539811984244888
+        history:
+        - rid: 8054539811984244882
+        m_UnsafeContent: 0
+    - rid: 8054539811984244883
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 6
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244884
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'Generate a 2D top-down image of a futuristic turret for a minimalistic
+            tower defense game. The turret should have a sleek design and be capable
+            of shooting projectiles. It should be placed on a squared platform. The
+            image must be 100x100 pixels '
+          - Do not generate a 3D image of a turret. Do not create an image with a
+            medieval or historical design. The turret should not resemble a fantasy
+            setting. Ensure that the image does not depict a circular platform. The
+            background should not be black, and the image should not exceed 100x100
+            pixels
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244885
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 27925
+          - 6f595097-b4f6-49cb-8e0c-55ebac17aa12
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244886
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIUlEQVRIDe3QAQ0AAADCoPdP7ewBESgMGDBgwIABAwY+MAkYAAGvX7w8AAAAAElFTkSuQmCC
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABdklEQVRIDe1UPUvDYBB+TKwpKAFRHJ26u3R18WcEpJOTP0L8EYJrKPgzpItOLoKjk2NRkNIiKkbf561PcqZJUxy1B+Hu3vfe+3juLsCS/jwCK00VHhz3Pq3N5Vna+MbaB1Ypy91TeOejnRT8SDor29bptdnQUdwBsjfgfVI8b60D44epfnOC2vd6UWlQdv76JHMg2prK0aYLPEiKCyeFYYggDGBhnAkgzLNumme6sVv4UfY8+7hOEG+7SN8Utdteeh4+5kFWdWk58Y7XADoJHCdMJMo2WLZ3gcndoc+a9y+jMdkPqgxACzpltnSorNkTBWRfCN3VeX8GBRth7hRZQ8mqRnoTr62AmTJjkmCxE8VpIu0fJfmesMkk2+jKAPGwB3Tc7N97+3xyqNmJCm6LJqvBtGGTRZX4cUw5jspSPeAjVqO9aLkGk5ixpbljKkMFkW65qvj1osmZXzgHl34ThI7yIo7loxIiXZJr8XRmy9fZkv9zBL4A9Ol3H44UmU4AAAAASUVORK5CYII=
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244887
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244888
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244889
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: d3dd212f-0105-41d8-a3aa-764184b6dc32
+        Seed: 3901
+        m_Operators:
+        - rid: 8054539811984244890
+        - rid: 8054539811984244891
+        - rid: 8054539811984244892
+        - rid: 8054539811984244893
+        - rid: 8054539811984244894
+        - rid: 8054539811984244895
+        history:
+        - rid: 8054539811984244889
+        m_UnsafeContent: 0
+    - rid: 8054539811984244890
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 6
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244891
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'Generate a 2D top-down image of a futuristic turret for a minimalistic
+            tower defense game. The turret should have a sleek design and be capable
+            of shooting projectiles. It should be placed on a squared platform. The
+            image must be 100x100 pixels '
+          - Do not generate a 3D image of a turret. Do not create an image with a
+            medieval or historical design. The turret should not resemble a fantasy
+            setting. Ensure that the image does not depict a circular platform. The
+            background should not be black, and the image should not exceed 100x100
+            pixels
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244892
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 3901
+          - d3dd212f-0105-41d8-a3aa-764184b6dc32
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244893
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIUlEQVRIDe3QAQ0AAADCoPdP7ewBESgMGDBgwIABAwY+MAkYAAGvX7w8AAAAAElFTkSuQmCC
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABdklEQVRIDe1UPUvDYBB+TKwpKAFRHJ26u3R18WcEpJOTP0L8EYJrKPgzpItOLoKjk2NRkNIiKkbf561PcqZJUxy1B+Hu3vfe+3juLsCS/jwCK00VHhz3Pq3N5Vna+MbaB1Ypy91TeOejnRT8SDor29bptdnQUdwBsjfgfVI8b60D44epfnOC2vd6UWlQdv76JHMg2prK0aYLPEiKCyeFYYggDGBhnAkgzLNumme6sVv4UfY8+7hOEG+7SN8Utdteeh4+5kFWdWk58Y7XADoJHCdMJMo2WLZ3gcndoc+a9y+jMdkPqgxACzpltnSorNkTBWRfCN3VeX8GBRth7hRZQ8mqRnoTr62AmTJjkmCxE8VpIu0fJfmesMkk2+jKAPGwB3Tc7N97+3xyqNmJCm6LJqvBtGGTRZX4cUw5jspSPeAjVqO9aLkGk5ixpbljKkMFkW65qvj1osmZXzgHl34ThI7yIo7loxIiXZJr8XRmy9fZkv9zBL4A9Ol3H44UmU4AAAAASUVORK5CYII=
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244894
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244895
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244896
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: fbcae2a3-5a6f-4c85-be7a-6caebb22212d
+        Seed: 7223
+        m_Operators:
+        - rid: 8054539811984244897
+        - rid: 8054539811984244898
+        - rid: 8054539811984244899
+        - rid: 8054539811984244900
+        - rid: 8054539811984244901
+        - rid: 8054539811984244902
+        history:
+        - rid: 8054539811984244896
+        m_UnsafeContent: 0
+    - rid: 8054539811984244897
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 6
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244898
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'Generate a 2D top-down image of a futuristic turret for a minimalistic
+            tower defense game. The turret should have a sleek design and be capable
+            of shooting projectiles. It should be placed on a squared platform. The
+            image must be 100x100 pixels '
+          - Do not generate a 3D image of a turret. Do not create an image with a
+            medieval or historical design. The turret should not resemble a fantasy
+            setting. Ensure that the image does not depict a circular platform. The
+            background should not be black, and the image should not exceed 100x100
+            pixels
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244899
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 7223
+          - fbcae2a3-5a6f-4c85-be7a-6caebb22212d
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244900
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIUlEQVRIDe3QAQ0AAADCoPdP7ewBESgMGDBgwIABAwY+MAkYAAGvX7w8AAAAAElFTkSuQmCC
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABdklEQVRIDe1UPUvDYBB+TKwpKAFRHJ26u3R18WcEpJOTP0L8EYJrKPgzpItOLoKjk2NRkNIiKkbf561PcqZJUxy1B+Hu3vfe+3juLsCS/jwCK00VHhz3Pq3N5Vna+MbaB1Ypy91TeOejnRT8SDor29bptdnQUdwBsjfgfVI8b60D44epfnOC2vd6UWlQdv76JHMg2prK0aYLPEiKCyeFYYggDGBhnAkgzLNumme6sVv4UfY8+7hOEG+7SN8Utdteeh4+5kFWdWk58Y7XADoJHCdMJMo2WLZ3gcndoc+a9y+jMdkPqgxACzpltnSorNkTBWRfCN3VeX8GBRth7hRZQ8mqRnoTr62AmTJjkmCxE8VpIu0fJfmesMkk2+jKAPGwB3Tc7N97+3xyqNmJCm6LJqvBtGGTRZX4cUw5jspSPeAjVqO9aLkGk5ixpbljKkMFkW65qvj1osmZXzgHl34ThI7yIo7loxIiXZJr8XRmy9fZkv9zBL4A9Ol3H44UmU4AAAAASUVORK5CYII=
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244901
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244902
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244903
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: be31b667-0c32-4b79-8bdc-b9a55a62492e
+        Seed: 26494
+        m_Operators:
+        - rid: 8054539811984244904
+        - rid: 8054539811984244905
+        - rid: 8054539811984244906
+        - rid: 8054539811984244907
+        - rid: 8054539811984244908
+        - rid: 8054539811984244909
+        history:
+        - rid: 8054539811984244903
+        m_UnsafeContent: 0
+    - rid: 8054539811984244904
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 6
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244905
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'Generate a 2D top-down image of a futuristic turret for a minimalistic
+            tower defense game. It should be pixelart 2D topdown view with no third
+            dimension. The image must be 100x100 pixels '
+          - Do not generate a 3D image of a turret. Do not create an image with a
+            medieval or historical design. The turret should not resemble a fantasy
+            setting. Ensure that the image does not depict a circular platform. The
+            background should not be black, and the image should not exceed 100x100
+            pixels
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244906
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 26494
+          - be31b667-0c32-4b79-8bdc-b9a55a62492e
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244907
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIUlEQVRIDe3QAQ0AAADCoPdP7ewBESgMGDBgwIABAwY+MAkYAAGvX7w8AAAAAElFTkSuQmCC
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABdklEQVRIDe1UPUvDYBB+TKwpKAFRHJ26u3R18WcEpJOTP0L8EYJrKPgzpItOLoKjk2NRkNIiKkbf561PcqZJUxy1B+Hu3vfe+3juLsCS/jwCK00VHhz3Pq3N5Vna+MbaB1Ypy91TeOejnRT8SDor29bptdnQUdwBsjfgfVI8b60D44epfnOC2vd6UWlQdv76JHMg2prK0aYLPEiKCyeFYYggDGBhnAkgzLNumme6sVv4UfY8+7hOEG+7SN8Utdteeh4+5kFWdWk58Y7XADoJHCdMJMo2WLZ3gcndoc+a9y+jMdkPqgxACzpltnSorNkTBWRfCN3VeX8GBRth7hRZQ8mqRnoTr62AmTJjkmCxE8VpIu0fJfmesMkk2+jKAPGwB3Tc7N97+3xyqNmJCm6LJqvBtGGTRZX4cUw5jspSPeAjVqO9aLkGk5ixpbljKkMFkW65qvj1osmZXzgHl34ThI7yIo7loxIiXZJr8XRmy9fZkv9zBL4A9Ol3H44UmU4AAAAASUVORK5CYII=
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244908
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244909
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244910
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: c12257ff-b724-4a15-afd1-9e78e5bc6689
+        Seed: 65308
+        m_Operators:
+        - rid: 8054539811984244911
+        - rid: 8054539811984244912
+        - rid: 8054539811984244913
+        - rid: 8054539811984244914
+        - rid: 8054539811984244915
+        - rid: 8054539811984244916
+        history:
+        - rid: 8054539811984244910
+        m_UnsafeContent: 0
+    - rid: 8054539811984244911
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 6
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244912
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'Generate a 2D top-down image of a futuristic turret for a minimalistic
+            tower defense game. It should be pixelart 2D topdown view with no third
+            dimension. The image must be 100x100 pixels '
+          - Do not generate a 3D image of a turret. Do not create an image with a
+            medieval or historical design. The turret should not resemble a fantasy
+            setting. Ensure that the image does not depict a circular platform. The
+            background should not be black, and the image should not exceed 100x100
+            pixels
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244913
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 65308
+          - c12257ff-b724-4a15-afd1-9e78e5bc6689
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244914
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIUlEQVRIDe3QAQ0AAADCoPdP7ewBESgMGDBgwIABAwY+MAkYAAGvX7w8AAAAAElFTkSuQmCC
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABdklEQVRIDe1UPUvDYBB+TKwpKAFRHJ26u3R18WcEpJOTP0L8EYJrKPgzpItOLoKjk2NRkNIiKkbf561PcqZJUxy1B+Hu3vfe+3juLsCS/jwCK00VHhz3Pq3N5Vna+MbaB1Ypy91TeOejnRT8SDor29bptdnQUdwBsjfgfVI8b60D44epfnOC2vd6UWlQdv76JHMg2prK0aYLPEiKCyeFYYggDGBhnAkgzLNumme6sVv4UfY8+7hOEG+7SN8Utdteeh4+5kFWdWk58Y7XADoJHCdMJMo2WLZ3gcndoc+a9y+jMdkPqgxACzpltnSorNkTBWRfCN3VeX8GBRth7hRZQ8mqRnoTr62AmTJjkmCxE8VpIu0fJfmesMkk2+jKAPGwB3Tc7N97+3xyqNmJCm6LJqvBtGGTRZX4cUw5jspSPeAjVqO9aLkGk5ixpbljKkMFkW65qvj1osmZXzgHl34ThI7yIo7loxIiXZJr8XRmy9fZkv9zBL4A9Ol3H44UmU4AAAAASUVORK5CYII=
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244915
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244916
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244917
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: 326d3f1c-1ab5-4454-b7ee-b4108eda3e82
+        Seed: 25425
+        m_Operators:
+        - rid: 8054539811984244918
+        - rid: 8054539811984244919
+        - rid: 8054539811984244920
+        - rid: 8054539811984244921
+        - rid: 8054539811984244922
+        - rid: 8054539811984244923
+        history:
+        - rid: 8054539811984244917
+        m_UnsafeContent: 0
+    - rid: 8054539811984244918
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 6
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244919
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'Generate a 2D top-down image of a futuristic turret for a minimalistic
+            tower defense game. It should be pixelart 2D topdown view with no third
+            dimension. The image must be 100x100 pixels '
+          - Do not generate a 3D image of a turret. Do not create an image with a
+            medieval or historical design. The turret should not resemble a fantasy
+            setting. Ensure that the image does not depict a circular platform. The
+            background should not be black, and the image should not exceed 100x100
+            pixels
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244920
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 25425
+          - 326d3f1c-1ab5-4454-b7ee-b4108eda3e82
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244921
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIUlEQVRIDe3QAQ0AAADCoPdP7ewBESgMGDBgwIABAwY+MAkYAAGvX7w8AAAAAElFTkSuQmCC
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABdklEQVRIDe1UPUvDYBB+TKwpKAFRHJ26u3R18WcEpJOTP0L8EYJrKPgzpItOLoKjk2NRkNIiKkbf561PcqZJUxy1B+Hu3vfe+3juLsCS/jwCK00VHhz3Pq3N5Vna+MbaB1Ypy91TeOejnRT8SDor29bptdnQUdwBsjfgfVI8b60D44epfnOC2vd6UWlQdv76JHMg2prK0aYLPEiKCyeFYYggDGBhnAkgzLNumme6sVv4UfY8+7hOEG+7SN8Utdteeh4+5kFWdWk58Y7XADoJHCdMJMo2WLZ3gcndoc+a9y+jMdkPqgxACzpltnSorNkTBWRfCN3VeX8GBRth7hRZQ8mqRnoTr62AmTJjkmCxE8VpIu0fJfmesMkk2+jKAPGwB3Tc7N97+3xyqNmJCm6LJqvBtGGTRZX4cUw5jspSPeAjVqO9aLkGk5ixpbljKkMFkW65qvj1osmZXzgHl34ThI7yIo7loxIiXZJr8XRmy9fZkv9zBL4A9Ol3H44UmU4AAAAASUVORK5CYII=
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244922
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244923
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244924
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: 44ab9167-ad35-4a83-b085-bb3cda76c0fb
+        Seed: 51543
+        m_Operators:
+        - rid: 8054539811984244925
+        - rid: 8054539811984244926
+        - rid: 8054539811984244927
+        - rid: 8054539811984244928
+        - rid: 8054539811984244929
+        - rid: 8054539811984244930
+        history:
+        - rid: 8054539811984244924
+        m_UnsafeContent: 0
+    - rid: 8054539811984244925
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 6
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244926
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'Generate a 2D top-down image of a futuristic turret for a minimalistic
+            tower defense game. It should be pixelart 2D topdown view with no third
+            dimension. The image must be 100x100 pixels '
+          - Do not generate a 3D image of a turret. Do not create an image with a
+            medieval or historical design. The turret should not resemble a fantasy
+            setting. Ensure that the image does not depict a circular platform. The
+            background should not be black, and the image should not exceed 100x100
+            pixels
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244927
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 51543
+          - 44ab9167-ad35-4a83-b085-bb3cda76c0fb
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244928
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIUlEQVRIDe3QAQ0AAADCoPdP7ewBESgMGDBgwIABAwY+MAkYAAGvX7w8AAAAAElFTkSuQmCC
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABdklEQVRIDe1UPUvDYBB+TKwpKAFRHJ26u3R18WcEpJOTP0L8EYJrKPgzpItOLoKjk2NRkNIiKkbf561PcqZJUxy1B+Hu3vfe+3juLsCS/jwCK00VHhz3Pq3N5Vna+MbaB1Ypy91TeOejnRT8SDor29bptdnQUdwBsjfgfVI8b60D44epfnOC2vd6UWlQdv76JHMg2prK0aYLPEiKCyeFYYggDGBhnAkgzLNumme6sVv4UfY8+7hOEG+7SN8Utdteeh4+5kFWdWk58Y7XADoJHCdMJMo2WLZ3gcndoc+a9y+jMdkPqgxACzpltnSorNkTBWRfCN3VeX8GBRth7hRZQ8mqRnoTr62AmTJjkmCxE8VpIu0fJfmesMkk2+jKAPGwB3Tc7N97+3xyqNmJCm6LJqvBtGGTRZX4cUw5jspSPeAjVqO9aLkGk5ixpbljKkMFkW65qvj1osmZXzgHl34ThI7yIo7loxIiXZJr8XRmy9fZkv9zBL4A9Ol3H44UmU4AAAAASUVORK5CYII=
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244929
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244930
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244931
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: b7822f2f-97e9-4a8e-8e6e-2951d832e5d8
+        Seed: 62792
+        m_Operators:
+        - rid: 8054539811984244932
+        - rid: 8054539811984244933
+        - rid: 8054539811984244934
+        - rid: 8054539811984244935
+        - rid: 8054539811984244936
+        - rid: 8054539811984244937
+        history:
+        - rid: 8054539811984244931
+        m_UnsafeContent: 0
+    - rid: 8054539811984244932
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 6
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244933
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'Generate a 2D top-down image of a futuristic turret for a minimalistic
+            tower defense game. It should be pixelart 2D topdown view with no third
+            dimension. The image must be 100x100 pixels '
+          - Do not generate a 3D image of a turret. Do not create an image with a
+            medieval or historical design. The turret should not resemble a fantasy
+            setting. Ensure that the image does not depict a circular platform. The
+            background should not be black, and the image should not exceed 100x100
+            pixels
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244934
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 62792
+          - b7822f2f-97e9-4a8e-8e6e-2951d832e5d8
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244935
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIUlEQVRIDe3QAQ0AAADCoPdP7ewBESgMGDBgwIABAwY+MAkYAAGvX7w8AAAAAElFTkSuQmCC
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABdklEQVRIDe1UPUvDYBB+TKwpKAFRHJ26u3R18WcEpJOTP0L8EYJrKPgzpItOLoKjk2NRkNIiKkbf561PcqZJUxy1B+Hu3vfe+3juLsCS/jwCK00VHhz3Pq3N5Vna+MbaB1Ypy91TeOejnRT8SDor29bptdnQUdwBsjfgfVI8b60D44epfnOC2vd6UWlQdv76JHMg2prK0aYLPEiKCyeFYYggDGBhnAkgzLNumme6sVv4UfY8+7hOEG+7SN8Utdteeh4+5kFWdWk58Y7XADoJHCdMJMo2WLZ3gcndoc+a9y+jMdkPqgxACzpltnSorNkTBWRfCN3VeX8GBRth7hRZQ8mqRnoTr62AmTJjkmCxE8VpIu0fJfmesMkk2+jKAPGwB3Tc7N97+3xyqNmJCm6LJqvBtGGTRZX4cUw5jspSPeAjVqO9aLkGk5ixpbljKkMFkW65qvj1osmZXzgHl34ThI7yIo7loxIiXZJr8XRmy9fZkv9zBL4A9Ol3H44UmU4AAAAASUVORK5CYII=
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244936
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244937
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244938
+      type: {class: SpriteMuseArtifact, ns: Unity.Muse.Sprite.Artifacts, asm: Unity.Muse.Sprite}
+      data:
+        Guid: 4c6b3c29-5185-4398-a723-47226a9a28f2
+        Seed: 62382
+        m_Operators:
+        - rid: 8054539811984244939
+        - rid: 8054539811984244940
+        - rid: 8054539811984244941
+        - rid: 8054539811984244942
+        - rid: 8054539811984244943
+        - rid: 8054539811984244944
+        history:
+        - rid: 8054539811984244938
+        m_UnsafeContent: 0
+    - rid: 8054539811984244939
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToSprite
+          - 6
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244940
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - 'Generate a 2D top-down image of a futuristic turret for a minimalistic
+            tower defense game. It should be pixelart 2D topdown view with no third
+            dimension. The image must be 100x100 pixels '
+          - Do not generate a 3D image of a turret. Do not create an image with a
+            medieval or historical design. The turret should not resemble a fantasy
+            setting. Ensure that the image does not depict a circular platform. The
+            background should not be black, and the image should not exceed 100x100
+            pixels
+          enabled: 1
+          assembly: 
+    - rid: 8054539811984244941
+      type: {class: SpriteGeneratorSettingsOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SpriteGeneratorSettingsOperator
+          version: 0.0.1
+          settings:
+          - 
+          - 
+          - 0.85
+          - 512
+          - 512
+          - 1
+          - 1
+          - 62382
+          - 4c6b3c29-5185-4398-a723-47226a9a28f2
+          - 0
+          - 5cc104e0-423a-473e-8034-b9d346cb2357
+          - 0
+          - 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          - Happy Harvest [Orion V4 2000]
+          - 8 Nov 2023
+          - 
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244942
+      type: {class: KeyImageOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.KeyImageOperator
+          version: 0.0.1
+          settings:
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIUlEQVRIDe3QAQ0AAADCoPdP7ewBESgMGDBgwIABAwY+MAkYAAGvX7w8AAAAAElFTkSuQmCC
+          - iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABdklEQVRIDe1UPUvDYBB+TKwpKAFRHJ26u3R18WcEpJOTP0L8EYJrKPgzpItOLoKjk2NRkNIiKkbf561PcqZJUxy1B+Hu3vfe+3juLsCS/jwCK00VHhz3Pq3N5Vna+MbaB1Ypy91TeOejnRT8SDor29bptdnQUdwBsjfgfVI8b60D44epfnOC2vd6UWlQdv76JHMg2prK0aYLPEiKCyeFYYggDGBhnAkgzLNumme6sVv4UfY8+7hOEG+7SN8Utdteeh4+5kFWdWk58Y7XADoJHCdMJMo2WLZ3gcndoc+a9y+jMdkPqgxACzpltnSorNkTBWRfCN3VeX8GBRth7hRZQ8mqRnoTr62AmTJjkmCxE8VpIu0fJfmesMkk2+jKAPGwB3Tc7N97+3xyqNmJCm6LJqvBtGGTRZX4cUw5jspSPeAjVqO9aLkGk5ixpbljKkMFkW65qvj1osmZXzgHl34ThI7yIo7loxIiXZJr8XRmy9fZkv9zBL4A9Ol3H44UmU4AAAAASUVORK5CYII=
+          - True
+          - 512
+          - 512
+          - 0.5
+          enabled: 1
+          assembly: Unity.Muse.Sprite
+    - rid: 8054539811984244943
+      type: {class: SpriteRefiningMaskOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data: 
+    - rid: 8054539811984244944
+      type: {class: SessionOperator, ns: Unity.Muse.Sprite.Operators, asm: Unity.Muse.Sprite}
+      data:
+        m_OperatorData:
+          type: Unity.Muse.Sprite.Operators.SessionOperator
+          version: 0.0.1
+          settings:
+          - b49e1ce3-e8ae-4dfd-b3c2-c6e241061033
+          enabled: 0
+          assembly: Unity.Muse.Sprite

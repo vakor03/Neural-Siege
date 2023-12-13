@@ -12,6 +12,7 @@ namespace _Project.Scripts.Core
 
         private void Awake()
         {
+            parent.gameObject.SetActive(true);
             mainMenuButton.onClick.AddListener(GoToMainMenu);
             resumeButton.onClick.AddListener(ResumeGame);
             restartButton.onClick.AddListener(Restart);
