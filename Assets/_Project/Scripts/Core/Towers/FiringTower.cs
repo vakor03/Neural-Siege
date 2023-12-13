@@ -1,6 +1,5 @@
 ﻿using _Project.Scripts.Core.Effects;
 using _Project.Scripts.Core.Towers.TowerStats;
-using _Project.Scripts.Core.Towers.TowerUpgrades;
 using KBCore.Refs;
 using UnityEngine;
 
@@ -71,7 +70,7 @@ namespace _Project.Scripts.Core.Towers
             float range = TowerStatsController.CurrentStats.Range;
             float coneAngle = TowerStatsController.CurrentStats.ConeAngle;
             PoisonEffectStats poisonEffectStats = TowerStatsController.CurrentStats.PoisonEffectStats;
-
+            
             int enemyLayerMask = _enemiesController.EnemyLayerMask;
             var enemiesInRange =
                 Physics2D.OverlapCircleNonAlloc(transform.position, range, _results, enemyLayerMask);

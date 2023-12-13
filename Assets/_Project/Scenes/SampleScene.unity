@@ -1168,8 +1168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 656fcef67ed3416fbebeea6ba17de7a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 1
+  spawnRate: 2
   spawnPoint: {fileID: 1314479307}
+  waypointsHolder: {fileID: 1317776338}
   testWave: {fileID: 11400000, guid: d70ad571bb7cba14c85fd68cfeaca1ae, type: 2}
 --- !u!4 &1352113535
 Transform:

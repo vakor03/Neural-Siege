@@ -8,17 +8,18 @@ namespace _Project.Scripts.Core
 {
     public class Enemy : MonoBehaviour, IHaveHealth
     {
-        [SerializeField, Self] private WaypointsMover waypointsMover;
+        [SerializeField, Self] protected WaypointsMover waypointsMover;
         [SerializeField] private EnemyStats defaultStats;
-
-        private EnemyEffectsSystem _enemyEffectsSystem;
+        
+        protected EnemyEffectsSystem EnemyEffectsSystem;
         private float _currentHealth;
         private PlayerBase _playerBase;
 
-        public float MaxHealth => _enemyEffectsSystem.CurrentStats.maxHealth;
+        public float MaxHealth => EnemyEffectsSystem.CurrentStats.maxHealth;
         private float _maxHealth;
 
         public float CurrentHealth => _currentHealth;
+        public WaypointsMover WaypointsMover => waypointsMover;
 
         public event Action OnHealthChanged;
         public event Action OnDeath;
@@ -33,21 +34,26 @@ namespace _Project.Scripts.Core
             waypointsMover.Initialize(waypointsHolder);
         }
 
-        private void Awake()
+        protected virtual void Awake()
         {
-            _enemyEffectsSystem = new EnemyEffectsSystem(defaultStats, this);
-            _enemyEffectsSystem.OnStatsChanged += RecalculateStats;
+            EnemyEffectsSystem = new EnemyEffectsSystem(defaultStats, this);
+            EnemyEffectsSystem.OnStatsChanged += RecalculateStats;
             RecalculateStats();
             _currentHealth = _maxHealth;
         }
 
-        private void RecalculateStats()
+        protected virtual void Update()
         {
-            waypointsMover.SetSpeed(_enemyEffectsSystem.CurrentStats.speed);
-            _maxHealth = _enemyEffectsSystem.CurrentStats.maxHealth;
+            EnemyEffectsSystem.Update();
         }
 
-        private void Start()
+        private void RecalculateStats()
+        {
+            waypointsMover.SetSpeed(EnemyEffectsSystem.CurrentStats.speed);
+            _maxHealth = EnemyEffectsSystem.CurrentStats.maxHealth;
+        }
+
+        protected virtual void Start()
         {
             _playerBase = PlayerBase.Instance;
             waypointsMover.OnPathCompleted += OnPathCompleted;
@@ -77,18 +83,18 @@ namespace _Project.Scripts.Core
 
         public void ApplyEffect(Effect effect)
         {
-            _enemyEffectsSystem.ApplyEffect(effect);
+            EnemyEffectsSystem.ApplyEffect(effect);
         }
 
         public void RemoveEffect(Effect effect)
         {
-            _enemyEffectsSystem.RemoveEffect(effect);
+            EnemyEffectsSystem.RemoveEffect(effect);
         }
 
         private void OnDestroy()
         {
-            _enemyEffectsSystem.OnStatsChanged -= RecalculateStats;
-            _enemyEffectsSystem.Dispose();
+            EnemyEffectsSystem.OnStatsChanged -= RecalculateStats;
+            EnemyEffectsSystem.Dispose();
         }
     }
 }

@@ -5,8 +5,9 @@ namespace _Project.Scripts.Core.WaypointSystem
 {
     public class WaypointsMover : MonoBehaviour
     {
-        private WaypointsHolder _waypointsHolder;
-        
+        public WaypointsHolder WaypointsHolder { get; private set; }
+        public int CurrentWaypointIndex => _currentWaypointIndex;
+
         private float _speed;
         public Action OnPathCompleted;
         private Transform[] _waypoints;
@@ -20,7 +21,7 @@ namespace _Project.Scripts.Core.WaypointSystem
 
         public void Initialize(WaypointsHolder waypointsHolder)
         {
-            this._waypointsHolder = waypointsHolder;
+            this.WaypointsHolder = waypointsHolder;
             _waypoints = waypointsHolder.GetWaypoints();
             _currentWaypointIndex = 0;
         }
@@ -43,6 +44,11 @@ namespace _Project.Scripts.Core.WaypointSystem
                     OnPathCompleted?.Invoke();
                 }
             }
+        }
+
+        public void SetWaypointIndex(int waypointIndex)
+        {
+            _currentWaypointIndex = waypointIndex;
         }
     }
 }

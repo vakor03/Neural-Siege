@@ -13,8 +13,4 @@ MonoBehaviour:
   m_Name: EnemyWave
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 2616941242310268877, guid: 347a78ded8c754445bb927c992e2cf04, type: 3}
-  - {fileID: 2616941242310268877, guid: 347a78ded8c754445bb927c992e2cf04, type: 3}
-  - {fileID: 2616941242310268877, guid: 347a78ded8c754445bb927c992e2cf04, type: 3}
-  - {fileID: 2616941242310268877, guid: 347a78ded8c754445bb927c992e2cf04, type: 3}
-  - {fileID: 2616941242310268877, guid: 347a78ded8c754445bb927c992e2cf04, type: 3}
+  - {fileID: 3918958376612507874, guid: 0879fcb2209c99743acfe3bdf5f65bba, type: 3}

@@ -16,5 +16,5 @@ MonoBehaviour:
   fireRate: 1
   coneAngle: 40
   poisonEffectStats:
-    damagePerSecond: 1
+    damagePerSecond: 5
     duration: 0.5
