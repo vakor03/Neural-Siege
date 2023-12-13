@@ -8,5 +8,7 @@ namespace _Project.Scripts.Core.GridSystem
         public PlacingObjectVisuals visuals;
         public GameObject tower;
         public Vector2Int size = Vector2Int.one;
+        public int price = 10;
+        public Sprite icon;
     }
 }

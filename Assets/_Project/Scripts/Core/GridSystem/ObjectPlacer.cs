@@ -1,22 +1,42 @@
-﻿using _Project.Scripts.Core.Towers;
-using _Project.Scripts.Extensions;
+﻿using _Project.Scripts.Extensions;
 using UnityEngine;
 
 namespace _Project.Scripts.Core.GridSystem
 {
     public class ObjectPlacer : MonoBehaviour
     {
-        [SerializeField] private PlacingObjectSO placingObjectSO;
-
+        public static ObjectPlacer Instance { get; private set; }
         private Grid<Tile> _grid;
         private bool _isPlacingObject;
         private PlacingObjectVisuals _currentVisuals;
         private Transform _placingTransform;
 
+        private void Awake()
+        {
+            Instance = this;
+        }
+
         public void Initialize(Grid<Tile> grid, Transform placingTransform)
         {
             _grid = grid;
             _placingTransform = placingTransform;
+        }
+
+        private PlacingObjectSO _activePlacingObject;
+
+        public void SetPlacingObject(PlacingObjectSO placingObjectSO)
+        {
+            if (_isPlacingObject)
+            {
+                Destroy(_currentVisuals.gameObject);
+                _currentVisuals = null;
+                _isPlacingObject = false;
+            }
+
+            _activePlacingObject = placingObjectSO;
+            _currentVisuals = Instantiate(placingObjectSO.visuals,
+                Utils.GetMouseToWorldPosition(), Quaternion.identity);
+            _isPlacingObject = true;
         }
 
         private void OnDisable()
@@ -34,12 +54,13 @@ namespace _Project.Scripts.Core.GridSystem
             //TODO: Refactor this
             if (Input.GetMouseButtonDown(0) && _isPlacingObject)
             {
-                bool isValid = ValidateGridPosition(placingObjectSO,
+                bool isValid = ValidateGridPosition(_activePlacingObject,
                     _currentVisuals.BottomLeftPoint.transform.position);
 
-                if (isValid)
+                if (isValid && Shop.Instance.MoneyAmount >= _activePlacingObject.price)
                 {
-                    PlaceObjectOnGrid(placingObjectSO, 
+                    Shop.Instance.SpendMoney(_activePlacingObject.price);
+                    PlaceObjectOnGrid(_activePlacingObject,
                         _currentVisuals.transform.position,
                         _currentVisuals.BottomLeftPoint.transform.position);
                 }
@@ -50,13 +71,6 @@ namespace _Project.Scripts.Core.GridSystem
                 Destroy(_currentVisuals.gameObject);
                 _currentVisuals = null;
                 _isPlacingObject = false;
-            }
-
-            if (Input.GetMouseButtonDown(0) && !_isPlacingObject)
-            {
-                _currentVisuals = Instantiate(placingObjectSO.visuals,
-                    Utils.GetMouseToWorldPosition(), Quaternion.identity);
-                _isPlacingObject = true;
             }
         }
 
@@ -121,7 +135,8 @@ namespace _Project.Scripts.Core.GridSystem
             }
         }
 
-        private void PlaceObjectOnGrid(PlacingObjectSO placingObject, Vector3 placingPosition, Vector3 bottomLeftPosition)
+        private void PlaceObjectOnGrid(PlacingObjectSO placingObject, Vector3 placingPosition,
+            Vector3 bottomLeftPosition)
         {
             Vector3 bottomLeftTile = bottomLeftPosition.With(z: 0);
             int width = placingObject.size.x;

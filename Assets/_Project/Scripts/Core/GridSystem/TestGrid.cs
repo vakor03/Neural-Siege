@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using KBCore.Refs;
+using UnityEngine;
 
 namespace _Project.Scripts.Core.GridSystem
 {
@@ -6,7 +8,7 @@ namespace _Project.Scripts.Core.GridSystem
     {
         [SerializeField] private Tile tilePrefab;
         [SerializeField] private GridSetupSO gridSetupSO;
-        [SerializeField] private ObjectPlacer objectPlacer;
+        [SerializeField, Scene] private ObjectPlacer objectPlacer;
         [SerializeField] private GridEditor gridEditor;
 
         private Grid<Tile> _grid;
@@ -15,6 +17,11 @@ namespace _Project.Scripts.Core.GridSystem
         {
             LoadGrid();
             EnableObjectPlacer();
+        }
+
+        private void OnValidate()
+        {
+            this.ValidateRefs();
         }
 
         [ContextMenu("SaveGrid")]

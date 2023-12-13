@@ -15,3 +15,5 @@ MonoBehaviour:
   visuals: {fileID: 7717178702829620770, guid: 3dd964030d3f3c84ca804adb1290ea5b, type: 3}
   tower: {fileID: 5012715130001350602, guid: 1bde4e3ad1c259945ad109380b0b1c26, type: 3}
   size: {x: 2, y: 2}
+  price: 10
+  icon: {fileID: 21300000, guid: 73d786d47fac4e540a65342a5b5480be, type: 3}
