@@ -306,10 +306,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940de719e75e431287f6f0fd68b91116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerStatsSO: {fileID: 11400000, guid: c88271d525428a147849dbde64f1571f, type: 2}
   rotateTowards: {fileID: 478272381600516377}
   targetChooseStrategy: {fileID: 8957765333392313995}
-  towerStatsSO: {fileID: 11400000, guid: c88271d525428a147849dbde64f1571f, type: 2}
   laserDuration: 0.5
+  upgradeSO: {fileID: 11400000, guid: 953643519f3399e41a92e8fb9fd88d2e, type: 2}
 --- !u!1 &8790890483814022523
 GameObject:
   m_ObjectHideFlags: 0

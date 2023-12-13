@@ -1,57 +1,27 @@
 ﻿using _Project.Scripts.Core.Effects;
 using _Project.Scripts.Core.Towers.TowerStats;
-using _Project.Scripts.Core.Towers.TowerUpgrades;
 using UnityEngine;
 
 namespace _Project.Scripts.Core.Towers
 {
-    public class FreezingTower : Tower
+    public class FreezingTower : Tower<FreezingTower, FreezingTowerStats>
     {
-        [SerializeField] private FreezingTowerStatsSO towerStatsSO;
-        [SerializeField] private FreezingTowerUpgradeSO upgradeSO;
-        
-        private TowerStatsController<FreezingTower, FreezingTowerStats> _towerStatsController;
-
         private FreezeEffect _freezingEffect;
 
-        private void Awake()
+        protected override void Awake()
         {
-            InitTowerStats();
-            SetupCollider(_towerStatsController.CurrentStats);
-            float freezingMultiplier = _towerStatsController.CurrentStats.FreezingMultiplier;
+            base.Awake();
+            SetupCollider(TowerStatsController.CurrentStats);
+            float freezingMultiplier = TowerStatsController.CurrentStats.FreezingMultiplier;
             _freezingEffect = new FreezeEffect(freezingMultiplier);
         }
 
-        private void OnEnable()
+        protected override void OnStatsChanged()
         {
-            _towerStatsController.OnStatsChanged += OnStatsChanged;
-        }
-
-        private void OnStatsChanged()
-        {
-            float freezingMultiplier = _towerStatsController.CurrentStats.FreezingMultiplier;
-            float range = _towerStatsController.CurrentStats.Range;
+            float freezingMultiplier = TowerStatsController.CurrentStats.FreezingMultiplier;
+            float range = TowerStatsController.CurrentStats.Range;
             _freezingEffect.FreezeMultiplier = freezingMultiplier;
             TowerCollider2D.radius = range;
-        }
-      
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                _towerStatsController.ApplyUpgrade(upgradeSO);
-            }
-        }
-
-        private void OnDestroy()
-        {
-            _towerStatsController.OnStatsChanged -= OnStatsChanged;
-        }
-
-        private void InitTowerStats()
-        {
-            _towerStatsController = new(towerStatsSO);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -72,7 +42,8 @@ namespace _Project.Scripts.Core.Towers
 
         private void OnDrawGizmos()
         {
-            float range = _towerStatsController.CurrentStats.Range;
+            float range = TowerStatsController == null ? towerStatsSO.range : TowerStatsController.CurrentStats.Range;
+
             Gizmos.color = Color.green;
 
             Gizmos.DrawWireSphere(transform.position, range);

@@ -6,58 +6,37 @@ using UnityEngine;
 
 namespace _Project.Scripts.Core.Towers
 {
-    public class FiringTower : SingleTargetTower
+    public class FiringTower : SingleTargetTower<FiringTower, FiringTowerStats>
     {
-        [SerializeField] private FiringTowerStatsSO towerStatsSO;
         [SerializeField] private Transform shootPosition;
-        [SerializeField] private FiringTowerUpgradeSO upgradeSO;
-        
+
         private ITimer _timer;
         private readonly Collider2D[] _results = new Collider2D[100];
         private EnemiesController _enemiesController;
-        private TowerStatsController<FiringTower, FiringTowerStats> _towerStatsController;
 
         private void OnValidate()
         {
             this.ValidateRefs();
         }
 
-        private void Awake()
+        protected override void Awake()
         {
-            InitTowerStats();
-            float fireRate = _towerStatsController.CurrentStats.FireRate;
-            float range = _towerStatsController.CurrentStats.Range;
+            base.Awake();
+            float fireRate = TowerStatsController.CurrentStats.FireRate;
+            float range = TowerStatsController.CurrentStats.Range;
 
             InitAttackTimer(fireRate);
-            SetupCollider(_towerStatsController.CurrentStats);
+            SetupCollider(TowerStatsController.CurrentStats);
             targetChooseStrategy.Range = range;
         }
 
-        private void OnEnable()
+        protected override void OnStatsChanged()
         {
-            _towerStatsController.OnStatsChanged += OnStatsChanged;
-        }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                _towerStatsController.ApplyUpgrade(upgradeSO);
-            }
-        }
-
-        private void OnStatsChanged()
-        {
-            float fireRate = _towerStatsController.CurrentStats.FireRate;
-            float range = _towerStatsController.CurrentStats.Range;
+            float fireRate = TowerStatsController.CurrentStats.FireRate;
+            float range = TowerStatsController.CurrentStats.Range;
             _timer.Duration = 1 / fireRate;
             targetChooseStrategy.Range = range;
             TowerCollider2D.radius = range;
-        }
-
-        private void OnDisable()
-        {
-            _towerStatsController.OnStatsChanged -= OnStatsChanged;
         }
 
         private void InitAttackTimer(float fireRate)
@@ -65,11 +44,6 @@ namespace _Project.Scripts.Core.Towers
             _timer = new TickTimer();
             _timer.Duration = 1 / fireRate;
             _timer.OnTimeElapsed += OnTimeElapsed;
-        }
-
-        private void InitTowerStats()
-        {
-            _towerStatsController = new(towerStatsSO);
         }
 
         private void Start()
@@ -94,9 +68,9 @@ namespace _Project.Scripts.Core.Towers
         private void FireAt(Vector3 coneCenter)
         {
             Vector3 coneDirection = coneCenter - transform.position;
-            float range = _towerStatsController.CurrentStats.Range;
-            float coneAngle = _towerStatsController.CurrentStats.ConeAngle;
-            PoisonEffectStats poisonEffectStats = _towerStatsController.CurrentStats.PoisonEffectStats;
+            float range = TowerStatsController.CurrentStats.Range;
+            float coneAngle = TowerStatsController.CurrentStats.ConeAngle;
+            PoisonEffectStats poisonEffectStats = TowerStatsController.CurrentStats.PoisonEffectStats;
 
             int enemyLayerMask = _enemiesController.EnemyLayerMask;
             var enemiesInRange =
@@ -125,8 +99,9 @@ namespace _Project.Scripts.Core.Towers
                 Gizmos.color = Color.green;
             }
 
-            float range = _towerStatsController.CurrentStats.Range;
-            float coneAngle = _towerStatsController.CurrentStats.ConeAngle;
+            float range = TowerStatsController == null ? towerStatsSO.range : TowerStatsController.CurrentStats.Range;
+            float coneAngle = TowerStatsController == null ? 20 : TowerStatsController.CurrentStats.ConeAngle;
+            
             Gizmos.DrawWireSphere(transform.position, range);
 
             var angle = Vector2.SignedAngle(transform.right, shootPosition.position - transform.position);

@@ -5,29 +5,28 @@ using UnityEngine;
 
 namespace _Project.Scripts.Core.Towers
 {
-    public class StunningTower : Tower
+    public class StunningTower : Tower<StunningTower, StunningTowerStats>
     {
-        [SerializeField] private StunningTowerStatsSO towerStatsSO;
-
         private bool _inProgress;
         private readonly List<Enemy> _enemiesInRange = new();
-        private TowerStatsController<StunningTower, StunningTowerStats> _towerStatsController;
 
-        private void Awake()
+        protected override void Awake()
         {
-            InitTowerStats();
-            SetupCollider(_towerStatsController.CurrentStats);
+            base.Awake();
+            SetupCollider(TowerStatsController.CurrentStats);
             Timing.RunCoroutine(AttackTimerCoroutine());
         }
 
-        private void InitTowerStats()
+        protected override void OnStatsChanged()
         {
-            _towerStatsController = new(towerStatsSO);
+            float range = TowerStatsController.CurrentStats.Range;
+
+            TowerCollider2D.radius = range;
         }
 
         private IEnumerator<float> AttackTimerCoroutine()
         {
-            float fireRate = _towerStatsController.CurrentStats.FireRate;
+            float fireRate = TowerStatsController.CurrentStats.FireRate;
             _inProgress = true;
             do
             {
@@ -40,7 +39,7 @@ namespace _Project.Scripts.Core.Towers
 
         private void StunEnemiesInRange()
         {
-            float stunningDuration = _towerStatsController.CurrentStats.StunningDuration;
+            float stunningDuration = TowerStatsController.CurrentStats.StunningDuration;
             foreach (var enemy in _enemiesInRange)
             {
                 enemy.ApplyEffect(new Effects.StunEffect(stunningDuration, enemy));
@@ -69,7 +68,8 @@ namespace _Project.Scripts.Core.Towers
 
         private void OnDrawGizmos()
         {
-            float range = _towerStatsController.CurrentStats.Range;
+            float range = TowerStatsController == null ? towerStatsSO.range : TowerStatsController.CurrentStats.Range;
+
             if (_enemiesInRange.Count == 0)
             {
                 Gizmos.color = Color.red;

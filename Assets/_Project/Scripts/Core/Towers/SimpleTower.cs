@@ -4,39 +4,32 @@ using UnityEngine;
 
 namespace _Project.Scripts.Core.Towers
 {
-    public class SimpleTower : SingleTargetTower
+    public class SimpleTower : SingleTargetTower<SimpleTower, SimpleTowerStats>
     {
-        [SerializeField] private SimpleTowerStatsSO towerStatsSO;
         [SerializeField] private Transform shootPosition;
 
         private ITimer _timer;
-        private TowerStatsController<SimpleTower, SimpleTowerStats> _towerStatsController;
 
         private void OnValidate()
         {
             this.ValidateRefs();
         }
 
-        private void Awake()
+        protected override void Awake()
         {
-            InitTowerStats();
-            float fireRate = _towerStatsController.CurrentStats.FireRate;
-            float range = _towerStatsController.CurrentStats.Range;
+            base.Awake();
+            float fireRate = TowerStatsController.CurrentStats.FireRate;
+            float range = TowerStatsController.CurrentStats.Range;
 
             InitAttackTimer(fireRate);
-            SetupCollider(_towerStatsController.CurrentStats);
+            SetupCollider(TowerStatsController.CurrentStats);
             targetChooseStrategy.Range = range;
         }
 
-        private void OnEnable()
+        protected override void OnStatsChanged()
         {
-            _towerStatsController.OnStatsChanged += OnStatsChanged;
-        }
-
-        private void OnStatsChanged()
-        {
-            float fireRate = _towerStatsController.CurrentStats.FireRate;
-            float range = _towerStatsController.CurrentStats.Range;
+            float fireRate = TowerStatsController.CurrentStats.FireRate;
+            float range = TowerStatsController.CurrentStats.Range;
 
             _timer.Duration = 1 / fireRate;
             targetChooseStrategy.Range = range;
@@ -50,11 +43,6 @@ namespace _Project.Scripts.Core.Towers
             _timer.OnTimeElapsed += OnTimeElapsed;
         }
 
-        private void InitTowerStats()
-        {
-            _towerStatsController = new(towerStatsSO);
-        }
-
         private void Start()
         {
             _timer.Start();
@@ -64,7 +52,6 @@ namespace _Project.Scripts.Core.Towers
         {
             _timer.OnTimeElapsed -= OnTimeElapsed;
             _timer.Stop();
-            _towerStatsController.OnStatsChanged -= OnStatsChanged;
         }
 
         private void OnTimeElapsed()
@@ -76,7 +63,7 @@ namespace _Project.Scripts.Core.Towers
 
         private void ShootEnemy(Enemy enemy)
         {
-            var projectilePrefab = _towerStatsController.CurrentStats.ProjectilePrefab;
+            var projectilePrefab = TowerStatsController.CurrentStats.ProjectilePrefab;
             Projectile projectile =
                 Instantiate(projectilePrefab, shootPosition.position, Quaternion.identity);
             projectile.SetTarget(enemy.transform);
@@ -93,7 +80,8 @@ namespace _Project.Scripts.Core.Towers
                 Gizmos.color = Color.green;
             }
 
-            float range = _towerStatsController.CurrentStats.Range;
+            float range = TowerStatsController == null ? towerStatsSO.range : TowerStatsController.CurrentStats.Range;
+
             Gizmos.DrawWireSphere(transform.position, range);
         }
     }

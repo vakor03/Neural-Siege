@@ -1,6 +1,5 @@
 ﻿using System;
 using _Project.Scripts.Core.Effects;
-using _Project.Scripts.Core.GridSystem;
 using _Project.Scripts.Core.WaypointSystem;
 using KBCore.Refs;
 using UnityEngine;
@@ -79,16 +78,6 @@ namespace _Project.Scripts.Core
         public void RemoveEffect(Effect effect)
         {
             _enemyEffectsSystem.RemoveEffect(effect);
-        }
-
-        private void Update()
-        {
-            _enemyEffectsSystem.Update();
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                // _enemyEffectsSystem.ApplyEffect(new PoisonEffect(1.1f, 1, this));
-                _enemyEffectsSystem.ApplyEffect(new StunEffect(1.1f, this));
-            }
         }
 
         private void OnDestroy()

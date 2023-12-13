@@ -1,14 +1,17 @@
-﻿using JetBrains.Annotations;
+﻿using _Project.Scripts.Core.Towers.TowerStats;
+using JetBrains.Annotations;
 using KBCore.Refs;
 using UnityEngine;
 
 namespace _Project.Scripts.Core.Towers
 {
-    public abstract class SingleTargetTower : Tower
+    public abstract class SingleTargetTower<TSelf, TStats> : Tower<TSelf, TStats>
+        where TSelf : Tower<TSelf, TStats> where TStats : TowerStats<TSelf>
     {
         [SerializeField, Self] protected RotateTowards rotateTowards;
         [SerializeField, Self] protected TargetChooseStrategy targetChooseStrategy;
         [CanBeNull] protected Enemy ActiveTarget;
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (ActiveTarget == null &&
@@ -30,7 +33,7 @@ namespace _Project.Scripts.Core.Towers
                 }
             }
         }
-        
+
         private void ChangeActiveTarget(Enemy enemy)
         {
             ActiveTarget = enemy;

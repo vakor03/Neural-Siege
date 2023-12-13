@@ -851,6 +851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerStatsSO: {fileID: 11400000, guid: 770485ef40158fd4781feef19ecf4aec, type: 2}
+  upgradeSO: {fileID: 11400000, guid: 5d0a8533c655b874bb4749da61fcefb4, type: 2}
 --- !u!1 &5881509166436402075
 GameObject:
   m_ObjectHideFlags: 0

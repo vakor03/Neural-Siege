@@ -5,31 +5,28 @@ using UnityEngine;
 
 namespace _Project.Scripts.Core.Towers
 {
-    public class LaserTower : SingleTargetTower
+    public class LaserTower : SingleTargetTower<LaserTower, LaserTowerStats>
     {
-        [SerializeField] private LaserTowerStatsSO towerStatsSO;
         [SerializeField] private float laserDuration = 0.5f;
-        private TowerStatsController<LaserTower, LaserTowerStats> _towerStatsController;
-
+        
         private ITimer _timer;
         private EnemiesController _enemiesController;
+        private readonly RaycastHit2D[] _results = new RaycastHit2D[100];
+
 
         private void OnValidate()
         {
             this.ValidateRefs();
         }
 
-        private readonly RaycastHit2D[] _results = new RaycastHit2D[100];
-
-
-        private void Awake()
+        protected override void Awake()
         {
-            InitTowerStats();
-            float fireRate = _towerStatsController.CurrentStats.FireRate;
-            float range = _towerStatsController.CurrentStats.Range;
+            base.Awake();
+            float fireRate = TowerStatsController.CurrentStats.FireRate;
+            float range = TowerStatsController.CurrentStats.Range;
 
             InitAttackTimer(fireRate);
-            SetupCollider(_towerStatsController.CurrentStats);
+            SetupCollider(TowerStatsController.CurrentStats);
             targetChooseStrategy.Range = range;
         }
 
@@ -40,9 +37,14 @@ namespace _Project.Scripts.Core.Towers
             _timer.OnTimeElapsed += OnTimeElapsed;
         }
 
-        private void InitTowerStats()
+        protected override void OnStatsChanged()
         {
-            _towerStatsController = new(towerStatsSO);
+            float fireRate = TowerStatsController.CurrentStats.FireRate;
+            float range = TowerStatsController.CurrentStats.Range;
+
+            _timer.Duration = 1 / fireRate;
+            targetChooseStrategy.Range = range;
+            TowerCollider2D.radius = range;
         }
 
         private void Start()
@@ -60,8 +62,8 @@ namespace _Project.Scripts.Core.Towers
 
         private void Shoot()
         {
-            float damage = _towerStatsController.CurrentStats.Damage;
-            float range = _towerStatsController.CurrentStats.Range;
+            float damage = TowerStatsController.CurrentStats.Damage;
+            float range = TowerStatsController.CurrentStats.Range;
             Vector2 direction = ActiveTarget!.transform.position - transform.position;
             int enemyLayer = _enemiesController.EnemyLayerMask;
             var size = Physics2D.RaycastNonAlloc(transform.position, direction, _results, range,
@@ -91,7 +93,8 @@ namespace _Project.Scripts.Core.Towers
 
         private void OnDrawGizmos()
         {
-            float range = _towerStatsController.CurrentStats.Range;
+            float range = TowerStatsController == null ? towerStatsSO.range : TowerStatsController.CurrentStats.Range;
+
             if (ActiveTarget == null)
             {
                 Gizmos.color = Color.red;
