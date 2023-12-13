@@ -11,7 +11,8 @@ namespace _Project.Scripts
             return mousePosition;
         }
 
-        public static void DrawGizmosCone(float coneAngle, float rayRange, float coneDirection, Transform transform, Color color)
+        public static void DrawGizmosCone(float coneAngle, float rayRange, float coneDirection, Transform transform,
+            Color color)
         {
             float halfFOV = coneAngle / 2.0f;
 
@@ -24,6 +25,14 @@ namespace _Project.Scripts
             Gizmos.color = color;
             Gizmos.DrawRay(transform.position, upRayDirection);
             Gizmos.DrawRay(transform.position, downRayDirection);
+        }
+
+        public static void QuitGame()
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.ExitPlaymode();
+#endif
+            Application.Quit();
         }
     }
 }
