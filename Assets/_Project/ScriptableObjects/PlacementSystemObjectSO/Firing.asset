@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25b70e497404c179ae29336b4095d57, type: 3}
+  m_Name: Firing
+  m_EditorClassIdentifier: 
+  name: Freezing Tower
+  price: 10
+  size: {x: 1, y: 1}
+  icon: {fileID: 21300000, guid: 228547b8cad248c4789c0f9bbc6aaba8, type: 3}
+  prefab: {fileID: 5012715130001350602, guid: aee8a62cb1c87854b88fc0c153fbddab, type: 3}
+  previewPrefab: {fileID: 5012715130001350602, guid: 480e211c4ee0de045b8adef0c6e52981, type: 3}
