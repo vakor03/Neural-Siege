@@ -1,4 +1,5 @@
-﻿using KBCore.Refs;
+﻿using _Project.Scripts.Extensions;
+using KBCore.Refs;
 using UnityEngine;
 
 namespace _Project.Scripts.Core.GridSystem
@@ -8,7 +9,13 @@ namespace _Project.Scripts.Core.GridSystem
         [SerializeField] private Grid grid;
         [SerializeField] private InputManager inputManager;
         [SerializeField, Scene] private Shop shop;
-        
+        [SerializeField] private Transform bottomLeftTransform;
+        [SerializeField] private Transform topRightTransform;
+
+        public Vector3Int BottomLeft => grid.WorldToCell(bottomLeftTransform.position);
+        public Vector3Int TopRight => grid.WorldToCell(topRightTransform.position);
+        public Vector2Int Size => (TopRight - BottomLeft).ToVector2Int();
+
         private PlacementSystemObjectSO _activeSO;
         private bool _isPlacingObject;
         private GameObject _currentPreview;
@@ -18,6 +25,7 @@ namespace _Project.Scripts.Core.GridSystem
         {
             this.ValidateRefs();
         }
+
         private void Start()
         {
             StopPlacingObject();
@@ -52,35 +60,34 @@ namespace _Project.Scripts.Core.GridSystem
             {
                 return;
             }
+
             var mousePosition = inputManager.GetCursorPosition();
             var gridPosition = grid.WorldToCell(mousePosition);
-            
+
             if (_gridData.IsPlacementValid(_activeSO, gridPosition)
                 && shop.MoneyAmount >= _activeSO.price)
             {
-                BuildObject();
+                BuildObject(gridPosition, _activeSO);
                 shop.SpendMoney(_activeSO.price);
             }
         }
 
-        private void BuildObject()
+        public void BuildObject(Vector3Int gridPosition, PlacementSystemObjectSO placementObject)
         {
-            var mousePosition = inputManager.GetCursorPosition();
-            var gridPosition = grid.WorldToCell(mousePosition);
             var bottomLeftPosition = grid.CellToWorld(gridPosition);
 
-            var instance = Instantiate(_activeSO.prefab,
+            var instance = Instantiate(placementObject.prefab,
                 bottomLeftPosition,
                 Quaternion.identity);
-            
-            _gridData.AddObject(_activeSO, gridPosition, instance);
+
+            _gridData.AddObject(placementObject, gridPosition, instance);
         }
 
         public void StopPlacingObject()
         {
             _isPlacingObject = false;
             Destroy(_currentPreview);
-            
+
             inputManager.OnClicked -= OnClicked;
             inputManager.OnExit -= StopPlacingObject;
         }

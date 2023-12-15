@@ -27,5 +27,10 @@ namespace _Project.Scripts.Extensions
         public static bool InRangeOf(this Vector3 current, Vector3 target, float range) {
             return (current - target).sqrMagnitude <= range * range;
         }
+        
+        public static Vector2Int ToVector2Int(this Vector3Int vector3)
+        {
+            return new Vector2Int(vector3.x, vector3.y);
+        }
     }
 }
