@@ -10,9 +10,11 @@ namespace _Project.Scripts.Core
             bool[,] grid = new bool[size.x, size.y];
             grid[start.x, start.y] = true;
 
-            var path = new List<Vector2Int>() { start };
+            var path = new List<Vector2Int>();
             if (TryGeneratePathWithBacktracking(grid, size, end, start, path))
             {
+                path.Add(start);
+                path.Reverse();
                 return path;
             }
 
@@ -98,7 +100,7 @@ namespace _Project.Scripts.Core
         {
             for (int i = array.Length - 1; i > 0; i--)
             {
-                int randomIndex = Random.Range(0,i+1);
+                int randomIndex = Random.Range(0, i + 1);
 
                 (array[i], array[randomIndex]) = (array[randomIndex], array[i]);
             }

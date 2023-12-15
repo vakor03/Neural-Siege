@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d25b70e497404c179ae29336b4095d57, type: 3}
-  m_Name: EnemyTileSO
+  m_Name: FinishEnemyTileSO 2
   m_EditorClassIdentifier: 
   name: Enemy Tile
   price: 0
   size: {x: 1, y: 1}
   icon: {fileID: 0}
-  prefab: {fileID: 8097792674572987147, guid: ffbb9a640e349db4aa5d81f0e71cc46c, type: 3}
-  previewPrefab: {fileID: 8097792674572987147, guid: ffbb9a640e349db4aa5d81f0e71cc46c, type: 3}
+  prefab: {fileID: 8097792674572987147, guid: 751cd11c19501e94a86df2d174e0c392, type: 3}
+  previewPrefab: {fileID: 8097792674572987147, guid: 751cd11c19501e94a86df2d174e0c392, type: 3}

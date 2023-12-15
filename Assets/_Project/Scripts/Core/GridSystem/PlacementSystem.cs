@@ -12,6 +12,7 @@ namespace _Project.Scripts.Core.GridSystem
         [SerializeField] private Transform bottomLeftTransform;
         [SerializeField] private Transform topRightTransform;
 
+        public Grid Grid => grid;
         public Vector3Int BottomLeft => grid.WorldToCell(bottomLeftTransform.position);
         public Vector3Int TopRight => grid.WorldToCell(topRightTransform.position);
         public Vector2Int Size => (TopRight - BottomLeft).ToVector2Int();
@@ -78,7 +79,8 @@ namespace _Project.Scripts.Core.GridSystem
 
             var instance = Instantiate(placementObject.prefab,
                 bottomLeftPosition,
-                Quaternion.identity);
+                Quaternion.identity,
+                transform);
 
             _gridData.AddObject(placementObject, gridPosition, instance);
         }
