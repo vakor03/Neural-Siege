@@ -7,9 +7,10 @@ namespace _Project.Scripts.Core.Towers
     public class TowerSelector : MonoBehaviour
     {
         [SerializeField, Self] private BoxCollider2D boxCollider2D;
+        [SerializeField] private InputManager inputManager;
         [SerializeField] private TowerInfoUI towerInfoUI;
         [SerializeField] private TowerType type;
-        
+
         private void OnValidate()
         {
             this.ValidateRefs();
@@ -22,5 +23,7 @@ namespace _Project.Scripts.Core.Towers
                 towerInfoUI.gameObject.SetActive(true);
             }
         }
+        
+        
     }
 }

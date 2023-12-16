@@ -93,5 +93,18 @@ namespace _Project.Scripts.Core.GridSystem
             inputManager.OnClicked -= OnClicked;
             inputManager.OnExit -= StopPlacingObject;
         }
+        
+        public void RemoveObject(Vector3 position)
+        {
+            var gridPosition = grid.WorldToCell(position);
+            var placementObject = _gridData.GetObject(gridPosition);
+            if (placementObject == null)
+            {
+                return;
+            }
+
+            _gridData.RemoveObject(gridPosition);
+            Destroy(placementObject);
+        }
     }
 }

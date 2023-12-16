@@ -196,7 +196,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 141
+  controlID: 144
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 142
+  controlID: 145
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 50}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 143
+  controlID: 146
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -352,8 +352,8 @@ MonoBehaviour:
     y: 0
     width: 611
     height: 1299
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 26}
   m_Panes:
   - {fileID: 26}
@@ -2134,9 +2134,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 183.62291, y: 420.6334, z: -3.8386314}
+    m_Target: {x: -2.467946, y: -0.26723683, z: -0.019251935}
     speed: 2
-    m_Value: {x: 183.62291, y: 420.6334, z: -3.8386314}
+    m_Value: {x: -2.467946, y: -0.26723683, z: -0.019251935}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -2186,9 +2186,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 840.62646
+    m_Target: 11.925186
     speed: 2
-    m_Value: 840.62646
+    m_Value: 11.925186
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -2277,7 +2277,7 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMin: 1
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
-    m_HSlider: 0
+    m_HSlider: 1
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
@@ -2291,18 +2291,18 @@ MonoBehaviour:
       y: 21
       width: 1042
       height: 707
-    m_Scale: {x: 0.54270834, y: 0.54270834}
-    m_Translation: {x: 521, y: 353.5}
+    m_Scale: {x: 0.59089994, y: 0.59089994}
+    m_Translation: {x: 562.94525, y: 353.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -960
-      y: -651.36273
-      width: 1920
-      height: 1302.7255
+      x: -952.69135
+      y: -598.24005
+      width: 1763.4119
+      height: 1196.4801
     m_MinimalGUI: 1
   m_defaultScale: 0.54270834
   m_LastWindowPixelSize: {x: 1042, y: 728}
@@ -2382,9 +2382,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 3c790000
-      m_LastClickedID: 31036
-      m_ExpandedIDs: 10fbffff2c79000050790000
+      m_SelectedIDs: 52340000
+      m_LastClickedID: 0
+      m_ExpandedIDs: aefaffff10fbffff46790000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -2453,7 +2453,7 @@ MonoBehaviour:
     m_SkipHidden: 1
     m_SearchArea: 1
     m_Folders:
-    - Assets/_Project/Scripts
+    - Assets/_Project/Scripts/Core/Towers
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -2461,16 +2461,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/_Project/Scripts
+  - Assets/_Project/Scripts/Core/Towers
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Projects\Neural Siege
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 08840000
-    m_LastClickedID: 33800
-    m_ExpandedIDs: 00000000fc830000fe830000008400000284000004840000068400000884000000ca9a3bffffff7f
+    m_SelectedIDs: 4e840000
+    m_LastClickedID: 33870
+    m_ExpandedIDs: 00000000fe83000000840000028400000484000006840000088400000a8400003884000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2498,7 +2498,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 429}
     m_SelectedIDs: a6e1feff
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000fc830000fe8300000084000002840000048400000684000008840000
+    m_ExpandedIDs: 00000000fe83000000840000028400000484000006840000088400000a840000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2624,7 +2624,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 45960
+  m_LastSelectedObjectID: 31008
 --- !u!114 &26
 MonoBehaviour:
   m_ObjectHideFlags: 52

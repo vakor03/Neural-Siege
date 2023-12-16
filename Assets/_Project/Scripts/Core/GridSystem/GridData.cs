@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace _Project.Scripts.Core.GridSystem
@@ -35,5 +36,29 @@ namespace _Project.Scripts.Core.GridSystem
             }
         }
 
+        [CanBeNull]
+        public GameObject GetObject(Vector3Int gridPosition)
+        {
+            return _placedObjects.GetValueOrDefault(gridPosition);
+        }
+
+        public void RemoveObject(Vector3Int gridPosition)
+        {
+            var placedObject = _placedObjects[gridPosition];
+
+            List<Vector3Int> keysToRemove = new();
+            foreach (var (key, value) in _placedObjects)
+            {
+                if (value == placedObject)
+                {
+                    keysToRemove.Add(key);
+                }
+            }
+
+            foreach (var key in keysToRemove)
+            {
+                _placedObjects.Remove(key);
+            }
+        }
     }
 }

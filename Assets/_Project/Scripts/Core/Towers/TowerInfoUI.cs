@@ -1,6 +1,7 @@
 ﻿using System;
 using _Project.Scripts.Core.GridSystem;
 using _Project.Scripts.Core.Towers.TowerUpgrades;
+using KBCore.Refs;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,12 @@ namespace _Project.Scripts.Core.Towers
         [SerializeField] private TowerType type;
         [SerializeField] private Button deleteButton;
         [SerializeField] private Button upgradeButton;
+        [SerializeField, Scene] private PlacementSystem placementSystem;
+        
+        private void OnValidate()
+        {
+            this.ValidateRefs();
+        }
 
         private float _timeSinceLastClick;
 
@@ -30,7 +37,7 @@ namespace _Project.Scripts.Core.Towers
 
         private void DeleteTower()
         {
-            TowersController.Instance.DoSell(tower, type);
+            placementSystem.RemoveObject(tower.transform.position);
         }
 
         private void OnDestroy()
