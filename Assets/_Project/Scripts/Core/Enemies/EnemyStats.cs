@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _Project.Scripts.Core
+namespace _Project.Scripts.Core.Enemies
 {
     [Serializable]
     public struct EnemyStats

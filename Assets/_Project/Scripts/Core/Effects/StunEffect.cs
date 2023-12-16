@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using _Project.Scripts.Core.Enemies;
 using MEC;
 
 namespace _Project.Scripts.Core.Effects

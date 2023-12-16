@@ -2,7 +2,7 @@
 using Eflatun.SceneReference;
 using UnityEngine;
 
-namespace _Project.Scripts.Core
+namespace _Project.Scripts.Core.Managers
 {
     public class GameManager : MonoBehaviour
     {

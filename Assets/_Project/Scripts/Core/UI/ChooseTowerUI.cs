@@ -2,7 +2,7 @@
 using KBCore.Refs;
 using UnityEngine;
 
-namespace _Project.Scripts.Core
+namespace _Project.Scripts.Core.UI
 {
     public class ChooseTowerUI : MonoBehaviour
     {

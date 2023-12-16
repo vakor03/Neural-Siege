@@ -933,7 +933,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 220970194631861861}
-  - component: {fileID: 7717178702829620770}
   m_Layer: 6
   m_Name: StunVisuals
   m_TagString: Untagged
@@ -957,19 +956,6 @@ Transform:
   - {fileID: 78637653351374171}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7717178702829620770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5012715130001350602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e67b1c1d7e464dbaa26169388c59607c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bottomLeftPoint: {fileID: 483961038627085351}
 --- !u!1 &5177164612287605162
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,6 +1590,7 @@ PrefabInstance:
     - {fileID: 3948027988249731535, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
     - {fileID: 7223661691096584687, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
     - {fileID: 6400975431205120654, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
+    - {fileID: 3328021302766894262, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5568296934675519106, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
     - {fileID: 1312458737618857205, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}

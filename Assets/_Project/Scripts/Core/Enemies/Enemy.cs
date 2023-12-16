@@ -4,7 +4,7 @@ using _Project.Scripts.Core.WaypointSystem;
 using KBCore.Refs;
 using UnityEngine;
 
-namespace _Project.Scripts.Core
+namespace _Project.Scripts.Core.Enemies
 {
     public class Enemy : MonoBehaviour, IHaveHealth
     {

@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using _Project.Scripts.Core.Effects;
-using _Project.Scripts.Core.GridSystem;
 using UnityEngine;
 
-namespace _Project.Scripts.Core
+namespace _Project.Scripts.Core.Enemies
 {
     public class EnemyEffectsSystem : IDisposable
     {

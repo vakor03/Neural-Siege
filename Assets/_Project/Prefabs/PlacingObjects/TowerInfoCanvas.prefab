@@ -189,8 +189,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 2.09, y: 1.76}
-  m_SizeDelta: {x: 2, y: 2}
+  m_AnchoredPosition: {x: 2.0900269, y: 2.3094}
+  m_SizeDelta: {x: 2, y: 0.9012}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2081771327806694027
 Canvas:
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &9082740496318257653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -802,9 +802,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2918e257e6d648b3b1c96bfdea4ace86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 0}
-  towerUpgradeSO: {fileID: 11400000, guid: 116c42f44504bc549a125f168938faff, type: 2}
-  type: 0
   deleteButton: {fileID: 1455788760902231854}
   upgradeButton: {fileID: 374003334211834089}
-  placementSystem: {fileID: 0}

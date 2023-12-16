@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using _Project.Scripts.Core.Enemies;
 using JetBrains.Annotations;
 using UnityEngine;
 

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace _Project.Scripts.Core.GridSystem
+namespace _Project.Scripts.Core.Managers
 {
     public class InputManager : MonoBehaviour
     {

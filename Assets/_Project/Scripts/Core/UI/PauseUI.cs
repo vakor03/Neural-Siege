@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using _Project.Scripts.Core.Managers;
+using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Project.Scripts.Core
+namespace _Project.Scripts.Core.UI
 {
     public class PauseUI : MonoBehaviour
     {

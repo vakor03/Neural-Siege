@@ -2,7 +2,7 @@
 using MEC;
 using UnityEngine;
 
-namespace _Project.Scripts.Core
+namespace _Project.Scripts.Core.Enemies
 {
     public class SpawnerEnemy : Enemy
     {

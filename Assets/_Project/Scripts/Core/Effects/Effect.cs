@@ -1,4 +1,6 @@
-﻿namespace _Project.Scripts.Core.Effects
+﻿using _Project.Scripts.Core.Enemies;
+
+namespace _Project.Scripts.Core.Effects
 {
     public abstract class Effect
     {

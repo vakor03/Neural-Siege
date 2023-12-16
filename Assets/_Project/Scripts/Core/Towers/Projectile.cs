@@ -1,3 +1,4 @@
+using _Project.Scripts.Core.Enemies;
 using KBCore.Refs;
 using UnityEngine;
 

@@ -3,7 +3,7 @@ using _Project.Scripts.Core.WaypointSystem;
 using MEC;
 using UnityEngine;
 
-namespace _Project.Scripts.Core.GridSystem
+namespace _Project.Scripts.Core.Enemies
 {
     public class EnemySpawner : MonoBehaviour
     {
