@@ -480,8 +480,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4008739545522165962}
   m_Father: {fileID: 2758154525510569702}
@@ -697,6 +697,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 220970194631861861}
+  - component: {fileID: 1423717391649488456}
   m_Layer: 6
   m_Name: StunActual
   m_TagString: Untagged
@@ -721,6 +722,51 @@ Transform:
   - {fileID: 771914476532082495}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1423717391649488456
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5012715130001350602}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.5, y: 0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &5016019133533328797
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,8 +896,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afe911b01b3e4c0b93d016f89114be91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <TowerType>k__BackingField: {fileID: 11400000, guid: 6977dd3c367bf814586830b671b5fb93, type: 2}
   towerStatsSO: {fileID: 11400000, guid: 770485ef40158fd4781feef19ecf4aec, type: 2}
-  upgradeSO: {fileID: 11400000, guid: 5d0a8533c655b874bb4749da61fcefb4, type: 2}
 --- !u!1 &5881509166436402075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,12 +1399,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 662127404966246215, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 662127404966246215, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 662127404966246215, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 662127404966246215, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 662127404966246215, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 662127404966246215, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1391,6 +1449,10 @@ PrefabInstance:
     - target: {fileID: 662127404966246215, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 662127404966246215, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1558447331452761323, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
       propertyPath: m_SortingLayer

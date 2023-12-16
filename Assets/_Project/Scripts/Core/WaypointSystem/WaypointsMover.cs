@@ -21,8 +21,8 @@ namespace _Project.Scripts.Core.WaypointSystem
 
         public void Initialize(WaypointsHolder waypointsHolder)
         {
-            this.WaypointsHolder = waypointsHolder;
-            _waypoints = waypointsHolder.GetWaypoints();
+            WaypointsHolder = waypointsHolder;
+            _waypoints = waypointsHolder.Waypoints;
             _currentWaypointIndex = 0;
         }
 

@@ -13,7 +13,7 @@ TagManager:
   - UI
   - Tower
   - Enemy
-  - 
+  - Grid
   - 
   - 
   - 
@@ -46,6 +46,9 @@ TagManager:
     locked: 0
   - name: Towers
     uniqueID: 1284515109
+    locked: 0
+  - name: Enemies
+    uniqueID: 3065032951
     locked: 0
   - name: OnTopOfAll
     uniqueID: 983395003

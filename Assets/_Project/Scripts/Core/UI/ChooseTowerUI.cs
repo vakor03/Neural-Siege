@@ -8,7 +8,8 @@ namespace _Project.Scripts.Core
     {
         [SerializeField] private Transform optionsParent;
         [SerializeField] private SingleTowerUI singleTowerUIPrefab;
-        [SerializeField] private PlacingObjectSO[] options;
+        [SerializeField] private PlacementSystemObjectSO[] options;
+        [SerializeField, Scene] private PlacementSystem placementSystem;
         
         private void OnValidate()
         {
@@ -29,9 +30,9 @@ namespace _Project.Scripts.Core
             }
         }
 
-        private void PlaceBuilding(PlacingObjectSO placingObjectSO)
+        private void PlaceBuilding(PlacementSystemObjectSO placingObjectSO)
         {
-            ObjectPlacer.Instance.SetPlacingObject(placingObjectSO);
+            placementSystem.StartPlacingObject(placingObjectSO);
         }
         
         private void OnDestroy()

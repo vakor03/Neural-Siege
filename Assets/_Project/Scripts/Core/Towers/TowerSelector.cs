@@ -1,4 +1,5 @@
 ﻿using _Project.Scripts.Core.GridSystem;
+using _Project.Scripts.Core.UI;
 using KBCore.Refs;
 using UnityEngine;
 
@@ -6,21 +7,97 @@ namespace _Project.Scripts.Core.Towers
 {
     public class TowerSelector : MonoBehaviour
     {
-        [SerializeField, Self] private BoxCollider2D boxCollider2D;
+        [SerializeField] private LayerMask towerLayerMask;
+        [SerializeField, Scene] private InputManager inputManager;
+        [SerializeField, Scene] private TowersController towersController;
+
         [SerializeField] private TowerInfoUI towerInfoUI;
-        [SerializeField] private TowerType type;
-        
+        [SerializeField] private Vector2 towerInfoOffset;
+
+        private Camera _camera;
+        private Tower _selectedTower;
+
         private void OnValidate()
         {
             this.ValidateRefs();
         }
 
-        public void ToggleTowerUIInfo()
+        private void Awake()
         {
-            if (!towerInfoUI.gameObject.activeSelf)
+            _camera = Camera.main;
+        }
+
+        private void Start()
+        {
+            inputManager.OnClicked += OnClicked;
+
+            towerInfoUI.OnUpgrade += UpgradeTower;
+            towerInfoUI.OnDelete += SellTower;
+            towerInfoUI.gameObject.SetActive(false);
+        }
+
+        private void OnDestroy()
+        {
+            inputManager.OnClicked -= OnClicked;
+            towerInfoUI.OnUpgrade -= UpgradeTower;
+            towerInfoUI.OnDelete -= SellTower;
+        }
+
+        private void OnClicked()
+        {
+            if (inputManager.IsMouseOverUI()) return;
+
+            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit =
+                Physics2D.Raycast(ray.origin, ray.direction, 10, towerLayerMask);
+
+            if (IsRaycastHitAnything()
+                && IsRaycastHitTower(out Tower tower)
+                && tower != _selectedTower)
             {
-                towerInfoUI.gameObject.SetActive(true);
+                SetSelectedTower(tower);
             }
+            else
+            {
+                ClearSelectedTower();
+            }
+
+            bool IsRaycastHitAnything()
+            {
+                return hit.collider != null;
+            }
+
+            bool IsRaycastHitTower(out Tower tower)
+            {
+                tower = hit.collider.GetComponentInChildren<Tower>();
+                return tower != null;
+            }
+        }
+
+        private void SetSelectedTower(Tower tower)
+        {
+            _selectedTower = tower;
+
+            towerInfoUI.gameObject.SetActive(true);
+            towerInfoUI.transform.position = tower.transform.position + (Vector3)towerInfoOffset;
+        }
+
+        private void ClearSelectedTower()
+        {
+            _selectedTower = null;
+
+            towerInfoUI.gameObject.SetActive(false);
+        }
+
+        private void UpgradeTower()
+        {
+            towersController.DoUpgrade(_selectedTower);
+        }
+
+        private void SellTower()
+        {
+            towersController.DoSell(_selectedTower);
+            ClearSelectedTower();
         }
     }
 }

@@ -7,17 +7,25 @@ namespace _Project.Scripts.Core.Towers
 {
     public abstract class Tower : MonoBehaviour
     {
-        public abstract void ApplyUpgrade(TowerUpgradeSO towerUpgradeSO);
+        [field: SerializeField] public TowerType TowerType { get; private set; }
+        public int UpgradeLevel { get; protected set; }
+
+        public virtual void ApplyUpgrade(TowerUpgradeSO towerUpgradeSO)
+        {
+            UpgradeLevel++;
+        }
     }
 
     public abstract class Tower<TSelf, TStats> : Tower where TSelf : Tower where TStats : TowerStats<TSelf>
     {
         [SerializeField] protected TowerStatsSO<TSelf, TStats> towerStatsSO;
         protected TowerStatsController<TSelf, TStats> TowerStatsController;
-        
+
         protected CircleCollider2D TowerCollider2D { get; private set; }
+
         public override void ApplyUpgrade(TowerUpgradeSO towerUpgradeSO)
         {
+            base.ApplyUpgrade(towerUpgradeSO);
             TowerStatsController.ApplyUpgrade(towerUpgradeSO as TowerUpgradeSO<TSelf, TStats>);
         }
 

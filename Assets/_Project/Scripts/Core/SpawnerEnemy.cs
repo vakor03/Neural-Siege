@@ -35,7 +35,7 @@ namespace _Project.Scripts.Core
 
         private void SpawnEnemy()
         {
-            Timing.RunCoroutine(SpawnCoroutine());
+            Timing.RunCoroutine(SpawnCoroutine().CancelWith(gameObject));
         }
 
         private IEnumerator<float> SpawnCoroutine()

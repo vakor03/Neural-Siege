@@ -5,6 +5,7 @@ namespace _Project.Scripts.Core.Towers.TowerUpgrades
 {
     public abstract class TowerUpgradeSO : ScriptableObject
     {
+        public int price = 10;
     }
 
     public abstract class TowerUpgradeSO<T, TStats> : TowerUpgradeSO where T : Tower where TStats : TowerStats<T>

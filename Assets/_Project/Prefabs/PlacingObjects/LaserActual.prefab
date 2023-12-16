@@ -26,8 +26,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2044839746429989687}
   - {fileID: 2620856330417728398}
@@ -211,6 +211,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 220970194631861861}
+  - component: {fileID: 4969494720955362239}
   m_Layer: 6
   m_Name: LaserActual
   m_TagString: Untagged
@@ -235,6 +236,51 @@ Transform:
   - {fileID: 2525376387154962821}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &4969494720955362239
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5012715130001350602}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.5, y: 0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &6855197405827518555
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,11 +352,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940de719e75e431287f6f0fd68b91116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <TowerType>k__BackingField: {fileID: 11400000, guid: aa758d3832e3fbf41b4b81665839212f, type: 2}
   towerStatsSO: {fileID: 11400000, guid: c88271d525428a147849dbde64f1571f, type: 2}
   rotateTowards: {fileID: 478272381600516377}
   targetChooseStrategy: {fileID: 8957765333392313995}
   laserDuration: 0.5
-  upgradeSO: {fileID: 11400000, guid: 953643519f3399e41a92e8fb9fd88d2e, type: 2}
 --- !u!1 &8790890483814022523
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,12 +401,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 662127404966246215, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 662127404966246215, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 662127404966246215, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 662127404966246215, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 662127404966246215, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 662127404966246215, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
       propertyPath: m_LocalPosition.z
@@ -393,6 +451,10 @@ PrefabInstance:
     - target: {fileID: 662127404966246215, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 662127404966246215, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1558447331452761323, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
       propertyPath: m_SortingLayer

@@ -13,9 +13,9 @@ namespace _Project.Scripts.Core
         [SerializeField] private Image towerIcon;
         [SerializeField] private Button button;
         
-        public event Action<PlacingObjectSO> OnButtonClicked;
+        public event Action<PlacementSystemObjectSO> OnButtonClicked;
 
-        public PlacingObjectSO PlacingObjectSO { get; private set; }
+        public PlacementSystemObjectSO PlacingObjectSO { get; private set; }
 
         private void Awake()
         {
@@ -33,7 +33,7 @@ namespace _Project.Scripts.Core
         }
 
 
-        public void Setup(PlacingObjectSO placingObjectSO)
+        public void Setup(PlacementSystemObjectSO placingObjectSO)
         {
             PlacingObjectSO = placingObjectSO;
             towerNameText.text = placingObjectSO.name;
