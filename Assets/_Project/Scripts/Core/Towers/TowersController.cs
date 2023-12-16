@@ -1,43 +1,47 @@
-﻿using _Project.Scripts.Core.GridSystem;
-using _Project.Scripts.Core.Towers.TowerUpgrades;
+﻿using System.Linq;
+using _Project.Scripts.Core.GridSystem;
+using KBCore.Refs;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _Project.Scripts.Core.Towers
 {
     public class TowersController : MonoBehaviour
     {
-        public static TowersController Instance { get; private set; }
-        [SerializeField] private LayerMask towerLayerMask;
-        [SerializeField] private PlacingObjectSO placingObjectSO;
-        
-        private void Awake()
+        [SerializeField] private TowerInfo[] towerInfos;
+        [SerializeField, Scene] private PlacementSystem placementSystem;
+        [SerializeField, Scene] private Shop shop;
+        [SerializeField] private float sellPriceMultiplier = 0.6f;
+
+        private void OnValidate()
         {
-            Instance = this;
+            this.ValidateRefs();
         }
-        private void Update()
+
+        public void DoUpgrade(Tower tower)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 10,towerLayerMask);
-                
-                if (hit.collider != null)
-                {
-                    if (hit.collider.TryGetComponent(out TowerSelector towerSelector))
-                    {
-                        towerSelector.ToggleTowerUIInfo();
-                    }
-                }
-            }
+            var towerInfo = GetTowerInfoOfType(tower.TowerType);
+            var upgradePrice = towerInfo.upgrade.price * (tower.UpgradeLevel + 1);
+
+            if (shop.MoneyAmount < upgradePrice) return;
+
+            shop.SpendMoney(upgradePrice);
+            tower.ApplyUpgrade(towerInfo.upgrade);
         }
-        
-        public void DoUpgrade(Tower tower, TowerUpgradeSO towerUpgradeSO)
+
+        public void DoSell(Tower tower)
         {
-            tower.ApplyUpgrade(towerUpgradeSO);
+            var towerInfo = GetTowerInfoOfType(tower.TowerType);
+            var upgradesPrice = towerInfo.upgrade.price * (tower.UpgradeLevel);
+            var sellPrice = towerInfo.placementObject.price + upgradesPrice;
+
+            shop.EarnMoney((int)(sellPrice * sellPriceMultiplier));
+            placementSystem.RemoveObject(tower.gameObject.transform.position);
         }
-        
-        public void DoSell(Tower tower, TowerType type)
+
+        private TowerInfo GetTowerInfoOfType(TowerType type)
         {
+            return towerInfos.First(t => t.type == type);
         }
     }
 }

@@ -23,5 +23,11 @@ namespace _Project.Scripts.Core
             MoneyAmount -= amount;
             OnMoneyAmountChanged?.Invoke();
         }
+        
+        public void EarnMoney(int amount)
+        {
+            MoneyAmount += amount;
+            OnMoneyAmountChanged?.Invoke();
+        }
     }
 }

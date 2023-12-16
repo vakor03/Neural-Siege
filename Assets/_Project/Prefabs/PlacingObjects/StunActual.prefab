@@ -850,6 +850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afe911b01b3e4c0b93d016f89114be91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <TowerType>k__BackingField: {fileID: 11400000, guid: 6977dd3c367bf814586830b671b5fb93, type: 2}
   towerStatsSO: {fileID: 11400000, guid: 770485ef40158fd4781feef19ecf4aec, type: 2}
 --- !u!1 &5881509166436402075
 GameObject:

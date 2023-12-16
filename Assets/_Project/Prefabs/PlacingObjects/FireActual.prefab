@@ -1041,6 +1041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72dca89782b74f4bbaca8530d554023c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <TowerType>k__BackingField: {fileID: 11400000, guid: bd207d7e608df2a4e93ab54e2313db34, type: 2}
   towerStatsSO: {fileID: 11400000, guid: e09d3ad3d60b1f642bb2f41578eca777, type: 2}
   rotateTowards: {fileID: 2950739985137847099}
   targetChooseStrategy: {fileID: 2889263245548860533}
