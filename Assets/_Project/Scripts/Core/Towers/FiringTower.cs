@@ -83,7 +83,7 @@ namespace _Project.Scripts.Core.Towers
                 if (angle < coneAngle * 0.5f &&
                     _results[i].gameObject.TryGetComponent<Enemy>(out var enemy))
                 {
-                    enemy.ApplyEffect(new PoisonEffect(poisonEffectStats, enemy));
+                    enemy.EnemyStatsSystem.ApplyEffect(new PoisonEffect(poisonEffectStats, enemy.EnemyStatsSystem));
                 }
             }
         }

@@ -1,13 +1,21 @@
 ﻿using KBCore.Refs;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace _Project.Scripts.Core.UI
 {
     public class ShopUI : MonoBehaviour
     {
         [SerializeField] private TMP_Text moneyAmountText;
-        [SerializeField, Scene] private Shop shop;
+        
+        private IShop _shop;
+        
+        [Inject]
+        private void Construct(IShop shop)
+        {
+            _shop = shop;
+        }
         
         private void OnValidate()
         {
@@ -16,18 +24,18 @@ namespace _Project.Scripts.Core.UI
 
         private void Start()
         {
-            shop.OnMoneyAmountChanged += UpdateMoneyAmountText;
+            _shop.OnMoneyAmountChanged += UpdateMoneyAmountText;
             UpdateMoneyAmountText();
         }
 
         private void UpdateMoneyAmountText()
         {
-            moneyAmountText.text = shop.MoneyAmount.ToString();
+            moneyAmountText.text = _shop.MoneyAmount.ToString();
         }
         
         private void OnDestroy()
         {
-            shop.OnMoneyAmountChanged -= UpdateMoneyAmountText;
+            _shop.OnMoneyAmountChanged -= UpdateMoneyAmountText;
         }
     }
 }

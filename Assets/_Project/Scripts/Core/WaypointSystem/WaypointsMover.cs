@@ -1,23 +1,19 @@
 ﻿using System;
+using _Project.Scripts.Core.Enemies;
 using UnityEngine;
 
 namespace _Project.Scripts.Core.WaypointSystem
 {
     public class WaypointsMover : MonoBehaviour
     {
+        [SerializeField] private EnemyStatsSystem enemyStatsSystem;
         public WaypointsHolder WaypointsHolder { get; private set; }
         public int CurrentWaypointIndex => _currentWaypointIndex;
 
-        private float _speed;
         public Action OnPathCompleted;
         private Transform[] _waypoints;
         private int _currentWaypointIndex;
         private bool _pathCompleted;
-        
-        public void SetSpeed(float speed)
-        {
-            _speed = speed;
-        }
 
         public void Initialize(WaypointsHolder waypointsHolder)
         {
@@ -26,12 +22,13 @@ namespace _Project.Scripts.Core.WaypointSystem
             _currentWaypointIndex = 0;
         }
 
-        private void Update() // TODO: speed not working as expected
+        private void Update()
         {
+            var speed = enemyStatsSystem.CurrentStats.speed;
             Vector3 direction = (_waypoints[_currentWaypointIndex].position
                                  - transform.position).normalized;
 
-            transform.Translate(direction * (_speed * Time.deltaTime));
+            transform.Translate(direction * (speed * Time.deltaTime));
 
             var comparisonTolerance = 0.1f;
             if (Vector3.Distance(transform.position, _waypoints[_currentWaypointIndex].position) < comparisonTolerance)

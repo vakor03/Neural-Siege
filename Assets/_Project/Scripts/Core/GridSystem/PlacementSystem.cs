@@ -2,6 +2,7 @@
 using _Project.Scripts.Extensions;
 using KBCore.Refs;
 using UnityEngine;
+using Zenject;
 
 namespace _Project.Scripts.Core.GridSystem
 {
@@ -9,7 +10,6 @@ namespace _Project.Scripts.Core.GridSystem
     {
         [SerializeField] private Grid grid;
         [SerializeField] private InputManager inputManager;
-        [SerializeField, Scene] private Shop shop;
         [SerializeField] private Transform bottomLeftTransform;
         [SerializeField] private Transform topRightTransform;
 
@@ -22,6 +22,13 @@ namespace _Project.Scripts.Core.GridSystem
         private bool _isPlacingObject;
         private GameObject _currentPreview;
         private GridData _gridData = new();
+        private IShop _shop;
+
+        [Inject]
+        private void Construct(IShop shop)
+        {
+            _shop = shop;
+        }
 
         private void OnValidate()
         {
@@ -67,10 +74,10 @@ namespace _Project.Scripts.Core.GridSystem
             var gridPosition = grid.WorldToCell(mousePosition);
 
             if (_gridData.IsPlacementValid(_activeSO, gridPosition)
-                && shop.MoneyAmount >= _activeSO.price)
+                && _shop.MoneyAmount >= _activeSO.price)
             {
                 BuildObject(gridPosition, _activeSO);
-                shop.SpendMoney(_activeSO.price);
+                _shop.SpendMoney(_activeSO.price);
             }
         }
 
@@ -94,7 +101,7 @@ namespace _Project.Scripts.Core.GridSystem
             inputManager.OnClicked -= OnClicked;
             inputManager.OnExit -= StopPlacingObject;
         }
-        
+
         public void RemoveObject(Vector3 position)
         {
             var gridPosition = grid.WorldToCell(position);

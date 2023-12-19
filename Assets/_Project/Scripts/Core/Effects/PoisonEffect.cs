@@ -16,10 +16,10 @@ namespace _Project.Scripts.Core.Effects
     {
         private float _damagePerSecond;
         private float _duration;
-        private readonly Enemy _enemy;
+        private readonly EnemyStatsSystem _enemy;
         private CoroutineHandle _timerCoroutine;
 
-        public PoisonEffect(float damagePerSecond, float duration, Enemy enemy)
+        public PoisonEffect(float damagePerSecond, float duration, EnemyStatsSystem enemy)
         {
             _damagePerSecond = damagePerSecond;
             _duration = duration;
@@ -28,7 +28,7 @@ namespace _Project.Scripts.Core.Effects
             _timerCoroutine = Timing.RunCoroutine(TimerCoroutine());
         }
         
-        public PoisonEffect(PoisonEffectStats stats, Enemy enemy)
+        public PoisonEffect(PoisonEffectStats stats, EnemyStatsSystem enemy)
         {
             _damagePerSecond = stats.damagePerSecond;
             _duration = stats.duration;
@@ -45,7 +45,7 @@ namespace _Project.Scripts.Core.Effects
 
         public override void Update(Enemy enemy, float deltaTime)
         {
-            enemy.TakeDamage(_damagePerSecond * deltaTime);
+            enemy.EnemyHealth.TakeDamage(_damagePerSecond * deltaTime);
         }
 
         public override void Reset()

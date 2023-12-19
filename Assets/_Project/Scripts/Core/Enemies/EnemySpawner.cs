@@ -2,16 +2,24 @@
 using _Project.Scripts.Core.WaypointSystem;
 using MEC;
 using UnityEngine;
+using Zenject;
 
 namespace _Project.Scripts.Core.Enemies
 {
     public class EnemySpawner : MonoBehaviour
     {
         [SerializeField] private float spawnRate;
-        
         [SerializeField] private EnemyWave testWave;
+        
         private Transform _spawnPoint;
         private WaypointsHolder _waypointsHolder;
+        private IEnemyFactory _enemyFactory;
+
+        [Inject]
+        private void Construct(IEnemyFactory enemyFactory)
+        {
+            _enemyFactory = enemyFactory;
+        }
 
         public void Initialize(Transform spawnPoint, WaypointsHolder waypointsHolder)
         {
@@ -32,11 +40,11 @@ namespace _Project.Scripts.Core.Enemies
 
         private IEnumerator<float> SpawnCoroutine(EnemyWave enemyWave, float delay)
         {
-            foreach (Enemy enemy in enemyWave.enemies)
+            foreach (var enemyType in enemyWave.enemies)
             {
                 yield return Timing.WaitForSeconds(delay);
-                Enemy instance = Instantiate(enemy, _spawnPoint.position, Quaternion.identity, _spawnPoint);
-                instance.Initialize(_waypointsHolder);
+                var instance = _enemyFactory.Create(enemyType, _spawnPoint.position);
+                instance.GetComponent<WaypointsMover>().Initialize(_waypointsHolder);
             }
         }
     }

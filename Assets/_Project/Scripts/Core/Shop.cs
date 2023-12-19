@@ -1,21 +1,15 @@
 ﻿using System;
-using UnityEngine;
 
 namespace _Project.Scripts.Core
 {
-    public class Shop : MonoBehaviour
+    public class Shop : IShop
     {
-        public static Shop Instance { get; private set; }
-        [SerializeField] private int startingMoneyAmount;
-
         public int MoneyAmount { get; private set; }
-
         public event Action OnMoneyAmountChanged;
 
-        private void Awake()
+        public Shop(int moneyAmount)
         {
-            Instance = this;
-            MoneyAmount = startingMoneyAmount;
+            MoneyAmount = moneyAmount;
         }
 
         public void SpendMoney(int amount)
@@ -23,11 +17,18 @@ namespace _Project.Scripts.Core
             MoneyAmount -= amount;
             OnMoneyAmountChanged?.Invoke();
         }
-        
         public void EarnMoney(int amount)
         {
             MoneyAmount += amount;
             OnMoneyAmountChanged?.Invoke();
         }
+    }
+    
+    public interface IShop
+    {
+        int MoneyAmount { get; }
+        event Action OnMoneyAmountChanged;
+        void SpendMoney(int amount);
+        void EarnMoney(int amount);
     }
 }

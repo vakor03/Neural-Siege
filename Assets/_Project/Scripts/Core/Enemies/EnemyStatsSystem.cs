@@ -1,26 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using _Project.Scripts.Core.Effects;
+using KBCore.Refs;
 using UnityEngine;
 
 namespace _Project.Scripts.Core.Enemies
 {
-    public class EnemyEffectsSystem : IDisposable
+    public class EnemyStatsSystem : MonoBehaviour
     {
-        private EnemyStats _defaultStats;
-        private List<Effect> _effects = new();
-        private Enemy _enemy;
-
-        private EnemyStats _currentStats;
-        public EnemyStats CurrentStats => _currentStats;
+        [SerializeField] private EnemyStats defaultStats;
+        [SerializeField] private Enemy enemy;
         
+        private List<Effect> _effects = new();
+
+        public EnemyStats CurrentStats { get; private set; }
+
         public event Action OnStatsChanged;
 
-        public EnemyEffectsSystem(EnemyStats defaultStats, Enemy enemy)
+        private void Awake()
         {
-            _defaultStats = defaultStats;
-            _enemy = enemy;
-            
             RecalculateStats();
         }
 
@@ -48,10 +46,10 @@ namespace _Project.Scripts.Core.Enemies
 
         private void RecalculateStats()
         {
-            _currentStats = _defaultStats;
+            CurrentStats = defaultStats;
             foreach (var effect in _effects)
             {
-                _currentStats = effect.ApplyEffect(_currentStats);
+                CurrentStats = effect.ApplyEffect(CurrentStats);
             }
         }
 
@@ -60,13 +58,8 @@ namespace _Project.Scripts.Core.Enemies
             for (var i = 0; i < _effects.Count; i++)
             {
                 var effect = _effects[i];
-                effect.Update(_enemy, Time.deltaTime);
+                effect.Update(enemy, Time.deltaTime);
             }
-        }
-
-        public void Dispose()
-        {
-            _effects.Clear();
         }
     }
 }
