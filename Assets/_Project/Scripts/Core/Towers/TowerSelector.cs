@@ -3,13 +3,13 @@ using _Project.Scripts.Core.Managers;
 using _Project.Scripts.Core.UI;
 using KBCore.Refs;
 using UnityEngine;
+using Zenject;
 
 namespace _Project.Scripts.Core.Towers
 {
     public class TowerSelector : MonoBehaviour
     {
         [SerializeField] private LayerMask towerLayerMask;
-        [SerializeField, Scene] private InputManager inputManager;
         [SerializeField, Scene] private TowersController towersController;
 
         [SerializeField] private TowerInfoUI towerInfoUI;
@@ -17,6 +17,13 @@ namespace _Project.Scripts.Core.Towers
 
         private Camera _camera;
         private Tower _selectedTower;
+        private InputManager _inputManager;
+
+        [Inject]
+        private void Construct(InputManager inputManager)
+        {
+            this._inputManager = inputManager;
+        }
 
         private void OnValidate()
         {
@@ -30,7 +37,7 @@ namespace _Project.Scripts.Core.Towers
 
         private void Start()
         {
-            inputManager.OnClicked += OnClicked;
+            _inputManager.OnClicked += OnClicked;
 
             towerInfoUI.OnUpgrade += UpgradeTower;
             towerInfoUI.OnDelete += SellTower;
@@ -39,14 +46,14 @@ namespace _Project.Scripts.Core.Towers
 
         private void OnDestroy()
         {
-            inputManager.OnClicked -= OnClicked;
+            _inputManager.OnClicked -= OnClicked;
             towerInfoUI.OnUpgrade -= UpgradeTower;
             towerInfoUI.OnDelete -= SellTower;
         }
 
         private void OnClicked()
         {
-            if (inputManager.IsMouseOverUI()) return;
+            if (_inputManager.IsMouseOverUI()) return;
 
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit =

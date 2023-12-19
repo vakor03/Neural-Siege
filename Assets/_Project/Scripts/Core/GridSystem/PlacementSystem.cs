@@ -9,7 +9,6 @@ namespace _Project.Scripts.Core.GridSystem
     public class PlacementSystem : MonoBehaviour
     {
         [SerializeField] private Grid grid;
-        [SerializeField] private InputManager inputManager;
         [SerializeField] private Transform bottomLeftTransform;
         [SerializeField] private Transform topRightTransform;
 
@@ -23,11 +22,14 @@ namespace _Project.Scripts.Core.GridSystem
         private GameObject _currentPreview;
         private GridData _gridData = new();
         private IShop _shop;
+        private InputManager _inputManager;
+
 
         [Inject]
-        private void Construct(IShop shop)
+        private void Construct(IShop shop, InputManager inputManager)
         {
             _shop = shop;
+            _inputManager = inputManager;
         }
 
         private void OnValidate()
@@ -47,7 +49,7 @@ namespace _Project.Scripts.Core.GridSystem
                 return;
             }
 
-            var mousePosition = inputManager.GetCursorPosition();
+            var mousePosition = _inputManager.GetCursorPosition();
             var gridPosition = grid.WorldToCell(mousePosition);
             _currentPreview.transform.position = grid.CellToWorld(gridPosition);
         }
@@ -59,18 +61,18 @@ namespace _Project.Scripts.Core.GridSystem
             _currentPreview = Instantiate(_activeSO.previewPrefab);
 
             _isPlacingObject = true;
-            inputManager.OnClicked += OnClicked;
-            inputManager.OnExit += StopPlacingObject;
+            _inputManager.OnClicked += OnClicked;
+            _inputManager.OnExit += StopPlacingObject;
         }
 
         private void OnClicked()
         {
-            if (!inputManager.IsMousePositionValid())
+            if (!_inputManager.IsMousePositionValid())
             {
                 return;
             }
 
-            var mousePosition = inputManager.GetCursorPosition();
+            var mousePosition = _inputManager.GetCursorPosition();
             var gridPosition = grid.WorldToCell(mousePosition);
 
             if (_gridData.IsPlacementValid(_activeSO, gridPosition)
@@ -98,8 +100,8 @@ namespace _Project.Scripts.Core.GridSystem
             _isPlacingObject = false;
             Destroy(_currentPreview);
 
-            inputManager.OnClicked -= OnClicked;
-            inputManager.OnExit -= StopPlacingObject;
+            _inputManager.OnClicked -= OnClicked;
+            _inputManager.OnExit -= StopPlacingObject;
         }
 
         public void RemoveObject(Vector3 position)

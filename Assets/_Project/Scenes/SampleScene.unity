@@ -495,7 +495,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 34
+  field of view: 53.8
   orthographic: 1
   orthographic size: 5
   m_Depth: -1
@@ -734,11 +734,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8115910849437808645, guid: 9fffc78e7256e914683458fd57dd2eac, type: 3}
   m_PrefabInstance: {fileID: 790962930}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &793638755 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7857764637687893553, guid: e1a486c70066cd145bd7b266ddb54b3c, type: 3}
-  m_PrefabInstance: {fileID: 1818177777}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &842077647
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,7 +766,6 @@ MonoBehaviour:
   towerLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  inputManager: {fileID: 1818177781}
   towersController: {fileID: 81859081}
   towerInfoUI: {fileID: 688860507}
   towerInfoOffset: {x: 1, y: 1}
@@ -924,11 +918,6 @@ Transform:
   - {fileID: 1352113535}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1097758506 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 566000549975319180, guid: e1a486c70066cd145bd7b266ddb54b3c, type: 3}
-  m_PrefabInstance: {fileID: 1818177777}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1314479306
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,6 +1201,7 @@ MonoBehaviour:
   enemyFactoryPrefab: {fileID: 1548515570114878157, guid: 94d6a41112c644b41957cd876c4f2db5, type: 3}
   initialShopMoneyAmount: 100
   playerBaseHealth: 5
+  inputManagerPrefab: {fileID: 8369778547227140599, guid: 5f6122eec88e8c344ad21356be821a12, type: 3}
 --- !u!114 &1589833634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1803,13 +1793,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 1351915642}
     m_Modifications:
     - target: {fileID: 450403482227509850, guid: e1a486c70066cd145bd7b266ddb54b3c, type: 3}
-      propertyPath: topRightTransform
+      propertyPath: inputManager
       value: 
-      objectReference: {fileID: 1097758506}
-    - target: {fileID: 450403482227509850, guid: e1a486c70066cd145bd7b266ddb54b3c, type: 3}
-      propertyPath: bottomLeftTransform
-      value: 
-      objectReference: {fileID: 793638755}
+      objectReference: {fileID: 0}
     - target: {fileID: 1203168793774267651, guid: e1a486c70066cd145bd7b266ddb54b3c, type: 3}
       propertyPath: m_Name
       value: PlacementSystem
@@ -1873,17 +1859,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08feaeee138b4f1a9869cef80a1dfc9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1818177781 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3979534701199383883, guid: e1a486c70066cd145bd7b266ddb54b3c, type: 3}
-  m_PrefabInstance: {fileID: 1818177777}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1818177778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5ef46c0a32040699dcbd9654da9d2da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1818177782 stripped
