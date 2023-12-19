@@ -10,8 +10,8 @@ namespace _Project.Scripts.Core.Towers
     public class TowersController : MonoBehaviour
     {
         [SerializeField] private TowerInfo[] towerInfos;
-        [SerializeField, Scene] private PlacementSystem placementSystem;
         [SerializeField] private float sellPriceMultiplier = 0.6f;
+        private PlacementSystem _placementSystem;
         private IShop _shop;
 
         private void OnValidate()
@@ -20,9 +20,10 @@ namespace _Project.Scripts.Core.Towers
         }
 
         [Inject]
-        private void Construct(IShop shop)
+        private void Construct(IShop shop, PlacementSystem placementSystem)
         {
             _shop = shop;
+            _placementSystem = placementSystem;
         }
          
 
@@ -44,7 +45,7 @@ namespace _Project.Scripts.Core.Towers
             var sellPrice = towerInfo.placementObject.price + upgradesPrice;
 
             _shop.EarnMoney((int)(sellPrice * sellPriceMultiplier));
-            placementSystem.RemoveObject(tower.gameObject.transform.position);
+            _placementSystem.RemoveObject(tower.gameObject.transform.position);
         }
 
         private TowerInfo GetTowerInfoOfType(TowerType type)

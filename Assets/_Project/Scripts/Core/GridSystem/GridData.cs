@@ -7,6 +7,7 @@ namespace _Project.Scripts.Core.GridSystem
     public class GridData
     {
         private Dictionary<Vector3Int, GameObject> _placedObjects = new();
+        public List<GameObject> _placedObjectsList { get; private set; } = new();
 
         public bool IsPlacementValid(PlacementSystemObjectSO activeSO, Vector3Int zeroPosition)
         {
@@ -24,9 +25,15 @@ namespace _Project.Scripts.Core.GridSystem
 
             return true;
         }
+        
+        public bool IsCellTaken(Vector3Int gridPosition)
+        {
+            return _placedObjects.ContainsKey(gridPosition);
+        }
 
         public void AddObject(PlacementSystemObjectSO objectSO, Vector3Int gridPosition, GameObject instance)
         {
+            _placedObjectsList.Add(instance);
             for (int i = 0; i < objectSO.size.y; i++)
             {
                 for (int j = 0; j < objectSO.size.x; j++)
@@ -42,8 +49,9 @@ namespace _Project.Scripts.Core.GridSystem
             return _placedObjects.GetValueOrDefault(gridPosition);
         }
 
-        public void RemoveObject(Vector3Int gridPosition)
+        public GameObject RemoveObjectAt(Vector3Int gridPosition)
         {
+            _placedObjectsList.Remove(_placedObjects[gridPosition]);
             var placedObject = _placedObjects[gridPosition];
 
             List<Vector3Int> keysToRemove = new();
@@ -59,6 +67,8 @@ namespace _Project.Scripts.Core.GridSystem
             {
                 _placedObjects.Remove(key);
             }
+            
+            return placedObject;
         }
     }
 }

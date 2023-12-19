@@ -1,4 +1,5 @@
-﻿using _Project.Scripts.Core.Managers;
+﻿using System.Linq;
+using _Project.Scripts.Core.Managers;
 using _Project.Scripts.Extensions;
 using KBCore.Refs;
 using UnityEngine;
@@ -95,6 +96,11 @@ namespace _Project.Scripts.Core.GridSystem
             _gridData.AddObject(placementObject, gridPosition, instance);
         }
 
+        public bool IsPlaceTaken(Vector3Int gridPosition)
+        {
+            return _gridData.IsCellTaken(gridPosition);
+        }
+
         public void StopPlacingObject()
         {
             _isPlacingObject = false;
@@ -113,8 +119,23 @@ namespace _Project.Scripts.Core.GridSystem
                 return;
             }
 
-            _gridData.RemoveObject(gridPosition);
-            Destroy(placementObject);
+            _gridData.RemoveObjectAt(gridPosition);
+        }
+
+        public void RemoveAt(Vector3Int gridPosition)
+        {
+            var placedObject = _gridData.RemoveObjectAt(gridPosition);
+            Destroy(placedObject);
+        }
+
+        public void Clear()
+        {
+            var placedObjects =_gridData._placedObjectsList.ToList();
+            foreach (var placedObject in placedObjects)
+            {
+                Destroy(placedObject);
+            }
+            _gridData = new GridData();
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using _Project.Scripts.Core.Enemies;
+using _Project.Scripts.Core.GridSystem;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace _Project.Scripts.Core.Towers
@@ -9,11 +11,20 @@ namespace _Project.Scripts.Core.Towers
         public int initialShopMoneyAmount;
         public int playerBaseHealth = 5;
 
+        public PlacementSystem placementSystem;
+
         public override void InstallBindings()
         {
             BindEnemyFactory();
             BindShop();
             BindPlayerBase();
+            BindPlacementSystem();
+        }
+
+        private void BindPlacementSystem()
+        {
+            Container.Bind<PlacementSystem>()
+                .FromInstance(placementSystem).AsSingle();
         }
 
         private void BindPlayerBase()
