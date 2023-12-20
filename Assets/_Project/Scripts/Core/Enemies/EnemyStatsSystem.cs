@@ -6,10 +6,10 @@ using UnityEngine;
 
 namespace _Project.Scripts.Core.Enemies
 {
-    public class EnemyStatsSystem : MonoBehaviour
+    public class EnemyStatsSystem : ValidatedMonoBehaviour
     {
-        [SerializeField] private EnemyStats defaultStats;
-        [SerializeField] private Enemy enemy;
+        [SerializeField] private EnemyStatsSO defaultStatsSO;
+        [SerializeField, Self] private Enemy enemy;
         
         private List<Effect> _effects = new();
 
@@ -46,7 +46,7 @@ namespace _Project.Scripts.Core.Enemies
 
         private void RecalculateStats()
         {
-            CurrentStats = defaultStats;
+            CurrentStats = defaultStatsSO.enemyStats;
             foreach (var effect in _effects)
             {
                 CurrentStats = effect.ApplyEffect(CurrentStats);

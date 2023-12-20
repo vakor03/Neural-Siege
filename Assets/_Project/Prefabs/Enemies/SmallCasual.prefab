@@ -45,6 +45,8 @@ GameObject:
   - component: {fileID: 2616941242310268877}
   - component: {fileID: 7564837804082705472}
   - component: {fileID: 2505869732374155220}
+  - component: {fileID: 8220635860748015681}
+  - component: {fileID: 2084561819880135677}
   m_Layer: 7
   m_Name: SmallCasual
   m_TagString: Untagged
@@ -81,6 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdb97865676d45e7858ae6e398eaf506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatsSystem: {fileID: 2084561819880135677}
 --- !u!114 &2616941242310268877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,10 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19cbac35db9f4874b306130d87bdd525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointsMover: {fileID: 3428299355780052453}
-  defaultStats:
-    speed: 4
-    maxHealth: 4
+  <WaypointsMover>k__BackingField: {fileID: 3428299355780052453}
+  <EnemyStatsSystem>k__BackingField: {fileID: 2084561819880135677}
+  <EnemyHealth>k__BackingField: {fileID: 8220635860748015681}
 --- !u!58 &7564837804082705472
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -159,6 +161,33 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8220635860748015681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4100600645348918362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aa01c55dd0a4a3992ffe8b8ae33d8da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyStatsSystem: {fileID: 2084561819880135677}
+--- !u!114 &2084561819880135677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4100600645348918362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b1e4cdc3b4e417596065155aaab0dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultStatsSO: {fileID: 11400000, guid: 5e48a433b232195429a15dd3927ee4fa, type: 2}
+  enemy: {fileID: 2616941242310268877}
 --- !u!1 &4526062011698905148
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,6 +336,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 818546074556724590, guid: c75010bb5996f774e94da90165a68d78, type: 3}
+      propertyPath: haveHealthRef
+      value: 
+      objectReference: {fileID: 8220635860748015681}
     - target: {fileID: 818546074556724590, guid: c75010bb5996f774e94da90165a68d78, type: 3}
       propertyPath: haveHealthRef._implementer
       value: 

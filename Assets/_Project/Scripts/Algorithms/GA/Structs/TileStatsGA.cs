@@ -1,14 +1,14 @@
 using System.Collections.Generic;
 using _Project.Scripts.Core.Towers;
 
-namespace _Project.Scripts.Algorithms.GA
+namespace _Project.Scripts.Algorithms.GA.Structs
 {
-    public struct TileStats
+    public struct TileStatsGA
     {
         public float Distance;
         public List<TowerTypeSO> Towers;
 
-        public TileStats(float distance, List<TowerTypeSO> towers)
+        public TileStatsGA(float distance, List<TowerTypeSO> towers)
         {
             Distance = distance;
             Towers = towers;

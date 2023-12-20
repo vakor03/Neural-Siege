@@ -111,9 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b1e4cdc3b4e417596065155aaab0dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultStats:
-    speed: 2
-    maxHealth: 5
+  defaultStatsSO: {fileID: 11400000, guid: 4bab88f3f609b864ab000f39811880e2, type: 2}
   enemy: {fileID: 2616941242310268877}
 --- !u!114 &5665869698191819253
 MonoBehaviour:

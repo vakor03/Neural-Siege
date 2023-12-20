@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace _Project.Scripts.Core
+namespace _Project.Scripts.Algorithms
 {
     public class BacktrackingPathGenerator
     {

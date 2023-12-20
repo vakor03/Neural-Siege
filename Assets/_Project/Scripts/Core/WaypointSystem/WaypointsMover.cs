@@ -1,12 +1,13 @@
 ﻿using System;
 using _Project.Scripts.Core.Enemies;
+using KBCore.Refs;
 using UnityEngine;
 
 namespace _Project.Scripts.Core.WaypointSystem
 {
-    public class WaypointsMover : MonoBehaviour
+    public class WaypointsMover : ValidatedMonoBehaviour
     {
-        [SerializeField] private EnemyStatsSystem enemyStatsSystem;
+        [SerializeField, Self] private EnemyStatsSystem enemyStatsSystem;
         public WaypointsHolder WaypointsHolder { get; private set; }
         public int CurrentWaypointIndex => _currentWaypointIndex;
 

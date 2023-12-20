@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using _Project.Scripts.Algorithms.GA.Chromosomes;
+using _Project.Scripts.Algorithms.GA.Structs;
 
 namespace _Project.Scripts.Algorithms.GA.Evaluation
 {
     public interface IModelFitnessEvaluator
     {
-        List<TileStats> TilesStats { get; set; }
+        List<TileStatsGA> TilesStats { get; set; }
         float Evaluate(Chromosome chromosome);
     }
 }

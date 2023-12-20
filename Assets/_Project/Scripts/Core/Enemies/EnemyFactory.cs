@@ -32,7 +32,7 @@ namespace _Project.Scripts.Core.Enemies
     {
         Casual,
         Fast,
-        SmallCasual,
+        Spawned,
         Spawner,
         Tank
     }

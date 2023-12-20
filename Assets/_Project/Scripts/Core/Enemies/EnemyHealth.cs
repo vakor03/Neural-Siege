@@ -1,11 +1,12 @@
 ﻿using System;
+using KBCore.Refs;
 using UnityEngine;
 
 namespace _Project.Scripts.Core.Enemies
 {
-    public class EnemyHealth : MonoBehaviour, IHaveHealth
+    public class EnemyHealth : ValidatedMonoBehaviour, IHaveHealth
     {
-        [SerializeField] private EnemyStatsSystem enemyStatsSystem;
+        [SerializeField, Self] private EnemyStatsSystem enemyStatsSystem;
         public float MaxHealth => enemyStatsSystem.CurrentStats.maxHealth;
         public float CurrentHealth { get; private set; }
         

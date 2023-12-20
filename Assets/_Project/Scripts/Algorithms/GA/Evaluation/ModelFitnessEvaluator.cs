@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.Algorithms.GA.Chromosomes;
+using _Project.Scripts.Algorithms.GA.Structs;
 using _Project.Scripts.Core.Enemies;
 using _Project.Scripts.Core.Towers;
 
@@ -8,9 +9,9 @@ namespace _Project.Scripts.Algorithms.GA.Evaluation
 {
     public class ModelFitnessEvaluator : IModelFitnessEvaluator
     {
-        private Dictionary<EnemyType, EnemyStats> _enemyStats;
-        private Dictionary<TowerTypeSO, TowerStats> _towerStats;
-        public List<TileStats> TilesStats { get; set; } = new();
+        private Dictionary<EnemyType, EnemyStatsGA> _enemyStats;
+        private Dictionary<TowerTypeSO, TowerStatsGA> _towerStats;
+        public List<TileStatsGA> TilesStats { get; set; } = new();
 
         private readonly HashSet<TmpEnemyStats>
             _deadEnemiesStats = new(); // This can work not as expected cause of struct
@@ -19,11 +20,9 @@ namespace _Project.Scripts.Algorithms.GA.Evaluation
         private const float WAYPOINT_REACHED_COEFFICIENT = 100f;
         private const float PRICE_COEFFICIENT = -1f;
 
-        public ModelFitnessEvaluator(Dictionary<EnemyType, EnemyStats> enemyStats,
-            Dictionary<TowerTypeSO, TowerStats> towerStats)
+        public ModelFitnessEvaluator(Dictionary<EnemyType, EnemyStatsGA> enemyStats)
         {
             _enemyStats = enemyStats;
-            _towerStats = towerStats;
         }
 
         public float Evaluate(Chromosome chromosome)
@@ -65,14 +64,14 @@ namespace _Project.Scripts.Algorithms.GA.Evaluation
         }
 
         private List<TmpEnemyStats> CalculateWhoWillSurviveOnTile(List<TmpEnemyStats> tempEnemyStats,
-            TileStats tileStats)
+            TileStatsGA tileStatsGA)
         {
-            UpdateTimeToNextWaypoint(tempEnemyStats, tileStats.Distance);
-            var activeTowers = tileStats.Towers.Select(towerType => _towerStats[towerType]).ToList();
+            UpdateTimeToNextWaypoint(tempEnemyStats, tileStatsGA.Distance);
+            var activeTowers = tileStatsGA.Towers.Select(towerType => _towerStats[towerType]).ToList();
             // TODO: take into account order and time between enemies
             // TODO: take spawn rate into account
 
-            ApplySlowEffects(activeTowers, tempEnemyStats, tileStats.Distance);
+            ApplySlowEffects(activeTowers, tempEnemyStats, tileStatsGA.Distance);
 
             ApplyAoeDamage(activeTowers, tempEnemyStats);
 
@@ -91,7 +90,7 @@ namespace _Project.Scripts.Algorithms.GA.Evaluation
             }
         }
 
-        private void ApplySingleTargetDamage(List<TowerStats> activeTowers, List<TmpEnemyStats> tempEnemyStats)
+        private void ApplySingleTargetDamage(List<TowerStatsGA> activeTowers, List<TmpEnemyStats> tempEnemyStats)
         {
             foreach (var activeTower in activeTowers)
             {
@@ -109,7 +108,7 @@ namespace _Project.Scripts.Algorithms.GA.Evaluation
             }
         }
 
-        private void ApplySingleTargetDamage(ref TmpEnemyStats tempEnemyStats, TowerStats activeTower,
+        private void ApplySingleTargetDamage(ref TmpEnemyStats tempEnemyStats, TowerStatsGA activeTower,
             ref float timeShooting)
         {
             var timeToKill = tempEnemyStats.Health / activeTower.DamagePerSecond;
@@ -141,7 +140,7 @@ namespace _Project.Scripts.Algorithms.GA.Evaluation
             _deadEnemiesStats.Clear();
         }
 
-        private void ApplyAoeDamage(List<TowerStats> activeTowers, List<TmpEnemyStats> tempEnemyStats)
+        private void ApplyAoeDamage(List<TowerStatsGA> activeTowers, List<TmpEnemyStats> tempEnemyStats)
         {
             foreach (var activeTower in activeTowers)
             {
@@ -164,7 +163,7 @@ namespace _Project.Scripts.Algorithms.GA.Evaluation
             }
         }
 
-        private void ApplySlowEffects(List<TowerStats> activeTowers, List<TmpEnemyStats> tempEnemyStats,
+        private void ApplySlowEffects(List<TowerStatsGA> activeTowers, List<TmpEnemyStats> tempEnemyStats,
             float distanceBetweenWaypoints)
         {
             foreach (var activeTower in activeTowers)

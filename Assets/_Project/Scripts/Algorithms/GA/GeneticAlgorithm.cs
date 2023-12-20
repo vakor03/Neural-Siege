@@ -6,6 +6,7 @@ using _Project.Scripts.Algorithms.GA.Crossover;
 using _Project.Scripts.Algorithms.GA.Evaluation;
 using _Project.Scripts.Algorithms.GA.Mutation;
 using _Project.Scripts.Algorithms.GA.ParentSelection;
+using _Project.Scripts.Algorithms.GA.Structs;
 
 namespace _Project.Scripts.Algorithms.GA
 {
@@ -34,7 +35,7 @@ namespace _Project.Scripts.Algorithms.GA
         private Dictionary<Core.Enemies.EnemyType, float> _resourcesPerEnemyType;
         private float _totalResources;
 
-        public EnemyWave CreateEnemyWave(List<TileStats> tilesStats, int enemiesPerWave)
+        public EnemyWave CreateEnemyWave(List<TileStatsGA> tilesStats, int enemiesPerWave)
         {
             // TODO: maybe using total resources, not enemies count
             Initialize(tilesStats);
@@ -66,7 +67,7 @@ namespace _Project.Scripts.Algorithms.GA
             return bestIndividual;
         }
 
-        private void Initialize(List<TileStats> tilesStats)
+        private void Initialize(List<TileStatsGA> tilesStats)
         {
             _modelFitnessEvaluator.TilesStats = tilesStats;
         }

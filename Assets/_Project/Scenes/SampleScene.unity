@@ -950,6 +950,7 @@ MonoBehaviour:
   startTileSO: {fileID: 11400000, guid: c7f014e5469f8634c902076f2e46d5a8, type: 2}
   finishTileSO: {fileID: 11400000, guid: 18eaac9ba97e13e4bbd3f9f7c3f00d19, type: 2}
   minMagnitude: 5
+  enemySpawner: {fileID: 1352113534}
 --- !u!4 &1179198571
 Transform:
   m_ObjectHideFlags: 0
@@ -1092,7 +1093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRate: 2
-  testWave: {fileID: 11400000, guid: d70ad571bb7cba14c85fd68cfeaca1ae, type: 2}
+  testWaveSO: {fileID: 11400000, guid: d70ad571bb7cba14c85fd68cfeaca1ae, type: 2}
 --- !u!4 &1352113535
 Transform:
   m_ObjectHideFlags: 0
@@ -1249,6 +1250,70 @@ MonoBehaviour:
   initialShopMoneyAmount: 100
   playerBaseHealth: 5
   placementSystem: {fileID: 1818177779}
+  enemyStats:
+  - EnemyType: 0
+    MaxHealth: 3
+    Speed: 2
+    ReproductionRate: 0
+    SpawnedType: 0
+    Price: 10
+  - EnemyType: 1
+    MaxHealth: 1
+    Speed: 4
+    ReproductionRate: 0
+    SpawnedType: 0
+    Price: 15
+  - EnemyType: 2
+    MaxHealth: 2
+    Speed: 2
+    ReproductionRate: 0
+    SpawnedType: 0
+    Price: 0
+  - EnemyType: 3
+    MaxHealth: 1
+    Speed: 1
+    ReproductionRate: 0
+    SpawnedType: 0
+    Price: 20
+  - EnemyType: 4
+    MaxHealth: 5
+    Speed: 1
+    ReproductionRate: 0
+    SpawnedType: 0
+    Price: 30
+  towerStats:
+  - TowerType: {fileID: 11400000, guid: 477bb901f861ba441aa807b6913f5e78, type: 2}
+    DamagePerSecond: 0
+    SlowingFactor: 0
+    IsAoe: 0
+  - TowerType: {fileID: 0}
+    DamagePerSecond: 0
+    SlowingFactor: 0
+    IsAoe: 0
+  - TowerType: {fileID: 0}
+    DamagePerSecond: 0
+    SlowingFactor: 0
+    IsAoe: 0
+  - TowerType: {fileID: 0}
+    DamagePerSecond: 0
+    SlowingFactor: 0
+    IsAoe: 0
+  - TowerType: {fileID: 0}
+    DamagePerSecond: 0
+    SlowingFactor: 0
+    IsAoe: 0
+  enemyTypeToPrice:
+    _serializedList:
+    - Key: 0
+      Value: 10
+    - Key: 1
+      Value: 15
+    - Key: 2
+      Value: 8
+    - Key: 3
+      Value: 0
+    - Key: 4
+      Value: 30
 --- !u!114 &1589833634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1479,7 +1544,6 @@ MonoBehaviour:
   enemyTileSO: {fileID: 11400000, guid: f3848b8102eede64d9462883c9d1efc5, type: 2}
   startTileSO: {fileID: 11400000, guid: c7f014e5469f8634c902076f2e46d5a8, type: 2}
   finishTileSO: {fileID: 11400000, guid: 18eaac9ba97e13e4bbd3f9f7c3f00d19, type: 2}
-  waypointsParent: {fileID: 982876825}
   enemySpawner: {fileID: 1352113534}
 --- !u!4 &1698201647
 Transform:
@@ -1830,6 +1894,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: 0, y: 0, z: 0, w: 0}
   m_Softness: {x: 0, y: 0}
+--- !u!1 &1766006626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1766006628}
+  - component: {fileID: 1766006627}
+  m_Layer: 0
+  m_Name: Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1766006627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766006626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaca98a941ac59742b077718e0cfb352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1766006628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766006626}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1818177777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2088,3 +2196,4 @@ SceneRoots:
   - {fileID: 1351915642}
   - {fileID: 1589833635}
   - {fileID: 1179198571}
+  - {fileID: 1766006628}

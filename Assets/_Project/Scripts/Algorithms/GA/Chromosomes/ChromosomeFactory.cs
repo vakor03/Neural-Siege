@@ -5,7 +5,7 @@ namespace _Project.Scripts.Algorithms.GA.Chromosomes
 {
     public class ChromosomeFactory : IChromosomeFactory
     {
-        private EnemyType[] _availableEnemyTypes = new EnemyType[]
+        private EnemyType[] _availableEnemyTypes = new[]
         {
             EnemyType.Casual,
             EnemyType.Fast,
