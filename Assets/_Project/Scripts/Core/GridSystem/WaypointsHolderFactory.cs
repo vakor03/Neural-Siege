@@ -7,16 +7,9 @@ namespace _Project.Scripts.Core.GridSystem
     {
         public WaypointsHolder Create(Vector3[] positions)
         {
-            Transform[] waypoints = new Transform[positions.Length];
-            for (var i = 0; i < positions.Length; i++)
-            {
-                GameObject waypoint = new GameObject($"Waypoint {i}");
-                waypoint.transform.position = positions[i];
-                waypoints[i] = waypoint.transform;
-            }
             WaypointsHolder waypointsHolder = new()
             {
-                Waypoints = waypoints
+                Waypoints = positions
             };
             return waypointsHolder;
         }

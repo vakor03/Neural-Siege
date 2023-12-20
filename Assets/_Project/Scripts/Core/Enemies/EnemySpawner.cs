@@ -2,6 +2,7 @@
 using _Project.Scripts.Core.WaypointSystem;
 using MEC;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace _Project.Scripts.Core.Enemies
@@ -9,9 +10,9 @@ namespace _Project.Scripts.Core.Enemies
     public class EnemySpawner : MonoBehaviour
     {
         [SerializeField] private float spawnRate;
-        [SerializeField] private EnemyWave testWave;
+        [FormerlySerializedAs("testWave")] [SerializeField] private EnemyWaveSO testWaveSO;
         
-        private Transform _spawnPoint;
+        private Vector3 _spawnPoint;
         private WaypointsHolder _waypointsHolder;
         private IEnemyFactory _enemyFactory;
 
@@ -21,7 +22,7 @@ namespace _Project.Scripts.Core.Enemies
             _enemyFactory = enemyFactory;
         }
 
-        public void Initialize(Transform spawnPoint, WaypointsHolder waypointsHolder)
+        public void Initialize(Vector3 spawnPoint, WaypointsHolder waypointsHolder)
         {
             _spawnPoint = spawnPoint;
             _waypointsHolder = waypointsHolder;
@@ -30,20 +31,20 @@ namespace _Project.Scripts.Core.Enemies
         [ContextMenu("SpawnTestWave")]
         public void SpawnTestWave()
         {
-            SpawnWave(testWave);
+            SpawnWave(testWaveSO);
         }
 
-        public void SpawnWave(EnemyWave enemyWave)
+        public void SpawnWave(EnemyWaveSO enemyWaveSO)
         {
-            Timing.RunCoroutine(SpawnCoroutine(enemyWave, 1 / spawnRate));
+            Timing.RunCoroutine(SpawnCoroutine(enemyWaveSO, 1 / spawnRate));
         }
 
-        private IEnumerator<float> SpawnCoroutine(EnemyWave enemyWave, float delay)
+        private IEnumerator<float> SpawnCoroutine(EnemyWaveSO enemyWaveSO, float delay)
         {
-            foreach (var enemyType in enemyWave.enemies)
+            foreach (var enemyType in enemyWaveSO.enemies)
             {
                 yield return Timing.WaitForSeconds(delay);
-                var instance = _enemyFactory.Create(enemyType, _spawnPoint.position);
+                var instance = _enemyFactory.Create(enemyType, _spawnPoint);
                 instance.GetComponent<WaypointsMover>().Initialize(_waypointsHolder);
             }
         }

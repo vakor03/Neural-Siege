@@ -68,8 +68,8 @@ namespace _Project.Scripts.Core.GridSystem
 
         public void InitEnemySpawner(List<Vector3Int> path)
         {
-            var waypointsHolder = _waypointsHolderFactory.Create(
-                path.Select(el => _placementSystem.Grid.GetCellCenterWorld(el)).ToArray());
+            var actualPathPositions = path.Select(_placementSystem.Grid.GetCellCenterWorld).ToArray();
+            var waypointsHolder = _waypointsHolderFactory.Create(actualPathPositions);
  
             enemySpawner.Initialize(waypointsHolder.Waypoints[0], waypointsHolder);
         }

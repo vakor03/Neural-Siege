@@ -29,7 +29,7 @@ namespace _Project.Scripts.Core.Towers
 
         public void DoUpgrade(Tower tower)
         {
-            var towerInfo = GetTowerInfoOfType(tower.TowerType);
+            var towerInfo = GetTowerInfoOfType(tower.TowerTypeSO);
             var upgradePrice = towerInfo.upgrade.price * (tower.UpgradeLevel + 1);
 
             if (_shop.MoneyAmount < upgradePrice) return;
@@ -40,7 +40,7 @@ namespace _Project.Scripts.Core.Towers
 
         public void DoSell(Tower tower)
         {
-            var towerInfo = GetTowerInfoOfType(tower.TowerType);
+            var towerInfo = GetTowerInfoOfType(tower.TowerTypeSO);
             var upgradesPrice = towerInfo.upgrade.price * (tower.UpgradeLevel);
             var sellPrice = towerInfo.placementObject.price + upgradesPrice;
 
@@ -48,9 +48,9 @@ namespace _Project.Scripts.Core.Towers
             _placementSystem.RemoveObject(tower.gameObject.transform.position);
         }
 
-        private TowerInfo GetTowerInfoOfType(TowerType type)
+        private TowerInfo GetTowerInfoOfType(TowerTypeSO typeSO)
         {
-            return towerInfos.First(t => t.type == type);
+            return towerInfos.First(t => t.typeSO == typeSO);
         }
     }
 }
