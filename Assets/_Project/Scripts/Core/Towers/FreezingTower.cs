@@ -29,7 +29,7 @@ namespace _Project.Scripts.Core.Towers
         {
             if (other.gameObject.TryGetComponent<Enemy>(out var enemy))
             {
-                enemy.ApplyEffect(_freezingEffect);
+                enemy.EnemyStatsSystem.ApplyEffect(_freezingEffect);
             }
         }
 
@@ -37,7 +37,7 @@ namespace _Project.Scripts.Core.Towers
         {
             if (other.gameObject.TryGetComponent<Enemy>(out var enemy))
             {
-                enemy.RemoveEffect(_freezingEffect);
+                enemy.EnemyStatsSystem.RemoveEffect(_freezingEffect);
             }
         }
 

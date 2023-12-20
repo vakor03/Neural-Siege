@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8515543570188024798}
   - component: {fileID: 450403482227509850}
-  - component: {fileID: 3979534701199383883}
   m_Layer: 8
   m_Name: PlacementSystem
   m_TagString: Untagged
@@ -47,25 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 7783376837125717263}
-  inputManager: {fileID: 3979534701199383883}
-  shop: {fileID: 0}
-  bottomLeftTransform: {fileID: 0}
-  topRightTransform: {fileID: 0}
---- !u!114 &3979534701199383883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1203168793774267651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5ef46c0a32040699dcbd9654da9d2da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gridLayer:
-    serializedVersion: 2
-    m_Bits: 256
+  inputManager: {fileID: 0}
+  bottomLeftTransform: {fileID: 7857764637687893553}
+  topRightTransform: {fileID: 566000549975319180}
 --- !u!1 &4540821512772567797
 GameObject:
   m_ObjectHideFlags: 0

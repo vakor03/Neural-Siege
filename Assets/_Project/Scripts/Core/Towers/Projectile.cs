@@ -47,7 +47,7 @@ namespace _Project.Scripts.Core.Towers
             if (other.transform == _target)
             {
                 var enemy = other.GetComponent<Enemy>();
-                enemy.TakeDamage(damage);
+                enemy.EnemyHealth.TakeDamage(damage);
                 DestroyProjectile();
             }
         }

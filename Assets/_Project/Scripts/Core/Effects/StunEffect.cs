@@ -7,10 +7,10 @@ namespace _Project.Scripts.Core.Effects
     public class StunEffect : Effect
     {
         private float _duration;
-        private readonly Enemy _enemy;
+        private readonly EnemyStatsSystem _enemy;
         private CoroutineHandle _timerCoroutine;
 
-        public StunEffect(float duration, Enemy enemy)
+        public StunEffect(float duration, EnemyStatsSystem enemy)
         {
             _duration = duration;
             _enemy = enemy;

@@ -1,15 +1,15 @@
-﻿using _Project.Scripts.Core.Managers;
+﻿using System.Linq;
+using _Project.Scripts.Core.Managers;
 using _Project.Scripts.Extensions;
 using KBCore.Refs;
 using UnityEngine;
+using Zenject;
 
 namespace _Project.Scripts.Core.GridSystem
 {
     public class PlacementSystem : MonoBehaviour
     {
         [SerializeField] private Grid grid;
-        [SerializeField] private InputManager inputManager;
-        [SerializeField, Scene] private Shop shop;
         [SerializeField] private Transform bottomLeftTransform;
         [SerializeField] private Transform topRightTransform;
 
@@ -22,6 +22,16 @@ namespace _Project.Scripts.Core.GridSystem
         private bool _isPlacingObject;
         private GameObject _currentPreview;
         private GridData _gridData = new();
+        private IShop _shop;
+        private InputManager _inputManager;
+
+
+        [Inject]
+        private void Construct(IShop shop, InputManager inputManager)
+        {
+            _shop = shop;
+            _inputManager = inputManager;
+        }
 
         private void OnValidate()
         {
@@ -40,7 +50,7 @@ namespace _Project.Scripts.Core.GridSystem
                 return;
             }
 
-            var mousePosition = inputManager.GetCursorPosition();
+            var mousePosition = _inputManager.GetCursorPosition();
             var gridPosition = grid.WorldToCell(mousePosition);
             _currentPreview.transform.position = grid.CellToWorld(gridPosition);
         }
@@ -52,25 +62,25 @@ namespace _Project.Scripts.Core.GridSystem
             _currentPreview = Instantiate(_activeSO.previewPrefab);
 
             _isPlacingObject = true;
-            inputManager.OnClicked += OnClicked;
-            inputManager.OnExit += StopPlacingObject;
+            _inputManager.OnClicked += OnClicked;
+            _inputManager.OnExit += StopPlacingObject;
         }
 
         private void OnClicked()
         {
-            if (!inputManager.IsMousePositionValid())
+            if (!_inputManager.IsMousePositionValid())
             {
                 return;
             }
 
-            var mousePosition = inputManager.GetCursorPosition();
+            var mousePosition = _inputManager.GetCursorPosition();
             var gridPosition = grid.WorldToCell(mousePosition);
 
             if (_gridData.IsPlacementValid(_activeSO, gridPosition)
-                && shop.MoneyAmount >= _activeSO.price)
+                && _shop.MoneyAmount >= _activeSO.price)
             {
                 BuildObject(gridPosition, _activeSO);
-                shop.SpendMoney(_activeSO.price);
+                _shop.SpendMoney(_activeSO.price);
             }
         }
 
@@ -86,15 +96,20 @@ namespace _Project.Scripts.Core.GridSystem
             _gridData.AddObject(placementObject, gridPosition, instance);
         }
 
+        public bool IsPlaceTaken(Vector3Int gridPosition)
+        {
+            return _gridData.IsCellTaken(gridPosition);
+        }
+
         public void StopPlacingObject()
         {
             _isPlacingObject = false;
             Destroy(_currentPreview);
 
-            inputManager.OnClicked -= OnClicked;
-            inputManager.OnExit -= StopPlacingObject;
+            _inputManager.OnClicked -= OnClicked;
+            _inputManager.OnExit -= StopPlacingObject;
         }
-        
+
         public void RemoveObject(Vector3 position)
         {
             var gridPosition = grid.WorldToCell(position);
@@ -104,8 +119,23 @@ namespace _Project.Scripts.Core.GridSystem
                 return;
             }
 
-            _gridData.RemoveObject(gridPosition);
-            Destroy(placementObject);
+            _gridData.RemoveObjectAt(gridPosition);
+        }
+
+        public void RemoveAt(Vector3Int gridPosition)
+        {
+            var placedObject = _gridData.RemoveObjectAt(gridPosition);
+            Destroy(placedObject);
+        }
+
+        public void Clear()
+        {
+            var placedObjects =_gridData._placedObjectsList.ToList();
+            foreach (var placedObject in placedObjects)
+            {
+                Destroy(placedObject);
+            }
+            _gridData = new GridData();
         }
     }
 }

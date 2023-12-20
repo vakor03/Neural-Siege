@@ -3,45 +3,54 @@ using _Project.Scripts.Core.GridSystem;
 using KBCore.Refs;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Zenject;
 
 namespace _Project.Scripts.Core.Towers
 {
     public class TowersController : MonoBehaviour
     {
         [SerializeField] private TowerInfo[] towerInfos;
-        [SerializeField, Scene] private PlacementSystem placementSystem;
-        [SerializeField, Scene] private Shop shop;
         [SerializeField] private float sellPriceMultiplier = 0.6f;
+        private PlacementSystem _placementSystem;
+        private IShop _shop;
 
         private void OnValidate()
         {
             this.ValidateRefs();
         }
 
+        [Inject]
+        private void Construct(IShop shop, PlacementSystem placementSystem)
+        {
+            _shop = shop;
+            _placementSystem = placementSystem;
+        }
+         
+
         public void DoUpgrade(Tower tower)
         {
-            var towerInfo = GetTowerInfoOfType(tower.TowerType);
+            var towerInfo = GetTowerInfoOfType(tower.TowerTypeSO);
             var upgradePrice = towerInfo.upgrade.price * (tower.UpgradeLevel + 1);
 
-            if (shop.MoneyAmount < upgradePrice) return;
+            if (_shop.MoneyAmount < upgradePrice) return;
 
-            shop.SpendMoney(upgradePrice);
+            _shop.SpendMoney(upgradePrice);
             tower.ApplyUpgrade(towerInfo.upgrade);
         }
 
         public void DoSell(Tower tower)
         {
-            var towerInfo = GetTowerInfoOfType(tower.TowerType);
+            var towerInfo = GetTowerInfoOfType(tower.TowerTypeSO);
             var upgradesPrice = towerInfo.upgrade.price * (tower.UpgradeLevel);
             var sellPrice = towerInfo.placementObject.price + upgradesPrice;
 
-            shop.EarnMoney((int)(sellPrice * sellPriceMultiplier));
-            placementSystem.RemoveObject(tower.gameObject.transform.position);
+            _shop.EarnMoney((int)(sellPrice * sellPriceMultiplier));
+            _placementSystem.RemoveObject(tower.gameObject.transform.position);
         }
 
-        private TowerInfo GetTowerInfoOfType(TowerType type)
+        private TowerInfo GetTowerInfoOfType(TowerTypeSO typeSO)
         {
-            return towerInfos.First(t => t.type == type);
+            return towerInfos.First(t => t.typeSO == typeSO);
         }
     }
 }

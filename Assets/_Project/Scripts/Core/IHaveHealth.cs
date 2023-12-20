@@ -4,9 +4,9 @@ namespace _Project.Scripts.Core
 {
     public interface IHaveHealth
     {
-        event Action OnHealthChanged;
-        event Action OnDeath;
-        float CurrentHealth { get; }
-        float MaxHealth { get; }
+        public event Action OnHealthChanged;
+        public event Action OnDeath;
+        public float CurrentHealth { get; }
+        public float MaxHealth { get; }
     }
 }

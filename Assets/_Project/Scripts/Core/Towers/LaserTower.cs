@@ -78,7 +78,7 @@ namespace _Project.Scripts.Core.Towers
 
                 if (enemy != null)
                 {
-                    enemy.TakeDamage(damage);
+                    enemy.EnemyHealth.TakeDamage(damage);
                 }
             }
 

@@ -7,7 +7,7 @@ namespace _Project.Scripts.Core.Towers
 {
     public abstract class Tower : MonoBehaviour
     {
-        [field: SerializeField] public TowerType TowerType { get; private set; }
+        [field: SerializeField] public TowerTypeSO TowerTypeSO { get; private set; }
         public int UpgradeLevel { get; protected set; }
 
         public virtual void ApplyUpgrade(TowerUpgradeSO towerUpgradeSO)

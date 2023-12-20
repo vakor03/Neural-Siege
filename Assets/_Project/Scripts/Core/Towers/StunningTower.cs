@@ -43,7 +43,7 @@ namespace _Project.Scripts.Core.Towers
             float stunningDuration = TowerStatsController.CurrentStats.StunningDuration;
             foreach (var enemy in _enemiesInRange)
             {
-                enemy.ApplyEffect(new Effects.StunEffect(stunningDuration, enemy));
+                enemy.EnemyStatsSystem.ApplyEffect(new Effects.StunEffect(stunningDuration, enemy.EnemyStatsSystem));
             }
         }
 

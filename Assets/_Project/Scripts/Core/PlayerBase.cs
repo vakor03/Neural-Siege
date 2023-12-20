@@ -1,30 +1,36 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace _Project.Scripts.Core
 {
-    public class PlayerBase : MonoBehaviour, IHaveHealth
+    public interface IPlayerBase
     {
-        public static PlayerBase Instance { get; private set; }
-        [SerializeField] private float maxHealth = 5;
-        
-        private float _currentHealth;
+        int MaxHealth { get; }
+        int CurrentHealth { get; }
+        event Action OnHealthChanged;
+        event Action OnDeath;
+        void TakeDamage(int damage);
+    }
 
-        public float MaxHealth => maxHealth;
-        public float CurrentHealth => _currentHealth;
-        public event System.Action OnHealthChanged;
-        public event System.Action OnDeath;
-        
-        private void Awake()
+    public class PlayerBase : IPlayerBase
+    {
+        public PlayerBase(int maxHealth)
         {
-            Instance = this;
-            _currentHealth = maxHealth;
+            MaxHealth = maxHealth;
+            CurrentHealth = maxHealth;
         }
-        public void TakeDamage(float damage)
+
+        public int MaxHealth { get; private set; }
+        public int CurrentHealth { get; private set; }
+        public event Action OnHealthChanged;
+        public event Action OnDeath;
+
+        public void TakeDamage(int damage)
         {
-            _currentHealth -= damage;
+            CurrentHealth -= damage;
             OnHealthChanged?.Invoke();
-            
-            if (_currentHealth <= 0)
+
+            if (CurrentHealth <= 0)
             {
                 OnDeath?.Invoke();
             }

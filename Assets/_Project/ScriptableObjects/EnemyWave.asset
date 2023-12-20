@@ -12,16 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d821f5dbedb4062bb6865ed3cb8daa7, type: 3}
   m_Name: EnemyWave
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 3918958376612507874, guid: 0879fcb2209c99743acfe3bdf5f65bba, type: 3}
-  - {fileID: 3918958376612507874, guid: 0879fcb2209c99743acfe3bdf5f65bba, type: 3}
-  - {fileID: 3918958376612507874, guid: 0879fcb2209c99743acfe3bdf5f65bba, type: 3}
-  - {fileID: 3918958376612507874, guid: 0879fcb2209c99743acfe3bdf5f65bba, type: 3}
-  - {fileID: 3918958376612507874, guid: 0879fcb2209c99743acfe3bdf5f65bba, type: 3}
-  - {fileID: 3918958376612507874, guid: 0879fcb2209c99743acfe3bdf5f65bba, type: 3}
-  - {fileID: 3918958376612507874, guid: 0879fcb2209c99743acfe3bdf5f65bba, type: 3}
-  - {fileID: 3918958376612507874, guid: 0879fcb2209c99743acfe3bdf5f65bba, type: 3}
-  - {fileID: 3918958376612507874, guid: 0879fcb2209c99743acfe3bdf5f65bba, type: 3}
-  - {fileID: 3918958376612507874, guid: 0879fcb2209c99743acfe3bdf5f65bba, type: 3}
-  - {fileID: 3918958376612507874, guid: 0879fcb2209c99743acfe3bdf5f65bba, type: 3}
-  - {fileID: 3918958376612507874, guid: 0879fcb2209c99743acfe3bdf5f65bba, type: 3}
+  enemies: 0000000001000000020000000300000004000000

@@ -1,4 +1,5 @@
-﻿using KBCore.Refs;
+﻿using _Project.Scripts.Core.Enemies;
+using KBCore.Refs;
 using UnityEngine;
 
 namespace _Project.Scripts.Core
@@ -6,7 +7,7 @@ namespace _Project.Scripts.Core
     public class HealthBar : MonoBehaviour
     {
         [SerializeField] private Material healthBarMaterial;
-        [SerializeField, Parent] private InterfaceRef<IHaveHealth> haveHealthRef;
+        [SerializeField] private EnemyHealth haveHealthRef;
         
         private Material _healthBarInstance;
         private static readonly int kFulfill = Shader.PropertyToID("_Fulfill");
@@ -23,14 +24,14 @@ namespace _Project.Scripts.Core
 
         private void Start()
         {
-            haveHealthRef.Value.OnHealthChanged += ChangeHealthbarFulfillness;
+            haveHealthRef.OnHealthChanged += ChangeHealthbarFulfillness;
             ChangeHealthbarFulfillness();
         }
 
         private void ChangeHealthbarFulfillness()
         {
-            var health = haveHealthRef.Value.CurrentHealth 
-                         / haveHealthRef.Value.MaxHealth;
+            var health = haveHealthRef.CurrentHealth 
+                         / haveHealthRef.MaxHealth;
             _healthBarInstance.SetFloat(kFulfill, health);
         }
     }

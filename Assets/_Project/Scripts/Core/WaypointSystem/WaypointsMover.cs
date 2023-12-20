@@ -1,43 +1,39 @@
 ﻿using System;
+using _Project.Scripts.Core.Enemies;
+using KBCore.Refs;
 using UnityEngine;
 
 namespace _Project.Scripts.Core.WaypointSystem
 {
-    public class WaypointsMover : MonoBehaviour
+    public class WaypointsMover : ValidatedMonoBehaviour
     {
+        [SerializeField, Self] private EnemyStatsSystem enemyStatsSystem;
         public WaypointsHolder WaypointsHolder { get; private set; }
         public int CurrentWaypointIndex => _currentWaypointIndex;
 
-        private float _speed;
         public Action OnPathCompleted;
-        private Transform[] _waypoints;
         private int _currentWaypointIndex;
         private bool _pathCompleted;
-        
-        public void SetSpeed(float speed)
-        {
-            _speed = speed;
-        }
 
         public void Initialize(WaypointsHolder waypointsHolder)
         {
             WaypointsHolder = waypointsHolder;
-            _waypoints = waypointsHolder.Waypoints;
             _currentWaypointIndex = 0;
         }
 
-        private void Update() // TODO: speed not working as expected
+        private void Update()
         {
-            Vector3 direction = (_waypoints[_currentWaypointIndex].position
-                                 - transform.position).normalized;
+            var speed = enemyStatsSystem.CurrentStats.speed;
+            var nextPosition = WaypointsHolder.Waypoints[_currentWaypointIndex];
+            Vector3 direction = (nextPosition - transform.position).normalized;
 
-            transform.Translate(direction * (_speed * Time.deltaTime));
+            transform.Translate(direction * (speed * Time.deltaTime));
 
             var comparisonTolerance = 0.1f;
-            if (Vector3.Distance(transform.position, _waypoints[_currentWaypointIndex].position) < comparisonTolerance)
+            if (Vector3.Distance(transform.position, nextPosition) < comparisonTolerance)
             {
                 _currentWaypointIndex++;
-                if (_currentWaypointIndex >= _waypoints.Length)
+                if (_currentWaypointIndex >= WaypointsHolder.Waypoints.Length)
                 {
                     _currentWaypointIndex = 0;
                     _pathCompleted = true;
