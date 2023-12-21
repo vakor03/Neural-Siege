@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _Project.Scripts.Algorithms.GA.Structs;
+using UnityEngine;
 
 namespace _Project.Scripts.Core.Towers.TowerStats
 {
@@ -23,6 +24,19 @@ namespace _Project.Scripts.Core.Towers.TowerStats
             Range = range;
             Damage = damage;
             FireRate = fireRate;
+        }
+
+        public override TowerStatsGA GetTowerStatsGA(TowerTypeSO towerType)
+        {
+            float aoeMultiplier = 0.4f;
+            return new TowerStatsGA
+            {
+                TowerType = towerType,
+                DamagePerSecond = Damage * FireRate * aoeMultiplier,
+                SlowingFactor = 0,
+                IsAoe = true,
+                Range = Range
+            };
         }
     }
 }

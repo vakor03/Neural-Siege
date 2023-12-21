@@ -1,5 +1,5 @@
 ﻿using System;
-using _Project.Scripts.Core.GridSystem;
+using _Project.Scripts.Core.Towers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,9 +13,9 @@ namespace _Project.Scripts.Core.UI
         [SerializeField] private Image towerIcon;
         [SerializeField] private Button button;
         
-        public event Action<PlacementSystemObjectSO> OnButtonClicked;
+        public event Action<TowerInfoSO> OnButtonClicked;
 
-        public PlacementSystemObjectSO PlacingObjectSO { get; private set; }
+        public TowerInfoSO PlacingObjectSO { get; private set; }
 
         private void Awake()
         {
@@ -33,12 +33,12 @@ namespace _Project.Scripts.Core.UI
         }
 
 
-        public void Setup(PlacementSystemObjectSO placingObjectSO)
+        public void Setup(TowerInfoSO placingObjectSO)
         {
             PlacingObjectSO = placingObjectSO;
             towerNameText.text = placingObjectSO.name;
             towerPriceText.text = $"Price: {placingObjectSO.price}";
-            towerIcon.sprite = placingObjectSO.icon;
+            towerIcon.sprite = placingObjectSO.placementObject.icon;
         }
     }
 }

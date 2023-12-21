@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using _Project.Scripts.Algorithms;
 using _Project.Scripts.Core.WaypointSystem;
 using MEC;
 using UnityEngine;
@@ -36,12 +37,17 @@ namespace _Project.Scripts.Core.Enemies
 
         public void SpawnWave(EnemyWaveSO enemyWaveSO)
         {
-            Timing.RunCoroutine(SpawnCoroutine(enemyWaveSO, 1 / spawnRate));
+            Timing.RunCoroutine(SpawnCoroutine(enemyWaveSO.enemies, 1 / spawnRate));
+        }
+        
+        public void SpawnWave(EnemyWave enemyWave)
+        {
+            Timing.RunCoroutine(SpawnCoroutine(enemyWave.enemies, 1 / spawnRate));
         }
 
-        private IEnumerator<float> SpawnCoroutine(EnemyWaveSO enemyWaveSO, float delay)
+        private IEnumerator<float> SpawnCoroutine(EnemyType[] enemies, float delay)
         {
-            foreach (var enemyType in enemyWaveSO.enemies)
+            foreach (var enemyType in enemies)
             {
                 yield return Timing.WaitForSeconds(delay);
                 var instance = _enemyFactory.Create(enemyType, _spawnPoint);

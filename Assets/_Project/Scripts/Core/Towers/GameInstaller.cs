@@ -33,6 +33,12 @@ namespace _Project.Scripts.Core.Towers
             BindPlayerBase();
             BindPlacementSystem();
             BindGeneticAlgorithm();
+            BindTowersController();
+        }
+
+        private void BindTowersController()
+        {
+            Container.BindInterfacesAndSelfTo<TowersController>().AsSingle();
         }
 
         private void BindGeneticAlgorithm()

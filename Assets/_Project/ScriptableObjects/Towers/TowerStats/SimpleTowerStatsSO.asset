@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baca4da51e6144f0a3414234cb355500, type: 3}
   m_Name: SimpleTowerStatsSO
   m_EditorClassIdentifier: 
-  range: 5
-  attackInterval: 1
+  range: 3
+  fireRate: 1
   projectilePrefab: {fileID: 1745628899730512520, guid: 613c0fd93a4fa684aa9c7fe79daab394, type: 3}

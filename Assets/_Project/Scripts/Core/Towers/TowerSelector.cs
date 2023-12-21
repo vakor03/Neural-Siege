@@ -10,19 +10,19 @@ namespace _Project.Scripts.Core.Towers
     public class TowerSelector : MonoBehaviour
     {
         [SerializeField] private LayerMask towerLayerMask;
-        [SerializeField, Scene] private TowersController towersController;
-
         [SerializeField] private TowerInfoUI towerInfoUI;
         [SerializeField] private Vector2 towerInfoOffset;
 
         private Camera _camera;
         private Tower _selectedTower;
         private InputManager _inputManager;
+        private TowersController _towersController;
 
         [Inject]
-        private void Construct(InputManager inputManager)
+        private void Construct(InputManager inputManager, TowersController towersController)
         {
-            this._inputManager = inputManager;
+            _inputManager = inputManager;
+            _towersController = towersController;
         }
 
         private void OnValidate()
@@ -99,12 +99,12 @@ namespace _Project.Scripts.Core.Towers
 
         private void UpgradeTower()
         {
-            towersController.DoUpgrade(_selectedTower);
+            _towersController.DoUpgrade(_selectedTower);
         }
 
         private void SellTower()
         {
-            towersController.DoSell(_selectedTower);
+            _towersController.DoSell(_selectedTower);
             ClearSelectedTower();
         }
     }

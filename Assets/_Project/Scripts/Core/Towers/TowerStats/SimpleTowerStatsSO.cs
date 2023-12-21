@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _Project.Scripts.Algorithms.GA.Structs;
+using UnityEngine;
 
 namespace _Project.Scripts.Core.Towers.TowerStats
 {
@@ -24,6 +25,18 @@ namespace _Project.Scripts.Core.Towers.TowerStats
             FireRate = fireRate;
             ProjectilePrefab = projectilePrefab;
             Range = range;
+        }
+
+        public override TowerStatsGA GetTowerStatsGA(TowerTypeSO towerType)
+        {
+            return new TowerStatsGA
+            {
+                TowerType = towerType,
+                DamagePerSecond = ProjectilePrefab.Damage * FireRate,
+                SlowingFactor = 0,
+                IsAoe = false,
+                Range = Range
+            };
         }
     }
 }

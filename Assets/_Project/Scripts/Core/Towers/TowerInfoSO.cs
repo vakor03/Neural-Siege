@@ -6,10 +6,11 @@ using UnityEngine.Serialization;
 namespace _Project.Scripts.Core.Towers
 {
     [CreateAssetMenu(menuName = "Create TowerInfo", fileName = "TowerInfo", order = 0)]
-    public class TowerInfo : ScriptableObject
+    public class TowerInfoSO : ScriptableObject
     {
         [FormerlySerializedAs("type")] public TowerTypeSO typeSO;
         public PlacementSystemObjectSO placementObject;
         public TowerUpgradeSO upgrade;
+        public int price = 10;
     }
 }

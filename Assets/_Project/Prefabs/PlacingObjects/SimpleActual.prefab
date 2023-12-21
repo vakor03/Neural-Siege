@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21967fd53a354a8da96c9a36444676a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <TowerType>k__BackingField: {fileID: 11400000, guid: 477bb901f861ba441aa807b6913f5e78, type: 2}
+  <TowerTypeSO>k__BackingField: {fileID: 11400000, guid: 477bb901f861ba441aa807b6913f5e78, type: 2}
   towerStatsSO: {fileID: 11400000, guid: f6e27748f6749324db4aa30105717516, type: 2}
   rotateTowards: {fileID: 478272381600516377}
   targetChooseStrategy: {fileID: 8957765333392313995}
@@ -633,6 +633,7 @@ PrefabInstance:
     - {fileID: 3948027988249731535, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
     - {fileID: 7223661691096584687, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
     - {fileID: 6400975431205120654, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
+    - {fileID: 3328021302766894262, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5568296934675519106, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
     - {fileID: 1312458737618857205, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}

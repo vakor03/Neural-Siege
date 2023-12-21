@@ -12,6 +12,7 @@ namespace _Project.Scripts.Core.Towers
         [SerializeField,Self] private Collider2D projectileCollider;
         [SerializeField] private float damage;
         
+        public float Damage => damage;
 
         private Transform _target;
         private Transform _parent;

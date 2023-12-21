@@ -1,5 +1,4 @@
-﻿using _Project.Scripts.Core.GridSystem;
-using KBCore.Refs;
+﻿using _Project.Scripts.Core.Towers;
 using UnityEngine;
 using Zenject;
 
@@ -9,18 +8,14 @@ namespace _Project.Scripts.Core.UI
     {
         [SerializeField] private Transform optionsParent;
         [SerializeField] private SingleTowerUI singleTowerUIPrefab;
-        [SerializeField] private PlacementSystemObjectSO[] options;
-        private PlacementSystem _placementSystem;
+        [SerializeField] private TowerInfoSO[] options;
         
-        private void OnValidate()
-        {
-            this.ValidateRefs();
-        }
+        private TowersController _towersController;
 
         [Inject]
-        private void Construct(PlacementSystem placementSystem)
+        private void Construct(TowersController towersController)
         {
-            _placementSystem = placementSystem;
+            _towersController = towersController;
         }
         
         private void Start()
@@ -37,9 +32,9 @@ namespace _Project.Scripts.Core.UI
             }
         }
 
-        private void PlaceBuilding(PlacementSystemObjectSO placingObjectSO)
+        private void PlaceBuilding(TowerInfoSO placingObjectSO)
         {
-            _placementSystem.StartPlacingObject(placingObjectSO);
+            _towersController.StartPlacement(placingObjectSO.typeSO);
         }
         
         private void OnDestroy()

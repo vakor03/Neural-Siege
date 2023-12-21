@@ -6,7 +6,6 @@ namespace _Project.Scripts.Core.GridSystem
     public class PlacementSystemObjectSO : ScriptableObject
     {
         public new string name = "New Object";
-        public int price = 10;
         public Vector2Int size = Vector2Int.one;
         public Sprite icon;
         public GameObject prefab;

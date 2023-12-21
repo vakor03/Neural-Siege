@@ -6,9 +6,9 @@ namespace _Project.Scripts.Algorithms.GA.Structs
     public struct TileStatsGA
     {
         public float Distance;
-        public List<TowerTypeSO> Towers;
+        public List<TowerStatsGA> Towers;
 
-        public TileStatsGA(float distance, List<TowerTypeSO> towers)
+        public TileStatsGA(float distance, List<TowerStatsGA> towers)
         {
             Distance = distance;
             Towers = towers;

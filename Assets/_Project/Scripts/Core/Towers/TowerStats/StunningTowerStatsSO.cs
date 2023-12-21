@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _Project.Scripts.Algorithms.GA.Structs;
+using UnityEngine;
 
 namespace _Project.Scripts.Core.Towers.TowerStats
 {
@@ -24,6 +25,19 @@ namespace _Project.Scripts.Core.Towers.TowerStats
             Range = range;
             StunningDuration = stunningDuration;
             FireRate = fireRate;
+        }
+
+        public override TowerStatsGA GetTowerStatsGA(TowerTypeSO towerType)
+        {
+            float slowingFactor = 1 / (1 + StunningDuration / (1 / FireRate - StunningDuration));
+            return new TowerStatsGA
+            {
+                TowerType = towerType,
+                DamagePerSecond = 0,
+                SlowingFactor = slowingFactor,
+                IsAoe = false,
+                Range = Range
+            };
         }
     }
 }

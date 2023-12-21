@@ -1,4 +1,5 @@
-﻿using _Project.Scripts.Core.Effects;
+﻿using _Project.Scripts.Algorithms.GA.Structs;
+using _Project.Scripts.Core.Effects;
 
 namespace _Project.Scripts.Core.Towers.TowerStats
 {
@@ -14,6 +15,18 @@ namespace _Project.Scripts.Core.Towers.TowerStats
             FireRate = fireRate;
             ConeAngle = coneAngle;
             PoisonEffectStats = poisonEffectStats;
+        }
+
+        public override TowerStatsGA GetTowerStatsGA(TowerTypeSO towerType)
+        {
+            return new TowerStatsGA
+            {
+                TowerType = towerType,
+                DamagePerSecond = PoisonEffectStats.damagePerSecond,
+                SlowingFactor = 0,
+                IsAoe = true,
+                Range = Range
+            };
         }
     }
 }

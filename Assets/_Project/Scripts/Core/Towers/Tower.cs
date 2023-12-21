@@ -1,4 +1,5 @@
-﻿using _Project.Scripts.Core.Towers.TowerStats;
+﻿using _Project.Scripts.Algorithms.GA.Structs;
+using _Project.Scripts.Core.Towers.TowerStats;
 using _Project.Scripts.Core.Towers.TowerUpgrades;
 using _Project.Scripts.Extensions;
 using UnityEngine;
@@ -9,11 +10,14 @@ namespace _Project.Scripts.Core.Towers
     {
         [field: SerializeField] public TowerTypeSO TowerTypeSO { get; private set; }
         public int UpgradeLevel { get; protected set; }
+        public abstract float Range { get; }
 
         public virtual void ApplyUpgrade(TowerUpgradeSO towerUpgradeSO)
         {
             UpgradeLevel++;
         }
+        
+        public abstract TowerStatsGA GetTowerStatsGA();
     }
 
     public abstract class Tower<TSelf, TStats> : Tower where TSelf : Tower where TStats : TowerStats<TSelf>
@@ -22,6 +26,7 @@ namespace _Project.Scripts.Core.Towers
         protected TowerStatsController<TSelf, TStats> TowerStatsController;
 
         protected CircleCollider2D TowerCollider2D { get; private set; }
+        public override float Range => TowerStatsController.CurrentStats.Range;
 
         public override void ApplyUpgrade(TowerUpgradeSO towerUpgradeSO)
         {
@@ -59,6 +64,11 @@ namespace _Project.Scripts.Core.Towers
         protected virtual void OnDisable()
         {
             TowerStatsController.OnStatsChanged -= OnStatsChanged;
+        }
+        
+        public override TowerStatsGA GetTowerStatsGA()
+        {
+            return TowerStatsController.CurrentStats.GetTowerStatsGA(TowerTypeSO);
         }
     }
 }

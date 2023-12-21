@@ -38,8 +38,14 @@ namespace _Project.Scripts.Core.WaypointSystem
                     _currentWaypointIndex = 0;
                     _pathCompleted = true;
                     OnPathCompleted?.Invoke();
+                    DestroySelf();
                 }
             }
+        }
+
+        private void DestroySelf()
+        {
+            Destroy(gameObject);
         }
 
         public void SetWaypointIndex(int waypointIndex)

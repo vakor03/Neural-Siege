@@ -22,20 +22,13 @@ namespace _Project.Scripts.Core.GridSystem
         private bool _isPlacingObject;
         private GameObject _currentPreview;
         private GridData _gridData = new();
-        private IShop _shop;
         private InputManager _inputManager;
 
 
         [Inject]
-        private void Construct(IShop shop, InputManager inputManager)
+        private void Construct(InputManager inputManager)
         {
-            _shop = shop;
             _inputManager = inputManager;
-        }
-
-        private void OnValidate()
-        {
-            this.ValidateRefs();
         }
 
         private void Start()
@@ -62,29 +55,9 @@ namespace _Project.Scripts.Core.GridSystem
             _currentPreview = Instantiate(_activeSO.previewPrefab);
 
             _isPlacingObject = true;
-            _inputManager.OnClicked += OnClicked;
-            _inputManager.OnExit += StopPlacingObject;
         }
 
-        private void OnClicked()
-        {
-            if (!_inputManager.IsMousePositionValid())
-            {
-                return;
-            }
-
-            var mousePosition = _inputManager.GetCursorPosition();
-            var gridPosition = grid.WorldToCell(mousePosition);
-
-            if (_gridData.IsPlacementValid(_activeSO, gridPosition)
-                && _shop.MoneyAmount >= _activeSO.price)
-            {
-                BuildObject(gridPosition, _activeSO);
-                _shop.SpendMoney(_activeSO.price);
-            }
-        }
-
-        public void BuildObject(Vector3Int gridPosition, PlacementSystemObjectSO placementObject)
+        public GameObject BuildObject(Vector3Int gridPosition, PlacementSystemObjectSO placementObject)
         {
             var bottomLeftPosition = grid.CellToWorld(gridPosition);
 
@@ -94,6 +67,14 @@ namespace _Project.Scripts.Core.GridSystem
                 transform);
 
             _gridData.AddObject(placementObject, gridPosition, instance);
+
+            return instance;
+        }
+        
+        public GameObject BuildObject(Vector3 position, PlacementSystemObjectSO placementObject)
+        {
+            var gridPosition = grid.WorldToCell(position);
+            return BuildObject(gridPosition, placementObject);
         }
 
         public bool IsPlaceTaken(Vector3Int gridPosition)
@@ -105,9 +86,6 @@ namespace _Project.Scripts.Core.GridSystem
         {
             _isPlacingObject = false;
             Destroy(_currentPreview);
-
-            _inputManager.OnClicked -= OnClicked;
-            _inputManager.OnExit -= StopPlacingObject;
         }
 
         public void RemoveObject(Vector3 position)
@@ -126,6 +104,17 @@ namespace _Project.Scripts.Core.GridSystem
         {
             var placedObject = _gridData.RemoveObjectAt(gridPosition);
             Destroy(placedObject);
+        }
+        
+        public bool ValidatePosition(Vector3Int gridPosition, PlacementSystemObjectSO activeSO)
+        {
+            return _gridData.IsPlacementValid(activeSO, gridPosition);
+        }
+        
+        public bool ValidatePosition(Vector3 position, PlacementSystemObjectSO activeSO)
+        {
+            var gridPosition = grid.WorldToCell(position);
+            return ValidatePosition(gridPosition, activeSO);
         }
 
         public void Clear()

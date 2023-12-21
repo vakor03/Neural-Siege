@@ -188,57 +188,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &81859080
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 81859082}
-  - component: {fileID: 81859081}
-  m_Layer: 0
-  m_Name: TowersController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &81859081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 81859080}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f3c2aee5c694c69b6400710230ed5af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerInfos:
-  - {fileID: 11400000, guid: 420178a57fc6531429e3776dba3fdd25, type: 2}
-  - {fileID: 11400000, guid: 9918f17588177644db250af686759fd8, type: 2}
-  - {fileID: 11400000, guid: 1e63f0dadb1875648918fc0f0381082f, type: 2}
-  - {fileID: 11400000, guid: 9267b437d3315ec4b95ac38ad7a44965, type: 2}
-  - {fileID: 11400000, guid: 4c66e952351c3be4facf17bdd0f4f426, type: 2}
-  sellPriceMultiplier: 0.6
---- !u!4 &81859082
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 81859080}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 466796462}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &424917615
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,7 +336,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 842077649}
-  - {fileID: 81859082}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
@@ -765,7 +713,6 @@ MonoBehaviour:
   towerLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  towersController: {fileID: 81859081}
   towerInfoUI: {fileID: 688860507}
   towerInfoOffset: {x: 1, y: 1}
 --- !u!4 &842077649
@@ -1250,58 +1197,6 @@ MonoBehaviour:
   initialShopMoneyAmount: 100
   playerBaseHealth: 5
   placementSystem: {fileID: 1818177779}
-  enemyStats:
-  - EnemyType: 0
-    MaxHealth: 3
-    Speed: 2
-    ReproductionRate: 0
-    SpawnedType: 0
-    Price: 10
-  - EnemyType: 1
-    MaxHealth: 1
-    Speed: 4
-    ReproductionRate: 0
-    SpawnedType: 0
-    Price: 15
-  - EnemyType: 2
-    MaxHealth: 2
-    Speed: 2
-    ReproductionRate: 0
-    SpawnedType: 0
-    Price: 0
-  - EnemyType: 3
-    MaxHealth: 1
-    Speed: 1
-    ReproductionRate: 0
-    SpawnedType: 0
-    Price: 20
-  - EnemyType: 4
-    MaxHealth: 5
-    Speed: 1
-    ReproductionRate: 0
-    SpawnedType: 0
-    Price: 30
-  towerStats:
-  - TowerType: {fileID: 11400000, guid: 477bb901f861ba441aa807b6913f5e78, type: 2}
-    DamagePerSecond: 0
-    SlowingFactor: 0
-    IsAoe: 0
-  - TowerType: {fileID: 0}
-    DamagePerSecond: 0
-    SlowingFactor: 0
-    IsAoe: 0
-  - TowerType: {fileID: 0}
-    DamagePerSecond: 0
-    SlowingFactor: 0
-    IsAoe: 0
-  - TowerType: {fileID: 0}
-    DamagePerSecond: 0
-    SlowingFactor: 0
-    IsAoe: 0
-  - TowerType: {fileID: 0}
-    DamagePerSecond: 0
-    SlowingFactor: 0
-    IsAoe: 0
   enemyTypeToPrice:
     _serializedList:
     - Key: 0
@@ -1309,9 +1204,9 @@ MonoBehaviour:
     - Key: 1
       Value: 15
     - Key: 2
-      Value: 8
-    - Key: 3
       Value: 0
+    - Key: 3
+      Value: 25
     - Key: 4
       Value: 30
 --- !u!114 &1589833634
@@ -1732,6 +1627,26 @@ PrefabInstance:
       propertyPath: placementSystem
       value: 
       objectReference: {fileID: 1818177779}
+    - target: {fileID: 2831428445922909673, guid: 026902c4372283748b9677fc693f63bf, type: 3}
+      propertyPath: options.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 420178a57fc6531429e3776dba3fdd25, type: 2}
+    - target: {fileID: 2831428445922909673, guid: 026902c4372283748b9677fc693f63bf, type: 3}
+      propertyPath: options.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9918f17588177644db250af686759fd8, type: 2}
+    - target: {fileID: 2831428445922909673, guid: 026902c4372283748b9677fc693f63bf, type: 3}
+      propertyPath: options.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1e63f0dadb1875648918fc0f0381082f, type: 2}
+    - target: {fileID: 2831428445922909673, guid: 026902c4372283748b9677fc693f63bf, type: 3}
+      propertyPath: options.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9267b437d3315ec4b95ac38ad7a44965, type: 2}
+    - target: {fileID: 2831428445922909673, guid: 026902c4372283748b9677fc693f63bf, type: 3}
+      propertyPath: options.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4c66e952351c3be4facf17bdd0f4f426, type: 2}
     - target: {fileID: 3546779737901401659, guid: 026902c4372283748b9677fc693f63bf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1923,6 +1838,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaca98a941ac59742b077718e0cfb352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemiesPerWave: 10
+  enemySpawner: {fileID: 1352113534}
 --- !u!4 &1766006628
 Transform:
   m_ObjectHideFlags: 0

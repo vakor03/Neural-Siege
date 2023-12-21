@@ -10,5 +10,6 @@ namespace _Project.Scripts.Algorithms.GA.Structs
         public float DamagePerSecond;
         public float SlowingFactor;
         public bool IsAoe;
+        public float Range;
     }
 }

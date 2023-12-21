@@ -10,7 +10,7 @@ namespace _Project.Scripts.Algorithms.GA.Evaluation
     public class ModelFitnessEvaluator : IModelFitnessEvaluator
     {
         private Dictionary<EnemyType, EnemyStatsGA> _enemyStats;
-        private Dictionary<TowerTypeSO, TowerStatsGA> _towerStats;
+        // private Dictionary<TowerTypeSO, TowerStatsGA> _towerStats;
         public List<TileStatsGA> TilesStats { get; set; } = new();
 
         private readonly HashSet<TmpEnemyStats>
@@ -67,7 +67,7 @@ namespace _Project.Scripts.Algorithms.GA.Evaluation
             TileStatsGA tileStatsGA)
         {
             UpdateTimeToNextWaypoint(tempEnemyStats, tileStatsGA.Distance);
-            var activeTowers = tileStatsGA.Towers.Select(towerType => _towerStats[towerType]).ToList();
+            var activeTowers = tileStatsGA.Towers;
             // TODO: take into account order and time between enemies
             // TODO: take spawn rate into account
 

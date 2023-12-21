@@ -7,6 +7,7 @@ using _Project.Scripts.Algorithms.GA.Evaluation;
 using _Project.Scripts.Algorithms.GA.Mutation;
 using _Project.Scripts.Algorithms.GA.ParentSelection;
 using _Project.Scripts.Algorithms.GA.Structs;
+using UnityEngine;
 
 namespace _Project.Scripts.Algorithms.GA
 {
@@ -52,6 +53,8 @@ namespace _Project.Scripts.Algorithms.GA
                 populationFitness = EvaluatePopulation(population);
                 bestIndividual = ChooseNewBestIndividual(populationFitness, bestIndividual);
             }
+            
+            Debug.Log("Best fitness: " + bestIndividual.Fitness);
 
             return new EnemyWave(bestIndividual.Chromosome.EnemyWave);
         }
