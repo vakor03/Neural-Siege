@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f90c8e4ef714c8ea07370c41990d23b, type: 3}
   m_Name: FreezingTowerStatsSO
   m_EditorClassIdentifier: 
-  range: 5
+  range: 1.5
   freezingMultiplier: 0.5

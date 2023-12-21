@@ -51,7 +51,7 @@ MonoBehaviour:
   muzzlePrefab: {fileID: 0}
   hitPrefab: {fileID: 0}
   projectileCollider: {fileID: 2279817289809037664}
-  damage: 1
+  damage: 0.5
 --- !u!58 &2279817289809037664
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -97,7 +97,8 @@ namespace _Project.Scripts.Core.GridSystem
                 return;
             }
 
-            _gridData.RemoveObjectAt(gridPosition);
+            var placedObject = _gridData.RemoveObjectAt(gridPosition);
+            Destroy(placedObject);
         }
 
         public void RemoveAt(Vector3Int gridPosition)

@@ -1208,7 +1208,8 @@ MonoBehaviour:
     - Key: 3
       Value: 25
     - Key: 4
-      Value: 30
+      Value: 15
+  EnemySpawner: {fileID: 1352113534}
 --- !u!114 &1589833634
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -24,16 +24,24 @@ namespace _Project.Scripts.Core.Towers
         public int playerBaseHealth = 5;
 
         public PlacementSystem placementSystem;
-        public SerializedDictionary<EnemyType, float> enemyTypeToPrice; 
+        public SerializedDictionary<EnemyType, float> enemyTypeToPrice;
+
+        public EnemySpawner EnemySpawner;
 
         public override void InstallBindings()
         {
             BindEnemyFactory();
+            BindEnemySpawner();
             BindShop();
             BindPlayerBase();
             BindPlacementSystem();
             BindGeneticAlgorithm();
             BindTowersController();
+        }
+
+        private void BindEnemySpawner()
+        {
+            Container.Bind<EnemySpawner>().FromInstance(EnemySpawner).AsSingle();
         }
 
         private void BindTowersController()
@@ -77,7 +85,8 @@ namespace _Project.Scripts.Core.Towers
         private Dictionary<EnemyType, EnemyStatsGA> GetEnemyStatsDictionary()
         {
             var enemyStatsDatabase = Resources.LoadAll<EnemyStatsDatabaseSO>(ENEMY_STATS_DATABASE_PATH).First();
-            var enemyStatsDictionary = enemyStatsDatabase.enemyStats.ToDictionary(el => el.Key, el =>ElementSelector(el));
+            var enemyStatsDictionary =
+                enemyStatsDatabase.enemyStats.ToDictionary(el => el.Key, el => ElementSelector(el));
             return enemyStatsDictionary;
         }
 
@@ -90,7 +99,7 @@ namespace _Project.Scripts.Core.Towers
                 EnemyType = enemyType,
                 MaxHealth = enemyStats.maxHealth,
                 Speed = enemyStats.speed,
-                ReproductionRate = enemyStats.reproductionRate, 
+                ReproductionRate = enemyStats.reproductionRate,
                 SpawnedType = EnemyType.Spawned,
                 Price = enemyTypeToPrice[enemyType]
             };

@@ -13,9 +13,9 @@ namespace _Project.Scripts.Algorithms.GA
 {
     public class GeneticAlgorithm : IWaveCreationAlgorithm
     {
-        private readonly int _generationsCount = 50;
-        private readonly int _populationSize = 50;
-        private float _mutationRate = 0.1f;
+        private readonly int _generationsCount = 100;
+        private readonly int _populationSize = 100;
+        private float _mutationRate = 0.01f;
 
         private IChromosomeFactory _chromosomeFactory;
         private IModelFitnessEvaluator _modelFitnessEvaluator;

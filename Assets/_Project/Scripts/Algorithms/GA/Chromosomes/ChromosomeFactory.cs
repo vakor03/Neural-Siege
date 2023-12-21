@@ -17,6 +17,7 @@ namespace _Project.Scripts.Algorithms.GA.Chromosomes
             EnemyType[] enemyWave = new EnemyType[length];
             for (int i = 0; i < length; i++)
             {
+                // enemyWave[i] = EnemyType.Tank;
                 enemyWave[i] = _availableEnemyTypes[Random.Range(0, _availableEnemyTypes.Length)];
             }
             return new Chromosome(enemyWave);

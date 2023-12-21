@@ -17,6 +17,7 @@ namespace _Project.Scripts.Core.Enemies
         private WaypointsHolder _waypointsHolder;
         private IEnemyFactory _enemyFactory;
 
+        public float SpawnRate => spawnRate;
         [Inject]
         private void Construct(IEnemyFactory enemyFactory)
         {

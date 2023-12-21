@@ -1300,7 +1300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc2540f44b154d28b62bd3eb802659ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <TowerType>k__BackingField: {fileID: 11400000, guid: d5e87c06270044f4f82c0eb1c1cc9983, type: 2}
+  <TowerTypeSO>k__BackingField: {fileID: 11400000, guid: d5e87c06270044f4f82c0eb1c1cc9983, type: 2}
   towerStatsSO: {fileID: 11400000, guid: a641270b0517dc34aad7c0b0236589b4, type: 2}
 --- !u!1 &9029475541108489554
 GameObject:
@@ -1635,6 +1635,7 @@ PrefabInstance:
     - {fileID: 3948027988249731535, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
     - {fileID: 7223661691096584687, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
     - {fileID: 6400975431205120654, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
+    - {fileID: 3328021302766894262, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5568296934675519106, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
     - {fileID: 1312458737618857205, guid: 15e972b586c38494aade9ff5fdef9a57, type: 3}
