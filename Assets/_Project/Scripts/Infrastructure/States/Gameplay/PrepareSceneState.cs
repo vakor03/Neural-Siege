@@ -69,7 +69,7 @@ namespace _Project.Scripts.Infrastructure.States.Gameplay
                 _enemyPathCreatorFactory.Create<ManualPathCreation>();
 
             
-            _sceneStateMachine.Enter<PathCreationState, IPathCreationStrategy>(enemyPathCreator);
+            _sceneStateMachine.Enter<PathCreationState, IPathCreationStrategy>(enemyPathCreator); // TODO: add ready button
         }
 
         public bool ChosenAutomatic { get; set; } = true;//TODO: move to another component or smth
