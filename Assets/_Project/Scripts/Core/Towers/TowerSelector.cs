@@ -1,5 +1,4 @@
-﻿using _Project.Scripts.Core.GridSystem;
-using _Project.Scripts.Core.Managers;
+﻿using _Project.Scripts.Core.Managers;
 using _Project.Scripts.Core.UI;
 using KBCore.Refs;
 using UnityEngine;

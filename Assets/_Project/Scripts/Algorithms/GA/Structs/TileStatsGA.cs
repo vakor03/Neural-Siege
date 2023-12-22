@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using _Project.Scripts.Core.Towers;
 
 namespace _Project.Scripts.Algorithms.GA.Structs
 {

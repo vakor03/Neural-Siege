@@ -180,6 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19cbac35db9f4874b306130d87bdd525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <EnemyType>k__BackingField: 1
   <WaypointsMover>k__BackingField: {fileID: 3428299355780052453}
   <EnemyStatsSystem>k__BackingField: {fileID: 3242172482741329903}
   <EnemyHealth>k__BackingField: {fileID: 2814101028677034471}

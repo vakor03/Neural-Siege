@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19cbac35db9f4874b306130d87bdd525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <EnemyType>k__BackingField: 3
   <WaypointsMover>k__BackingField: {fileID: 3428299355780052453}
   <EnemyStatsSystem>k__BackingField: {fileID: 3871513028250800916}
   <EnemyHealth>k__BackingField: {fileID: 5665869698191819253}

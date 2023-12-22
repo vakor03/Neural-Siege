@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using _Project.Scripts.Core.Configs;
 using _Project.Scripts.Core.GridSystem;
 using _Project.Scripts.Core.Managers;
 using UnityEngine;

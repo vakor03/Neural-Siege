@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd1b4d3581f4e87b3fed5b911620ba8, type: 3}
   m_Name: LaserTowerStatsSO
   m_EditorClassIdentifier: 
-  range: 5
+  range: 2.5
   damage: 1
-  fireRate: 1
+  fireRate: 2

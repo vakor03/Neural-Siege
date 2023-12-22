@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcfb36a11260435995a1a288b285564d, type: 3}
   m_Name: StunningTowerStatsSO
   m_EditorClassIdentifier: 
-  range: 5
-  stunningDuration: 1
+  range: 1.5
+  stunningDuration: 0.75
   fireRate: 0.25

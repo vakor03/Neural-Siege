@@ -1,5 +1,4 @@
-﻿using KBCore.Refs;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using Zenject;
 
@@ -16,11 +15,6 @@ namespace _Project.Scripts.Core.UI
         {
             _shop = shop;
         }
-        
-        private void OnValidate()
-        {
-            this.ValidateRefs();
-        }
 
         private void Start()
         {
@@ -30,7 +24,7 @@ namespace _Project.Scripts.Core.UI
 
         private void UpdateMoneyAmountText()
         {
-            moneyAmountText.text = _shop.MoneyAmount.ToString();
+            moneyAmountText.text = $"{_shop.MoneyAmount}$";
         }
         
         private void OnDestroy()

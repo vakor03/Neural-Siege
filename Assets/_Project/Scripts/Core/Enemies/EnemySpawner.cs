@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using _Project.Scripts.Algorithms;
 using _Project.Scripts.Core.WaypointSystem;
 using MEC;
@@ -9,7 +8,7 @@ using Zenject;
 
 namespace _Project.Scripts.Core.Enemies
 {
-    public class EnemySpawner : MonoBehaviour
+    public class EnemySpawner : MonoBehaviour // TODO: To non-monobehaviour class
     {
         [SerializeField] private float spawnRate;
 

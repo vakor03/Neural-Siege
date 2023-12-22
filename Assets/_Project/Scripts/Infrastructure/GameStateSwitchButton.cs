@@ -1,4 +1,6 @@
 using _Project.Scripts.Infrastructure.States;
+using _Project.Scripts.Infrastructure.States.Gameplay;
+using _Project.Scripts.Infrastructure.States.Global;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;

@@ -1,6 +1,6 @@
-using _Project.Scripts.Infrastructure;
+using _Project.Scripts.Core.Configs;
+using _Project.Scripts.Core.PathCreation;
 using _Project.Scripts.Infrastructure.AssetProviders;
-using _Project.Scripts.Infrastructure.States;
 using Zenject;
 
 namespace _Project.Scripts.Core.Enemies
@@ -19,7 +19,7 @@ namespace _Project.Scripts.Core.Enemies
         public BacktrackingPathCreation Create()
         {
             var enemyPathCreator = _container.Instantiate<BacktrackingPathCreation>();
-            enemyPathCreator.Initialize(_assetProvider.Load<EnemyPathConfigSO>(InfrastructureAssetPath.ENEMY_PATH_CONFIG));
+            enemyPathCreator.Initialize(_assetProvider.Load<EnemyPathConfigSO>(AssetPath.ENEMY_PATH_CONFIG));
             return enemyPathCreator;
         }
     }

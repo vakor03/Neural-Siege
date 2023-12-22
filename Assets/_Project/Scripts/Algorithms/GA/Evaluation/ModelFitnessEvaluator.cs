@@ -3,9 +3,8 @@ using System.Linq;
 using _Project.Scripts.Algorithms.GA.Chromosomes;
 using _Project.Scripts.Algorithms.GA.Structs;
 using _Project.Scripts.Core.Enemies;
-using _Project.Scripts.Core.GridSystem;
-using _Project.Scripts.Core.Towers;
 using _Project.Scripts.Core.WaypointSystem;
+using _Project.Scripts.Extensions;
 using UnityEngine;
 
 namespace _Project.Scripts.Algorithms.GA.Evaluation
