@@ -5,32 +5,25 @@ using UnityEngine;
 
 namespace _Project.Scripts.Infrastructure.States
 {
-    public class ManualPathCreationState : IState
+
+    public class PathCreationState : IPayloadedState<IPathCreationStrategy>
     {
-        private ManualPathCreation _manualPathCreation;
+        private IPathCreationStrategy _pathCreationStrategy;
         private SceneStateMachine _sceneStateMachine;
         private WaypointsHolderFactory _waypointsHolderFactory;
         private EnemySpawner _enemySpawner;
+        private readonly IAssetProvider _assetProvider;
 
-        public ManualPathCreationState(
-            ManualPathCreation manualPathCreation,
+        public PathCreationState(
             IAssetProvider assetProvider,
             SceneStateMachine sceneStateMachine,
-            WaypointsHolderFactory waypointsHolderFactory, 
+            WaypointsHolderFactory waypointsHolderFactory,
             EnemySpawner enemySpawner)
         {
-            _manualPathCreation = manualPathCreation;
-            _manualPathCreation.Initialize(
-                assetProvider.Load<EnemyPathConfigSO>(InfrastructureAssetPath.ENEMY_PATH_CONFIG));
             _sceneStateMachine = sceneStateMachine;
             _waypointsHolderFactory = waypointsHolderFactory;
             _enemySpawner = enemySpawner;
-        }
-
-        public void Enter()
-        {
-            _manualPathCreation.OnPathCreated += OnPathCreated;
-            _manualPathCreation.StartCreatingPath();
+            _assetProvider = assetProvider;
         }
 
         private void OnPathCreated(Vector3[] path)
@@ -39,15 +32,25 @@ namespace _Project.Scripts.Infrastructure.States
             _sceneStateMachine.Enter<PlanningState>();
         }
 
+        public void Enter(IPathCreationStrategy payload)
+        {
+            _pathCreationStrategy = payload;
+            _pathCreationStrategy.Initialize(
+                _assetProvider.Load<EnemyPathConfigSO>(InfrastructureAssetPath.ENEMY_PATH_CONFIG));
+            
+            _pathCreationStrategy.OnPathCreated += OnPathCreated;
+            _pathCreationStrategy.StartCreatingPath();
+        }
+
         public void Exit()
         {
-            _manualPathCreation.OnPathCreated -= OnPathCreated;
+            _pathCreationStrategy.OnPathCreated -= OnPathCreated;
         }
-        
+
         private void InitEnemySpawner(Vector3[] path)
         {
             var waypointsHolder = _waypointsHolderFactory.Create(path);
-        
+
             _enemySpawner.Initialize(waypointsHolder.Waypoints[0], waypointsHolder);
         }
     }

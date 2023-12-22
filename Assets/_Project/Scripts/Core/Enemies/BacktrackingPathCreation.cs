@@ -5,51 +5,38 @@ using _Project.Scripts.Algorithms;
 using _Project.Scripts.Core.GridSystem;
 using _Project.Scripts.Infrastructure.States;
 using UnityEngine;
-using Zenject;
+using Random = UnityEngine.Random;
 
 namespace _Project.Scripts.Core.Enemies
 {
-    public class EnemyPathCreator : IEnemyPathCreator
+    public class BacktrackingPathCreation : IPathCreationStrategy
     {
-        private PlacementSystem _placementSystem = new();
+        private const int MinMagnitude = 5;
+        private PlacementSystem _placementSystem;
         private BacktrackingPathGenerator _pathGenerator = new();
-        private WaypointsHolderFactory _waypointsHolderFactory = new();
         private EnemyPathConfigSO _enemyPathConfig;
-        private EnemySpawner _enemySpawner;
 
-        [Inject]
-        private void Construct(PlacementSystem placementSystem,
-            EnemySpawner enemySpawner)
+        public event Action<Vector3[]> OnPathCreated;
+
+        private BacktrackingPathCreation(PlacementSystem placementSystem)
         {
             _placementSystem = placementSystem;
-            _enemySpawner = enemySpawner;
         }
-        
-        public event Action OnPathCreated;
 
         public void Initialize(EnemyPathConfigSO enemyPathConfigSO)
         {
             _enemyPathConfig = enemyPathConfigSO;
         }
         
-        public void CreatePath()
+        public void StartCreatingPath()
         {
             Vector2Int gridSize = _placementSystem.Size;
             (Vector2Int start, Vector2Int finish) = GetStartAndFinish(gridSize);
             var path = _pathGenerator.GeneratePath(gridSize, start, finish);
-            var correctedPath = path.Select(p => (Vector3Int)p + _placementSystem.BottomLeft).ToList();
-            BuildOnGrid(correctedPath);
-            InitEnemySpawner(correctedPath);
+            var finalPath = path.Select(p => (Vector3Int)p + _placementSystem.BottomLeft).ToList();
+            BuildOnGrid(finalPath);
             
-            OnPathCreated?.Invoke();
-        }
-
-        private void InitEnemySpawner(List<Vector3Int> path)
-        {
-            var waypointsHolder = _waypointsHolderFactory.Create(
-                path.Select(el => _placementSystem.Grid.GetCellCenterWorld(el)).ToArray());
-
-            _enemySpawner.Initialize(waypointsHolder.Waypoints[0], waypointsHolder);
+            OnPathCreated?.Invoke(finalPath.Select(el => _placementSystem.Grid.GetCellCenterWorld(el)).ToArray());
         }
 
         private void BuildOnGrid(List<Vector3Int> path)
@@ -63,9 +50,18 @@ namespace _Project.Scripts.Core.Enemies
             _placementSystem.BuildObject(path[^1], _enemyPathConfig.finishTileSO);
         }
 
-        private (Vector2Int start, Vector2Int finish) GetStartAndFinish(Vector2Int size)
+        private (Vector2Int start, Vector2Int end) GetStartAndFinish(Vector2Int gridSize)
         {
-            return (new Vector2Int(0, 0), new Vector2Int(8, 8));
+            while (true)
+            {
+                Vector2Int start = new Vector2Int(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y));
+                Vector2Int end = new Vector2Int(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y));
+
+                if ((start - end).magnitude > MinMagnitude)
+                {
+                    return (start, end);
+                }
+            }
         }
     }
 }

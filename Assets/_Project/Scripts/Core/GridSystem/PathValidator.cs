@@ -6,9 +6,9 @@ namespace _Project.Scripts.Core.GridSystem
 {
     public class PathFactory
     {
-        public List<Vector3Int> Create(Vector3Int start, Vector3Int end, List<Vector3Int> points)
+        public List<Vector2Int> Create(Vector2Int start, Vector2Int end, List<Vector2Int> points)
         {
-            List<Vector3Int> path = new List<Vector3Int>(points.Count + 2);
+            List<Vector2Int> path = new List<Vector2Int>(points.Count + 2);
             var previous = start;
             var current = GetNeighbour(start, points);
             path.Add(previous);
@@ -24,30 +24,30 @@ namespace _Project.Scripts.Core.GridSystem
             return path;
         }
         
-        private Vector3Int GetNeighbourButNotPrevious(Vector3Int position, Vector3Int previous, List<Vector3Int> points)
+        private Vector2Int GetNeighbourButNotPrevious(Vector2Int position, Vector2Int previous, List<Vector2Int> points)
         {
             var neighbours = GetNeighbours(position);
             return neighbours.First(n => n != previous && points.Contains(n));
         }
 
-        private Vector3Int GetNeighbour(Vector3Int position, List<Vector3Int> points)
+        private Vector2Int GetNeighbour(Vector2Int position, List<Vector2Int> points)
         {
             var neighbours = GetNeighbours(position);
             return neighbours.First(points.Contains);
         }
 
-        private IEnumerable<Vector3Int> GetNeighbours(Vector3Int position)
+        private IEnumerable<Vector2Int> GetNeighbours(Vector2Int position)
         {
-            yield return position + Vector3Int.up;
-            yield return position + Vector3Int.down;
-            yield return position + Vector3Int.left;
-            yield return position + Vector3Int.right;
+            yield return position + Vector2Int.up;
+            yield return position + Vector2Int.down;
+            yield return position + Vector2Int.left;
+            yield return position + Vector2Int.right;
         }
     }
 
     public class PathValidator
     {
-        public bool ValidatePath(Vector3Int start, Vector3Int end, List<Vector3Int> path)
+        public bool ValidatePath(Vector2Int start, Vector2Int end, List<Vector2Int> path)
         {
             var fullList = path.Concat(new []{start, end}).ToList();
             
@@ -70,7 +70,7 @@ namespace _Project.Scripts.Core.GridSystem
             return true;
         }
         
-        private int CountNeighbours(Vector3Int position, List<Vector3Int> path)
+        private int CountNeighbours(Vector2Int position, List<Vector2Int> path)
         {
             int count = 0;
             foreach (var neighbour in GetNeighbours(position))
@@ -84,12 +84,12 @@ namespace _Project.Scripts.Core.GridSystem
             return count;
         }
 
-        private IEnumerable<Vector3Int> GetNeighbours(Vector3Int position)
+        private IEnumerable<Vector2Int> GetNeighbours(Vector2Int position)
         {
-            yield return position + Vector3Int.up;
-            yield return position + Vector3Int.down;
-            yield return position + Vector3Int.left;
-            yield return position + Vector3Int.right;
+            yield return position + Vector2Int.up;
+            yield return position + Vector2Int.down;
+            yield return position + Vector2Int.left;
+            yield return position + Vector2Int.right;
         }
     }
 }

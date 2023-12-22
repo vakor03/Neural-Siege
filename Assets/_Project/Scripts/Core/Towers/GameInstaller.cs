@@ -10,11 +10,11 @@ using _Project.Scripts.Algorithms.GA.Structs;
 using _Project.Scripts.Core.Enemies;
 using _Project.Scripts.Core.GridSystem;
 using _Project.Scripts.Core.Managers;
-using _Project.Scripts.Infrastructure;
 using _Project.Scripts.Infrastructure.States;
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
 using Zenject;
+using EnemyPathCreatorFactory = _Project.Scripts.Core.GridSystem.EnemyPathCreatorFactory;
 
 namespace _Project.Scripts.Core.Towers
 {
@@ -35,6 +35,8 @@ namespace _Project.Scripts.Core.Towers
 
         public override void InstallBindings()
         {
+            BindEnemyPathCreationFactory();
+            BindWaypointsHolderFactory();
             BindGameOverUI();
             BindPlanningTimer();
             BindStatesFactory();
@@ -48,8 +50,24 @@ namespace _Project.Scripts.Core.Towers
             BindTowersController();
             BindGeneticAlgorithm();
             BindGeneticAlgorithmWaveCreator();
-            BindEnemyPathCreator();
+            // BindEnemyPathCreator();
+            // BindManualPathCreation();
             BindSceneStateMachine();
+        }
+
+        private void BindEnemyPathCreationFactory()
+        {
+            Container.Bind<EnemyPathCreatorFactory>().AsSingle();
+        }
+
+        // private void BindManualPathCreation()
+        // {
+        //     Container.Bind<ManualPathCreation>().AsSingle();
+        // }
+
+        private void BindWaypointsHolderFactory()
+        {
+            Container.Bind<WaypointsHolderFactory>().AsSingle();
         }
 
         private void BindGameOverUI()
@@ -77,10 +95,10 @@ namespace _Project.Scripts.Core.Towers
             Container.Bind<StatesFactory>().AsSingle();
         }
 
-        private void BindEnemyPathCreator()
-        {
-            Container.Bind<EnemyPathCreator>().AsSingle();
-        }
+        // private void BindEnemyPathCreator()
+        // {
+        //     Container.Bind<BacktrackingPathCreation>().AsSingle();
+        // }
 
         private void BindSceneStateMachine()
         {

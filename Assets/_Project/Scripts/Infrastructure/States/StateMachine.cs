@@ -12,6 +12,12 @@ namespace _Project.Scripts.Infrastructure.States
             var newState = ChangeState<TState>();
             newState.Enter();
         }
+        
+        public void Enter<TState, TPayload>(TPayload payload) where TState : class, IPayloadedState<TPayload>
+        {
+            var newState = ChangeState<TState>();
+            newState.Enter(payload);
+        }
 
         public void RegisterState<TState>(TState state) where TState : IExitableState
         {

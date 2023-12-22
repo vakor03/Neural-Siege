@@ -2,6 +2,7 @@
 using _Project.Scripts.Core.Enemies;
 using _Project.Scripts.Core.GridSystem;
 using _Project.Scripts.Core.Towers;
+using EnemyPathCreatorFactory = _Project.Scripts.Core.GridSystem.EnemyPathCreatorFactory;
 
 namespace _Project.Scripts.Infrastructure.States
 {
@@ -16,6 +17,8 @@ namespace _Project.Scripts.Infrastructure.States
         private GameOverUI _gameOverUI;
         private IPlayerBase _playerBase;
         private SceneStateMachine _sceneStateMachine;
+        private EnemyPathCreatorFactory _enemyPathCreatorFactory;
+
 
         public PrepareSceneState(SceneStateMachine sceneStateMachine,
             PlacementSystem placementSystem,
@@ -25,7 +28,8 @@ namespace _Project.Scripts.Infrastructure.States
             EnemySpawner enemySpawner,
             PlanningTimer planningTimer,
             GameOverUI gameOverUI,
-            IPlayerBase playerBase)
+            IPlayerBase playerBase,
+            EnemyPathCreatorFactory enemyPathCreatorFactory)
         {
             _sceneStateMachine = sceneStateMachine;
             _placementSystem = placementSystem;
@@ -36,7 +40,9 @@ namespace _Project.Scripts.Infrastructure.States
             _planningTimer = planningTimer;
             _gameOverUI = gameOverUI;
             _playerBase = playerBase;
+            _enemyPathCreatorFactory = enemyPathCreatorFactory;
         }
+
         public void Exit()
         {
         }
@@ -51,8 +57,15 @@ namespace _Project.Scripts.Infrastructure.States
             _planningTimer.Reset();
             _gameOverUI.Hide();
             _playerBase.Reset();
+
+            var enemyPathCreator = ChosenAutomatic ? 
+                _enemyPathCreatorFactory.Create<BacktrackingPathCreation>() : 
+                _enemyPathCreatorFactory.Create<ManualPathCreation>();
+
             
-            _sceneStateMachine.Enter<AutomaticPathCreationState>();
+            _sceneStateMachine.Enter<PathCreationState, IPathCreationStrategy>(enemyPathCreator);
         }
+
+        public bool ChosenAutomatic { get; set; } = true;//TODO: move to another component or smth
     }
 }

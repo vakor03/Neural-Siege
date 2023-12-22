@@ -39,9 +39,9 @@ namespace _Project.Scripts.Infrastructure.States
         {
             switch (targetState)
             {
-                case TargetState.AutomaticPathCreation:
-                    _sceneStateMachine.Enter<AutomaticPathCreationState>();
-                    break;
+                // case TargetState.AutomaticPathCreation:
+                //     _sceneStateMachine.Enter<PathCreationState>();
+                //     break;
                 case TargetState.Wave:
                     _sceneStateMachine.Enter<WaveState>();
                     break;

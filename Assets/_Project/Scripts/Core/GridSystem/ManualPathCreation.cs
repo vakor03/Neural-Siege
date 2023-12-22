@@ -1,59 +1,55 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.Core.Enemies;
 using _Project.Scripts.Core.Managers;
-using KBCore.Refs;
+using _Project.Scripts.Infrastructure.States;
 using UnityEngine;
-using Zenject;
+using Random = UnityEngine.Random;
 
 namespace _Project.Scripts.Core.GridSystem
 {
-    public class ManualPathCreation : MonoBehaviour
+    public class ManualPathCreation : IPathCreationStrategy
     {
         private PlacementSystem _placementSystem;
-        [SerializeField] private PlacementSystemObjectSO enemyTileSO;
-        [SerializeField] private PlacementSystemObjectSO startTileSO;
-        [SerializeField] private PlacementSystemObjectSO finishTileSO;
-
-        [SerializeField] private int minMagnitude = 5;
-        [SerializeField, Scene] private EnemySpawner enemySpawner;
-
-        private void OnValidate()
-        {
-            this.ValidateRefs();
-        }
-
         private InputManager _inputManager;
         private PathValidator _pathValidator = new();
         private PathFactory _pathFactory = new();
-        private WaypointsHolderFactory _waypointsHolderFactory = new();
 
-        [Inject]
-        private void Construct(PlacementSystem placementSystem, InputManager inputSystem)
+        private EnemyPathConfigSO _enemyPathConfig;
+        
+        private const int MinMagnitude = 5;
+
+        private Vector2Int _start;
+        private Vector2Int _end;
+        private List<Vector2Int> _path = new();
+
+        public event Action<Vector3[]> OnPathCreated;
+
+        private ManualPathCreation(PlacementSystem placementSystem,
+            InputManager inputSystem)
         {
             _placementSystem = placementSystem;
             _inputManager = inputSystem;
         }
 
-        private Vector3Int _start;
-        private Vector3Int _end;
-        private List<Vector3Int> _path = new();
+        public void Initialize(EnemyPathConfigSO config)
+        {
+            _enemyPathConfig = config;
+        }
 
-        [ContextMenu("Create Path")]
         public void StartCreatingPath()
         {
-            _inputManager.OnClicked -= OnClicked;
+            Reset();
 
-            Vector3Int offset = _placementSystem.BottomLeft;
+            Vector2Int offset = (Vector2Int)_placementSystem.BottomLeft;
             (_start, _end) = GetStartAndFinish(_placementSystem.Size, offset);
-            _placementSystem.BuildObject(_start, startTileSO);
-            _placementSystem.BuildObject(_end, finishTileSO);
+            _placementSystem.BuildObject(_start, _enemyPathConfig.startTileSO);
+            _placementSystem.BuildObject(_end, _enemyPathConfig.finishTileSO);
 
             _inputManager.OnClicked += OnClicked;
         }
 
-
-        [ContextMenu("Finish Path")]    
         public void FinishCreatingPath()
         {
             _inputManager.OnClicked -= OnClicked;
@@ -61,22 +57,15 @@ namespace _Project.Scripts.Core.GridSystem
             if (isValid)
             {
                 var path = _pathFactory.Create(_start, _end, _path);
-                InitEnemySpawner(path);
+                OnPathCreated?.Invoke(path.Select(el => _placementSystem.Grid.GetCellCenterWorld((Vector3Int)el))
+                    .ToArray());
             }
-        }
-
-        public void InitEnemySpawner(List<Vector3Int> path)
-        {
-            var actualPathPositions = path.Select(_placementSystem.Grid.GetCellCenterWorld).ToArray();
-            var waypointsHolder = _waypointsHolderFactory.Create(actualPathPositions);
- 
-            enemySpawner.Initialize(waypointsHolder.Waypoints[0], waypointsHolder);
         }
 
         private void OnClicked()
         {
             var cursorPosition = _inputManager.GetCursorPosition();
-            var gridPosition = _placementSystem.Grid.WorldToCell(cursorPosition);
+            var gridPosition = (Vector2Int)_placementSystem.Grid.WorldToCell(cursorPosition);
 
             if (_inputManager.IsMouseOverUI()) return;
             if (gridPosition == _start || gridPosition == _end) return;
@@ -89,18 +78,30 @@ namespace _Project.Scripts.Core.GridSystem
             else
             {
                 _path.Add(gridPosition);
-                _placementSystem.BuildObject(gridPosition, enemyTileSO);
+                _placementSystem.BuildObject(gridPosition, _enemyPathConfig.enemyTileSO);
+                if (_pathValidator.ValidatePath(_start, _end, _path))
+                {
+                    FinishCreatingPath();
+                }
             }
         }
 
-        private (Vector3Int start, Vector3Int end) GetStartAndFinish(Vector2Int gridSize, Vector3Int offset)
+        private void Reset()
+        {
+            _inputManager.OnClicked -= OnClicked;
+            _path.Clear();
+            _start = Vector2Int.zero;
+            _end = Vector2Int.zero;
+        }
+
+        private (Vector2Int start, Vector2Int end) GetStartAndFinish(Vector2Int gridSize, Vector2Int offset)
         {
             while (true)
             {
-                Vector3Int start = new Vector3Int(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y), 0) + offset;
-                Vector3Int end = new Vector3Int(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y), 0) + offset;
+                Vector2Int start = new Vector2Int(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y)) + offset;
+                Vector2Int end = new Vector2Int(Random.Range(0, gridSize.x), Random.Range(0, gridSize.y)) + offset;
 
-                if ((start - end).magnitude > minMagnitude)
+                if ((start - end).magnitude > MinMagnitude)
                 {
                     return (start, end);
                 }

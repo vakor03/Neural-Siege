@@ -16,9 +16,9 @@ namespace _Project.Scripts.Core.Enemies
             _assetProvider = assetProvider;
         }
         
-        public EnemyPathCreator Create()
+        public BacktrackingPathCreation Create()
         {
-            var enemyPathCreator = _container.Instantiate<EnemyPathCreator>();
+            var enemyPathCreator = _container.Instantiate<BacktrackingPathCreation>();
             enemyPathCreator.Initialize(_assetProvider.Load<EnemyPathConfigSO>(InfrastructureAssetPath.ENEMY_PATH_CONFIG));
             return enemyPathCreator;
         }

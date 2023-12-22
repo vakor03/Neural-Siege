@@ -18,8 +18,8 @@ namespace _Project.Scripts.Infrastructure
 
         private void Start()
         {
-            _sceneStateMachine.RegisterState(_statesFactory.Create<AutomaticPathCreationState>());
-            _sceneStateMachine.RegisterState(_statesFactory.Create<ManualPathCreationState>());
+            _sceneStateMachine.RegisterState(_statesFactory.Create<PathCreationState>());
+            // _sceneStateMachine.RegisterState(_statesFactory.Create<ManualPathCreationState>());
             _sceneStateMachine.RegisterState(_statesFactory.Create<WaveState>());
             _sceneStateMachine.RegisterState(_statesFactory.Create<PlanningState>());
             _sceneStateMachine.RegisterState(_statesFactory.Create<GameOverState>());
