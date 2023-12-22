@@ -37,6 +37,7 @@ namespace _Project.Scripts.Core.Enemies
 
         private void OnPathCompleted()
         {
+            EnemyHealth.DestroySelf();
             _playerBase.TakeDamage(1);
         }
     }

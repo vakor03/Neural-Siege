@@ -9,6 +9,9 @@ using _Project.Scripts.Algorithms.GA.ParentSelection;
 using _Project.Scripts.Algorithms.GA.Structs;
 using _Project.Scripts.Core.Enemies;
 using _Project.Scripts.Core.GridSystem;
+using _Project.Scripts.Core.Managers;
+using _Project.Scripts.Infrastructure;
+using _Project.Scripts.Infrastructure.States;
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
 using Zenject;
@@ -28,15 +31,65 @@ namespace _Project.Scripts.Core.Towers
 
         public EnemySpawner EnemySpawner;
 
+        public GameOverUI GameOverUI;
+
         public override void InstallBindings()
         {
-            BindEnemyFactory();
+            BindGameOverUI();
+            BindPlanningTimer();
+            BindStatesFactory();
+            BindPlacementSystem();
             BindEnemySpawner();
+            BindInputManager();
+            BindEnemiesAccessor();
+            BindEnemyFactory();
             BindShop();
             BindPlayerBase();
-            BindPlacementSystem();
-            BindGeneticAlgorithm();
             BindTowersController();
+            BindGeneticAlgorithm();
+            BindGeneticAlgorithmWaveCreator();
+            BindEnemyPathCreator();
+            BindSceneStateMachine();
+        }
+
+        private void BindGameOverUI()
+        {
+            Container.Bind<GameOverUI>().FromInstance(GameOverUI).AsSingle();
+        }
+
+        private void BindPlanningTimer()
+        {
+            Container.Bind<PlanningTimer>().AsSingle();
+        }
+
+        private void BindEnemiesAccessor()
+        {
+            Container.Bind<EnemiesAccessor>().AsSingle();
+        }
+
+        private void BindGeneticAlgorithmWaveCreator()
+        {
+            Container.Bind<GeneticAlgorithmWaveCreator>().AsSingle();
+        }
+
+        private void BindStatesFactory()
+        {
+            Container.Bind<StatesFactory>().AsSingle();
+        }
+
+        private void BindEnemyPathCreator()
+        {
+            Container.Bind<EnemyPathCreator>().AsSingle();
+        }
+
+        private void BindSceneStateMachine()
+        {
+            Container.Bind<SceneStateMachine>().AsSingle();
+        }
+
+        private void BindInputManager()
+        {
+            Container.BindInterfacesAndSelfTo<InputManager>().AsSingle();
         }
 
         private void BindEnemySpawner()
@@ -130,7 +183,7 @@ namespace _Project.Scripts.Core.Towers
 
         private void BindShop()
         {
-            Container.Bind<IShop>().To<Shop>().AsSingle().WithArguments(initialShopMoneyAmount);
+            Container.Bind<Shop>().AsSingle().WithArguments(initialShopMoneyAmount);
         }
 
         private void BindEnemyFactory()

@@ -26,13 +26,13 @@ namespace _Project.Scripts.Core.Enemies
 
             if (CurrentHealth <= 0)
             {
-                OnDeath?.Invoke();
                 DestroySelf();
             }
         }
         
-        private void DestroySelf()
+        public void DestroySelf()
         {
+            OnDeath?.Invoke();
             Destroy(gameObject);
         }
     }

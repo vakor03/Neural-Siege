@@ -1,8 +1,10 @@
 {
+  "4326d92935b64e346ac92025700c3efd": "Assets/_Project/Scenes/BootstrapScene.unity",
+  "1c30e43ba99ff4642a3308aee161d318": "Assets/_Project/Scenes/Game.unity",
   "3fe0dd7fd0efd8d46a7ae168ddd84bcf": "Assets/_Project/Scenes/GridTestScene.unity",
   "f4de36472433f7344ad4677b093e5512": "Assets/_Project/Scenes/MainMenu.unity",
+  "8c9cfa26abfee488c85f1582747f6a02": "Assets/_Project/Scenes/MainScene.unity",
   "65bc77c36ca442749b5ab1487d33bfcb": "Assets/_Project/Scenes/NewGridTestScene.unity",
-  "8c9cfa26abfee488c85f1582747f6a02": "Assets/_Project/Scenes/SampleScene.unity",
   "900c306ad68e2dc4d9fdc12cd624fe5f": "Assets/KevinCastejon/MoreAttributes/Demos/HeaderPlus/TestHeaderPlusAttribute.unity",
   "f74a27be5a9c3304ab99236c4a79290d": "Assets/KevinCastejon/MoreAttributes/Demos/HideOnPlay/TestHideOnPlayAttribute.unity",
   "a1ca79e8097424041843d1b95179e608": "Assets/KevinCastejon/MoreAttributes/Demos/HideOnPrefab/TestHideOnPrefabAttribute.unity",

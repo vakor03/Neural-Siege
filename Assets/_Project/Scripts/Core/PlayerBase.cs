@@ -10,6 +10,7 @@ namespace _Project.Scripts.Core
         event Action OnHealthChanged;
         event Action OnDeath;
         void TakeDamage(int damage);
+        void Reset();
     }
 
     public class PlayerBase : IPlayerBase
@@ -34,6 +35,12 @@ namespace _Project.Scripts.Core
             {
                 OnDeath?.Invoke();
             }
+        }
+
+        public void Reset()
+        {
+            CurrentHealth = MaxHealth;
+            OnHealthChanged?.Invoke();
         }
     }
 }

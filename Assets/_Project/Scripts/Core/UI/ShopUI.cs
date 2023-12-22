@@ -9,10 +9,10 @@ namespace _Project.Scripts.Core.UI
     {
         [SerializeField] private TMP_Text moneyAmountText;
         
-        private IShop _shop;
+        private Shop _shop;
         
         [Inject]
-        private void Construct(IShop shop)
+        private void Construct(Shop shop)
         {
             _shop = shop;
         }

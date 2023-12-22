@@ -2,13 +2,15 @@
 
 namespace _Project.Scripts.Core
 {
-    public class Shop : IShop
+    public class Shop
     {
+        private int _initialMoneyAmount;
         public int MoneyAmount { get; private set; }
         public event Action OnMoneyAmountChanged;
 
         public Shop(int moneyAmount)
         {
+            _initialMoneyAmount = moneyAmount;
             MoneyAmount = moneyAmount;
         }
 
@@ -17,18 +19,17 @@ namespace _Project.Scripts.Core
             MoneyAmount -= amount;
             OnMoneyAmountChanged?.Invoke();
         }
+
         public void EarnMoney(int amount)
         {
             MoneyAmount += amount;
             OnMoneyAmountChanged?.Invoke();
         }
-    }
-    
-    public interface IShop
-    {
-        int MoneyAmount { get; }
-        event Action OnMoneyAmountChanged;
-        void SpendMoney(int amount);
-        void EarnMoney(int amount);
+
+        public void Reset()
+        {
+            MoneyAmount = _initialMoneyAmount;
+            OnMoneyAmountChanged?.Invoke();
+        }
     }
 }

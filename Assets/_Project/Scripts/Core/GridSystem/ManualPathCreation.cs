@@ -43,7 +43,6 @@ namespace _Project.Scripts.Core.GridSystem
         public void StartCreatingPath()
         {
             _inputManager.OnClicked -= OnClicked;
-            _placementSystem.Clear();
 
             Vector3Int offset = _placementSystem.BottomLeft;
             (_start, _end) = GetStartAndFinish(_placementSystem.Size, offset);

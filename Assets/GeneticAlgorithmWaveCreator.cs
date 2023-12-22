@@ -12,11 +12,9 @@ using KBCore.Refs;
 using UnityEngine;
 using Zenject;
 
-public class TestGA : ValidatedMonoBehaviour
+public class GeneticAlgorithmWaveCreator
 {
-    [SerializeField] private int enemiesPerWave = 10;
-    [SerializeField, Scene] private EnemySpawner enemySpawner;
-
+    private int enemiesPerWave = 10;
     private IWaveCreationAlgorithm _algorithm;
     private TowersController _towersController;
 
@@ -27,17 +25,16 @@ public class TestGA : ValidatedMonoBehaviour
         _towersController = towersController;
         _algorithm = geneticAlgorithmFactory.Create();
     }
-
-    [ContextMenu("Create and Spawn Wave")]
-    public void CreateAndSpawnWave()
+    
+    public EnemyWave CreateWave()
     {
         List<(Circle, TowerStatsGA)> towersInfo = _towersController.Towers
             .Select(tower => (new Circle(tower.transform.position, tower.Range), tower.GetTowerStatsGA()))
             .ToList();
         
         var tileStats = CalculateTileStats(towersInfo);
-        var wave = _algorithm.CreateEnemyWave(tileStats, enemiesPerWave);
-        enemySpawner.SpawnWave(wave);
+        EnemyWave wave = _algorithm.CreateEnemyWave(tileStats, enemiesPerWave);
+        return wave;
     }
 
     private List<TileStatsGA> CalculateTileStats(List<(Circle, TowerStatsGA)> towersInfo)
@@ -63,28 +60,5 @@ public class TestGA : ValidatedMonoBehaviour
             .Select(tower=>tower.Item2).ToList();
         
         return towersInRect;
-    }
-}
-
-public struct Circle
-{
-    public Vector2 Center { get; set; }
-    public float Radius { get; set; }
-
-    public Circle(Vector2 center, float radius)
-    {
-        Center = center;
-        Radius = radius;
-    }
-
-    public bool Intersects(Rect rect)
-    {
-        float closestX = Mathf.Clamp(Center.x, rect.x, rect.x + rect.width);
-        float closestY = Mathf.Clamp(Center.y, rect.y, rect.y + rect.height);
-
-        Vector2 closestPoint = new Vector2(closestX, closestY);
-        float distance = Vector2.Distance(Center, closestPoint);
-
-        return distance < Radius;
     }
 }

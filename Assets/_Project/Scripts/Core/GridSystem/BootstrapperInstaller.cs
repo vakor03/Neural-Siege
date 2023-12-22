@@ -5,7 +5,7 @@ namespace _Project.Scripts.Core.GridSystem
 {
     public class BootstrapperInstaller : MonoInstaller
     {
-        public InputManager inputManagerPrefab;
+        // public InputManager inputManagerPrefab;
         public override void InstallBindings()
         {
             BindInputManager();
@@ -13,8 +13,8 @@ namespace _Project.Scripts.Core.GridSystem
 
         private void BindInputManager()
         {
-            Container.Bind<InputManager>()
-                .FromComponentInNewPrefab(inputManagerPrefab).AsSingle();
+            // Container.Bind<InputManager>()
+                // .FromComponentInNewPrefab(inputManagerPrefab).AsSingle();
         }
     }
 }

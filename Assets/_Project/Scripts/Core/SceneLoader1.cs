@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 namespace _Project.Scripts.Core
 {
-    public static class SceneLoader
+    public static class SceneLoader1
     {
         public static void LoadScene(SceneReference sceneReference)
         {

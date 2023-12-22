@@ -1,33 +1,15 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Zenject;
 
 namespace _Project.Scripts.Core.Managers
 {
-    public class InputManager : MonoBehaviour
+    public class InputManager : IInitializable, ITickable
     {
-        [SerializeField] private LayerMask gridLayer;
         private Camera _mainCamera;
         public event Action OnExit;
         public event Action OnClicked;
-
-        private void Awake()
-        {
-            _mainCamera = Camera.main;
-        }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1))
-            {
-                OnExit?.Invoke();
-            }
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                OnClicked?.Invoke();
-            }
-        }
 
         public bool IsMouseOverUI()
         {
@@ -43,6 +25,24 @@ namespace _Project.Scripts.Core.Managers
         public bool IsMousePositionValid()
         {
             return !IsMouseOverUI();
+        }
+
+        public void Initialize()
+        {
+            _mainCamera = Camera.main;
+        }
+
+        public void Tick()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1))
+            {
+                OnExit?.Invoke();
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                OnClicked?.Invoke();
+            }
         }
     }
 }
