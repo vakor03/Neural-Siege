@@ -3,15 +3,6 @@ using UnityEngine;
 
 namespace _Project.Scripts.Core
 {
-    public interface IPlayerBase
-    {
-        int MaxHealth { get; }
-        int CurrentHealth { get; }
-        event Action OnHealthChanged;
-        event Action OnDeath;
-        void TakeDamage(int damage);
-    }
-
     public class PlayerBase : IPlayerBase
     {
         public PlayerBase(int maxHealth)
@@ -34,6 +25,12 @@ namespace _Project.Scripts.Core
             {
                 OnDeath?.Invoke();
             }
+        }
+
+        public void Reset()
+        {
+            CurrentHealth = MaxHealth;
+            OnHealthChanged?.Invoke();
         }
     }
 }

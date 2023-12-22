@@ -1,5 +1,4 @@
-﻿using _Project.Scripts.Core.Effects;
-using _Project.Scripts.Core.WaypointSystem;
+﻿using _Project.Scripts.Core.WaypointSystem;
 using KBCore.Refs;
 using UnityEngine;
 using Zenject;
@@ -8,10 +7,11 @@ namespace _Project.Scripts.Core.Enemies
 {
     public class Enemy : MonoBehaviour
     {
+        [field: SerializeField] public EnemyType EnemyType { get; private set; }
         [field: SerializeField, Self] public WaypointsMover WaypointsMover { get; private set; }
         [field: SerializeField, Self] public EnemyStatsSystem EnemyStatsSystem { get; private set; }
         [field: SerializeField, Self] public EnemyHealth EnemyHealth { get; private set; }
-        
+
         private IPlayerBase _playerBase;
 
         [Inject]
@@ -29,7 +29,7 @@ namespace _Project.Scripts.Core.Enemies
         {
             WaypointsMover.OnPathCompleted += OnPathCompleted;
         }
-        
+
         protected virtual void OnDestroy()
         {
             WaypointsMover.OnPathCompleted -= OnPathCompleted;
@@ -37,6 +37,7 @@ namespace _Project.Scripts.Core.Enemies
 
         private void OnPathCompleted()
         {
+            EnemyHealth.DestroySelf();
             _playerBase.TakeDamage(1);
         }
     }

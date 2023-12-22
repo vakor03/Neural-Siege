@@ -11,7 +11,7 @@ namespace _Project.Scripts.Core.WaypointSystem
         public WaypointsHolder WaypointsHolder { get; private set; }
         public int CurrentWaypointIndex => _currentWaypointIndex;
 
-        public Action OnPathCompleted;
+        public event Action OnPathCompleted;
         private int _currentWaypointIndex;
         private bool _pathCompleted;
 
@@ -38,14 +38,8 @@ namespace _Project.Scripts.Core.WaypointSystem
                     _currentWaypointIndex = 0;
                     _pathCompleted = true;
                     OnPathCompleted?.Invoke();
-                    DestroySelf();
                 }
             }
-        }
-
-        private void DestroySelf()
-        {
-            Destroy(gameObject);
         }
 
         public void SetWaypointIndex(int waypointIndex)

@@ -50,14 +50,14 @@ namespace _Project.Scripts.Core.Managers
         {
             _isPaused = false;
             Time.timeScale = 1;
-            SceneLoader.LoadScene(mainMenuScene);
+            SceneLoader1.LoadScene(mainMenuScene);
         }
 
         public void Restart()
         {
             _isPaused = false;
             Time.timeScale = 1;
-            SceneLoader.LoadScene(currentScene);
+            SceneLoader1.LoadScene(currentScene);
         }
     }
 }

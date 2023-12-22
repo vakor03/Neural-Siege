@@ -37,7 +37,7 @@ namespace _Project.Scripts.Core.UI
         {
             PlacingObjectSO = placingObjectSO;
             towerNameText.text = placingObjectSO.name;
-            towerPriceText.text = $"Price: {placingObjectSO.price}";
+            towerPriceText.text = $"Price: {placingObjectSO.price}$";
             towerIcon.sprite = placingObjectSO.placementObject.icon;
         }
     }

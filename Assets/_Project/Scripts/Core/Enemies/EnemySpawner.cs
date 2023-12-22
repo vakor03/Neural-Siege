@@ -8,16 +8,21 @@ using Zenject;
 
 namespace _Project.Scripts.Core.Enemies
 {
-    public class EnemySpawner : MonoBehaviour
+    public class EnemySpawner : MonoBehaviour // TODO: To non-monobehaviour class
     {
         [SerializeField] private float spawnRate;
-        [FormerlySerializedAs("testWave")] [SerializeField] private EnemyWaveSO testWaveSO;
-        
+
+        [FormerlySerializedAs("testWave")] [SerializeField]
+        private EnemyWaveSO testWaveSO;
+
         private Vector3 _spawnPoint;
         private WaypointsHolder _waypointsHolder;
         private IEnemyFactory _enemyFactory;
 
+        private CoroutineHandle _spawnCoroutineHandle;
+
         public float SpawnRate => spawnRate;
+        
         [Inject]
         private void Construct(IEnemyFactory enemyFactory)
         {
@@ -38,12 +43,12 @@ namespace _Project.Scripts.Core.Enemies
 
         public void SpawnWave(EnemyWaveSO enemyWaveSO)
         {
-            Timing.RunCoroutine(SpawnCoroutine(enemyWaveSO.enemies, 1 / spawnRate));
+            _spawnCoroutineHandle = Timing.RunCoroutine(SpawnCoroutine(enemyWaveSO.enemies, 1 / spawnRate));
         }
-        
+
         public void SpawnWave(EnemyWave enemyWave)
         {
-            Timing.RunCoroutine(SpawnCoroutine(enemyWave.enemies, 1 / spawnRate));
+            _spawnCoroutineHandle = Timing.RunCoroutine(SpawnCoroutine(enemyWave.enemies, 1 / spawnRate));
         }
 
         private IEnumerator<float> SpawnCoroutine(EnemyType[] enemies, float delay)
@@ -54,6 +59,11 @@ namespace _Project.Scripts.Core.Enemies
                 var instance = _enemyFactory.Create(enemyType, _spawnPoint);
                 instance.GetComponent<WaypointsMover>().Initialize(_waypointsHolder);
             }
+        }
+
+        public void Reset()
+        {
+            Timing.KillCoroutines(_spawnCoroutineHandle);
         }
     }
 }

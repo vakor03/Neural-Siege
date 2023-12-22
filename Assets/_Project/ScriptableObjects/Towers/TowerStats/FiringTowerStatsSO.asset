@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7917e20b4984bf990cc5a5b30d5fa93, type: 3}
   m_Name: FiringTowerStatsSO
   m_EditorClassIdentifier: 
-  range: 5
-  fireRate: 1
+  range: 2.5
+  fireRate: 0.5
   coneAngle: 40
   poisonEffectStats:
-    damagePerSecond: 5
+    damagePerSecond: 1
     duration: 0.5

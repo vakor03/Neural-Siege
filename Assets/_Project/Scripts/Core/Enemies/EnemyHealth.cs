@@ -12,6 +12,7 @@ namespace _Project.Scripts.Core.Enemies
         
         public event Action OnHealthChanged;
         public event Action OnDeath;
+        public event Action OnDiedFromPlayer;
 
         private void Start()
         {
@@ -26,13 +27,14 @@ namespace _Project.Scripts.Core.Enemies
 
             if (CurrentHealth <= 0)
             {
-                OnDeath?.Invoke();
+                OnDiedFromPlayer?.Invoke();
                 DestroySelf();
             }
         }
         
-        private void DestroySelf()
+        public void DestroySelf()
         {
+            OnDeath?.Invoke();
             Destroy(gameObject);
         }
     }

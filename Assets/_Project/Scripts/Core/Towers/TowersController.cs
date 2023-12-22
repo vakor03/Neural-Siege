@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using _Project.Scripts.Core.Configs;
 using _Project.Scripts.Core.GridSystem;
 using _Project.Scripts.Core.Managers;
 using UnityEngine;
@@ -14,12 +15,12 @@ namespace _Project.Scripts.Core.Towers
 
         private TowerInfoSO[] _towerInfos;
         private PlacementSystem _placementSystem;
-        private IShop _shop;
+        private Shop _shop;
         private InputManager _inputManager;
         public List<Tower> Towers { get; private set; } = new();
 
         [Inject]
-        private void Construct(IShop shop, PlacementSystem placementSystem, InputManager inputManager)
+        private void Construct(Shop shop, PlacementSystem placementSystem, InputManager inputManager)
         {
             _shop = shop;
             _placementSystem = placementSystem;
@@ -115,6 +116,15 @@ namespace _Project.Scripts.Core.Towers
         private TowerInfoSO GetTowerInfoOfType(TowerTypeSO typeSO)
         {
             return _towerInfos.First(t => t.typeSO == typeSO);
+        }
+        
+        public void Clear()
+        {
+            foreach (var tower in Towers.ToArray())
+            {
+                UnregisterTower(tower.gameObject);
+                _placementSystem.RemoveObject(tower.gameObject.transform.position);
+            }
         }
     }
 }

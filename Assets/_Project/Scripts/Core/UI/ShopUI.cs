@@ -1,5 +1,4 @@
-﻿using KBCore.Refs;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using Zenject;
 
@@ -9,17 +8,12 @@ namespace _Project.Scripts.Core.UI
     {
         [SerializeField] private TMP_Text moneyAmountText;
         
-        private IShop _shop;
+        private Shop _shop;
         
         [Inject]
-        private void Construct(IShop shop)
+        private void Construct(Shop shop)
         {
             _shop = shop;
-        }
-        
-        private void OnValidate()
-        {
-            this.ValidateRefs();
         }
 
         private void Start()
@@ -30,7 +24,7 @@ namespace _Project.Scripts.Core.UI
 
         private void UpdateMoneyAmountText()
         {
-            moneyAmountText.text = _shop.MoneyAmount.ToString();
+            moneyAmountText.text = $"{_shop.MoneyAmount}$";
         }
         
         private void OnDestroy()

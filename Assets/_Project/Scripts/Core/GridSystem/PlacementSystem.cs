@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using _Project.Scripts.Core.Managers;
 using _Project.Scripts.Extensions;
-using KBCore.Refs;
 using UnityEngine;
 using Zenject;
 
@@ -57,29 +56,34 @@ namespace _Project.Scripts.Core.GridSystem
             _isPlacingObject = true;
         }
 
-        public GameObject BuildObject(Vector3Int gridPosition, PlacementSystemObjectSO placementObject)
+        public GameObject BuildObject(Vector2Int gridPosition, PlacementSystemObjectSO placementObject)
         {
-            var bottomLeftPosition = grid.CellToWorld(gridPosition);
+            var bottomLeftPosition = grid.CellToWorld((Vector3Int)gridPosition);
 
             var instance = Instantiate(placementObject.prefab,
                 bottomLeftPosition,
                 Quaternion.identity,
                 transform);
 
-            _gridData.AddObject(placementObject, gridPosition, instance);
+            _gridData.AddObject(placementObject, (Vector3Int)gridPosition, instance);
 
             return instance;
         }
-        
+
         public GameObject BuildObject(Vector3 position, PlacementSystemObjectSO placementObject)
         {
-            var gridPosition = grid.WorldToCell(position);
+            var gridPosition = (Vector2Int)grid.WorldToCell(position);
             return BuildObject(gridPosition, placementObject);
         }
 
         public bool IsPlaceTaken(Vector3Int gridPosition)
         {
             return _gridData.IsCellTaken(gridPosition);
+        }
+
+        public bool IsPlaceTaken(Vector2Int gridPosition)
+        {
+            return IsPlaceTaken((Vector3Int)gridPosition);
         }
 
         public void StopPlacingObject()
@@ -107,11 +111,16 @@ namespace _Project.Scripts.Core.GridSystem
             Destroy(placedObject);
         }
         
+        public void RemoveAt(Vector2Int gridPosition)
+        {
+            RemoveAt((Vector3Int)gridPosition);
+        }
+
         public bool ValidatePosition(Vector3Int gridPosition, PlacementSystemObjectSO activeSO)
         {
             return _gridData.IsPlacementValid(activeSO, gridPosition);
         }
-        
+
         public bool ValidatePosition(Vector3 position, PlacementSystemObjectSO activeSO)
         {
             var gridPosition = grid.WorldToCell(position);
@@ -120,11 +129,12 @@ namespace _Project.Scripts.Core.GridSystem
 
         public void Clear()
         {
-            var placedObjects =_gridData._placedObjectsList.ToList();
+            var placedObjects = _gridData._placedObjectsList.ToList();
             foreach (var placedObject in placedObjects)
             {
                 Destroy(placedObject);
             }
+
             _gridData = new GridData();
         }
     }
