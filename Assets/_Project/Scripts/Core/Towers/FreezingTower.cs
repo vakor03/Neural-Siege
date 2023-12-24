@@ -5,9 +5,10 @@ using UnityEngine;
 
 namespace _Project.Scripts.Core.Towers
 {
-    // TODO: Add freezing effect
     public class FreezingTower : Tower<FreezingTower, FreezingTowerStats>
     {
+        [SerializeField] private ParticleSystem visualEffect;
+
         private FreezeEffect _freezingEffect;
 
         protected override void Awake()
@@ -18,8 +19,19 @@ namespace _Project.Scripts.Core.Towers
             _freezingEffect = new FreezeEffect(freezingMultiplier);
         }
 
+        private void Start()
+        {
+            var speed = visualEffect.main.startSpeed;
+            ParticleSystem.MainModule main = visualEffect.main;
+            main.startLifetime = 2f * Range / speed.constant;
+        }
+
         protected override void OnStatsChanged()
         {
+            var speed = visualEffect.main.startSpeed;
+            ParticleSystem.MainModule main = visualEffect.main;
+            main.startLifetime = 2f * Range / speed.constant;
+
             float freezingMultiplier = TowerStatsController.CurrentStats.FreezingMultiplier;
             float range = TowerStatsController.CurrentStats.Range;
             _freezingEffect.FreezeMultiplier = freezingMultiplier;
