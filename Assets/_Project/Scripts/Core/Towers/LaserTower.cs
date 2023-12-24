@@ -5,11 +5,8 @@ using UnityEngine;
 
 namespace _Project.Scripts.Core.Towers
 {
-    // TODO: Add visuals
     public class LaserTower : SingleTargetTower<LaserTower, LaserTowerStats>
     {
-        [SerializeField] private float laserDuration = 0.5f;
-        
         private ITimer _timer;
         private EnemiesController _enemiesController;
         private readonly RaycastHit2D[] _results = new RaycastHit2D[100];

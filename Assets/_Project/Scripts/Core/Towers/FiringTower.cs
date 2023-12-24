@@ -6,11 +6,11 @@ using UnityEngine;
 
 namespace _Project.Scripts.Core.Towers
 {
-    // TODO: add visuals
     public class FiringTower : SingleTargetTower<FiringTower, FiringTowerStats>
     {
         [SerializeField] private Transform shootPosition;
-
+        [SerializeField] private ParticleSystem visualEffect;
+        
         private ITimer _timer;
         private readonly Collider2D[] _results = new Collider2D[100];
         private EnemiesController _enemiesController;
@@ -58,6 +58,14 @@ namespace _Project.Scripts.Core.Towers
         {
             if (ActiveTarget == null) return;
 
+            visualEffect.Play();
+            ParticleSystem.ShapeModule shape = visualEffect.shape;
+            shape.angle = TowerStatsController.CurrentStats.ConeAngle;
+
+            var speed = visualEffect.main.startSpeed;
+            ParticleSystem.MainModule main = visualEffect.main;
+            main.startLifetime = 2f* Range / speed.constant;
+            
             FireAt(ActiveTarget.transform.position);
         }
 

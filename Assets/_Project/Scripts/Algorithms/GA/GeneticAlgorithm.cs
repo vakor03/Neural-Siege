@@ -12,6 +12,7 @@ using UnityEngine;
 namespace _Project.Scripts.Algorithms.GA
 {
     // TODO: use total resources, not enemies count
+    // TODO: add button to start Game after creating a path
     public class GeneticAlgorithm : IWaveCreationAlgorithm
     {
         private readonly int _generationsCount = 100;

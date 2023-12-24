@@ -59,7 +59,7 @@ namespace _Project.Scripts.Algorithms.GA.Evaluation
             TilesStats.ForEach(ts => ts.Towers.ForEach(t => t.TimeShooting = 0));
             var survived = ConvertEnemyTypesToTempStats(chromosome.EnemyWave);
             float spawnRate = _enemySpawner.SpawnRate;
-            //TODO: refactor this
+            
             for (var i = 0; i < survived.Count; i++)
             {
                 var enemyTempStats = survived[i];

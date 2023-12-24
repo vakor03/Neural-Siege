@@ -130,7 +130,7 @@ namespace _Project.Scripts.Infrastructure.Installers
         private void BindTowersController()
         {
             Container.BindInterfacesAndSelfTo<TowersController>().AsSingle();
-        } // TODO: Pause UI
+        }
 
         private void BindGeneticAlgorithm()
         {

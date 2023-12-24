@@ -6,7 +6,7 @@ namespace _Project.Scripts.Core
 {
     public class PlanningTimer
     {
-        private float _planningTime = 5f; // TODO: Move to config
+        private float _planningTime = 10f; // TODO: Move to config
         private const float TimeBetweenTicks = 0.05f;
 
         private CoroutineHandle _timerCoroutine;

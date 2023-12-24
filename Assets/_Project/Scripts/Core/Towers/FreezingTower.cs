@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace _Project.Scripts.Core.Towers
 {
+    // TODO: Add freezing effect
     public class FreezingTower : Tower<FreezingTower, FreezingTowerStats>
     {
         private FreezeEffect _freezingEffect;

@@ -22,7 +22,7 @@ namespace _Project.Scripts.Core.Towers.TowerStats
             return new TowerStatsGA
             {
                 TowerType = towerType,
-                DamagePerSecond = PoisonEffectStats.damagePerSecond,
+                DamagePerSecond = PoisonEffectStats.damagePerSecond * FireRate,
                 SlowingFactor = 0,
                 IsAoe = true,
                 Range = Range
