@@ -24,7 +24,7 @@ namespace _Project.Scripts.Infrastructure.States
             _registeredStates.Add(typeof(TState), state);
         }
 
-        public TState ChangeState<TState>() where TState : class, IExitableState
+        private TState ChangeState<TState>() where TState : class, IExitableState
         {
             if (_currentState != null)
                 _currentState.Exit();

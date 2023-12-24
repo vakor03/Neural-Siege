@@ -3,17 +3,12 @@ using _Project.Scripts.Algorithms;
 using _Project.Scripts.Core.WaypointSystem;
 using MEC;
 using UnityEngine;
-using UnityEngine.Serialization;
-using Zenject;
 
 namespace _Project.Scripts.Core.Enemies
 {
-    public class EnemySpawner : MonoBehaviour // TODO: To non-monobehaviour class
+    public class EnemySpawner
     {
-        [SerializeField] private float spawnRate;
-
-        [FormerlySerializedAs("testWave")] [SerializeField]
-        private EnemyWaveSO testWaveSO;
+        private float spawnRate = 2;
 
         private Vector3 _spawnPoint;
         private WaypointsHolder _waypointsHolder;
@@ -23,8 +18,7 @@ namespace _Project.Scripts.Core.Enemies
 
         public float SpawnRate => spawnRate;
         
-        [Inject]
-        private void Construct(IEnemyFactory enemyFactory)
+        public EnemySpawner(IEnemyFactory enemyFactory)
         {
             _enemyFactory = enemyFactory;
         }
@@ -33,12 +27,6 @@ namespace _Project.Scripts.Core.Enemies
         {
             _spawnPoint = spawnPoint;
             _waypointsHolder = waypointsHolder;
-        }
-
-        [ContextMenu("SpawnTestWave")]
-        public void SpawnTestWave()
-        {
-            SpawnWave(testWaveSO);
         }
 
         public void SpawnWave(EnemyWaveSO enemyWaveSO)

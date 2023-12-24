@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6784100e53b443ca6e247a398efa4f5, type: 3}
   m_Name: Spawner
   m_EditorClassIdentifier: 
-  enemyType: 3
   enemyStats:
-    speed: 1
-    maxHealth: 1
-    reproductionRate: 0
+    maxHealth: 2
+    speed: 2
+    reproductionRate: 0.2222222

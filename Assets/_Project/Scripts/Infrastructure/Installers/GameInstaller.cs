@@ -33,9 +33,7 @@ namespace _Project.Scripts.Infrastructure.Installers
 
         public PlacementSystem placementSystem;
         public SerializedDictionary<EnemyType, float> enemyTypeToPrice;
-
-        public EnemySpawner EnemySpawner;
-
+        
         public GameOverUI GameOverUI;
 
         public override void InstallBindings()
@@ -126,13 +124,13 @@ namespace _Project.Scripts.Infrastructure.Installers
 
         private void BindEnemySpawner()
         {
-            Container.Bind<EnemySpawner>().FromInstance(EnemySpawner).AsSingle();
+            Container.Bind<EnemySpawner>().AsSingle().NonLazy();
         }
 
         private void BindTowersController()
         {
             Container.BindInterfacesAndSelfTo<TowersController>().AsSingle();
-        }
+        } // TODO: Pause UI
 
         private void BindGeneticAlgorithm()
         {

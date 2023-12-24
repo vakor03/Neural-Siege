@@ -1,13 +1,14 @@
 ﻿using _Project.Scripts.Core;
 using _Project.Scripts.Core.Enemies;
 using _Project.Scripts.Core.GridSystem;
-using _Project.Scripts.Core.PathCreation;
 using _Project.Scripts.Core.Towers;
 using _Project.Scripts.Core.UI;
+using _Project.Scripts.Infrastructure.States.Global;
+using UnityEngine;
 
 namespace _Project.Scripts.Infrastructure.States.Gameplay
 {
-    public class PrepareSceneState : IState
+    public class ResetGameplayAndGoToMainMenuState : IState
     {
         private PlacementSystem _placementSystem;
         private TowersController _towersController;
@@ -17,24 +18,21 @@ namespace _Project.Scripts.Infrastructure.States.Gameplay
         private PlanningTimer _planningTimer;
         private GameOverUI _gameOverUI;
         private IPlayerBase _playerBase;
-        private SceneStateMachine _sceneStateMachine;
         private ScoreCounter _scoreCounter;
-        private GeneticAlgorithmWaveCreator _geneticAlgorithmWaveCreator;
+        private GameStateMachine _gameStateMachine;
 
-
-        public PrepareSceneState(SceneStateMachine sceneStateMachine,
-            PlacementSystem placementSystem,
-            TowersController towersController,
-            Shop shop,
-            EnemiesAccessor enemiesAccessor,
-            EnemySpawner enemySpawner,
-            PlanningTimer planningTimer,
-            GameOverUI gameOverUI,
-            IPlayerBase playerBase,
+        public ResetGameplayAndGoToMainMenuState(
+            PlacementSystem placementSystem, 
+            TowersController towersController, 
+            Shop shop, 
+            EnemiesAccessor enemiesAccessor, 
+            EnemySpawner enemySpawner, 
+            PlanningTimer planningTimer, 
+            GameOverUI gameOverUI, 
+            IPlayerBase playerBase, 
             ScoreCounter scoreCounter, 
-            GeneticAlgorithmWaveCreator geneticAlgorithmWaveCreator)
+            GameStateMachine gameStateMachine)
         {
-            _sceneStateMachine = sceneStateMachine;
             _placementSystem = placementSystem;
             _towersController = towersController;
             _shop = shop;
@@ -44,7 +42,7 @@ namespace _Project.Scripts.Infrastructure.States.Gameplay
             _gameOverUI = gameOverUI;
             _playerBase = playerBase;
             _scoreCounter = scoreCounter;
-            _geneticAlgorithmWaveCreator = geneticAlgorithmWaveCreator;
+            _gameStateMachine = gameStateMachine;
         }
 
         public void Exit()
@@ -53,6 +51,8 @@ namespace _Project.Scripts.Infrastructure.States.Gameplay
 
         public void Enter()
         {
+            Time.timeScale = 1f;
+            
             _towersController.Clear();
             _placementSystem.Clear();
             _shop.Reset();
@@ -62,9 +62,8 @@ namespace _Project.Scripts.Infrastructure.States.Gameplay
             _gameOverUI.Hide();
             _playerBase.Reset();
             _scoreCounter.Reset();
-            _geneticAlgorithmWaveCreator.Reset();
             
-            _sceneStateMachine.Enter<PathCreationState>();
+            _gameStateMachine.Enter<MainMenuState>();
         }
     }
 }

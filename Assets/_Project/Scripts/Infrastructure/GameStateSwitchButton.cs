@@ -16,17 +16,21 @@ namespace _Project.Scripts.Infrastructure
             MainScene = 2,
             MainMenu = 3,
             Quit = 4,
+            BacktrackingGameplay = 5,
+            ManualGameplay = 6,
         }
 
         [SerializeField] private TargetState targetState = 0;
         [SerializeField] private Button button;
 
         private GameStateMachine _gameStateMachine;
+        private PathCreationStateChoice _pathCreationStateChoice;
 
         [Inject]
-        private void Construct(GameStateMachine gameStateMachine)
+        private void Construct(GameStateMachine gameStateMachine,PathCreationStateChoice pathCreationStateChoice)
         {
-            _gameStateMachine = gameStateMachine;
+            _gameStateMachine = gameStateMachine;   
+            _pathCreationStateChoice = pathCreationStateChoice;
         }
 
         private void OnEnable() =>
@@ -42,14 +46,22 @@ namespace _Project.Scripts.Infrastructure
                 case TargetState.Loading:
                     _gameStateMachine.Enter<GameLoadingState>();
                     break;
-                case TargetState.MainScene:
-                    _gameStateMachine.Enter<MainSceneState>();
-                    break;
+                // case TargetState.MainScene:
+                //     _gameStateMachine.Enter<MainSceneState>();
+                //     break;
                 case TargetState.MainMenu:
                     _gameStateMachine.Enter<MainMenuState>();
                     break;
                 case TargetState.Quit:
                     _gameStateMachine.Enter<QuitGameState>();
+                    break;
+                case TargetState.BacktrackingGameplay:
+                    _pathCreationStateChoice.Type = PathCreationStateChoice.PathCreationType.Automatic;
+                    _gameStateMachine.Enter<MainSceneState>();
+                    break;
+                case TargetState.ManualGameplay:
+                    _pathCreationStateChoice.Type = PathCreationStateChoice.PathCreationType.Manual;
+                    _gameStateMachine.Enter<MainSceneState>();
                     break;
                 default:
                     Debug.LogError("Not valid option");

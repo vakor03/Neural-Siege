@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.Core.Configs;
 using _Project.Scripts.Core.GridSystem;
@@ -18,6 +19,7 @@ namespace _Project.Scripts.Core.Towers
         private Shop _shop;
         private InputManager _inputManager;
         public List<Tower> Towers { get; private set; } = new();
+        public event Action<Tower> OnTowerUpgraded;
 
         [Inject]
         private void Construct(Shop shop, PlacementSystem placementSystem, InputManager inputManager)
@@ -100,6 +102,8 @@ namespace _Project.Scripts.Core.Towers
 
             _shop.SpendMoney(upgradePrice);
             tower.ApplyUpgrade(towerInfo.upgrade);
+            
+            OnTowerUpgraded?.Invoke(tower);
         }
 
         public void DoSell(Tower tower)

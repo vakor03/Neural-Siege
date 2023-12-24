@@ -1,16 +1,18 @@
 using _Project.Scripts.Core.Enemies;
-using _Project.Scripts.Infrastructure;
 using _Project.Scripts.Infrastructure.AssetProviders;
 using _Project.Scripts.Infrastructure.SceneLoading;
 using _Project.Scripts.Infrastructure.States;
+using _Project.Scripts.Infrastructure.States.Gameplay;
 using Zenject;
 
-namespace _Project.Scripts.Core.Towers
+namespace _Project.Scripts.Infrastructure.Installers
 {
     public class ProjectInstaller : MonoInstaller
     {
         public override void InstallBindings()
         {
+            BindPathCreationStateChoice();
+
             BindSceneLoader();
 
             BindAssetProvider();
@@ -20,6 +22,11 @@ namespace _Project.Scripts.Core.Towers
             BindGameStateMachine();
 
             BindLoadingCurtain();
+        }
+
+        private void BindPathCreationStateChoice()
+        {
+            Container.Bind<PathCreationStateChoice>().AsSingle();
         }
 
         private void BindEnemyPathCreatorFactory()

@@ -21,9 +21,10 @@ namespace _Project.Scripts.Algorithms.GA.Evaluation
 
         private readonly EnemySpawner _enemySpawner;
 
-        private const float PER_ENEMY_REACHED_COEFFICIENT = 1000_000f;
-        private const float WAYPOINT_REACHED_COEFFICIENT = 0/*100f*/;
+        private const float PER_ENEMY_REACHED_COEFFICIENT = 1000f;
+        private const float WAYPOINT_REACHED_COEFFICIENT = 0 /*100f*/;
         private const float PRICE_COEFFICIENT = -1f;
+        private const float DIVERSITY_COEFFICIENT = 100f;
 
         public ModelFitnessEvaluator(Dictionary<EnemyType, EnemyStatsGA> enemyStats, EnemySpawner enemySpawner)
         {
@@ -34,13 +35,28 @@ namespace _Project.Scripts.Algorithms.GA.Evaluation
         public float Evaluate(Chromosome chromosome)
         {
             float survivalScore = CalculateSurvivalScore(chromosome);
+            float diversityScore = CalculateDiversityScore(chromosome);
+            float priceScore = CalculatePriceScore(chromosome);
 
-            return survivalScore;
+            float fitness = survivalScore + diversityScore + priceScore;
+
+            return fitness;
+        }
+
+        private float CalculateDiversityScore(Chromosome chromosome)
+        {
+            var diversity = chromosome.EnemyWave.Distinct().Count();
+            return Mathf.Pow(2,diversity) * DIVERSITY_COEFFICIENT;
+        }
+
+        private float CalculatePriceScore(Chromosome chromosome)
+        {
+            return chromosome.EnemyWave.Sum(e => _enemyStats[e].Price) * PRICE_COEFFICIENT;
         }
 
         private float CalculateSurvivalScore(Chromosome chromosome)
         {
-            TilesStats.ForEach(ts=>ts.Towers.ForEach(t=>t.TimeShooting = 0));
+            TilesStats.ForEach(ts => ts.Towers.ForEach(t => t.TimeShooting = 0));
             var survived = ConvertEnemyTypesToTempStats(chromosome.EnemyWave);
             float spawnRate = _enemySpawner.SpawnRate;
             //TODO: refactor this
@@ -63,17 +79,14 @@ namespace _Project.Scripts.Algorithms.GA.Evaluation
             }
 
             float value;
-            float totalPrice = chromosome.EnemyWave.Sum(el => _enemyStats[el].Price);
             if (lastReachedWaypoint == TilesStats.Count - 1)
             {
                 value = survived.Count * PER_ENEMY_REACHED_COEFFICIENT +
-                        lastReachedWaypoint * WAYPOINT_REACHED_COEFFICIENT +
-                        totalPrice * PRICE_COEFFICIENT;
+                        lastReachedWaypoint * WAYPOINT_REACHED_COEFFICIENT;
             }
             else
             {
-                value = lastReachedWaypoint * WAYPOINT_REACHED_COEFFICIENT +
-                        totalPrice * PRICE_COEFFICIENT;
+                value = lastReachedWaypoint * WAYPOINT_REACHED_COEFFICIENT;
             }
 
             return value;
@@ -84,23 +97,47 @@ namespace _Project.Scripts.Algorithms.GA.Evaluation
         {
             UpdateTimeToNextWaypoint(tempEnemyStats, tileStatsGA.Distance);
             var activeTowers = tileStatsGA.Towers;
-            // TODO: take into account order and time between enemies
-            // TODO: take spawn rate into account
 
             ApplySlowEffects(activeTowers, tempEnemyStats, tileStatsGA.Distance);
+
+            AddNewlySpawned(tempEnemyStats, tileStatsGA.Distance, activeTowers);
 
             ApplyAoeDamage(activeTowers, tempEnemyStats);
 
             ApplySingleTargetDamage(activeTowers, tempEnemyStats);
-            
+
             for (var i = 0; i < tempEnemyStats.Count; i++)
             {
                 var enemyTempStats = tempEnemyStats[i];
                 enemyTempStats.TimeToCome += enemyTempStats.TimeToNextWaypoint;
                 tempEnemyStats[i] = enemyTempStats;
             }
-            
+
             return tempEnemyStats.OrderBy(tmp => tmp.TimeToCome).ToList();
+        }
+
+        private void AddNewlySpawned(List<TmpEnemyStats> tempEnemyStats, float distance,
+            List<TowerStatsGA> activeTowers)
+        {
+            List<TmpEnemyStats> newlySpawned = new();
+            foreach (var enemyStats in tempEnemyStats)
+            {
+                int alreadySpawned = (int)(enemyStats.TimeToCome * enemyStats.ReproductionRate);
+                int maxCanSpawn = (int)((enemyStats.TimeToNextWaypoint + enemyStats.TimeToCome) *
+                                        enemyStats.ReproductionRate);
+                
+                int timeSpawned = maxCanSpawn - alreadySpawned;
+                for (int i = 0; i < timeSpawned; i++)
+                {
+                    var newlySpawnedEnemy = ConvertEnemyTypeToTempStats(enemyStats.SpawnedType);
+                    newlySpawnedEnemy.TimeToCome = enemyStats.TimeToCome;
+                    newlySpawned.Add(newlySpawnedEnemy);
+                }
+            }
+
+            UpdateTimeToNextWaypoint(newlySpawned, distance);
+            ApplySlowEffects(activeTowers, newlySpawned, distance);
+            tempEnemyStats.AddRange(newlySpawned);
         }
 
         private void UpdateTimeToNextWaypoint(List<TmpEnemyStats> tempEnemyStats, float distanceBetweenWaypoints)
@@ -125,10 +162,10 @@ namespace _Project.Scripts.Algorithms.GA.Evaluation
                     var enemyTempStats = tempEnemyStats[j];
                     var a = ApplySingleTargetDamage(ref enemyTempStats, ref activeTower);
                     tempEnemyStats[j] = enemyTempStats;
-                    
+
                     if (a) break;
                 }
-                
+
                 activeTowers[i] = activeTower;
 
                 DeleteDeadEnemyIndicesFromTempStats(tempEnemyStats);
@@ -139,11 +176,11 @@ namespace _Project.Scripts.Algorithms.GA.Evaluation
         {
             float timeShooting = activeTower.TimeShooting;
             var timeToKill = tempEnemyStats.Health / activeTower.DamagePerSecond;
-            var maxTimeShooting = tempEnemyStats.TimeToNextWaypoint 
-                                  + Mathf.Clamp(tempEnemyStats.TimeToCome - timeShooting,float.MinValue,0);
+            var maxTimeShooting = tempEnemyStats.TimeToNextWaypoint
+                                  + Mathf.Clamp(tempEnemyStats.TimeToCome - timeShooting, float.MinValue, 0);
 
             if (maxTimeShooting <= 0) return false;
-            
+
             if (timeToKill > maxTimeShooting)
             {
                 tempEnemyStats.Health -= activeTower.DamagePerSecond * maxTimeShooting;
@@ -160,7 +197,6 @@ namespace _Project.Scripts.Algorithms.GA.Evaluation
                 activeTower.TimeShooting = timeShooting;
                 return false;
             }
-            
         }
 
         private void DeleteDeadEnemyIndicesFromTempStats(List<TmpEnemyStats> tempEnemyStats)
@@ -213,7 +249,7 @@ namespace _Project.Scripts.Algorithms.GA.Evaluation
             }
         }
 
-        private List<TmpEnemyStats> ConvertEnemyTypesToTempStats(EnemyType[] enemies)
+        private List<TmpEnemyStats> ConvertEnemyTypesToTempStats(IEnumerable<EnemyType> enemies)
         {
             var tempEnemyStats = enemies.Select(enemyType =>
             {
@@ -230,14 +266,29 @@ namespace _Project.Scripts.Algorithms.GA.Evaluation
             }).ToList();
             return tempEnemyStats;
         }
-        
+
+        private TmpEnemyStats ConvertEnemyTypeToTempStats(EnemyType enemyType)
+        {
+            var stats = _enemyStats[enemyType];
+            return new TmpEnemyStats()
+            {
+                EnemyType = enemyType,
+                Health = stats.MaxHealth,
+                Speed = stats.Speed,
+                ReproductionRate = stats.ReproductionRate,
+                SpawnedType = stats.SpawnedType,
+                TimeToNextWaypoint = 0
+            };
+        }
+
         private List<TileStatsGA> CalculateTileStats(List<(Circle, TowerStatsGA)> towersInfo)
         {
             WaypointsHolder waypointsHolder = WaypointsHolderFactory.Last;
             var waypoints = waypointsHolder.Waypoints;
             Rect[] rects = ConvertToRects(waypoints);
             float distance = 1;
-            var tileStatsGA = rects.Select(r => new TileStatsGA(distance, GetTowerStatsInRects(r, towersInfo))).ToList();
+            var tileStatsGA = rects.Select(r => new TileStatsGA(distance, GetTowerStatsInRects(r, towersInfo)))
+                .ToList();
 
             return tileStatsGA;
         }
@@ -251,8 +302,8 @@ namespace _Project.Scripts.Algorithms.GA.Evaluation
         {
             var towersInRect = towersInfo
                 .Where(radius => radius.Item1.Intersects(rect))
-                .Select(tower=>tower.Item2).ToList();
-        
+                .Select(tower => tower.Item2).ToList();
+
             return towersInRect;
         }
 

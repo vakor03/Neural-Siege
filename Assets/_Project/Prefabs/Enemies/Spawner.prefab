@@ -142,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnEnemyType: 2
   spawnDelay: 0.5
-  spawnTime: 4
+  spawnTime: 5
   startSpawnDelay: 1
   enemyStatsSystem: {fileID: 3871513028250800916}
   waypointsMover: {fileID: 3428299355780052453}

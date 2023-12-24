@@ -13,7 +13,10 @@ namespace _Project.Scripts.Core
 {
     public class GeneticAlgorithmWaveCreator
     {
-        private int enemiesPerWave = 10;
+        private const int DefaultEnemiesPerWave = 1;
+        private const int DefaultEnemiesStep = 1;
+        
+        private int _enemiesPerWave = DefaultEnemiesPerWave;
         private IWaveCreationAlgorithm _algorithm;
         private TowersController _towersController;
 
@@ -24,6 +27,11 @@ namespace _Project.Scripts.Core
             _towersController = towersController;
             _algorithm = geneticAlgorithmFactory.Create();
         }
+        
+        public void Reset()
+        {
+            _enemiesPerWave = DefaultEnemiesPerWave;
+        }
     
         public EnemyWave CreateWave()
         {
@@ -32,7 +40,8 @@ namespace _Project.Scripts.Core
                 .ToList();
         
             var tileStats = CalculateTileStats(towersInfo);
-            EnemyWave wave = _algorithm.CreateEnemyWave(tileStats, enemiesPerWave);
+            EnemyWave wave = _algorithm.CreateEnemyWave(tileStats, _enemiesPerWave);
+            _enemiesPerWave += DefaultEnemiesStep;
             return wave;
         }
 

@@ -45,19 +45,10 @@ namespace _Project.Scripts.Core.Managers
             Time.timeScale = 1;
             OnGameResumed?.Invoke();
         }
-
-        public void GoToMainMenu()
+        
+        private void OnDestroy()
         {
-            _isPaused = false;
             Time.timeScale = 1;
-            SceneLoader1.LoadScene(mainMenuScene);
-        }
-
-        public void Restart()
-        {
-            _isPaused = false;
-            Time.timeScale = 1;
-            SceneLoader1.LoadScene(currentScene);
         }
     }
 }

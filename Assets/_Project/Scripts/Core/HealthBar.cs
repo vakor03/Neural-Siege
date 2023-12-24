@@ -11,11 +11,7 @@ namespace _Project.Scripts.Core
         
         private Material _healthBarInstance;
         private static readonly int kFulfill = Shader.PropertyToID("_Fulfill");
-
-        private void OnValidate()
-        {
-            this.ValidateRefs();
-        }
+        
         private void Awake()
         {
             _healthBarInstance = new Material(healthBarMaterial);

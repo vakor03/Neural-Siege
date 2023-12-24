@@ -25,6 +25,7 @@ namespace _Project.Scripts.Infrastructure.Bootstrap
             _sceneStateMachine.RegisterState(_statesFactory.Create<PlanningState>());
             _sceneStateMachine.RegisterState(_statesFactory.Create<GameOverState>());
             _sceneStateMachine.RegisterState(_statesFactory.Create<PrepareSceneState>());
+            _sceneStateMachine.RegisterState(_statesFactory.Create<ResetGameplayAndGoToMainMenuState>());
             
             _sceneStateMachine.Enter<PrepareSceneState>();
         }

@@ -50,6 +50,9 @@ namespace _Project.Scripts.Core.UI
                 case TargetState.PrepareScene:
                     _sceneStateMachine.Enter<PrepareSceneState>();
                     break;
+                case TargetState.MainMenu:
+                    _sceneStateMachine.Enter<ResetGameplayAndGoToMainMenuState>();
+                    break;
                 default:
                     Debug.LogError("Not valid option");
                     break;

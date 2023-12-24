@@ -11,6 +11,7 @@ using UnityEngine;
 
 namespace _Project.Scripts.Algorithms.GA
 {
+    // TODO: use total resources, not enemies count
     public class GeneticAlgorithm : IWaveCreationAlgorithm
     {
         private readonly int _generationsCount = 100;
@@ -38,7 +39,6 @@ namespace _Project.Scripts.Algorithms.GA
 
         public EnemyWave CreateEnemyWave(List<TileStatsGA> tilesStats, int enemiesPerWave)
         {
-            // TODO: maybe using total resources, not enemies count
             Initialize(tilesStats);
 
             List<Chromosome> population = InitializePopulation(_populationSize, enemiesPerWave);

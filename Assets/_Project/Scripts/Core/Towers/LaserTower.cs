@@ -1,11 +1,11 @@
-﻿using System.Collections;
+﻿using System;
 using _Project.Scripts.Core.Enemies;
 using _Project.Scripts.Core.Towers.TowerStats;
-using KBCore.Refs;
 using UnityEngine;
 
 namespace _Project.Scripts.Core.Towers
 {
+    // TODO: Add visuals
     public class LaserTower : SingleTargetTower<LaserTower, LaserTowerStats>
     {
         [SerializeField] private float laserDuration = 0.5f;
@@ -13,12 +13,8 @@ namespace _Project.Scripts.Core.Towers
         private ITimer _timer;
         private EnemiesController _enemiesController;
         private readonly RaycastHit2D[] _results = new RaycastHit2D[100];
-
-
-        private void OnValidate()
-        {
-            this.ValidateRefs();
-        }
+        
+        public event Action OnAttacked; 
 
         protected override void Awake()
         {
@@ -82,14 +78,7 @@ namespace _Project.Scripts.Core.Towers
                 }
             }
 
-            StartCoroutine(LaserEffect());
-        }
-
-        IEnumerator LaserEffect()
-        {
-            Debug.Log("Laser fired!");
-
-            yield return new WaitForSeconds(laserDuration);
+            OnAttacked?.Invoke();
         }
 
         private void OnDrawGizmos()

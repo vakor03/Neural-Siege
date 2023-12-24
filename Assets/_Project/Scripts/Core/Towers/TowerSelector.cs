@@ -1,6 +1,5 @@
 ﻿using _Project.Scripts.Core.Managers;
 using _Project.Scripts.Core.UI;
-using KBCore.Refs;
 using UnityEngine;
 using Zenject;
 
@@ -11,7 +10,8 @@ namespace _Project.Scripts.Core.Towers
         [SerializeField] private LayerMask towerLayerMask;
         [SerializeField] private TowerInfoUI towerInfoUI;
         [SerializeField] private Vector2 towerInfoOffset;
-
+        [SerializeField] private LineRenderer lineRenderer;
+        
         private Camera _camera;
         private Tower _selectedTower;
         private InputManager _inputManager;
@@ -22,11 +22,6 @@ namespace _Project.Scripts.Core.Towers
         {
             _inputManager = inputManager;
             _towersController = towersController;
-        }
-
-        private void OnValidate()
-        {
-            this.ValidateRefs();
         }
 
         private void Awake()
@@ -41,6 +36,8 @@ namespace _Project.Scripts.Core.Towers
             towerInfoUI.OnUpgrade += UpgradeTower;
             towerInfoUI.OnDelete += SellTower;
             towerInfoUI.gameObject.SetActive(false);
+
+            _towersController.OnTowerUpgraded += SetSelectedTower;
         }
 
         private void OnDestroy()
@@ -48,6 +45,8 @@ namespace _Project.Scripts.Core.Towers
             _inputManager.OnClicked -= OnClicked;
             towerInfoUI.OnUpgrade -= UpgradeTower;
             towerInfoUI.OnDelete -= SellTower;
+            
+            _towersController.OnTowerUpgraded -= SetSelectedTower;
         }
 
         private void OnClicked()
@@ -87,6 +86,20 @@ namespace _Project.Scripts.Core.Towers
 
             towerInfoUI.gameObject.SetActive(true);
             towerInfoUI.transform.position = tower.transform.position + (Vector3)towerInfoOffset;
+            DrawCircle(tower.gameObject.transform.position, tower.Range, lineRenderer);
+        }
+        
+        void DrawCircle(Vector2 center, float radius, LineRenderer lineRenderer)
+        {
+            int resolution = 100; // Increase for a more accurate circle
+            lineRenderer.positionCount = resolution + 1;
+
+            for (int i = 0; i <= resolution; i++)
+            {
+                float angle = Mathf.PI * 2 * i / resolution;
+                Vector2 newPoint = center + new Vector2(radius * Mathf.Cos(angle), radius * Mathf.Sin(angle));
+                lineRenderer.SetPosition(i, new Vector3(newPoint.x, newPoint.y, 0));
+            }
         }
 
         private void ClearSelectedTower()
@@ -94,6 +107,7 @@ namespace _Project.Scripts.Core.Towers
             _selectedTower = null;
 
             towerInfoUI.gameObject.SetActive(false);
+            lineRenderer.positionCount = 0;
         }
 
         private void UpgradeTower()

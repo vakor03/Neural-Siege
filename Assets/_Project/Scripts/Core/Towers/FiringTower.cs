@@ -2,11 +2,11 @@
 using _Project.Scripts.Core.Enemies;
 using _Project.Scripts.Core.Towers.TowerStats;
 using _Project.Scripts.Extensions;
-using KBCore.Refs;
 using UnityEngine;
 
 namespace _Project.Scripts.Core.Towers
 {
+    // TODO: add visuals
     public class FiringTower : SingleTargetTower<FiringTower, FiringTowerStats>
     {
         [SerializeField] private Transform shootPosition;
@@ -14,12 +14,7 @@ namespace _Project.Scripts.Core.Towers
         private ITimer _timer;
         private readonly Collider2D[] _results = new Collider2D[100];
         private EnemiesController _enemiesController;
-
-        private void OnValidate()
-        {
-            this.ValidateRefs();
-        }
-
+        
         protected override void Awake()
         {
             base.Awake();
