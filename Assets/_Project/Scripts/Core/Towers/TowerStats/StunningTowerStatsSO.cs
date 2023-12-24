@@ -29,7 +29,7 @@ namespace _Project.Scripts.Core.Towers.TowerStats
 
         public override TowerStatsGA GetTowerStatsGA(TowerTypeSO towerType)
         {
-            float slowingFactor = 1 / (1 + StunningDuration / (1 / FireRate - StunningDuration));
+            float slowingFactor = 1-1 / (1 + StunningDuration / (1 / FireRate - StunningDuration));
             return new TowerStatsGA
             {
                 TowerType = towerType,

@@ -46,7 +46,7 @@ namespace _Project.Scripts.Algorithms.GA.Evaluation
         private float CalculateDiversityScore(Chromosome chromosome)
         {
             var diversity = chromosome.EnemyWave.Distinct().Count();
-            return Mathf.Pow(2,diversity) * DIVERSITY_COEFFICIENT;
+            return Mathf.Pow(2, diversity) * DIVERSITY_COEFFICIENT;
         }
 
         private float CalculatePriceScore(Chromosome chromosome)
@@ -59,7 +59,7 @@ namespace _Project.Scripts.Algorithms.GA.Evaluation
             TilesStats.ForEach(ts => ts.Towers.ForEach(t => t.TimeShooting = 0));
             var survived = ConvertEnemyTypesToTempStats(chromosome.EnemyWave);
             float spawnRate = _enemySpawner.SpawnRate;
-            
+
             for (var i = 0; i < survived.Count; i++)
             {
                 var enemyTempStats = survived[i];
@@ -115,18 +115,20 @@ namespace _Project.Scripts.Algorithms.GA.Evaluation
 
             return tempEnemyStats.OrderBy(tmp => tmp.TimeToCome).ToList();
         }
-
+        
         private void AddNewlySpawned(List<TmpEnemyStats> tempEnemyStats, float distance,
             List<TowerStatsGA> activeTowers)
         {
+            const int maxNewlySpawned = 5; // no need to account all spawned
             List<TmpEnemyStats> newlySpawned = new();
             foreach (var enemyStats in tempEnemyStats)
             {
                 int alreadySpawned = (int)(enemyStats.TimeToCome * enemyStats.ReproductionRate);
                 int maxCanSpawn = (int)((enemyStats.TimeToNextWaypoint + enemyStats.TimeToCome) *
                                         enemyStats.ReproductionRate);
-                
+
                 int timeSpawned = maxCanSpawn - alreadySpawned;
+                timeSpawned = Mathf.Clamp(timeSpawned, 0, maxNewlySpawned);
                 for (int i = 0; i < timeSpawned; i++)
                 {
                     var newlySpawnedEnemy = ConvertEnemyTypeToTempStats(enemyStats.SpawnedType);

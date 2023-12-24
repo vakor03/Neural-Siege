@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using _Project.Scripts.Core.Enemies;
 using _Project.Scripts.Core.Towers.TowerStats;
+using DG.Tweening;
 using MEC;
 using UnityEngine;
 
@@ -10,12 +12,20 @@ namespace _Project.Scripts.Core.Towers
     {
         private bool _inProgress;
         private readonly List<Enemy> _enemiesInRange = new();
+        [SerializeField] private SpriteRenderer spriteToFade; // The sprite you want to fade
+        [SerializeField] private GameObject stunVisualsGameObject;
+
 
         protected override void Awake()
         {
             base.Awake();
             SetupCollider(TowerStatsController.CurrentStats);
-            Timing.RunCoroutine(AttackTimerCoroutine());
+        }
+
+        private void Start()
+        {
+            stunVisualsGameObject.transform.localScale = Vector3.zero;
+
         }
 
         protected override void OnStatsChanged()
@@ -29,17 +39,21 @@ namespace _Project.Scripts.Core.Towers
         {
             float fireRate = TowerStatsController.CurrentStats.FireRate;
             _inProgress = true;
-            do
+            yield return Timing.WaitForSeconds(1 / fireRate);
+
+            while (_enemiesInRange.Count > 0)
             {
-                yield return Timing.WaitForSeconds(1 / fireRate);
                 StunEnemiesInRange();
-            } while (_enemiesInRange.Count > 0);
+                yield return Timing.WaitForSeconds(1 / fireRate);
+            }
 
             _inProgress = false;
         }
 
         private void StunEnemiesInRange()
         {
+            stunVisualsGameObject.transform.localScale = Vector3.one * Range * 4f;
+            spriteToFade.DOFade(0.6f, 0.01f).OnComplete(() => spriteToFade.DOFade(0, 0.5f));
             float stunningDuration = TowerStatsController.CurrentStats.StunningDuration;
             foreach (var enemy in _enemiesInRange)
             {

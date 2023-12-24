@@ -7,9 +7,11 @@ namespace _Project.Scripts.Core.Towers.TowerUpgrades
     public class StunningTowerUpgradeSO : TowerUpgradeSO<StunningTower, StunningTowerStats>
     {
         public float stunMultiplier = 1.3f;
+        public float rangeAddition = 1;
         public override void Apply(StunningTowerStats towerStats)
         {
             towerStats.StunningDuration *= stunMultiplier;
+            towerStats.Range += rangeAddition;
         }   
     }
 }

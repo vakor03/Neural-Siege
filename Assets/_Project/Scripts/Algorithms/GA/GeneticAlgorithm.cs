@@ -7,16 +7,17 @@ using _Project.Scripts.Algorithms.GA.Evaluation;
 using _Project.Scripts.Algorithms.GA.Mutation;
 using _Project.Scripts.Algorithms.GA.ParentSelection;
 using _Project.Scripts.Algorithms.GA.Structs;
-using UnityEngine;
 
 namespace _Project.Scripts.Algorithms.GA
 {
     // TODO: use total resources, not enemies count
     // TODO: add button to start Game after creating a path
+    // TODO: update sprite icons of towers and reorder them
+    // TODO: update prices+ update prices for upgrades
     public class GeneticAlgorithm : IWaveCreationAlgorithm
     {
-        private readonly int _generationsCount = 100;
-        private readonly int _populationSize = 100;
+        private readonly int _generationsCount = 50;
+        private readonly int _populationSize = 50;
         private float _mutationRate = 0.01f;
 
         private IChromosomeFactory _chromosomeFactory;
@@ -55,7 +56,7 @@ namespace _Project.Scripts.Algorithms.GA
                 bestIndividual = ChooseNewBestIndividual(populationFitness, bestIndividual);
             }
             
-            Debug.Log("Best fitness: " + bestIndividual.Fitness);
+            // Debug.Log("Best fitness: " + bestIndividual.Fitness);
 
             return new EnemyWave(bestIndividual.Chromosome.EnemyWave);
         }
