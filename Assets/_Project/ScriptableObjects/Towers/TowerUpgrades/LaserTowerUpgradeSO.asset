@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f726da774ae54b8b84540c35066b0682, type: 3}
   m_Name: LaserTowerUpgradeSO
   m_EditorClassIdentifier: 
+  price: 25
   rangeAddition: 1
   fireRateMultiplier: 1.3

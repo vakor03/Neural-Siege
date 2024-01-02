@@ -13,8 +13,8 @@ namespace _Project.Scripts.Core
 {
     public class GeneticAlgorithmWaveCreator
     {
-        private const int DefaultEnemiesPerWave = 1;
-        private const int DefaultEnemiesStep = 1;
+        private const int DefaultEnemiesPerWave = 2;
+        private const int DefaultEnemiesStep = 2;
         
         private int _enemiesPerWave = DefaultEnemiesPerWave;
         private IWaveCreationAlgorithm _algorithm;
@@ -41,7 +41,7 @@ namespace _Project.Scripts.Core
         
             var tileStats = CalculateTileStats(towersInfo);
             EnemyWave wave = _algorithm.CreateEnemyWave(tileStats, _enemiesPerWave);
-            _enemiesPerWave += DefaultEnemiesStep;
+            _enemiesPerWave = (int)(_enemiesPerWave+DefaultEnemiesStep);
             return wave;
         }
 

@@ -28,7 +28,7 @@ namespace _Project.Scripts.Core.Towers.TowerStats
 
         public override TowerStatsGA GetTowerStatsGA(TowerTypeSO towerType)
         {
-            float aoeMultiplier = 0.4f;
+            float aoeMultiplier = 0.5f;
             return new TowerStatsGA
             {
                 TowerType = towerType,

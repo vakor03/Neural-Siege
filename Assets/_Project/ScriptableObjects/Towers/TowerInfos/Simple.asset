@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 122300b57b6e40f08be1a97452d27f5b, type: 3}
   m_Name: Simple
   m_EditorClassIdentifier: 
-  type: {fileID: 11400000, guid: 477bb901f861ba441aa807b6913f5e78, type: 2}
+  typeSO: {fileID: 11400000, guid: 477bb901f861ba441aa807b6913f5e78, type: 2}
   placementObject: {fileID: 11400000, guid: 2f6326ad4f460824db92e3c3c66d12d3, type: 2}
   upgrade: {fileID: 11400000, guid: 116c42f44504bc549a125f168938faff, type: 2}
+  price: 20

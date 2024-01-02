@@ -1,0 +1,1426 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="_Project.Scripts.Algorithms.BacktrackingPathGenerator">
+    <Position X="23.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACABAAAAAAAAAAAAAAAgAAQAAAAAAAEIA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Algorithms\BacktrackingPathGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Algorithms.EnemyWave" Collapsed="true">
+    <Position X="43.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Algorithms\IWaveCreationAlgorithm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Algorithms.GA.Chromosomes.Chromosome">
+    <Position X="30.25" Y="49.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Algorithms\GA\Chromosomes\Chromosome.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="EnemyWave" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Algorithms.GA.Chromosomes.ChromosomeFactory" BaseTypeListCollapsed="true">
+    <Position X="36.25" Y="48.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Algorithms\GA\Chromosomes\ChromosomeFactory.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_availableEnemyTypes" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Algorithms.GA.Crossover.SinglePointCrossover" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="41.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Algorithms\GA\Crossover\SinglePointCrossover.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Algorithms.GA.Evaluation.ModelFitnessEvaluator" BaseTypeListCollapsed="true">
+    <Position X="11.25" Y="24.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="_Project.Scripts.Algorithms.GA.Evaluation.ModelFitnessEvaluator.TmpEnemyStats" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\_Project\Scripts\Algorithms\GA\Evaluation\ModelFitnessEvaluator.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AgIAAAAJAAgkAACRQAAABhgIACAAAgAAAAHgAAgCAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Algorithms\GA\Evaluation\ModelFitnessEvaluator.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_enemySpawner" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="_enemyStats" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Algorithms.GA.GeneticAlgorithm" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="46.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="_Project.Scripts.Algorithms.GA.GeneticAlgorithm.Individual" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\_Project\Scripts\Algorithms\GA\GeneticAlgorithm.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAEIACAAACgAAQEAAKQAgAAAAoAAICAACAAgAAgCAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Algorithms\GA\GeneticAlgorithm.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_chromosomeFactory" />
+      <Field Name="_modelFitnessEvaluator" />
+      <Field Name="_chromosomeMutator" />
+      <Field Name="_parentSelector" />
+      <Field Name="_crossoverLogic" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Algorithms.GA.GeneticAlgorithmFactory" Collapsed="true">
+    <Position X="41.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Algorithms\GA\GeneticAlgorithmFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Algorithms.GA.Mutation.ChromosomeMutator" BaseTypeListCollapsed="true">
+    <Position X="30.25" Y="47.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Algorithms\GA\Mutation\ChromosomeMutator.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_availableEnemyTypes" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Algorithms.GA.ParentSelection.TournamentParentSelector" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="45.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Algorithms\GA\ParentSelection\TournamentParentSelector.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Algorithms.GA.Structs.TileStatsGA">
+    <Position X="45.5" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Algorithms\GA\Structs\TileStatsGA.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="Towers" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Algorithms.GA.Structs.TowerStatsGA">
+    <Position X="42.5" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAACAAAAAAAAAAAAAAAACAAAIEAAAAACAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Algorithms\GA\Structs\TowerStatsGA.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="TowerType" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Configs.EnemyMoneyConfigSO">
+    <Position X="26.25" Y="37.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Configs\EnemyMoneyConfigSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Configs.EnemyPathConfigSO">
+    <Position X="27" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Configs\EnemyPathConfigSO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="enemyTileSO" />
+      <Field Name="startTileSO" />
+      <Field Name="finishTileSO" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Configs.EnemyStatsConfigSO" Collapsed="true">
+    <Position X="41.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Configs\EnemyStatsConfigSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Configs.ScoreConfigSO" Collapsed="true">
+    <Position X="40" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Configs\ScoreConfigSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Configs.TowerInfoDatabaseSO">
+    <Position X="38.5" Y="21.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Configs\TowerInfoDatabaseSO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="towerInfos" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Effects.Effect">
+    <Position X="40.25" Y="37.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAABAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Effects\Effect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Effects.FreezeEffect">
+    <Position X="42.5" Y="39.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAACAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Effects\FreezeEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Effects.PoisonEffect">
+    <Position X="38" Y="39.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAABAAAAFAAAAAAAgABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Effects\PoisonEffect.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_enemy" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Effects.StunEffect">
+    <Position X="40.25" Y="39.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAFAAAAAAAiABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Effects\StunEffect.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_enemy" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Enemies.EnemiesAccessor">
+    <Position X="28.75" Y="33.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAQBAAAQAAAAAAAAAABAAAAAAAAAAAAAgAAABAAAI=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Enemies\EnemiesAccessor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_enemies" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Enemies.EnemiesController">
+    <Position X="20.25" Y="40" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAQAAAAAAAAEA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Enemies\EnemiesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Enemies.Enemy">
+    <Position X="33.75" Y="43.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEBAAAAACAAgAQAAAEAYAACAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Enemies\Enemy.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_playerBase" />
+      <Property Name="EnemyType" />
+      <Property Name="WaypointsMover" />
+      <Property Name="EnemyStatsSystem" />
+      <Property Name="EnemyHealth" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Enemies.EnemyFactory" BaseTypeListCollapsed="true">
+    <Position X="24" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAACAAAEAAAEAAAAAAAIAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Enemies\EnemyFactory.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_enemiesAccessor" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Core.Enemies.EnemyHealth" BaseTypeListCollapsed="true">
+    <Position X="43.5" Y="42.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAACAACAAAEAAEAIQAACAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Enemies\EnemyHealth.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="enemyStatsSystem" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Core.Enemies.EnemyPathCreatorFactory">
+    <Position X="15.75" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAEAAAAAEAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Enemies\EnemyPathCreatorFactory.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_assetProvider" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Enemies.EnemySpawnBehaviour">
+    <Position X="30.75" Y="43.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQYAQAABAAAgAAAAAAAAAAAAgAAAAEAAAAAACgUAEI=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Enemies\EnemySpawnBehaviour.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="spawnEnemyType" />
+      <Field Name="enemyStatsSystem" />
+      <Field Name="waypointsMover" />
+      <Field Name="_enemyFactory" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Enemies.EnemySpawner">
+    <Position X="17.25" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQIAAAAAACADQACAAgAAAAAAAACAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Enemies\EnemySpawner.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_waypointsHolder" />
+      <Field Name="_enemyFactory" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Enemies.EnemyStatsSO">
+    <Position X="46.25" Y="44" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Enemies\EnemyStatsSO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="enemyStats" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Enemies.EnemyStatsSystem">
+    <Position X="39.25" Y="43.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAYAAAAAAACACACAAAAAQAAAAAAAAQEI=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Enemies\EnemyStatsSystem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="defaultStatsSO" />
+      <Field Name="enemy" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="_effects" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Enemies.EnemyWaveSO">
+    <Position X="33.25" Y="49.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Enemies\EnemyWaveSO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="enemies" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.FollowCursor" Collapsed="true">
+    <Position X="36.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\FollowCursor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.GeneticAlgorithmWaveCreator">
+    <Position X="22.75" Y="28.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAEIAAAAhACAAgAgAAgAAAAAAAAAAAAAAAASAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\GeneticAlgorithmWaveCreator.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_algorithm" />
+      <Field Name="_towersController" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.HealthBar" Collapsed="true">
+    <Position X="43.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAACAAAAAAAAAAAAAAAAACIAAAAAAAAQAAAEg=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\HealthBar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.PlanningTimer">
+    <Position X="19.75" Y="32.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAABAAACEAoAAAAAAAABAAAAIACgAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\PlanningTimer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.PlayerBase" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="38.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAADAAAAAAEAIQAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\PlayerBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Core.RotateTowards">
+    <Position X="14.25" Y="28.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAgAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\RotateTowards.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.SceneLoader1" Collapsed="true">
+    <Position X="38.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\SceneLoader1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.ScoreCounter">
+    <Position X="19.75" Y="28" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQEAAAAAABggAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\ScoreCounter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Shop">
+    <Position X="23.25" Y="36.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAYAAAAIAEgAAAAAAAAAABAAAAg=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Shop.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_enemyMoneyConfig" />
+      <Field Name="_enemiesAccessor" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.TickTimer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="43.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACACAAAAAAAAAACAAgAAAAAAIgAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\TickTimer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Core.GridSystem.GridData">
+    <Position X="32.75" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAEAAAIAAAAAAAgAAQBAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\GridSystem\GridData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.GridSystem.PathFactory">
+    <Position X="26.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAgA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\GridSystem\PathValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.GridSystem.PathValidator">
+    <Position X="34.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\GridSystem\PathValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.GridSystem.PlacementSystem">
+    <Position X="29.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAiAaACIUkAAAAAAAAAIAAgAIAAIACgQAAABEAEA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\GridSystem\PlacementSystem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_activeSO" />
+      <Field Name="_gridData" />
+      <Field Name="_inputManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.GridSystem.PlacementSystemObjectSO">
+    <Position X="31" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAIAAAAIAAAAEAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\GridSystem\PlacementSystemObjectSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Managers.GameManager" Collapsed="true">
+    <Position X="38.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAApAAAAAACgAAEAAEAAAAAAAAAAAQAAAAAAAAEA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Managers\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Managers.InputManager" BaseTypeListCollapsed="true">
+    <Position X="33" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQYAAAAAAAEAAQAQAAAAAAAIAAAAQAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Managers\InputManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Core.PathCreation.BacktrackingPathCreation" BaseTypeListCollapsed="true">
+    <Position X="26.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgBAAAAAAAAAAQAAAQAAAAAAAIgAAAAABABABAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\PathCreation\BacktrackingPathCreation.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_placementSystem" />
+      <Field Name="_pathGenerator" />
+      <Field Name="_enemyPathConfig" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Core.PathCreation.EnemyPathCreatorFactory">
+    <Position X="19.75" Y="24.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\PathCreation\EnemyPathCreatorFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.PathCreation.ManualPathCreation" BaseTypeListCollapsed="true">
+    <Position X="30.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAChQAAAQAAAAAAAwgAAAAAFABABIQABAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\PathCreation\ManualPathCreation.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_placementSystem" />
+      <Field Name="_inputManager" />
+      <Field Name="_pathValidator" />
+      <Field Name="_pathFactory" />
+      <Field Name="_enemyPathConfig" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.FiringTower">
+    <Position X="26" Y="29" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAFAAAABCAgAQAAAAAAACCAAAAAAAQCAAAAAAAQAEA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\FiringTower.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_enemiesController" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.FreezingTower">
+    <Position X="46" Y="26.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACEAACABCAAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\FreezingTower.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_freezingEffect" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.LaserTower">
+    <Position X="28.25" Y="29" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAEAAAAACAgBQAAAAAAAACAACAAAAQAAAAAAAAQAEA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\LaserTower.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_enemiesController" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.LaserTowerAnimator">
+    <Position X="17.25" Y="39.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAACAAAAAAAAAAAAAAQCAAAAAAAAAABAAAAAI=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\LaserTowerAnimator.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="laserTower" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.Projectile" Collapsed="true">
+    <Position X="41.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACAAAAggAAAAAEAABAUQEAAAQAAAEIAAAAAAAI=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\Projectile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.SimpleTower">
+    <Position X="30.5" Y="29" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAFAAAAACAgAQAEAAEAACCAAAAAAAAAAAAAAAAQAEA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\SimpleTower.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.SingleTargetTower&lt;TSelf, TStats&gt;">
+    <Position X="28.25" Y="26.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAARAaAAAAAAAAEAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\SingleTargetTower.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="rotateTowards" />
+      <Field Name="targetChooseStrategy" />
+      <Field Name="ActiveTarget" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.StunningTower">
+    <Position X="45.75" Y="30" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAEAACAACAAAQAAAAAAAAAACEAQIAIAgAAAAAAAAEA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\StunningTower.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_enemiesInRange" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.TargetChooseStrategy">
+    <Position X="16.25" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAACAACAAAAAAAAAIBAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\TargetChooseStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.Tower">
+    <Position X="34.25" Y="24.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAACAAQAAAAwAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\Tower.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TowerTypeSO" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.Tower&lt;TSelf, TStats&gt;">
+    <Position X="31.25" Y="22.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAEAAAACQAQAAAAAgAAAAAAAAIIAAAAAiAACEA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\Tower.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="towerStatsSO" />
+      <Field Name="TowerStatsController" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.TowerInfoSO">
+    <Position X="38.5" Y="23.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEBAAAAAAAAAAAAAAAAgAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\TowerInfoSO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="typeSO" />
+      <Field Name="placementObject" />
+      <Field Name="upgrade" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.TowersController" BaseTypeListCollapsed="true">
+    <Position X="33.5" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABEYAAEAEAAAgQAgAQFAAAAAAwAEABQAAAAAAANAAQA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\TowersController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_placementSystem" />
+      <Field Name="_shop" />
+      <Field Name="_inputManager" />
+      <Field Name="_activeTypeSO" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="_towerInfos" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.TowerSelector">
+    <Position X="36" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BALRAAAAACAAgAAAAACgQAAIA4AAABAAAAAAACAAAEA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\TowerSelector.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="towerInfoUI" />
+      <Field Name="_selectedTower" />
+      <Field Name="_inputManager" />
+      <Field Name="_towersController" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.TowerTypeSO">
+    <Position X="39.5" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\TowerTypeSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.TowerStats.FiringTowerStats">
+    <Position X="28.25" Y="39.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAIAAAACAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\TowerStats\FiringTowerStats.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="PoisonEffectStats" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.TowerStats.FiringTowerStatsSO">
+    <Position X="34" Y="35" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAIBAAACAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\TowerStats\FiringTowerStatsSO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="poisonEffectStats" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.TowerStats.FreezingTowerStatsSO">
+    <Position X="36.25" Y="35" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\TowerStats\FreezingTowerStatsSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.TowerStats.FreezingTowerStats">
+    <Position X="30.5" Y="39.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\TowerStats\FreezingTowerStatsSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.TowerStats.LaserTowerStatsSO">
+    <Position X="38.5" Y="35" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIBgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\TowerStats\LaserTowerStatsSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.TowerStats.LaserTowerStats">
+    <Position X="32.75" Y="39.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACACAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\TowerStats\LaserTowerStatsSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.TowerStats.SimpleTowerStatsSO">
+    <Position X="40.75" Y="35" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIBAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\TowerStats\SimpleTowerStatsSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.TowerStats.SimpleTowerStats">
+    <Position X="35" Y="39.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAACAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\TowerStats\SimpleTowerStatsSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.TowerStats.StunningTowerStatsSO">
+    <Position X="43" Y="35" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIBAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\TowerStats\StunningTowerStatsSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.TowerStats.StunningTowerStats">
+    <Position X="26" Y="39.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAACAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\TowerStats\StunningTowerStatsSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.TowerStats.TowerStats&lt;T&gt;">
+    <Position X="30.5" Y="37.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\TowerStats\TowerStats.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.TowerStats.TowerStatsController&lt;T, TStats&gt;">
+    <Position X="41.25" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAQAQCAAAACAAAAAAAAAQAAAAEAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\TowerStats\TowerStatsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.TowerStats.TowerStatsSO&lt;T, TStats&gt;">
+    <Position X="38.5" Y="32.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\TowerStats\TowerStatsSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.TowerUpgrades.FiringTowerUpgradeSO">
+    <Position X="34" Y="29.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\TowerUpgrades\FiringTowerUpgradeSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.TowerUpgrades.FreezingTowerUpgradeSO">
+    <Position X="36.25" Y="29.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\TowerUpgrades\FreezingTowerUpgradeSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.TowerUpgrades.LaserTowerUpgradeSO">
+    <Position X="38.5" Y="29.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\TowerUpgrades\LaserTowerUpgradeSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.TowerUpgrades.SimpleTowerUpgradeSO">
+    <Position X="40.75" Y="29.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\TowerUpgrades\SimpleTowerUpgradeSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.TowerUpgrades.StunningTowerUpgradeSO">
+    <Position X="43" Y="29.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAACAQAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\TowerUpgrades\StunningTowerUpgradeSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.TowerUpgrades.TowerUpgradeSO">
+    <Position X="38.5" Y="25.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\TowerUpgrades\TowerUpgradeSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.Towers.TowerUpgrades.TowerUpgradeSO&lt;T, TStats&gt;">
+    <Position X="38.5" Y="27.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Towers\TowerUpgrades\TowerUpgradeSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.UI.ChooseTowerUI">
+    <Position X="36" Y="21" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AkABAAAAACAAgAAAAAAgAAAAAAgAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\UI\ChooseTowerUI.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="singleTowerUIPrefab" />
+      <Field Name="_towersController" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="options" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.UI.GameOverUI">
+    <Position X="16.75" Y="27.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgQAAEAAAAAAAAAAkAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\UI\GameOverUI.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_scoreCounter" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.UI.PauseUI" Collapsed="true">
+    <Position X="36.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAACAAAABAEAAAEIAAAAAEAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\UI\PauseUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.UI.PlanningTimerUI">
+    <Position X="11" Y="34.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAACAAgAAAAAAIAAACAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\UI\PlanningTimerUI.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_planningTimer" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.UI.PlayerBaseHealthUI" Collapsed="true">
+    <Position X="40" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABCAAAACAAgEAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\UI\PlayerBaseHealthUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.UI.SceneStateSwitchButton">
+    <Position X="18.75" Y="15" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="_Project.Scripts.Core.UI.SceneStateSwitchButton.TargetState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\_Project\Scripts\Core\UI\SceneStateSwitchButton.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAACgAAAAAAAAAACAAAAAAAYAAAAAAAACAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\UI\SceneStateSwitchButton.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_sceneStateMachine" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.UI.ScoreCounterUI">
+    <Position X="14.75" Y="24.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAACAAgwAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\UI\ScoreCounterUI.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_scoreCounter" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.UI.ShopUI">
+    <Position X="23.25" Y="41" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAJAAAAACAAgAAIAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\UI\ShopUI.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_shop" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.UI.SingleTowerUI">
+    <Position X="41" Y="22.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABACBBCAAAAAAAAABAAAAAAQAAEAAAAAAAAAAAgEA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\UI\SingleTowerUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.UI.TowerInfoUI">
+    <Position X="39" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIBAAQAAAAAAAAAIAAAAAAAAAAAAAAiAAAAAAAAAEE=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\UI\TowerInfoUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.WaypointSystem.WaypointsHolder">
+    <Position X="12" Y="21.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\WaypointSystem\WaypointsHolder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Core.WaypointSystem.WaypointsHolderFactory">
+    <Position X="18.75" Y="19" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAACAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\WaypointSystem\WaypointsHolderFactory.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Last" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Core.WaypointSystem.WaypointsMover">
+    <Position X="36.25" Y="44" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAQAAABAAQQAAAAAAAAACAAAAAAAACAIAAAIAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\WaypointSystem\WaypointsMover.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="enemyStatsSystem" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Extensions.EnumeratorExtensions" Collapsed="true">
+    <Position X="45.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Extensions\EnumeratorExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Extensions.GameObjectExtensions" Collapsed="true">
+    <Position X="40" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAIAAOIEAAAAAAAAAAAAQgAAAAACAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Extensions\GameObjectExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Extensions.TransformExtensions" Collapsed="true">
+    <Position X="36.5" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAFAAAAKAEAAAAAAAAAAAAAwAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Extensions\TransformExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Extensions.Utils" Collapsed="true">
+    <Position X="38.25" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAIAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Extensions\Utils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Extensions.Vector3Extensions" Collapsed="true">
+    <Position X="40" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAEAAAAAAAAAAIAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Extensions\Vector3Extensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.AssetProviders.AssetPath" Collapsed="true">
+    <Position X="36.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAIAAAgAAAAAAAAAABAAACAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\AssetProviders\AssetPath.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.AssetProviders.AssetProvider" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="38.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\AssetProviders\AssetProvider.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.Bootstrap.GameBootstrapper">
+    <Position X="41.5" Y="32.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAgAAAQAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\Bootstrap\GameBootstrapper.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_gameStateMachine" />
+      <Field Name="_statesFactory" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.Bootstrap.SceneBootstrapper">
+    <Position X="35.25" Y="32.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAgAAAQAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\Bootstrap\SceneBootstrapper.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_sceneStateMachine" />
+      <Field Name="_statesFactory" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.GameStateSwitchButton">
+    <Position X="24" Y="20.25" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="_Project.Scripts.Infrastructure.GameStateSwitchButton.TargetState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\_Project\Scripts\Infrastructure\GameStateSwitchButton.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAACgAAABAIAAAACAAAAAAAIAAAAAAAACAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\GameStateSwitchButton.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_gameStateMachine" />
+      <Field Name="_pathCreationStateChoice" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.LoadingCurtain" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="45.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\LoadingCurtain.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.Installers.BootstrapperInstaller" Collapsed="true">
+    <Position X="40" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\Installers\BootstrapperInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.Installers.GameInstaller">
+    <Position X="21.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AYCAARABQAABBIABCAAAgIYCQCKIQGgAIAiICAACAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\Installers\GameInstaller.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="enemyFactoryPrefab" />
+      <Field Name="placementSystem" />
+      <Field Name="GameOverUI" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.Installers.ProjectInstaller" Collapsed="true">
+    <Position X="43.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAEAAAAAAAAAAABAAAAAAAAAQAAACAAAAAgAQAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\Installers\ProjectInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.SceneLoading.SceneLoader" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="36.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\SceneLoading\SceneLoader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.States.Gameplay.GameOverState" BaseTypeListCollapsed="true">
+    <Position X="20.75" Y="37.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAEAAAAIAAgAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\States\Gameplay\GameOverState.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_gameOverUI" />
+      <Field Name="_enemiesAccessor" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.States.Gameplay.MainSceneState" BaseTypeListCollapsed="true">
+    <Position X="11" Y="44.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAEAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\States\Gameplay\MainSceneState.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_sceneLoader" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.States.Gameplay.PathCreationState" BaseTypeListCollapsed="true">
+    <Position X="22.75" Y="24.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAIAAAEAAAAAAAAAAkIAAQIABEEAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\States\Gameplay\PathCreationState.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_pathCreationStrategy" />
+      <Field Name="_sceneStateMachine" />
+      <Field Name="_waypointsHolderFactory" />
+      <Field Name="_enemySpawner" />
+      <Field Name="_pathCreationChoice" />
+      <Field Name="_enemyPathCreatorFactory" />
+      <Field Name="_assetProvider" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.States.Gameplay.PathCreationStateChoice">
+    <Position X="20" Y="21.25" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="_Project.Scripts.Infrastructure.States.Gameplay.PathCreationStateChoice.PathCreationType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\_Project\Scripts\Infrastructure\States\Gameplay\PathCreationStateChoice.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\States\Gameplay\PathCreationStateChoice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.States.Gameplay.PlanningState" BaseTypeListCollapsed="true">
+    <Position X="14.75" Y="33.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAACAAAEAAAQIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\States\Gameplay\PlanningState.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_sceneStateMachine" />
+      <Field Name="_planningTimer" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.States.Gameplay.PrepareSceneState" BaseTypeListCollapsed="true">
+    <Position X="25.75" Y="27" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAABAAAAIAAAAQAgAAACAEAkgAAQIAAgAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\States\Gameplay\PrepareSceneState.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_placementSystem" />
+      <Field Name="_towersController" />
+      <Field Name="_shop" />
+      <Field Name="_enemiesAccessor" />
+      <Field Name="_enemySpawner" />
+      <Field Name="_planningTimer" />
+      <Field Name="_gameOverUI" />
+      <Field Name="_playerBase" />
+      <Field Name="_sceneStateMachine" />
+      <Field Name="_scoreCounter" />
+      <Field Name="_geneticAlgorithmWaveCreator" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.States.Gameplay.ResetGameplayAndGoToMainMenuState" BaseTypeListCollapsed="true">
+    <Position X="31" Y="26.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAABAAAAAAAAAQIgAAACAEAkgAAAIQAgAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\States\Gameplay\ResetGameplayAndGoToMainMenuState.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_placementSystem" />
+      <Field Name="_towersController" />
+      <Field Name="_shop" />
+      <Field Name="_enemiesAccessor" />
+      <Field Name="_enemySpawner" />
+      <Field Name="_planningTimer" />
+      <Field Name="_gameOverUI" />
+      <Field Name="_playerBase" />
+      <Field Name="_scoreCounter" />
+      <Field Name="_gameStateMachine" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.States.Gameplay.WaveState" BaseTypeListCollapsed="true">
+    <Position X="17.5" Y="33.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAQAAIAAAAAAAAAAAAEAEgAAQIAAAAAAAAQA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\States\Gameplay\WaveState.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_geneticAlgorithmWaveCreator" />
+      <Field Name="_enemySpawner" />
+      <Field Name="_sceneStateMachine" />
+      <Field Name="_enemiesAccessor" />
+      <Field Name="_playerBase" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.States.GameStateMachine">
+    <Position X="28" Y="25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\States\GameStateMachine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.States.SceneStateMachine">
+    <Position X="25.75" Y="25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\States\SceneStateMachine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.States.StateMachine">
+    <Position X="27" Y="22.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAEAAAAAABAAAAAAAAAAAAAAEAABAAAAAAAAAABA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\States\StateMachine.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_currentState" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="_registeredStates" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.States.StatesFactory">
+    <Position X="32.75" Y="32.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\States\StatesFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.States.Global.GameBootstrapState" BaseTypeListCollapsed="true">
+    <Position X="28" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAIAAAAAAAAEAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\States\Global\GameBootstrapState.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_gameStateMachine" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.States.Global.GameLoadingState" BaseTypeListCollapsed="true">
+    <Position X="11" Y="38.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAQAAAAAAAAEAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\States\Global\GameLoadingState.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_loadingCurtain" />
+      <Field Name="_sceneLoader" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.States.Global.MainMenuState" BaseTypeListCollapsed="true">
+    <Position X="14" Y="41.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAEAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\States\Global\MainMenuState.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_sceneLoader" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="_Project.Scripts.Infrastructure.States.Global.QuitGameState" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="45.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\States\Global\QuitGameState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Struct Name="_Project.Scripts.Algorithms.GA.Structs.EnemyStatsGA">
+    <Position X="11.25" Y="31.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAACAAAAAAAQAABAAAAAAABAAAAAgAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Algorithms\GA\Structs\EnemyStatsGA.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="_Project.Scripts.Core.Effects.PoisonEffectStats">
+    <Position X="31.25" Y="35" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Effects\PoisonEffect.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="_Project.Scripts.Core.Enemies.EnemyStats">
+    <Position X="46.25" Y="45.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAABAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Enemies\EnemyStats.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="_Project.Scripts.Extensions.Circle" Collapsed="true">
+    <Position X="36.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAIA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Extensions\Circle.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="_Project.Scripts.Algorithms.IWaveCreationAlgorithm">
+    <Position X="14.75" Y="36.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Algorithms\IWaveCreationAlgorithm.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="_Project.Scripts.Algorithms.GA.Chromosomes.IChromosomeFactory">
+    <Position X="17.25" Y="46.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Algorithms\GA\Chromosomes\IChromosomeFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="_Project.Scripts.Algorithms.GA.Crossover.ICrossoverLogic">
+    <Position X="14.25" Y="44.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Algorithms\GA\Crossover\ICrossoverLogic.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="_Project.Scripts.Algorithms.GA.Evaluation.IModelFitnessEvaluator">
+    <Position X="17.25" Y="50.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Algorithms\GA\Evaluation\IModelFitnessEvaluator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="_Project.Scripts.Algorithms.GA.Mutation.IChromosomeMutator">
+    <Position X="17.25" Y="48.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Algorithms\GA\Mutation\IChromosomeMutator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="_Project.Scripts.Algorithms.GA.ParentSelection.IParentSelector">
+    <Position X="14.25" Y="52.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Algorithms\GA\ParentSelection\IParentSelector.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="_Project.Scripts.Core.Enemies.IEnemyFactory">
+    <Position X="18" Y="37.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Enemies\EnemyFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="_Project.Scripts.Core.IHaveHealth" Collapsed="true">
+    <Position X="36.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAEAIQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\IHaveHealth.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="_Project.Scripts.Core.IPlayerBase">
+    <Position X="22.75" Y="32.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAADAAAAAAEAIQAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\IPlayerBase.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="_Project.Scripts.Core.ITimer" Collapsed="true">
+    <Position X="40" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACACAAAAAAAAAACAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\ITimer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="_Project.Scripts.Core.PathCreation.IPathCreationStrategy">
+    <Position X="16.75" Y="30.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAABABAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\PathCreation\IPathCreationStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="_Project.Scripts.Infrastructure.AssetProviders.IAssetProvider">
+    <Position X="16.75" Y="21" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\AssetProviders\IAssetProvider.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="_Project.Scripts.Infrastructure.ILoadingCurtain">
+    <Position X="14" Y="38.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\ILoadingCurtain.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="_Project.Scripts.Infrastructure.SceneLoading.ISceneLoader">
+    <Position X="11" Y="41.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\SceneLoading\ISceneLoader.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="_Project.Scripts.Infrastructure.States.IExitableState">
+    <Position X="25.75" Y="33.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\States\IExitableState.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="_Project.Scripts.Infrastructure.States.IState">
+    <Position X="25.75" Y="35.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\States\IState.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="_Project.Scripts.Infrastructure.States.IStateMachine" Collapsed="true">
+    <Position X="38.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Infrastructure\States\IStateMachine.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="_Project.Scripts.Core.Enemies.EnemyType">
+    <Position X="33.25" Y="46.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAQAAAAAABAAAAAIAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Project\Scripts\Core\Enemies\EnemyFactory.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

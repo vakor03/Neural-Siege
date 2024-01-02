@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: EnemyPathConfigSO
   m_EditorClassIdentifier: 
   enemyTileSO: {fileID: 11400000, guid: f3848b8102eede64d9462883c9d1efc5, type: 2}
-  startTileSO: {fileID: 11400000, guid: c7f014e5469f8634c902076f2e46d5a8, type: 2}
-  finishTileSO: {fileID: 11400000, guid: 18eaac9ba97e13e4bbd3f9f7c3f00d19, type: 2}
+  startTileSO: {fileID: 11400000, guid: 18eaac9ba97e13e4bbd3f9f7c3f00d19, type: 2}
+  finishTileSO: {fileID: 11400000, guid: c7f014e5469f8634c902076f2e46d5a8, type: 2}

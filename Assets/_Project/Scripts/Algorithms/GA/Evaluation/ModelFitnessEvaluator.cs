@@ -12,12 +12,11 @@ namespace _Project.Scripts.Algorithms.GA.Evaluation
     public class ModelFitnessEvaluator : IModelFitnessEvaluator
     {
         private Dictionary<EnemyType, EnemyStatsGA> _enemyStats;
-
-        // private Dictionary<TowerTypeSO, TowerStatsGA> _towerStats;
+        
         public List<TileStatsGA> TilesStats { get; set; } = new();
 
         private readonly HashSet<TmpEnemyStats>
-            _deadEnemiesStats = new(); // This can work not as expected cause of struct
+            _deadEnemiesStats = new();
 
         private readonly EnemySpawner _enemySpawner;
 
@@ -46,7 +45,7 @@ namespace _Project.Scripts.Algorithms.GA.Evaluation
         private float CalculateDiversityScore(Chromosome chromosome)
         {
             var diversity = chromosome.EnemyWave.Distinct().Count();
-            return Mathf.Pow(2, diversity) * DIVERSITY_COEFFICIENT;
+            return Mathf.Pow(10, diversity) * DIVERSITY_COEFFICIENT;
         }
 
         private float CalculatePriceScore(Chromosome chromosome)

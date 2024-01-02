@@ -8,6 +8,8 @@ namespace _Project.Scripts.Core.PathCreation
     {
         event Action<Vector3[]> OnPathCreated;
         void StartCreatingPath();
+        void FinishCreatingPath();
+        bool IsPathValid();
         void Initialize(EnemyPathConfigSO config);
     }
 }

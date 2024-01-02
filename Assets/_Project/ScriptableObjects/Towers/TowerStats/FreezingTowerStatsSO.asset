@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: FreezingTowerStatsSO
   m_EditorClassIdentifier: 
   range: 1.5
-  freezingMultiplier: 0.5
+  freezingMultiplier: 0.7

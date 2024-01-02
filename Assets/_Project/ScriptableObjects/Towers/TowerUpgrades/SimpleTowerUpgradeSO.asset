@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b355ad0826db4077b14940ac887ddfc7, type: 3}
   m_Name: SimpleTowerUpgradeSO
   m_EditorClassIdentifier: 
+  price: 25
   rangeAddition: 1
   fireRateMultiplier: 1.3

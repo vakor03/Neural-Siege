@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SimpleTowerStatsSO
   m_EditorClassIdentifier: 
   range: 2.5
-  fireRate: 2
+  fireRate: 1.5
   projectilePrefab: {fileID: 1745628899730512520, guid: 613c0fd93a4fa684aa9c7fe79daab394, type: 3}

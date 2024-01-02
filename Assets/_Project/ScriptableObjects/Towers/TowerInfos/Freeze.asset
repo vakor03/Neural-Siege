@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 122300b57b6e40f08be1a97452d27f5b, type: 3}
   m_Name: Freeze
   m_EditorClassIdentifier: 
-  type: {fileID: 11400000, guid: d5e87c06270044f4f82c0eb1c1cc9983, type: 2}
+  typeSO: {fileID: 11400000, guid: d5e87c06270044f4f82c0eb1c1cc9983, type: 2}
   placementObject: {fileID: 11400000, guid: 42ed8e0cee798d3458f3373ac9810b44, type: 2}
   upgrade: {fileID: 11400000, guid: a2e2a29ecaa69c24caffca3b90c7b3a8, type: 2}
+  price: 25

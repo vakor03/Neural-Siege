@@ -33,6 +33,11 @@ namespace _Project.Scripts.Core.PathCreation
             _inputManager = inputSystem;
         }
 
+        public bool IsPathValid()
+        {
+            return _pathValidator.ValidatePath(_start, _end, _path);
+        }
+
         public void Initialize(EnemyPathConfigSO config)
         {
             _enemyPathConfig = config;
@@ -79,10 +84,6 @@ namespace _Project.Scripts.Core.PathCreation
             {
                 _path.Add(gridPosition);
                 _placementSystem.BuildObject(gridPosition, _enemyPathConfig.enemyTileSO);
-                if (_pathValidator.ValidatePath(_start, _end, _path))
-                {
-                    FinishCreatingPath();
-                }
             }
         }
 

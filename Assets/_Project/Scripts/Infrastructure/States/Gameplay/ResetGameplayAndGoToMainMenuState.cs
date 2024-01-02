@@ -22,15 +22,15 @@ namespace _Project.Scripts.Infrastructure.States.Gameplay
         private GameStateMachine _gameStateMachine;
 
         public ResetGameplayAndGoToMainMenuState(
-            PlacementSystem placementSystem, 
-            TowersController towersController, 
-            Shop shop, 
-            EnemiesAccessor enemiesAccessor, 
-            EnemySpawner enemySpawner, 
-            PlanningTimer planningTimer, 
-            GameOverUI gameOverUI, 
-            IPlayerBase playerBase, 
-            ScoreCounter scoreCounter, 
+            PlacementSystem placementSystem,
+            TowersController towersController,
+            Shop shop,
+            EnemiesAccessor enemiesAccessor,
+            EnemySpawner enemySpawner,
+            PlanningTimer planningTimer,
+            GameOverUI gameOverUI,
+            IPlayerBase playerBase,
+            ScoreCounter scoreCounter,
             GameStateMachine gameStateMachine)
         {
             _placementSystem = placementSystem;
@@ -49,10 +49,8 @@ namespace _Project.Scripts.Infrastructure.States.Gameplay
         {
         }
 
-        public void Enter()
+        private void ResetSystems()
         {
-            Time.timeScale = 1f;
-            
             _towersController.Clear();
             _placementSystem.Clear();
             _shop.Reset();
@@ -62,7 +60,14 @@ namespace _Project.Scripts.Infrastructure.States.Gameplay
             _gameOverUI.Hide();
             _playerBase.Reset();
             _scoreCounter.Reset();
-            
+        }
+
+        public void Enter()
+        {
+            Time.timeScale = 1f;
+
+            ResetSystems();
+
             _gameStateMachine.Enter<MainMenuState>();
         }
     }

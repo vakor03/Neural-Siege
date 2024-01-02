@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyStats:
     maxHealth: 2
-    speed: 2
+    speed: 1.8
     reproductionRate: 0.2222222

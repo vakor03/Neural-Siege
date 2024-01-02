@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 122300b57b6e40f08be1a97452d27f5b, type: 3}
   m_Name: Stun
   m_EditorClassIdentifier: 
-  type: {fileID: 11400000, guid: 6977dd3c367bf814586830b671b5fb93, type: 2}
+  typeSO: {fileID: 11400000, guid: 6977dd3c367bf814586830b671b5fb93, type: 2}
   placementObject: {fileID: 11400000, guid: 9737f4ef48eedd448965885592f99da4, type: 2}
   upgrade: {fileID: 11400000, guid: 5d0a8533c655b874bb4749da61fcefb4, type: 2}
+  price: 30

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 122300b57b6e40f08be1a97452d27f5b, type: 3}
   m_Name: Laser
   m_EditorClassIdentifier: 
-  type: {fileID: 11400000, guid: aa758d3832e3fbf41b4b81665839212f, type: 2}
+  typeSO: {fileID: 11400000, guid: aa758d3832e3fbf41b4b81665839212f, type: 2}
   placementObject: {fileID: 11400000, guid: 1018884bf4b671443a631f4ffd45ba19, type: 2}
   upgrade: {fileID: 11400000, guid: 953643519f3399e41a92e8fb9fd88d2e, type: 2}
+  price: 45

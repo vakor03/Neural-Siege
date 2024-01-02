@@ -13,7 +13,6 @@ namespace _Project.Scripts.Algorithms.GA
     // TODO: use total resources, not enemies count
     // TODO: add button to start Game after creating a path
     // TODO: update sprite icons of towers and reorder them
-    // TODO: update prices+ update prices for upgrades
     public class GeneticAlgorithm : IWaveCreationAlgorithm
     {
         private readonly int _generationsCount = 50;

@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbcefa7396aa4e90a232b43eb451d041, type: 3}
   m_Name: FreezingTowerUpgradeSO
   m_EditorClassIdentifier: 
+  price: 25
   rangeAddition: 1
-  freezingMultiplier: 0.2
+  freezingMultiplier: 0.7

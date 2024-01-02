@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 122300b57b6e40f08be1a97452d27f5b, type: 3}
   m_Name: Fire
   m_EditorClassIdentifier: 
-  type: {fileID: 11400000, guid: bd207d7e608df2a4e93ab54e2313db34, type: 2}
+  typeSO: {fileID: 11400000, guid: bd207d7e608df2a4e93ab54e2313db34, type: 2}
   placementObject: {fileID: 11400000, guid: 0b2939aab4e251742bad7d6b42b21c64, type: 2}
   upgrade: {fileID: 11400000, guid: 176693ee0ecda6a4091dfeb6e6839dac, type: 2}
+  price: 45

@@ -33,11 +33,14 @@ namespace _Project.Scripts.Infrastructure.Installers
 
         public PlacementSystem placementSystem;
         public SerializedDictionary<EnemyType, float> enemyTypeToPrice;
-        
+
         public GameOverUI GameOverUI;
+
+        public ValidatePathButtonUI validatePathButtonUI;
 
         public override void InstallBindings()
         {
+            BindValidatePathButtonUI();
             BindEnemyPathCreationFactory();
             BindWaypointsHolderFactory();
             BindStatesFactory();
@@ -62,6 +65,11 @@ namespace _Project.Scripts.Infrastructure.Installers
             BindSceneStateMachine();
         }
 
+        private void BindValidatePathButtonUI()
+        {
+            Container.Bind<ValidatePathButtonUI>().FromInstance(validatePathButtonUI).AsSingle();
+        }
+
         private void BindScoreCounter()
         {
             Container.Bind<ScoreCounter>().AsSingle();
@@ -71,11 +79,6 @@ namespace _Project.Scripts.Infrastructure.Installers
         {
             Container.Bind<EnemyPathCreatorFactory>().AsSingle();
         }
-
-        // private void BindManualPathCreation()
-        // {
-        //     Container.Bind<ManualPathCreation>().AsSingle();
-        // }
 
         private void BindWaypointsHolderFactory()
         {
@@ -106,11 +109,6 @@ namespace _Project.Scripts.Infrastructure.Installers
         {
             Container.Bind<StatesFactory>().AsSingle();
         }
-
-        // private void BindEnemyPathCreator()
-        // {
-        //     Container.Bind<BacktrackingPathCreation>().AsSingle();
-        // }
 
         private void BindSceneStateMachine()
         {

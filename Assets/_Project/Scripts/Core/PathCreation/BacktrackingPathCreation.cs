@@ -23,6 +23,15 @@ namespace _Project.Scripts.Core.PathCreation
             _placementSystem = placementSystem;
         }
 
+        public void FinishCreatingPath()
+        {
+        }
+
+        public bool IsPathValid()
+        {
+            return true;
+        }
+
         public void Initialize(EnemyPathConfigSO enemyPathConfigSO)
         {
             _enemyPathConfig = enemyPathConfigSO;

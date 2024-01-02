@@ -1,6 +1,7 @@
 using _Project.Scripts.Core.Configs;
 using _Project.Scripts.Core.Enemies;
 using _Project.Scripts.Core.PathCreation;
+using _Project.Scripts.Core.Towers;
 using _Project.Scripts.Core.WaypointSystem;
 using _Project.Scripts.Infrastructure.AssetProviders;
 using UnityEngine;
@@ -8,17 +9,6 @@ using EnemyPathCreatorFactory = _Project.Scripts.Core.PathCreation.EnemyPathCrea
 
 namespace _Project.Scripts.Infrastructure.States.Gameplay
 {
-    public class PathCreationStateChoice
-    {
-        public enum PathCreationType
-        {
-            Manual,
-            Automatic
-        }
-        
-        public PathCreationType Type { get; set; }
-    }
-
     public class PathCreationState : IState
     {
         private IPathCreationStrategy _pathCreationStrategy;
@@ -28,6 +18,7 @@ namespace _Project.Scripts.Infrastructure.States.Gameplay
         private readonly PathCreationStateChoice _pathCreationChoice;
         private readonly EnemyPathCreatorFactory _enemyPathCreatorFactory;
         private readonly IAssetProvider _assetProvider;
+        private ValidatePathButtonUI _validatePathButtonUI;
 
         public PathCreationState(
             IAssetProvider assetProvider,
@@ -35,25 +26,28 @@ namespace _Project.Scripts.Infrastructure.States.Gameplay
             WaypointsHolderFactory waypointsHolderFactory,
             EnemySpawner enemySpawner,
             PathCreationStateChoice pathCreationChoice,
-            EnemyPathCreatorFactory enemyPathCreatorFactory)
+            EnemyPathCreatorFactory enemyPathCreatorFactory, 
+            ValidatePathButtonUI validatePathButtonUI)
         {
             _sceneStateMachine = sceneStateMachine;
             _waypointsHolderFactory = waypointsHolderFactory;
             _enemySpawner = enemySpawner;
             _pathCreationChoice = pathCreationChoice;
             _enemyPathCreatorFactory = enemyPathCreatorFactory;
+            _validatePathButtonUI = validatePathButtonUI;
             _assetProvider = assetProvider;
         }
 
         private void OnPathCreated(Vector3[] path)
         {
             InitEnemySpawner(path);
-            _sceneStateMachine.Enter<PlanningState>();
+            // _sceneStateMachine.Enter<PlanningState>();
         }
 
         public void Exit()
         {
             _pathCreationStrategy.OnPathCreated -= OnPathCreated;
+            _validatePathButtonUI.OnClick -= OnValidatePathButtonClicked;
         }
 
         public void Enter()
@@ -70,13 +64,25 @@ namespace _Project.Scripts.Infrastructure.States.Gameplay
             
             _pathCreationStrategy.Initialize(
                 _assetProvider.Load<EnemyPathConfigSO>(AssetPath.ENEMY_PATH_CONFIG));
-            
+            _validatePathButtonUI.gameObject.SetActive(true);
+            _validatePathButtonUI.OnClick += OnValidatePathButtonClicked;
             _pathCreationStrategy.OnPathCreated += OnPathCreated;
             _pathCreationStrategy.StartCreatingPath();
         }
 
+        private void OnValidatePathButtonClicked()
+        {
+            if (_pathCreationStrategy.IsPathValid())
+            {
+                _pathCreationStrategy.FinishCreatingPath();
+                _validatePathButtonUI.gameObject.SetActive(false);
+                _sceneStateMachine.Enter<PlanningState>();
+            }
+        }
+
         private void InitEnemySpawner(Vector3[] path)
         {
+            Debug.Log("InitEnemySpawner");
             var waypointsHolder = _waypointsHolderFactory.Create(path);
 
             _enemySpawner.Initialize(waypointsHolder.Waypoints[0], waypointsHolder);

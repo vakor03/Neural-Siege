@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77af073c23b1425390ca07ccad941a56, type: 3}
   m_Name: FiringTowerUpgradeSO
   m_EditorClassIdentifier: 
+  price: 25
   rangeAddition: 1
-  poisonMultiplier: 2
+  poisonMultiplier: 1.25
