@@ -2,6 +2,7 @@ using _Project.Scripts.Infrastructure.States;
 using _Project.Scripts.Infrastructure.States.Gameplay;
 using _Project.Scripts.Infrastructure.States.Global;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace _Project.Scripts.Infrastructure.Bootstrap
@@ -29,5 +30,23 @@ namespace _Project.Scripts.Infrastructure.Bootstrap
 
             DontDestroyOnLoad(this);
         }
+
+//         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+//         static void Init()
+//         {
+// #if UNITY_EDITOR
+//             var currentlyLoadedEditorScene = SceneManager.GetActiveScene();
+// #endif
+//
+//             if (SceneManager.GetSceneByName("BootstrapScene").isLoaded != true)
+//                 SceneManager.LoadScene("BootstrapScene");
+//
+// // #if UNITY_EDITOR
+// //             if (currentlyLoadedEditorScene.IsValid())
+// //                 SceneManager.LoadSceneAsync(currentlyLoadedEditorScene.name, LoadSceneMode.Additive);
+// // #else
+// //         SceneManager.LoadSceneAsync("CarSelection", LoadSceneMode.Additive);
+// // #endif
+//         }
     }
 }
