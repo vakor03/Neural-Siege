@@ -1,7 +1,7 @@
 ﻿using System;
 using _Project.Scripts.Core.Configs;
 using _Project.Scripts.Core.Enemies;
-using _Project.Scripts.Infrastructure.AssetProviders;
+using _Project.Scripts.Infrastructure;
 
 namespace _Project.Scripts.Core
 {
@@ -14,9 +14,9 @@ namespace _Project.Scripts.Core
 
         public event Action OnScoreChanged;
 
-        public ScoreCounter(EnemiesAccessor enemiesAccessor, IAssetProvider assetProvider)
+        public ScoreCounter(EnemiesAccessor enemiesAccessor, StaticDataService staticDataService)
         {
-            _scoreConfig = assetProvider.Load<ScoreConfigSO>(AssetPath.ENEMY_SCORE_CONFIG);
+            _scoreConfig = staticDataService.GetEnemyScoreConfig();
             _enemiesAccessor = enemiesAccessor;
 
             _enemiesAccessor.OnEnemyDiedFromPlayer += OnEnemyDied;

@@ -1,4 +1,5 @@
-﻿using AYellowpaper.SerializedCollections;
+﻿using _Project.Scripts.Infrastructure;
+using AYellowpaper.SerializedCollections;
 using UnityEngine;
 using Zenject;
 
@@ -10,12 +11,16 @@ namespace _Project.Scripts.Core.Enemies
 
         private DiContainer _container;
         private EnemiesAccessor _enemiesAccessor;
-        
+        private StaticDataService _staticDataService;
+
         [Inject]
-        private void Construct(DiContainer container, EnemiesAccessor enemiesAccessor)
+        private void Construct(DiContainer container, 
+            EnemiesAccessor enemiesAccessor,
+            StaticDataService staticDataService)
         {
             _container = container;
             _enemiesAccessor = enemiesAccessor;
+            _staticDataService = staticDataService;
         }
 
         public Enemy Create(EnemyType type, Vector3 position)
@@ -23,6 +28,7 @@ namespace _Project.Scripts.Core.Enemies
             Enemy enemy = _container.InstantiatePrefabForComponent<Enemy>(enemyPrefabs[type], position, Quaternion.identity, null);
             _enemiesAccessor.Add(enemy);
             enemy.EnemyHealth.OnDeath += () => _enemiesAccessor.Remove(enemy);
+            enemy.EnemyStatsSystem.Initialize(_staticDataService.GetEnemyStats(type));
             
             return enemy;
         }

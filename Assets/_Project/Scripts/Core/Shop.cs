@@ -1,6 +1,7 @@
 ﻿using System;
 using _Project.Scripts.Core.Configs;
 using _Project.Scripts.Core.Enemies;
+using _Project.Scripts.Infrastructure;
 using _Project.Scripts.Infrastructure.AssetProviders;
 
 namespace _Project.Scripts.Core
@@ -13,13 +14,13 @@ namespace _Project.Scripts.Core
         public int MoneyAmount { get; private set; }
         public event Action OnMoneyAmountChanged;
 
-        public Shop(int moneyAmount, EnemiesAccessor enemiesAccessor, IAssetProvider assetProvider)
+        public Shop(int moneyAmount, EnemiesAccessor enemiesAccessor, StaticDataService staticDataService)
         {
             _initialMoneyAmount = moneyAmount;
             MoneyAmount = moneyAmount;
             _enemiesAccessor = enemiesAccessor;
             _enemiesAccessor.OnEnemyDiedFromPlayer += EarnMoney;
-            _enemyMoneyConfig = assetProvider.Load<EnemyMoneyConfigSO>(AssetPath.ENEMY_MONEY_CONFIG);
+            _enemyMoneyConfig = staticDataService.GetEnemyMoneyConfig();
         }
 
         private void EarnMoney(Enemy enemy)

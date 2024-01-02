@@ -12,7 +12,6 @@ namespace _Project.Scripts.Infrastructure
         public enum TargetState
         {
             None = 0,
-            Loading = 1,
             MainScene = 2,
             MainMenu = 3,
             Quit = 4,
@@ -43,9 +42,6 @@ namespace _Project.Scripts.Infrastructure
         {
             switch (targetState)
             {
-                case TargetState.Loading:
-                    _gameStateMachine.Enter<GameLoadingState>();
-                    break;
                 // case TargetState.MainScene:
                 //     _gameStateMachine.Enter<MainSceneState>();
                 //     break;

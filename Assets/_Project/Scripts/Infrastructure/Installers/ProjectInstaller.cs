@@ -17,11 +17,18 @@ namespace _Project.Scripts.Infrastructure.Installers
 
             BindAssetProvider();
 
+            BindStaticDataService();
+
             BindEnemyPathCreatorFactory();
 
             BindGameStateMachine();
 
             BindLoadingCurtain();
+        }
+
+        private void BindStaticDataService()
+        {
+            Container.BindInterfacesAndSelfTo<StaticDataService>().AsSingle();
         }
 
         private void BindPathCreationStateChoice()

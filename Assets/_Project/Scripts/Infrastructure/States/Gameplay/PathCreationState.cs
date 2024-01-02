@@ -1,9 +1,7 @@
-using _Project.Scripts.Core.Configs;
 using _Project.Scripts.Core.Enemies;
 using _Project.Scripts.Core.PathCreation;
 using _Project.Scripts.Core.Towers;
 using _Project.Scripts.Core.WaypointSystem;
-using _Project.Scripts.Infrastructure.AssetProviders;
 using UnityEngine;
 using EnemyPathCreatorFactory = _Project.Scripts.Core.PathCreation.EnemyPathCreatorFactory;
 
@@ -17,17 +15,17 @@ namespace _Project.Scripts.Infrastructure.States.Gameplay
         private EnemySpawner _enemySpawner;
         private readonly PathCreationStateChoice _pathCreationChoice;
         private readonly EnemyPathCreatorFactory _enemyPathCreatorFactory;
-        private readonly IAssetProvider _assetProvider;
         private ValidatePathButtonUI _validatePathButtonUI;
+        private StaticDataService _staticDataService;
 
         public PathCreationState(
-            IAssetProvider assetProvider,
             SceneStateMachine sceneStateMachine,
             WaypointsHolderFactory waypointsHolderFactory,
             EnemySpawner enemySpawner,
             PathCreationStateChoice pathCreationChoice,
-            EnemyPathCreatorFactory enemyPathCreatorFactory, 
-            ValidatePathButtonUI validatePathButtonUI)
+            EnemyPathCreatorFactory enemyPathCreatorFactory,
+            ValidatePathButtonUI validatePathButtonUI, 
+            StaticDataService staticDataService)
         {
             _sceneStateMachine = sceneStateMachine;
             _waypointsHolderFactory = waypointsHolderFactory;
@@ -35,7 +33,7 @@ namespace _Project.Scripts.Infrastructure.States.Gameplay
             _pathCreationChoice = pathCreationChoice;
             _enemyPathCreatorFactory = enemyPathCreatorFactory;
             _validatePathButtonUI = validatePathButtonUI;
-            _assetProvider = assetProvider;
+            _staticDataService = staticDataService;
         }
 
         private void OnPathCreated(Vector3[] path)
@@ -61,9 +59,8 @@ namespace _Project.Scripts.Infrastructure.States.Gameplay
                     _pathCreationStrategy = _enemyPathCreatorFactory.Create<BacktrackingPathCreation>();
                     break;
             }
-            
-            _pathCreationStrategy.Initialize(
-                _assetProvider.Load<EnemyPathConfigSO>(AssetPath.ENEMY_PATH_CONFIG));
+
+            _pathCreationStrategy.Initialize(_staticDataService.GetEnemyPathConfig());
             _validatePathButtonUI.gameObject.SetActive(true);
             _validatePathButtonUI.OnClick += OnValidatePathButtonClicked;
             _pathCreationStrategy.OnPathCreated += OnPathCreated;

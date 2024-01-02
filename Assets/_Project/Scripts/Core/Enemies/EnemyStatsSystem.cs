@@ -8,17 +8,18 @@ namespace _Project.Scripts.Core.Enemies
 {
     public class EnemyStatsSystem : ValidatedMonoBehaviour
     {
-        [SerializeField] private EnemyStatsSO defaultStatsSO;
         [SerializeField, Self] private Enemy enemy;
-        
+
         private List<Effect> _effects = new();
+        private EnemyStatsSO _defaultStatsSO;
 
         public EnemyStats CurrentStats { get; private set; }
 
         public event Action OnStatsChanged;
 
-        private void Awake()
+        public void Initialize(EnemyStatsSO defaultStats)
         {
+            _defaultStatsSO = defaultStats;
             RecalculateStats();
         }
 
@@ -46,7 +47,7 @@ namespace _Project.Scripts.Core.Enemies
 
         private void RecalculateStats()
         {
-            CurrentStats = defaultStatsSO.enemyStats;
+            CurrentStats = _defaultStatsSO.enemyStats;
             foreach (var effect in _effects)
             {
                 CurrentStats = effect.ApplyEffect(CurrentStats);

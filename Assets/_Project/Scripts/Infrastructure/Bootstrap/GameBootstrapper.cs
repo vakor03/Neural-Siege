@@ -21,7 +21,6 @@ namespace _Project.Scripts.Infrastructure.Bootstrap
         private void Start()
         {
             _gameStateMachine.RegisterState(_statesFactory.Create<GameBootstrapState>());
-            _gameStateMachine.RegisterState(_statesFactory.Create<GameLoadingState>());
             _gameStateMachine.RegisterState(_statesFactory.Create<MainMenuState>());
             _gameStateMachine.RegisterState(_statesFactory.Create<QuitGameState>());
             _gameStateMachine.RegisterState(_statesFactory.Create<MainSceneState>());

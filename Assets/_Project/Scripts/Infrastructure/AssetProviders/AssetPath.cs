@@ -8,5 +8,6 @@ namespace _Project.Scripts.Infrastructure.AssetProviders
         public const string ENEMY_PATH_CONFIG = "EnemyPathConfigSO";
         public const string ENEMY_SCORE_CONFIG = "EnemyScoreConfigSO";
         public const string ENEMY_MONEY_CONFIG = "EnemyMoneyConfigSO";
+        public const string ENEMY_STATS = "EnemyStatsSO";
     }
 }
